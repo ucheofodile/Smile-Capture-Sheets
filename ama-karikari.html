@@ -9,43 +9,34 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: Georgia, serif; background: #fff; color: #1a1a1a; max-width: 820px; margin: 0 auto; padding: 24px 20px 60px; }
-  
-  /* HEADER */
   .eyebrow { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: #999; text-transform: uppercase; margin-bottom: 4px; }
   .eyebrow2 { font-family: Helvetica, Arial, sans-serif; font-size: 9px; color: #ccc; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
   .doc-title { font-size: 26px; font-weight: 700; color: #1a1a1a; line-height: 1.2; margin-bottom: 5px; }
   .doc-subtitle { font-family: Helvetica, Arial, sans-serif; font-size: 11px; color: #666; margin-bottom: 0; }
   .header-rule { border: none; border-bottom: 3px solid #1a1a1a; margin: 16px 0 20px; }
-
-  /* LAW BOX */
   .law-box { background: #1a1a1a; border: 2px solid #c0392b; padding: 18px 24px; margin-bottom: 16px; text-align: center; }
   .law-box p { font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 700; color: #fff; line-height: 1.5; }
-
-  /* TABS */
   .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 24px; }
   .tab-btn { font-family: Helvetica, Arial, sans-serif; padding: 7px 13px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid #1a1a1a; cursor: pointer; background: #fff; color: #1a1a1a; transition: all 0.15s; }
   .tab-btn:hover { background: #f0f0f0; }
   .tab-btn.active { background: #1a1a1a; color: #fff; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-
-  /* SECTIONS */
   .section-head { font-family: Helvetica, Arial, sans-serif; background: #1a1a1a; color: #fff; padding: 7px 12px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 20px 0 10px; }
   .section-head.red { background: #c0392b; }
-
-  /* FIELDS */
   .field { margin-bottom: 14px; }
   .field-label { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
   .field-value { font-size: 13px; line-height: 1.7; background: #f8f8f8; padding: 10px 13px; border-left: 3px solid #1a1a1a; }
   .field-value.highlight { background: #fff4e8; border-left-color: #c0392b; font-weight: 600; }
   .field-value.donot { background: #fdecea; border-left-color: #c0392b; }
-
-  /* MULTI ITEMS */
   .multi-list { background: #f8f8f8; border-left: 3px solid #1a1a1a; padding: 10px 13px; }
   .multi-list li { font-size: 13px; line-height: 1.6; margin-bottom: 6px; margin-left: 16px; }
   .multi-list li:last-child { margin-bottom: 0; }
-
-  /* CLIP CARDS */
+  .quote-list { background: #f8f8f8; border-left: 3px solid #1a1a1a; padding: 10px 13px; }
+  .quote-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #e8e8e8; }
+  .quote-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .quote-text { font-size: 13px; font-style: italic; color: #1a1a1a; line-height: 1.6; margin-bottom: 3px; }
+  .quote-context { font-family: Helvetica, Arial, sans-serif; font-size: 10px; color: #888; }
   .clip-card { border-left: 3px solid #1a1a1a; background: #f8f8f8; padding: 13px 16px; margin-bottom: 14px; }
   .clip-card.social-only { border-left-color: #999; }
   .clip-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
@@ -53,27 +44,19 @@
   .clip-num.social { color: #999; }
   .clip-time { font-family: Courier, monospace; font-size: 11px; color: #666; white-space: nowrap; margin-left: 8px; }
   .clip-title { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
-  .clip-quote { font-size: 12px; font-style: italic; color: #444; margin-bottom: 8px; line-height: 1.5; }
-  .clip-meta-label { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; color: #999; text-transform: uppercase; margin-bottom: 2px; }
-  .clip-meta-value { font-size: 12px; color: #1a1a1a; margin-bottom: 8px; }
-  .clip-note { font-size: 12px; color: #444; line-height: 1.5; }
-  .clip-length { display: inline-block; font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; background: #1a1a1a; color: #fff; padding: 2px 6px; margin-bottom: 8px; }
+  .clip-quote { font-size: 12px; font-style: italic; color: #333; margin-bottom: 6px; line-height: 1.5; background: #fff; padding: 8px 10px; border-left: 2px solid #ccc; }
+  .clip-meta-label { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; color: #999; text-transform: uppercase; margin-bottom: 2px; margin-top: 8px; }
+  .clip-meta-value { font-size: 12px; color: #1a1a1a; margin-bottom: 4px; }
+  .clip-length { display: inline-block; font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; background: #1a1a1a; color: #fff; padding: 2px 6px; margin-bottom: 6px; }
   .clip-length.long { background: #2e75b6; }
-
-  /* CHAPTERS */
+  .clip-note { font-size: 12px; color: #444; line-height: 1.5; }
   .chapter-row { display: flex; gap: 14px; padding: 8px 0; border-bottom: 1px solid #eee; }
   .chapter-time { font-family: Courier, monospace; font-size: 12px; color: #999; min-width: 52px; padding-top: 1px; }
   .chapter-title { font-size: 13px; color: #1a1a1a; line-height: 1.5; }
-
-  /* ITALIC NOTE */
   .italic-note { font-family: Helvetica, Arial, sans-serif; font-size: 11px; font-style: italic; color: #888; margin-bottom: 14px; }
-
-  /* FOOTER */
   .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #eee; font-family: Helvetica, Arial, sans-serif; font-size: 9px; color: #bbb; text-align: center; letter-spacing: 1px; text-transform: uppercase; }
-
   @media (max-width: 600px) {
     .doc-title { font-size: 20px; }
-    .tabs { gap: 3px; }
     .tab-btn { font-size: 9px; padding: 6px 10px; }
   }
 </style>
@@ -108,7 +91,7 @@
 
   <div class="field">
     <div class="field-label">Spine</div>
-    <div class="field-value">Ama Karikari spent fifteen years carrying something at home that nobody around her could name — while building a career, teaching communication, and running for public office. This episode is not about a marriage. It is not about abuse. It is about what it costs a woman to keep functioning at the highest level while carrying something nobody else can see. And what becomes possible when that weight is finally named.</div>
+    <div class="field-value">Ama Karikari spent fifteen years carrying something at home that nobody around her could name — while building a career, teaching communication, and running for public office. This episode asks a different question: what does it cost to keep performing at the highest level while carrying something nobody else can see? And what becomes possible when that weight is finally named.</div>
   </div>
 
   <div class="field">
@@ -118,7 +101,7 @@
 
   <div class="field">
     <div class="field-label">Three Moments That Carry The Episode</div>
-    <div class="field-value">Protect these equally in the edit, the clips, and the chapters.<br><br><strong>The WhatsApp story</strong> — leadership requires attention; this is what stole it. Compartmentalisation is an illusion. Do not treat this as a side anecdote.<br><br><strong>"Even neutrality is undermining"</strong> — support is infrastructure, not a feeling. Absence of harm is not the same as presence of support.<br><br><strong>"The wrong section of the library"</strong> — she spent years searching in the right spirit and the wrong category. This is why so many capable women stay confused for years rather than years in denial.</div>
+    <div class="field-value">Protect these equally in the edit, the clips, and the chapters.<br><br><strong>The WhatsApp story</strong> — leadership requires attention; this is what stole it. Compartmentalisation is an illusion. Do not treat this as a side anecdote.<br><br><strong>"Even neutrality is undermining"</strong> — support is infrastructure, not a feeling. Absence of harm is not the same as presence of support.<br><br><strong>"The wrong section of the library"</strong> — she spent years searching in the right spirit and the wrong category. This is why so many capable women stay confused for years.</div>
   </div>
 
   <div class="field">
@@ -145,12 +128,99 @@
     <div class="field-value">Basement floor — the unresolved, unnamed thing that surfaces in leadership, decisions, and confidence. Support floor dimension also present: support is structural, not optional.</div>
   </div>
   <div class="field">
-    <div class="field-label">Strongest Quote for Graphic</div>
-    <div class="field-value">"There's no way I can have this empowered powerful role when I have such a disempowered place in my own home."</div>
-  </div>
-  <div class="field">
     <div class="field-label">Companion Resource</div>
     <div class="field-value"><em>Silenced to Soaring</em> (workbook) by Ama Karikari. Confirm spelling everywhere — not "Silence to Soaring."</div>
+  </div>
+
+  <div class="section-head">Recording Review</div>
+
+  <div class="field">
+    <div class="field-label">What Landed Better Than Expected</div>
+    <div class="field-value">Ama went significantly further than the pre-call suggested — particularly on the honeymoon story, the campaign download, the 15th anniversary realisation, and the neutrality argument. The host's WhatsApp story (unplanned, added in the room) became the clearest proof in the episode that compartmentalising is an illusion. It gave Ama permission to go deeper and produced the most usable leadership insight in the whole recording. The Ketanji Brown Jackson contrast arrived organically and landed harder than it would have if scripted. Ama's line "getting divorced was one of my biggest personal achievements — more so than all these Ivy League schools" was entirely unscripted and is one of the strongest closes in the episode.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Where the Recording Diverged — Worth Keeping</div>
+    <div class="field-value">The conversation followed its own natural order rather than the prepared guide. It moved from honeymoon → family not naming it → professional duality → campaign → support → library → book. This sequence is stronger than the guide's order. Follow the recording's structure in the edit, not the guide's structure.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Spontaneous Lines to Preserve — Exact Words</div>
+    <div class="quote-list">
+      <div class="quote-item">
+        <div class="quote-text">"Everywhere you go, there you are."</div>
+        <div class="quote-context">Ama — on whether the personal affects the professional. Unprompted.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"Even neutrality is undermining. By doing nothing you are against."</div>
+        <div class="quote-context">Ama — on the expectation of support. One of the strongest lines in the episode.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"The silent treatment is not silence. It's really communicating you are crap. You don't mean anything. You are nothing."</div>
+        <div class="quote-context">Ama — reframing silence as active communication, not absence. Keep in the document — works in context after 30 minutes of conversation. Do not use as a pull quote, thumbnail, or clip opening. Out of context it becomes polarising and misrepresents the episode's register.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"Abuse is the tool for control, not the loss of control."</div>
+        <div class="quote-context">Ama — on the nature of the behaviour. Clear, quotable, important for the audience to hear.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"I woke up from a spell."</div>
+        <div class="quote-context">Ama — on the 15th anniversary realisation. The most compressed description of what happened.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"This is on purpose. The person isn't changing because the person does not want to change."</div>
+        <div class="quote-context">Ama — the key realisation on the 15th anniversary. Protect this moment in full.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"Getting divorced was one of my biggest personal achievements. More so than all these Ivy League schools."</div>
+        <div class="quote-context">Ama — on the other side of leaving. Entirely unscripted. One of the strongest closes.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"It's not called a leap of faith because it's easy. It's a leap of faith because it's hard."</div>
+        <div class="quote-context">Ama — on leaving. Universal. Works beyond this episode's specific context.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"Plants grow better when you speak to them. You are a whole flesh and blood human being. You cannot allow yourself not to be spoken to."</div>
+        <div class="quote-context">Ama — post-recording, after formal sign-off. Social content only — never in the episode.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">Pull Quotes</div>
+
+  <div class="field">
+    <div class="field-label">Quote Candidates — Exact Words from Recording</div>
+    <div class="quote-list">
+      <div class="quote-item">
+        <div class="quote-text">"There's no way I can have this empowered powerful role when I have such a disempowered place in my own home."</div>
+        <div class="quote-context">Ama — the campaign download. Strongest quote in the episode. Launch clip candidate.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"Even neutrality is undermining. By doing nothing you are against."</div>
+        <div class="quote-context">Ama — on support as infrastructure. Works as quote graphic and video clip.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"Everywhere you go, there you are."</div>
+        <div class="quote-context">Ama — short, universal, no context required. Discovery clip.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"I was doing the presentations and I would say I know that you are afraid of these conversations... and here I am in my home and I literally cannot speak."</div>
+        <div class="quote-context">Ama — the fraud feeling stated in full. Heart of the episode.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"Getting divorced was one of my biggest personal achievements. More so than all these Ivy League schools."</div>
+        <div class="quote-context">Ama — closing section. Unexpected, earned, memorable.</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">"You're in a meeting, you're checking. You're in your board meeting, you're checking. In between meetings, you're checking. All of that attention and energy means you're not focusing on the job."</div>
+        <div class="quote-context">Uche — the attention argument during the WhatsApp story. The host's strongest moment.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Strongest Single Line for Quote Graphic</div>
+    <div class="field-value">"There's no way I can have this empowered powerful role when I have such a disempowered place in my own home."</div>
   </div>
 
 </div>
@@ -161,80 +231,114 @@
   <div class="section-head red">Editorial Lens</div>
 
   <div class="field">
-    <div class="field-label">The Rule</div>
+    <div class="field-label">Overall Instruction</div>
     <div class="field-value highlight">We are not telling the story of a marriage. We are telling the story of what someone was carrying while everyone else thought she was fine.<br><br>Keep enough detail to understand what happened and why it mattered. Cut detail that only makes the story more graphic or more specific without making it more meaningful.<br><br>If you're ever choosing between preserving information and preserving emotion — preserve emotion.</div>
   </div>
 
   <div class="field">
-    <div class="field-label">Edit For Three Questions</div>
-    <div class="field-value">1. What was going on behind the scenes?<br>2. Where did it start leaking into the rest of her life?<br>3. What might have been different if it wasn't there?<br><br>If a moment answers one of these, keep it. If it only adds detail about the incident, cut it.</div>
+    <div class="field-label">Tone to Preserve</div>
+    <div class="field-value">Two women talking — warm, direct, occasionally surprised by where the conversation goes. Not an interview. The host's own keeping-malice story and WhatsApp story must stay in — they are what make this a conversation rather than an interrogation. Ama's voice is articulate and passionate; do not cut her mid-thought to tighten time. Let her complete the arc before cutting.</div>
   </div>
 
   <div class="field">
-    <div class="field-label">Pacing</div>
-    <div class="field-value">Do not rush the opening — the first minute works because it sounds conversational, not produced. Give it breathing room even if other sections need to be trimmed to compensate.<br><br>The WhatsApp story is load-bearing. Do not trim it for time. It is the clearest proof in the episode that compartmentalising is an illusion.</div>
+    <div class="field-label">Edit For Three Questions</div>
+    <div class="field-value">1. What was going on behind the scenes?<br>2. Where did it start leaking into the rest of her life?<br>3. What might have been different if it wasn't there?<br><br>If a moment answers one of these, keep it. If it only adds detail about the incident itself, cut it.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Restart Markers</div>
+    <div class="field-value">No "strawberry" restart markers were used in this recording. Single continuous session. No splice points needed beyond standard filler word removal.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Pacing Notes</div>
+    <div class="field-value">Do not rush the opening. The first minute works because it sounds conversational, not produced. Give it breathing room even if other sections need to be trimmed to compensate.<br><br>The WhatsApp story is load-bearing. Do not trim it for time. It is the clearest proof in the episode that compartmentalising is an illusion — leadership requires attention, and this is what stole it.<br><br>The support section (Ketanji, neutrality, could-have-been) may feel like it belongs earlier. It doesn't. Let it arrive where it arrived in the conversation — after the cost has been fully established.</div>
   </div>
 
   <div class="section-head">Sections</div>
 
   <div class="field">
     <div class="field-label">Open</div>
-    <div class="field-value">Beneath the Smile series intro (recorded separately — see Handoff tab) sits before the existing opening monologue. First line of monologue: "One of the things I've realised is that there are experiences that are so common that we almost stop examining them."</div>
+    <div class="field-value">Beneath the Smile series intro (recorded separately — see Handoff tab for exact script) sits before the existing opening monologue. First line of monologue: "One of the things I've realised is that there are experiences that are so common that we almost stop examining them."</div>
   </div>
   <div class="field">
     <div class="field-label">The Honeymoon Story</div>
-    <div class="field-value">TRIM. Keep: she said no, suggested they go to their room instead, he stopped speaking to her — on their honeymoon. Cut: the specific location and the nature of the request. Keep the family response — "so he's not talking to you, what's the big deal."</div>
+    <div class="field-value">TRIM. Keep: she said no, suggested they go to their room instead, he stopped speaking to her — on their honeymoon. The energy shifted, he went cold, she spent the dinner crying. Cut: the specific location of what he requested and the nature of the request. Keep the family response section — "so he's not talking to you, what's the big deal." That's a critical moment for the audience.</div>
   </div>
   <div class="field">
     <div class="field-label">The Smile</div>
-    <div class="field-value">Keep in full. Teaching communication while unable to speak at home. The Zoom presentation moment — "I can't speak to that person in the next room" — stays. This is the heart of the episode. Do not rush it.</div>
+    <div class="field-value">Keep in full. This is the heart of the episode. Teaching communication while unable to speak at home. The Zoom presentation moment — "I can't speak to that person in the next room" — stays. The social skills book with her children stays. Both illustrate the fraud feeling from different angles. Do not rush this section.</div>
   </div>
   <div class="field">
     <div class="field-label">What She Was Carrying</div>
-    <div class="field-value">WhatsApp read receipts story plus the campaign. WhatsApp is load-bearing — protect in full. Tighten campaign material if time is needed, but not the WhatsApp sequence. Keep: "There's no way I can have this empowered powerful role when I have such a disempowered place in my own home."</div>
+    <div class="field-value">WhatsApp read receipts story plus the campaign. WhatsApp is load-bearing — protect it in full including the host's "you're in your board meeting, you're checking" sequence. Tighten the campaign build-up if needed for time but keep the pep rally story and the "no way I can have this empowered role" line. The campaign material is Clip 03 and Clip 04 territory — don't cut what we need for those clips.</div>
   </div>
   <div class="field">
     <div class="field-label">Support</div>
-    <div class="field-value">Ketanji Brown Jackson story. "Even neutrality is undermining." The could-have-been question. Keep in full.</div>
+    <div class="field-value">Ketanji Brown Jackson story, "even neutrality is undermining," the could-have-been question and Ama's answer. Keep in full. This may be the most important section in the episode for the leadership audience.</div>
   </div>
   <div class="field">
     <div class="field-label">Finding Language / The Book</div>
-    <div class="field-value">Wrong section of the library, into <em>Silenced to Soaring</em>. Keep in full.</div>
+    <div class="field-value">Wrong section of the library into <em>Silenced to Soaring</em>. Keep in full. The wrong section moment is Clip 07 — protect the full arc from "15 years of reading the wrong books" through "having to crawl to my bed by chapter two."</div>
   </div>
   <div class="field">
     <div class="field-label">Close</div>
-    <div class="field-value">Keep Ama's full answer to the closing question including "I regret nothing... I'm looking forward to becoming the real me."</div>
+    <div class="field-value">Keep Ama's full answer to the closing question. Protect: "Getting divorced was one of my biggest personal achievements — more so than all these Ivy League schools." And: "I'm looking forward to becoming the real me." Do not cut either of these — they are the payoff for everything that came before.</div>
   </div>
 
   <div class="section-head">Keep / Cut</div>
 
   <div class="field">
-    <div class="field-label">Keep</div>
+    <div class="field-label">Keep — Protect These Moments</div>
     <ul class="multi-list">
-      <li>Honeymoon story — trimmed version only (see above).</li>
+      <li>Honeymoon story — trimmed version only (see above). The energy shift and the crying at dinner stay.</li>
       <li>Zoom presentation / George Floyd moment — "I can't speak to that person in the next room."</li>
+      <li>Social skills book with her children — her reading about self-love while feeling convicted. Strong fraud feeling illustration.</li>
       <li>Campaign pep rally story and "no way I can have this empowered role" line.</li>
+      <li>WhatsApp read receipts story — host's setup through to "you're not actually working." In full.</li>
       <li>Ketanji Brown Jackson story and "even neutrality is undermining."</li>
-      <li>Wrong section of the library — leading into the book.</li>
-      <li>WhatsApp read receipts sequence — in full, not trimmed.</li>
-      <li>15th anniversary moment and the realisation that this was a choice, not a problem.</li>
+      <li>15th anniversary moment — "I woke up from a spell" and "this is on purpose."</li>
+      <li>Wrong section of the library — full arc through Lundy Bancroft and crawling to bed.</li>
+      <li>"Getting divorced was one of my biggest personal achievements — more so than all these Ivy League schools."</li>
     </ul>
   </div>
 
   <div class="field">
-    <div class="field-label">Cut</div>
+    <div class="field-label">Cut — Remove These Moments</div>
     <ul class="multi-list">
-      <li>Specific physical/location detail in the honeymoon story.</li>
-      <li>Extended clinical terminology (narcissism, MPD) — trim these passages, don't eliminate entirely.</li>
-      <li>Everything recorded after the formal goodbye — entirely off record. Exception: plants/water sequence is cleared for social use only (see Clips tab).</li>
+      <li>Specific physical location and nature of request in the honeymoon story.</li>
+      <li>Extended clinical terminology passages (narcissism, MPD, Jezebel spirit) — trim these, don't eliminate entirely. Keep the core insight, cut the extended diagnosis.</li>
+      <li>The Napoleon Hill / Think and Grow Rich passage — too far from the episode's territory.</li>
+      <li>Everything recorded after the formal goodbye — entirely off record. Exception: plants/water sequence is cleared for social use only.</li>
     </ul>
   </div>
 
-  <div class="section-head">French Clips</div>
+  <div class="section-head">English Clips — For Gbemi</div>
 
   <div class="field">
     <div class="field-label">Quantity</div>
-    <div class="field-value">Standard 5–6. Prioritise universal-insight clips over incident-specific ones for French — easier to translate and culturally more flexible.</div>
+    <div class="field-value">8 clips for the episode plus 1 social-only clip (plants/water). See Clip Markers tab for full details on each.</div>
+  </div>
+  <div class="field">
+    <div class="field-label">Priority Order</div>
+    <ul class="multi-list">
+      <li>Clip 01 — Zoom Presentation. LinkedIn / all platforms. ~90 seconds.</li>
+      <li>Clip 02 — WhatsApp Story. LinkedIn / YouTube / TikTok. ~90–120 seconds.</li>
+      <li>Clip 03 — Running For Office. Instagram / TikTok / Shorts. ~90 seconds.</li>
+      <li>Clip 04 — The Pep Rally. Instagram / TikTok. ~60–75 seconds.</li>
+      <li>Clip 05 — 15th Anniversary. Instagram / TikTok / Shorts. ~90 seconds.</li>
+      <li>Clip 06 — Neutrality + Ketanji Contrast. LinkedIn / all platforms. ~75–90 seconds.</li>
+      <li>Clip 07 — Wrong Section of Library. LinkedIn / all platforms. ~90 seconds.</li>
+      <li>Clip 08 — Why A Workbook. LinkedIn / YouTube. ~90 seconds.</li>
+      <li>Clip 09 — Plants and Water. TikTok / Reels only. Social only. ~45–60 seconds.</li>
+    </ul>
+  </div>
+
+  <div class="section-head">French Clips — TikTok</div>
+
+  <div class="field">
+    <div class="field-label">Quantity</div>
+    <div class="field-value">Standard 5–6. Prioritise universal-insight clips over incident-specific ones — easier to translate and culturally more flexible.</div>
   </div>
   <div class="field">
     <div class="field-label">Priority Moments for French</div>
@@ -249,7 +353,7 @@
   </div>
   <div class="field">
     <div class="field-label">Caption Note</div>
-    <div class="field-value">Confirm French equivalent for "keeping malice" before captioning — direct translation may not carry the same cultural weight.</div>
+    <div class="field-value">Confirm French equivalent for "keeping malice" before captioning — direct translation may not carry the same cultural weight for a Francophone audience.</div>
   </div>
   <div class="field">
     <div class="field-label">Hold-Back</div>
@@ -261,146 +365,137 @@
 <!-- TAB 3: CLIP MARKERS -->
 <div class="tab-content" id="clips">
 
-  <p class="italic-note">Timestamps estimated from raw recording. Confirm all after Tolu's edit. All clips checked against editorial lens — none clip the marriage story. All clip what she was carrying and what it costs.</p>
+  <p class="italic-note">Timestamps estimated from raw recording. Confirm all after Tolu's edit. All clips checked against editorial lens — none clip the marriage story; all clip what she was carrying and what it costs.</p>
 
   <div class="section-head red">Do Not Lead With Trauma</div>
   <div class="field">
     <div class="field-value highlight">Don't open a clip with the incident. Open with the insight.<br><br>Don't use: <em>"My husband stopped talking to me..."</em><br>Lead with: <em>"There's no way I can have this empowered role..."</em> or <em>"Even neutrality is undermining."</em><br><br>The incident can follow as context if needed. It never opens the clip.</div>
   </div>
 
-  <!-- CLIP 01 -->
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 01 — The Zoom Presentation</span>
       <span class="clip-time">~13:30 – 15:00</span>
     </div>
     <div class="clip-title">"Teaching Brave Conversations, Living None of Them"</div>
-    <div class="clip-quote">"I can't speak to that person in the next room." — while doing DEI presentations during the pandemic, telling organisations to have courageous conversations.</div>
+    <div class="clip-quote">"I was doing the presentations and I would say I know that you are afraid of these conversations... and here I am in my home and I literally cannot speak. This person gets upset with me over such trivial things... and all I do is just smile."</div>
     <span class="clip-length long">~90 seconds</span>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">LinkedIn / YouTube / Instagram / TikTok</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">Opens with the professional context — the DEI work, the presentations — before the contradiction at home lands. No prior knowledge of her situation needed. Strong LinkedIn clip because it leads with leadership, not relationship.</div>
+    <div class="clip-note">Opens with the professional context before the contradiction lands. No prior knowledge of her situation needed. The strongest LinkedIn clip in the episode because it leads with leadership, not relationship.</div>
   </div>
 
-  <!-- CLIP 02 -->
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 02 — The WhatsApp Story</span>
       <span class="clip-time">~29:00 – 30:30</span>
     </div>
     <div class="clip-title">"You're Not Actually Working"</div>
-    <div class="clip-quote">Host tells the story of a friend who turned off read receipts so she wouldn't know if she was being ignored — then was checking her phone every 30 seconds between meetings anyway. Lands on: you're not actually working.</div>
+    <div class="clip-quote">Host: "She actually switched off the read receipts on her WhatsApp because she didn't want to know if she was being ignored... You're in a meeting, you're checking. You're in your board meeting, you're checking. In between meetings, you're checking. All of that attention and energy means you're not focusing on the job."</div>
     <span class="clip-length long">~90–120 seconds</span>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">LinkedIn / YouTube / TikTok</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">Full setup, tension and payoff. Opens with a behaviour everyone recognises before landing on the leadership argument. The strongest LinkedIn clip in the episode — about performance and attention, not the relationship. Protect in full.</div>
+    <div class="clip-note">Full setup, tension and payoff. Opens with a behaviour everyone recognises before landing on the leadership argument. Protect the full sequence — do not trim. The strongest LinkedIn clip in the episode.</div>
   </div>
 
-  <!-- CLIP 03 -->
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 03 — Running For Office</span>
       <span class="clip-time">~19:00 – 20:30</span>
     </div>
     <div class="clip-title">"No Way To Have This Empowered Role"</div>
-    <div class="clip-quote">"There's no way I can have this empowered powerful role when I have such a disempowered place in my own home." — the download she received walking into the house during the campaign.</div>
+    <div class="clip-quote">"There's no way I can have this empowered powerful role when I have such a disempowered place in my own home. I just was like, clear as day — and then I lost the primary by five percentage points."</div>
     <span class="clip-length long">~90 seconds</span>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">Instagram / TikTok / YouTube Shorts</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">The campaign context gives it stakes. The download is the insight. The five percentage points makes it concrete. Does not require knowing the full story to land. Launch day clip candidate.</div>
+    <div class="clip-note">The campaign context gives it stakes. The download is the insight. The five percentage points makes it concrete. Does not require the full story to land. Launch day clip candidate.</div>
   </div>
 
-  <!-- CLIP 04 -->
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 04 — The Pep Rally</span>
       <span class="clip-time">~22:30 – 23:30</span>
     </div>
     <div class="clip-title">"Is There Any Grub Out There?"</div>
-    <div class="clip-quote">Forty people in her house supporting the campaign. He comes back, goes to the bedroom, asks through the bathroom door for a plate. She makes it, brings it to him, goes back to the pep rally.</div>
+    <div class="clip-quote">"We were having a pep rally for me at my house... my ex husband would not even come to the living room and say hello to everyone. Instead, when I went to the en suite bathroom he said, Is there any grub out there? And I had to go make him a plate, and then bring it to him in the bedroom."</div>
     <span class="clip-length">~60–75 seconds</span>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">Instagram / TikTok</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">Opens with the campaign and the supporters, then the contrast. The contrast is the clip. Not LinkedIn — too specific to the relationship dynamic without the episode context. Must not open with "my husband."</div>
+    <div class="clip-note">Opens with the campaign supporters, then the contrast. The contrast is the clip. Must not open with "my husband." Not LinkedIn — too specific to the relationship without episode context.</div>
   </div>
 
-  <!-- CLIP 05 -->
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 05 — The 15th Anniversary</span>
       <span class="clip-time">~34:30 – 36:00</span>
     </div>
     <div class="clip-title">"This Is On Purpose"</div>
-    <div class="clip-quote">Fifteen years to the day from the honeymoon — still doing it. The realisation: this is a choice, not a problem. Then the look. She fled to the bedroom, locked the door, got on her knees, prayed for hours.</div>
+    <div class="clip-quote">"It finally dawned on me: this is on purpose. The person isn't changing because the person does not want to change... I woke up from a spell. For 15 years I've been walking around in a circle. It finally dawned on me — this is on purpose."</div>
     <span class="clip-length long">~90 seconds</span>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">Instagram / TikTok / YouTube Shorts</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">The insight — fifteen years, same behaviour, straight line, this is a choice — must lead, not the look itself. Emotionally powerful but needs the editorial lens applied. Not LinkedIn.</div>
+    <div class="clip-note">The insight — fifteen years, same behaviour, straight line, this is a choice — must lead, not the look. Emotionally powerful but needs the editorial lens applied carefully. Not LinkedIn.</div>
   </div>
 
-  <!-- CLIP 06 -->
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 06 — Neutrality + Ketanji Contrast</span>
       <span class="clip-time">~23:30 – 24:30</span>
     </div>
     <div class="clip-title">"Even Neutrality Is Undermining"</div>
-    <div class="clip-quote">The Ketanji Brown Jackson socks story vs the pep rally bedroom moment. Lands on: even neutrality is undermining. By doing nothing you are against.</div>
+    <div class="clip-quote">"I certainly was not expecting the level of undermining. But even neutrality is undermining. If we are not finding husbands who are full-fledged supporters of us — even in them quote unquote being neutral, they are undermining us. There's no neutrality here. You're either for your wife or you're against your wife."</div>
     <span class="clip-length long">~75–90 seconds</span>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">LinkedIn / Instagram / YouTube / TikTok</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">The Ketanji contrast makes the neutrality line land. Without it, the line is good but abstract. Together it is a complete thought with emotional weight and a clear leadership argument. Strong LinkedIn clip.</div>
+    <div class="clip-note">The Ketanji contrast makes the neutrality line land. Without it the line is abstract. Together it's a complete thought with a clear leadership argument. Strong LinkedIn clip.</div>
   </div>
 
-  <!-- CLIP 07 -->
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 07 — Wrong Section of the Library</span>
       <span class="clip-time">~33:00 – 34:30</span>
     </div>
     <div class="clip-title">"I Was In The Wrong Section"</div>
-    <div class="clip-quote">Fifteen years of reading the wrong books — Gottman, Five Love Languages, counsellors, pastors. Then Lundy Bancroft's book, chapter two, having to crawl to her bed because everything finally made sense.</div>
+    <div class="clip-quote">"I was reading, thinking or rich... and in chapter two, I literally had to come down and crawl to my bed, because imagine having read all these books for 15 years, and nothing makes sense. And then in two chapters, all of a sudden, everything's explained. I was in the wrong section. I was in the marriage section when I should have been in the domestic violence section."</div>
     <span class="clip-length long">~90 seconds</span>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">LinkedIn / Instagram / YouTube / TikTok</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">Universally relatable beyond this episode — the experience of looking for help in the wrong place for years. Requires no relationship context to land. The insight is the clip.</div>
+    <div class="clip-note">Universally relatable — looking for help in the wrong place for years. Requires no relationship context. The insight is the clip.</div>
   </div>
 
-  <!-- CLIP 08 -->
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 08 — Why A Workbook</span>
       <span class="clip-time">~54:00 – 56:00</span>
     </div>
     <div class="clip-title">"The Point Is The Pattern"</div>
-    <div class="clip-quote">Why a workbook not a memoir — the point is not her and him, it's the pattern. She describes what the workbook does: identify, grieve, analyse the past, understand cultural conditioning, plan the future.</div>
+    <div class="clip-quote">"I did not want to just write my story as if it's the only story... The point is not me and him. The point is the pattern. I wanted it to be a workbook because that prevents people from just reading passively as if it's a novel. I want them to actually engage."</div>
     <span class="clip-length long">~90 seconds</span>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">LinkedIn / YouTube</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">Sells the book without being promotional. Opens with the question, answers with the purpose. Strong LinkedIn clip — about the work she is building, not the story she lived.</div>
+    <div class="clip-note">Sells the book without being promotional. Opens with the question, answers with the purpose. Strong LinkedIn clip — about the work she's building, not the story she lived.</div>
   </div>
 
-  <!-- CLIP 09 -->
   <div class="clip-card social-only">
     <div class="clip-header">
       <span class="clip-num social">Clip 09 — Plants and Water · SOCIAL ONLY</span>
       <span class="clip-time">~67:00 – 67:45</span>
     </div>
     <div class="clip-title">"You Cannot Allow Yourself Not To Be Spoken To"</div>
-    <div class="clip-quote">"Plants grow better when you speak to them. You are a whole flesh and blood human being. You cannot allow yourself not to be spoken to."</div>
+    <div class="clip-quote">"There is evidence that plants grow better when they're spoken to. You are a whole flesh and blood human being who's allowing yourself not to be spoken to."</div>
     <span class="clip-length">~45–60 seconds</span>
     <div class="clip-meta-label">Platform</div>
-    <div class="clip-meta-value">TikTok / Instagram Reels only — social content, NOT in episode</div>
+    <div class="clip-meta-value">TikTok / Instagram Reels only — SOCIAL ONLY, NOT in episode</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-note">Captured after the formal goodbye. Social content only — never folded into the episode audio. Short enough for Reels, universal enough to stand alone.</div>
+    <div class="clip-note">Captured after the formal goodbye. Social content only — never folded into the episode audio. Short enough for Reels, universal enough to stand alone without episode context.</div>
   </div>
 
   <div class="section-head red">Do Not Clip</div>
@@ -408,7 +503,7 @@
     <div class="field-value donot">The honeymoon story in any form — too sensitive outside of full episode context.</div>
   </div>
   <div class="field">
-    <div class="field-value donot">Anything else from after the episode wrapped. Plants/water is the only exception.</div>
+    <div class="field-value donot">Anything else from after the episode wrapped. The plants/water sequence is the only exception.</div>
   </div>
 
 </div>
@@ -519,11 +614,11 @@
   </div>
   <div class="field">
     <div class="field-label">Tuesday — Launch Post</div>
-    <div class="field-value">Opens with the idea: "She was teaching organisations how to have courageous conversations. At the same time, she couldn't speak at home." Introduces Beneath the Smile as a new series. Episode link at the end. Native video clip uploaded directly — no external YouTube link.</div>
+    <div class="field-value">Opens with the idea: "She was teaching organisations how to have courageous conversations. At the same time, she couldn't speak at home." Introduces Beneath the Smile as a new series. Episode link at the end. Native video clip uploaded directly — no external YouTube link. Recommended clip: Clip 02 (WhatsApp story) or Clip 06 (neutrality + Ketanji).</div>
   </div>
   <div class="field">
     <div class="field-label">Saturday / Sunday — Reflective Follow-Up</div>
-    <div class="field-value">Takes the conversation further — the "what could have been with real support" question, generalised beyond Ama's story to the audience's own experience of support or its absence.</div>
+    <div class="field-value">Takes the conversation further — the "what could have been with real support" question, generalised beyond Ama's story to the audience's own experience of support or its absence. This is where the leadership infrastructure point about support being structural can land explicitly.</div>
   </div>
 
 </div>
@@ -533,33 +628,34 @@
 
   <div class="field">
     <div class="field-label">For Tolu</div>
-    <div class="field-value">This is the launch episode of Beneath the Smile — a new series. Editorial lens in Tab 2. Trim the honeymoon story per the instructions there. Protect the WhatsApp story, the Smile section, and the Support section in full. A separate series intro needs to be recorded and placed before the existing opening monologue — script below. Everything after the formal goodbye is off record except the plants/water moment, which is cleared for social use only.</div>
+    <div class="field-value">This is the launch episode of Beneath the Smile — a new series. Full editorial lens in Tab 2. Trim the honeymoon story as described there. Protect the WhatsApp story, the Smile section, and the Support section in full. The recording follows its own natural order — edit to match the recording's sequence, not the guide's. A separate series intro needs to be recorded and placed before the existing opening monologue — script below. Everything after the formal goodbye is off record except the plants/water moment, which is cleared for social use only.</div>
   </div>
   <div class="field">
     <div class="field-label">For Gbemi</div>
-    <div class="field-value">Nine clips in Tab 3, in priority order. Clips 01, 02, 06, 07, 08 work on LinkedIn — these are minimum 75 seconds each. Clips 03, 04, 05 are Instagram/TikTok only. Clip 09 is social only, not in the episode. Launch caption approved and ready in Tab 6. Book title is <em>Silenced to Soaring</em> — confirm spelling before it appears anywhere. This episode launches a new series — Beneath the Smile — make sure that framing appears in the launch post.</div>
+    <div class="field-value">Nine clips in Tab 3, in priority order with exact quotes and timestamps. Clips 01, 02, 06, 07, 08 are minimum 75 seconds and work on LinkedIn. Clips 03, 04, 05 are Instagram/TikTok only. Clip 09 is social only — not in the episode. Launch caption approved and in Tab 6. Book title is <em>Silenced to Soaring</em> — confirm spelling before it appears anywhere. This episode launches a new series — Beneath the Smile — make sure that framing is clear in the launch post and thumbnail.</div>
   </div>
   <div class="field">
-    <div class="field-label">Series Intro — Script for Uche to Record</div>
+    <div class="field-label">Series Intro — Script for Uche to Record Separately</div>
     <div class="field-value">"One of the things I've learned from doing this podcast is that sometimes the story people tell you is not the story at all. Sometimes the real story is underneath it. This conversation with Ama Karikari started as a discussion about communication. It ended up being about something very different. Before we begin, I'm introducing a new series within the podcast called Beneath the Smile. And this is the first one."</div>
   </div>
 
   <div class="section-head">Open Items</div>
   <ul class="multi-list">
-    <li>Uche to record Beneath the Smile series intro.</li>
-    <li>Confirm <em>Silenced to Soaring</em> spelling with Ama before publishing.</li>
+    <li>Uche to record Beneath the Smile series intro before final edit.</li>
+    <li>Confirm <em>Silenced to Soaring</em> spelling with Ama before publishing anywhere.</li>
     <li>Confirm final timestamps with Tolu once edit is locked.</li>
-    <li>Confirm French equivalent for "keeping malice" before TikTok captions.</li>
+    <li>Confirm French equivalent for "keeping malice" before TikTok captions are written.</li>
+    <li>Add resource link for <em>Silenced to Soaring</em> to show notes once Ama confirms.</li>
   </ul>
 
   <div class="section-head">Forward Notes</div>
   <div class="field">
     <div class="field-label">Future Episode Seeds</div>
-    <div class="field-value">"This Episode Is Not About" and the three-question editorial lens should become standing features in capture sheets for any episode with emotional complexity — not just Beneath the Smile episodes.</div>
+    <div class="field-value">"This Episode Is Not About" section and the three-question editorial lens should become standing features in capture sheets for any episode with emotional complexity — not just Beneath the Smile episodes.<br><br>Beneath the Smile — next episode candidates: a leader navigating grief, serious illness, or caregiving responsibility and its effect on professional decision-making and presence.</div>
   </div>
   <div class="field">
     <div class="field-label">Leadership Infrastructure — For the Book</div>
-    <div class="field-value">"Even neutrality is undermining" reframes support from a binary to a spectrum. Passive non-support is itself a form of withdrawal. Worth adding to the Support floor in the manuscript.</div>
+    <div class="field-value">"Even neutrality is undermining" reframes support from a binary (present or absent) to a spectrum where passive non-support is itself a form of withdrawal. Worth adding to the Support floor in the <em>Beneath the Smile: Leadership Infrastructure</em> manuscript.</div>
   </div>
 
 </div>
