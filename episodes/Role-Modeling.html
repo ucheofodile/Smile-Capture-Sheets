@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Role Modeling — Post-Recording Capture Sheet</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px;
+    background: #fff;
+    color: #1a1a1a;
+  }
+  .header {
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 28px;
+  }
+  .tab-btn {
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 2px solid #1a1a1a;
+    cursor: pointer;
+    background: #fff;
+    color: #1a1a1a;
+    font-family: Georgia, serif;
+  }
+  .tab-btn.active {
+    background: #1a1a1a;
+    color: #fff;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .section-head {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 28px;
+    margin-bottom: 16px;
+  }
+  .field { margin-bottom: 16px; }
+  .field-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .field-value {
+    font-size: 14px;
+    line-height: 1.7;
+    background: #f8f8f8;
+    padding: 10px 14px;
+    border-left: 3px solid #1a1a1a;
+    white-space: pre-wrap;
+  }
+  .multifield-value {
+    background: #f8f8f8;
+    padding: 10px 14px;
+    border-left: 3px solid #1a1a1a;
+  }
+  .multifield-item {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .multifield-item:last-child { margin-bottom: 0; }
+  .clip-card {
+    border-left: 3px solid #1a1a1a;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    background: #f8f8f8;
+  }
+  .clip-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .clip-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #999;
+  }
+  .clip-time {
+    font-size: 12px;
+    font-family: monospace;
+    color: #666;
+  }
+  .clip-label { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .clip-quote { font-size: 13px; font-style: italic; color: #444; margin-bottom: 8px; line-height: 1.6; }
+  .clip-sublabel { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+  .clip-subvalue { font-size: 13px; margin-bottom: 8px; }
+  .chapter-row {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .chapter-time { font-family: monospace; font-size: 13px; color: #999; min-width: 50px; }
+  .chapter-title { font-size: 14px; line-height: 1.6; }
+  .note {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="eyebrow">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+  <div class="title">What It Actually Means To Be A Role Model</div>
+  <div class="subtitle">Solo · [DATE RECORDED — confirm]</div>
+</div>
+
+<div class="tabs" id="tabs"></div>
+<div id="panels"></div>
+
+<div class="footer">The Smile Collective · Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+
+<script>
+const EPISODE = {
+  spine: "For years, Uche thought people were watching her leadership — the title, the decisions, how she handled adversity. A stranger in an elevator, asking whether she'd relaxed her hair, showed her people were also watching whether she was comfortable simply being herself. The realization reorganizes everything she thought role modeling meant.",
+  distinction: "Not a generic 'be yourself' message. A three-layer argument — role model as title/destination, then as how you handle adversity, then as whether you're comfortable existing as yourself — where each layer corrects the one before it. Grounded in a specific, non-generic tension: the professional management of natural vs. relaxed hair, not an abstract authenticity message that could belong to any leadership show.",
+  operating_principle: "You don't become a role model at a career milestone — you discover you've already been one for longer than you realized. The audience changes at every stage; the responsibility doesn't. And it isn't about perfection — it's about being consistently comfortable being yourself.",
+  cost: "A leader who believes role modeling means never failing, or that it only starts once you've reached the top, carries pressure nobody asked her to carry — and misses that people are learning as much from how she exists as from what she achieves.",
+  title_full: "What It Actually Means To Be A Role Model",
+  title_thumbnail: "Did You Relax Your Hair?",
+  thumbnail_line_en: "The elevator question that changed everything she thought about leadership.",
+  thumbnail_line_fr: "Une question dans l'ascenseur qui a tout changé. — confirm register before use",
+  floor_connection: "Presence — the gap between who you are and what the room actually receives. The episode moves through three definitions of what people are watching (title, adversity, existence) and lands on Presence's core claim: people take their cues from what you project before you speak.",
+  what_landed: "The unscripted line — 'I had spent all those years thinking people were watching the leadership, the title, the behavior. I hadn't realized that people were also watching whether I was just comfortable being myself' — landed better spoken than any version on the page. Same with 'Lies. It's not true. It's not true at all.' — a gut-punch that wasn't in the script.",
+  what_diverged: "The three-layer structure held together more explicitly in the recording than in the script — the Liberia/adversity section functions clearly as the middle term, not filler. 'You don't want my career, you want yours' recorded flatter than the scripted 'Don't try to have my career. Have yours' — worth checking for a stronger take.",
+  spontaneous_lines: [
+    "Lies. It's not true. It's not true at all.",
+    "Don't age me.",
+    "Stop that. Put down the baggage. Last sentence. (self-correction — listen closely, not a clean restart point)",
+    "I had spent all those years thinking people were watching the leadership, right? The title, the behavior. I hadn't realized that people were also watching whether I was just comfortable being myself."
+  ],
+  pull_quotes: [
+    "I had spent all those years thinking people were watching the leadership — the title, the behavior. I hadn't realized that people were also watching whether I was just comfortable being myself.",
+    "We make the mistake that we're only role models when we've reached the very top of our career. Lies. It's not true.",
+    "In a world where you are under pressure to look like everyone else, the idea that you can show someone it's okay to be yourself is important.",
+    "When I became the CEO, the audience changed again. What didn't change was the fact that somebody was always watching.",
+    "You don't want my career, you want yours. (check for a cleaner take — flat in this recording)"
+  ],
+  strongest_quote: "I had spent all those years thinking people were watching the leadership. I hadn't realized that people were also watching whether I was just comfortable being myself.",
+  resource_decision: "No. This is a reflective solo episode, not a framework-heavy one — no companion resource needed.",
+  tolu: {
+    overall_instruction: "This is a discovery episode — protect the unscripted realizations, especially the elevator reveal line. Don't tighten the three-layer build into a listicle; the layering is the argument, not filler on the way to the point.",
+    tone_to_preserve: "Warm, restrained, thinking-out-loud. Let repetition breathe (e.g. 'It's not true. It's not true at all.') rather than trimming it for pace.",
+    restarts: "Six 'strawberry' markers: ~0:46, 2:51, 6:43, 12:02, 12:51 (two close together), 13:20.",
+    pacing: "Let the three-layer build breathe — don't compress the adversity section to rush to the hair story. It's doing argumentative work, not just setup.",
+    sections: [
+      { name: "Open", note: "Cold open on the elevator scene, no framing statement first — intentional, keep as is. First line: 'A few years ago, I was in an elevator.'" },
+      { name: "Role Model as Title", note: "Career-as-destination framing. Keep tight — this is setup, moving quickly into the next layer." },
+      { name: "Role Model as Adversity", note: "Liberia / 'only woman CEO' section. This is the middle term of a three-part build, not a tangent — keep full length. Preserve 'Lies. It's not true' exactly as delivered." },
+      { name: "The Elevator, Again", note: "The reveal returns to the opening scene. This is the spine — protect the pacing here above everything else." },
+      { name: "Close", note: "Cut 'Be a role model' as the final sign-off — it's the one moment that drifts into imperative/empowerment language, out of step with the episode's restraint elsewhere. End on 'you're never too young to be a role model to someone else' instead. Confirm final line before locking." }
+    ],
+    keep: [
+      "The unscripted 'Lies. It's not true. It's not true at all.' — keep the repetition intact, don't smooth it into one line.",
+      "'Don't age me.' — small dry aside, keeps the register human.",
+      "The full elevator scene played in real time at the open — don't summarize or cut for pace."
+    ],
+    cut: [
+      "'Be a role model' sign-off at the very end — imperative language, breaks the episode's restraint.",
+      "Consider a pickup/retake for 'You don't want my career, you want yours' if a cleaner take exists."
+    ],
+    french_clips: {
+      quantity: "Standard: 5-6 per episode",
+      priorities: [
+        "The elevator reveal — universal hook, works as a standalone",
+        "'Lies. It's not true. It's not true at all.'",
+        "'In a world where you are under pressure to look like everyone else...'",
+        "The Liberia / adversity section — relatable pressure moment",
+        "Closing reflection ('becoming the best version of ourselves' — not the cut sign-off)"
+      ],
+      holdback: "Standard: 1-2 held for the following week."
+    },
+    english_clips: {
+      quantity: "Standard: 3-4 per episode",
+      priorities: [
+        "CLIP 1 — the elevator reveal / 'I hadn't realized people were also watching whether I was comfortable being myself.' The spine line.",
+        "CLIP 2 — 'Lies. It's not true. It's not true at all.'",
+        "CLIP 3 — 'Somebody was always watching' — the career-stage line, broad appeal beyond the core audience.",
+        "CLIP 4 (optional) — 'Don't age me.' Light, humanizing beat for the mix."
+      ]
+    }
+  },
+  clips: [
+    { num: "01", label: "The Reveal", timestamp: "09:02 – 09:56", quote: "I hadn't realized that people were also watching whether I was just comfortable being myself.", platform: "Instagram / YouTube Shorts", note: "Stands alone without episode context — achievement-vs-authenticity reversal is immediately legible to a new listener." },
+    { num: "02", label: "Lies", timestamp: "10:26 – 10:55", quote: "We make the mistake that we're only role models when we've reached the very top of our career. Lies. It's not true. It's not true at all.", platform: "Instagram / TikTok", note: "Punchy, quotable, corrects a common assumption in one breath — good for a scroll-stopping open." },
+    { num: "03", label: "Somebody Was Always Watching", timestamp: "10:55 – 11:11", quote: "When I became the CEO, the audience changed again. What didn't change was the fact that somebody was always watching.", platform: "LinkedIn native video / YouTube Shorts", note: "Works for career-stage audiences at any level, not only senior women — broadest reach of the set." },
+    { num: "04", label: "Don't Age Me", timestamp: "11:31 – 11:38", quote: "Don't age me.", platform: "Instagram Reels", note: "Optional. Light, humanizing beat — good contrast placed against the heavier clips in the weekly mix." }
+  ],
+  chapters: [
+    { timestamp: "00:00", title: "The Elevator" },
+    { timestamp: "02:22", title: "What Does It Actually Mean To Be A Role Model?" },
+    { timestamp: "04:43", title: "Role Model As Title" },
+    { timestamp: "04:50", title: "The Only Woman In The Room" },
+    { timestamp: "08:32", title: "Beyond Admiration" },
+    { timestamp: "09:02", title: "The Elevator, Again" },
+    { timestamp: "10:26", title: "Every Stage, Someone Watching" },
+    { timestamp: "13:26", title: "What The Hair Really Said" }
+  ],
+  chapters_note: "Draft titles based on the recorded structure. Confirm timestamps once Tolu's edit locks — the restart at 6:43 may shift everything downstream.",
+  show_notes: {
+    opener: "For years, Uche thought people were watching her leadership — the title, the decisions, how she handled adversity. Then a stranger in an elevator asked about her hair.",
+    description: "In this solo episode, Uche traces how her understanding of what it means to be a role model has changed — from the pressure of being 'the only woman CEO in the room,' to a conversation in an elevator that showed her people were watching something she'd never considered. A reflection on the layers of what leadership actually models, and why none of them require being perfect.",
+    key_themes: "The pressure of being 'the only one' in a room. Adversity and recovery as part of the model, not a failure of it. Authenticity as permission, not performance. Role modeling as something you're already doing, at every career stage. The specific weight of managing appearance in professional spaces.",
+    resource_link: "None for this episode.",
+    chapters_note: "Chapters listed above — add to show notes once timestamps are confirmed."
+  },
+  social: {
+    instagram_launch: "She thought people were watching her titles. Her decisions. How she handled the hard moments. Then a woman in an elevator asked about her hair — and everything she thought she understood about being a role model changed. New episode, live now.",
+    instagram_quote: "I hadn't realized that people were also watching whether I was just comfortable being myself.",
+    facebook_feed: "What does it actually mean to be a role model? Uche thought she knew — until an elevator conversation about her hair told her something she'd never considered. This week's episode is a reflection on the layers of what leadership actually models.",
+    facebook_community_early: "Episode goes public tomorrow. It is yours tonight.",
+    facebook_community_prompt: "Has anyone ever told you they were watching something about you that you never realized mattered? What was it?",
+    youtube_shorts: "'The Reveal' clip — Tuesday, native upload.",
+    youtube_community: "Same prompt as the Facebook community, same day.",
+    tiktok_week: "Three French clips across Tuesday, Thursday, Saturday. Lead with 'The Reveal' on Tuesday — most universal hook of the set.",
+    tiktok_caption_note: "Keep the hair reference concrete in French rather than generalizing to 'being yourself' — the specificity is what makes it land, not a softened version of it."
+  },
+  linkedin: {
+    sunday_pre: "For years I thought people were watching my leadership. The title. The decisions. How I handled the hard moments. I didn't think anyone was watching whether I was comfortable being myself.",
+    tuesday_launch: "A few years ago a woman I didn't know looked at me in an elevator and asked if I'd relaxed my hair. I said no. She sighed with relief. I didn't understand why until she explained it — and it changed how I think about what it means to model something for someone else.\n\n[native video clip]",
+    saturday_follow: "Somebody is always watching. Not just the wins. The recovery. The ordinary parts of how you exist. You don't get to choose which one they take the lesson from."
+  },
+  handoff: {
+    tolu_summary: "Protect the unscripted realization line and the 'Lies' moment — those are the spine, not just good sound bites. Cut the 'Be a role model' sign-off at the very end; end on the 'never too young' line instead. Check the 6:43 restart carefully, it's a self-correction, not a clean cut point. Consider a pickup take for 'you don't want my career' if one exists.",
+    gbemi_summary: "Lead clip strategy with 'The Reveal' — it's the most universal hook and doesn't need full episode context to land. Hair-specific French clips should stay concrete rather than softened into general self-acceptance language. This is a solo episode — benchmark reach against other solos, not guest episodes, given the known guest-outperforms-solo pattern and the 60/40 split for year two.",
+    coordination_note: "English drops Tuesday. French TikTok clips within 48 hours. LinkedIn: Sunday pre-post, Tuesday launch (native video, ends unresolved), following Saturday reflective follow-up — Uche writes and posts these herself.",
+    open_items: [
+      "Confirm final episode title — 'What It Actually Means To Be A Role Model' vs. a more direct hook-based title like 'Did You Relax Your Hair?'",
+      "Confirm whether a retake exists for 'You don't want my career, you want yours.'",
+      "Confirm final closing line after cutting 'Be a role model.'",
+      "Confirm timestamps once Tolu's edit locks, especially around the 6:43 restart.",
+      "Confirm French thumbnail line register."
+    ],
+    future_episode_seeds: [
+      "The specific tension of managing appearance in professional African contexts could anchor its own Foundation or Presence episode, separate from role modeling.",
+      "The 'only woman in the room' pressure (Liberia CEO story) could anchor its own Basement or Recovery episode on unearned pressure leaders put on themselves."
+    ],
+    framework_notes: "The episode's three-layer structure (title → adversity → existence) is itself a useful teaching device for what Presence measures — could be referenced directly in Beneath the Smile."
+  }
+};
+
+const TABS = [
+  { id: "overview", label: "Overview" },
+  { id: "tolu", label: "Tolu" },
+  { id: "clips", label: "Clip Markers" },
+  { id: "chapters", label: "Chapters" },
+  { id: "shownotes", label: "Show Notes" },
+  { id: "social", label: "Social" },
+  { id: "linkedin", label: "LinkedIn" },
+  { id: "handoff", label: "Handoff" }
+];
+
+function esc(s) {
+  const d = document.createElement('div');
+  d.innerText = s;
+  return d.innerHTML;
+}
+
+function field(label, value) {
+  return `<div class="field"><div class="field-label">${esc(label)}</div><div class="field-value">${esc(value)}</div></div>`;
+}
+
+function multifield(label, items) {
+  const rows = items.map((item, i) => `<div class="multifield-item">${items.length > 1 ? (i+1) + '. ' : ''}${esc(item)}</div>`).join('');
+  return `<div class="field"><div class="field-label">${esc(label)}</div><div class="multifield-value">${rows}</div></div>`;
+}
+
+function sectionHead(title) {
+  return `<div class="section-head">${esc(title)}</div>`;
+}
+
+function clipCard(clip) {
+  return `<div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip ${clip.num}</span><span class="clip-time">${esc(clip.timestamp)}</span></div>
+    <div class="clip-label">${esc(clip.label)}</div>
+    <div class="clip-quote">"${esc(clip.quote)}"</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-subvalue">${esc(clip.platform)}</div>
+    <div class="clip-sublabel">Why It Works</div>
+    <div class="clip-subvalue">${esc(clip.note)}</div>
+  </div>`;
+}
+
+function chapterRow(ch) {
+  return `<div class="chapter-row"><span class="chapter-time">${esc(ch.timestamp)}</span><span class="chapter-title">${esc(ch.title)}</span></div>`;
+}
+
+const panels = {
+  overview: () => `
+    ${sectionHead("Core Message")}
+    ${field("Spine", EPISODE.spine)}
+    ${field("The Distinction", EPISODE.distinction)}
+    ${field("Operating Principle", EPISODE.operating_principle)}
+    ${field("The Cost", EPISODE.cost)}
+    ${sectionHead("Episode Details")}
+    ${field("Full Title", EPISODE.title_full)}
+    ${field("Thumbnail Title", EPISODE.title_thumbnail)}
+    ${field("Thumbnail Line (EN)", EPISODE.thumbnail_line_en)}
+    ${field("Thumbnail Line (FR)", EPISODE.thumbnail_line_fr)}
+    ${field("Floor Connection", EPISODE.floor_connection)}
+    ${sectionHead("Recording Review")}
+    ${field("What Landed Better Than The Script", EPISODE.what_landed)}
+    ${field("Where The Recording Diverged — Worth Keeping", EPISODE.what_diverged)}
+    ${multifield("Spontaneous Lines To Preserve", EPISODE.spontaneous_lines)}
+    ${sectionHead("Pull Quotes")}
+    ${multifield("Quote Candidates — Exact Words From Recording", EPISODE.pull_quotes)}
+    ${field("Strongest Single Line For Quote Graphic", EPISODE.strongest_quote)}
+    ${sectionHead("Companion Resource")}
+    ${field("Decision", EPISODE.resource_decision)}
+  `,
+  tolu: () => `
+    ${sectionHead("Edit Instructions")}
+    ${field("Overall Instruction", EPISODE.tolu.overall_instruction)}
+    ${field("Tone To Preserve", EPISODE.tolu.tone_to_preserve)}
+    ${field("Restart Markers", EPISODE.tolu.restarts)}
+    ${field("Pacing Notes", EPISODE.tolu.pacing)}
+    ${sectionHead("Sections")}
+    ${EPISODE.tolu.sections.map(s => field(s.name, s.note)).join('')}
+    ${sectionHead("Keep / Cut")}
+    ${multifield("Keep — Preserve These Moments", EPISODE.tolu.keep)}
+    ${multifield("Cut — Remove These Moments", EPISODE.tolu.cut)}
+    ${sectionHead("French Clips — TikTok")}
+    ${field("Quantity", EPISODE.tolu.french_clips.quantity)}
+    ${multifield("Priority Moments", EPISODE.tolu.french_clips.priorities)}
+    ${field("Hold-Back Instruction", EPISODE.tolu.french_clips.holdback)}
+    ${sectionHead("English Clips — For Gbemi")}
+    ${field("Quantity", EPISODE.tolu.english_clips.quantity)}
+    ${multifield("Priority Clips", EPISODE.tolu.english_clips.priorities)}
+  `,
+  clips: () => `
+    ${sectionHead("Clip Markers")}
+    <div class="note">Timestamps are estimates from the raw recording. Confirm from the edited version once Tolu's pass is complete.</div>
+    ${EPISODE.clips.map(clipCard).join('')}
+  `,
+  chapters: () => `
+    ${sectionHead("Episode Chapters")}
+    <div class="note">${esc(EPISODE.chapters_note)}</div>
+    ${EPISODE.chapters.map(chapterRow).join('')}
+  `,
+  shownotes: () => `
+    ${sectionHead("Show Notes")}
+    ${field("Opening Line", EPISODE.show_notes.opener)}
+    ${field("Episode Description", EPISODE.show_notes.description)}
+    ${field("Key Themes", EPISODE.show_notes.key_themes)}
+    ${field("Resource Link", EPISODE.show_notes.resource_link)}
+    ${field("Chapters", EPISODE.show_notes.chapters_note)}
+  `,
+  social: () => `
+    ${sectionHead("Instagram")}
+    ${field("Launch Day Caption", EPISODE.social.instagram_launch)}
+    ${field("Quote Graphic Caption", EPISODE.social.instagram_quote)}
+    ${sectionHead("Facebook")}
+    ${field("Feed Post", EPISODE.social.facebook_feed)}
+    ${field("Community — Early Access", EPISODE.social.facebook_community_early)}
+    ${field("Community — Discussion Prompt", EPISODE.social.facebook_community_prompt)}
+    ${sectionHead("YouTube")}
+    ${field("Shorts", EPISODE.social.youtube_shorts)}
+    ${field("Community Prompt", EPISODE.social.youtube_community)}
+    ${sectionHead("TikTok (French)")}
+    ${field("Episode Week", EPISODE.social.tiktok_week)}
+    ${field("Caption Note", EPISODE.social.tiktok_caption_note)}
+  `,
+  linkedin: () => `
+    ${sectionHead("LinkedIn — Uche Manages Directly")}
+    <div class="note">Three posts per episode. Each leads with the idea, not the episode — and every post must end unresolved. This is a quality gate, not a style preference.</div>
+    ${field("Sunday — Pre-Post", EPISODE.linkedin.sunday_pre)}
+    ${field("Tuesday — Launch Post", EPISODE.linkedin.tuesday_launch)}
+    ${field("Saturday — Reflective Follow-Up", EPISODE.linkedin.saturday_follow)}
+  `,
+  handoff: () => `
+    ${sectionHead("Team Handoff")}
+    ${field("For Tolu", EPISODE.handoff.tolu_summary)}
+    ${field("For Gbemi", EPISODE.handoff.gbemi_summary)}
+    ${field("Coordination Note", EPISODE.handoff.coordination_note)}
+    ${multifield("Open Items", EPISODE.handoff.open_items)}
+    ${sectionHead("Forward Notes")}
+    ${multifield("Future Episode Seeds", EPISODE.handoff.future_episode_seeds)}
+    ${field("Leadership Infrastructure — Notes For The Book", EPISODE.handoff.framework_notes)}
+  `
+};
+
+const tabsEl = document.getElementById('tabs');
+const panelsEl = document.getElementById('panels');
+
+TABS.forEach(t => {
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn';
+  btn.textContent = t.label;
+  btn.onclick = () => showTab(t.id);
+  btn.id = 'tabbtn-' + t.id;
+  tabsEl.appendChild(btn);
+
+  const panel = document.createElement('div');
+  panel.className = 'tab-panel';
+  panel.id = 'panel-' + t.id;
+  panel.innerHTML = panels[t.id]();
+  panelsEl.appendChild(panel);
+});
+
+function showTab(id) {
+  TABS.forEach(t => {
+    document.getElementById('tabbtn-' + t.id).classList.toggle('active', t.id === id);
+    document.getElementById('panel-' + t.id).classList.toggle('active', t.id === id);
+  });
+}
+
+showTab('overview');
+</script>
+</body>
+</html>
