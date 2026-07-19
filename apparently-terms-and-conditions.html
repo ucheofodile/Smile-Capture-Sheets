@@ -4,82 +4,71 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apparently, I Had Terms and Conditions · DLTSFY Capture Sheet</title>
-<meta property="og:title" content="Apparently, I Had Terms and Conditions — DLTSFY Capture Sheet">
+<meta property="og:title" content="Apparently, I Had Terms and Conditions">
 <meta property="og:description" content="Post-Recording Capture Sheet · Don't Let The Smile Fool You · Solo Episode">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Georgia, serif; background: #fff; color: #1a1a1a; max-width: 860px; margin: 0 auto; padding: 32px 24px 64px; }
-  .site-label { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 6px; }
-  .sheet-label { font-family: Helvetica, Arial, sans-serif; font-size: 10px; color: #ccc; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
-  h1 { font-size: 28px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 6px; border-bottom: 3px solid #1a1a1a; padding-bottom: 16px; margin-bottom: 20px; }
-  .meta { font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: #666; margin-bottom: 20px; }
-
-  /* Warning and flag boxes */
-  .warn-box { background: #fbeee6; border-left: 4px solid #c0392b; border: 1px solid #c0392b; padding: 12px 16px; margin-bottom: 12px; }
-  .warn-label { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; color: #c0392b; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .flag-box { background: #eaf1f8; border-left: 4px solid #2e6da4; border: 1px solid #2e6da4; padding: 12px 16px; margin-bottom: 20px; }
-  .flag-label { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; color: #2e6da4; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .warn-box p, .flag-box p { font-size: 13.5px; line-height: 1.6; }
-
-  /* Tabs */
-  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; }
-  .tab-btn { font-family: Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid #1a1a1a; background: #fff; color: #1a1a1a; padding: 7px 14px; cursor: pointer; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #fff; color: #1a1a1a; max-width: 820px; margin: 0 auto; padding: 24px 20px 60px; }
+  .eyebrow { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: #999; text-transform: uppercase; margin-bottom: 4px; }
+  .eyebrow2 { font-family: Helvetica, Arial, sans-serif; font-size: 9px; color: #ccc; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .doc-title { font-size: 26px; font-weight: 700; color: #1a1a1a; line-height: 1.2; margin-bottom: 5px; }
+  .doc-subtitle { font-family: Helvetica, Arial, sans-serif; font-size: 11px; color: #666; margin-bottom: 0; }
+  .header-rule { border: none; border-bottom: 3px solid #1a1a1a; margin: 16px 0 20px; }
+  .alert-box { background: #fff4e8; border: 2px solid #c0392b; padding: 14px 18px; margin-bottom: 12px; }
+  .alert-box p { font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; color: #c0392b; line-height: 1.5; }
+  .flag-box { background: #eaf1f8; border: 2px solid #2e6da4; padding: 14px 18px; margin-bottom: 16px; }
+  .flag-box p { font-family: Helvetica, Arial, sans-serif; font-size: 13px; color: #2e6da4; line-height: 1.5; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 24px; }
+  .tab-btn { font-family: Helvetica, Arial, sans-serif; padding: 7px 13px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid #1a1a1a; cursor: pointer; background: #fff; color: #1a1a1a; transition: all 0.15s; }
+  .tab-btn:hover { background: #f0f0f0; }
   .tab-btn.active { background: #1a1a1a; color: #fff; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-
-  /* Section heads */
-  .section-head { background: #1a1a1a; color: #fff; font-family: Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 7px 14px; margin: 24px 0 12px; }
-
-  /* Fields */
-  .field { margin-bottom: 16px; }
-  .field-label { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
-  .field-value { background: #f8f8f8; border-left: 3px solid #1a1a1a; padding: 10px 14px; font-size: 14px; line-height: 1.7; }
-  .field-value.italic { font-style: italic; color: #555; }
-  .field-value ul { padding-left: 18px; }
-  .field-value li { margin-bottom: 4px; }
-
-  /* Clip cards */
-  .clip-card { border-left: 3px solid #1a1a1a; padding: 12px 16px; margin-bottom: 18px; background: #fafafa; }
-  .clip-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-  .clip-num { font-family: Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #1a1a1a; }
-  .clip-ts { font-family: monospace; font-size: 12px; color: #666; }
-  .clip-quote { font-style: italic; font-size: 14px; color: #333; line-height: 1.6; margin-bottom: 10px; }
-  .clip-meta-label { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; margin-top: 8px; }
-  .clip-meta-value { font-size: 13px; color: #1a1a1a; margin-bottom: 4px; }
-
-  /* Chapter rows */
-  .chapter-row { display: flex; gap: 20px; padding: 9px 0; border-bottom: 1px solid #eee; align-items: baseline; }
-  .chapter-ts { font-family: monospace; font-size: 12px; color: #999; min-width: 52px; }
-  .chapter-title { font-size: 14px; color: #1a1a1a; line-height: 1.5; }
-  .chapters-note { font-style: italic; font-size: 12px; color: #999; margin-bottom: 16px; }
-
-  /* Footer */
-  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #eee; font-family: Helvetica, Arial, sans-serif; font-size: 10px; color: #ccc; letter-spacing: 1px; }
-
-  /* Confirmed badge */
-  .confirmed { display: inline-block; background: #1a1a1a; color: #fff; font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 6px; margin-left: 6px; vertical-align: middle; }
-  .pending { display: inline-block; background: #f0a500; color: #fff; font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 6px; margin-left: 6px; vertical-align: middle; }
+  .section-head { font-family: Helvetica, Arial, sans-serif; background: #1a1a1a; color: #fff; padding: 7px 12px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin: 20px 0 10px; }
+  .section-head.red { background: #c0392b; }
+  .field { margin-bottom: 14px; }
+  .field-label { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .field-value { font-size: 13px; line-height: 1.7; background: #f8f8f8; padding: 10px 13px; border-left: 3px solid #1a1a1a; }
+  .field-value.highlight { background: #fff4e8; border-left-color: #c0392b; font-weight: 600; }
+  .multi-list { background: #f8f8f8; border-left: 3px solid #1a1a1a; padding: 10px 13px; }
+  .multi-list li { font-size: 13px; line-height: 1.6; margin-bottom: 6px; margin-left: 16px; }
+  .multi-list li:last-child { margin-bottom: 0; }
+  .clip-card { border-left: 3px solid #1a1a1a; background: #f8f8f8; padding: 13px 16px; margin-bottom: 14px; }
+  .clip-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+  .clip-num { font-family: Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #1a1a1a; }
+  .clip-time { font-family: Courier, monospace; font-size: 11px; color: #666; white-space: nowrap; margin-left: 8px; }
+  .clip-title { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+  .clip-quote { font-size: 12px; font-style: italic; color: #333; margin-bottom: 6px; line-height: 1.5; background: #fff; padding: 8px 10px; border-left: 2px solid #ccc; }
+  .clip-meta-label { font-family: Helvetica, Arial, sans-serif; font-size: 9px; font-weight: 700; color: #999; text-transform: uppercase; margin-bottom: 2px; margin-top: 8px; }
+  .clip-meta-value { font-size: 12px; color: #1a1a1a; margin-bottom: 4px; }
+  .clip-note { font-size: 12px; color: #444; line-height: 1.5; }
+  .chapter-row { display: flex; gap: 14px; padding: 8px 0; border-bottom: 1px solid #eee; }
+  .chapter-time { font-family: Courier, monospace; font-size: 12px; color: #999; min-width: 52px; padding-top: 1px; }
+  .chapter-title { font-size: 13px; color: #1a1a1a; line-height: 1.5; }
+  .italic-note { font-family: Helvetica, Arial, sans-serif; font-size: 11px; font-style: italic; color: #888; margin-bottom: 14px; }
+  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #eee; font-family: Helvetica, Arial, sans-serif; font-size: 9px; color: #bbb; text-align: center; letter-spacing: 1px; text-transform: uppercase; }
+  @media (max-width: 600px) {
+    .doc-title { font-size: 20px; }
+    .tab-btn { font-size: 9px; padding: 6px 10px; }
+  }
 </style>
 </head>
 <body>
 
-<div class="site-label">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
-<div class="sheet-label">Complete after recording · Solo Episode</div>
-<h1>Apparently, I Had Terms and Conditions</h1>
-<div class="meta">Solo · Recorded June 2026 · Take 2 is master, one line spliced from Take 1</div>
+<div class="eyebrow">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+<div class="eyebrow2">Complete after recording · Solo Episode</div>
+<h1 class="doc-title">Apparently, I Had Terms and Conditions</h1>
+<p class="doc-subtitle">Solo &nbsp;·&nbsp; Recorded June 2026 &nbsp;·&nbsp; Take 2 is master, one line spliced from Take 1</p>
+<hr class="header-rule">
 
-<div class="warn-box">
-  <div class="warn-label">▲ Before you start editing — read this</div>
-  <p>Master is <strong>Take 2</strong>, except ONE line pulled in from <strong>Take 1</strong>: "I wanted this job in a big box with a big red bow on top of it." This replaces Take 2's flatter equivalent in the same spot in Story 1. If only Take 2 is opened in the edit, this line will be missing by default. Full detail in the Tolu tab.</p>
+<div class="alert-box">
+  <p>▲ BEFORE YOU START EDITING — Master is Take 2, except ONE line pulled in from Take 1: "I wanted this job in a big box with a big red bow on top of it." Full detail in the Tolu tab.</p>
 </div>
 
 <div class="flag-box">
-  <div class="flag-label">⚑ French retention — watch this one</div>
-  <p>French retention is a live, unresolved question across the show. The only data point challenging the "dubbing causes drop-off" theory came from a guest episode (Building Teams), not solo. This is a solo episode with three sequential stories and one structurally critical transition (Story 1→2). Track French retention on this one specifically against Building Teams and against typical solo episodes — it is a useful second data point for the open French retention question, not just routine performance tracking.</p>
+  <p>⚑ FRENCH RETENTION — WATCH THIS ONE — French retention is a live, unresolved question. The only data point challenging the "dubbing causes drop-off" theory came from a guest episode (Building Teams), not solo. Track French retention on this one specifically against Building Teams and typical solo episodes.</p>
 </div>
 
-<!-- TABS -->
 <div class="tabs">
   <button class="tab-btn active" onclick="showTab(this,'overview')">Overview</button>
   <button class="tab-btn" onclick="showTab(this,'tolu')">Tolu</button>
@@ -92,7 +81,7 @@
 </div>
 
 <!-- TAB 1: OVERVIEW -->
-<div id="overview" class="tab-content active">
+<div class="tab-content active" id="overview">
 
   <div class="section-head">Core Message</div>
 
@@ -103,17 +92,17 @@
 
   <div class="field">
     <div class="field-label">The Distinction</div>
-    <div class="field-value">This deliberately refuses to resolve into a leadership lesson. The episode names this directly mid-recording: the third story exists specifically to stop the episode from collapsing into "be flexible and say yes more often." Ends on discovery, not advice. The listener should leave examining their own unexamined terms and conditions, not holding an instruction for what to do about it.</div>
+    <div class="field-value">This deliberately refuses to resolve into a leadership lesson. The episode names this directly mid-recording: the third story exists specifically to stop the episode from collapsing into "be flexible and say yes more often." Ends on discovery, not advice.</div>
   </div>
 
   <div class="field">
     <div class="field-label">Operating Principle</div>
-    <div class="field-value">There isn't one, by design. The closest equivalent: certainty about what matters, what we want, or what will make a difference is often untested — and reality periodically exposes the gap, with no guarantee of resolution either way.</div>
+    <div class="field-value">There isn't one, by design. Certainty about what matters, what we want, or what will make a difference is often untested — and reality periodically exposes the gap, with no guarantee of resolution either way.</div>
   </div>
 
   <div class="field">
     <div class="field-label">The Cost</div>
-    <div class="field-value">A leader who hasn't examined their own terms and conditions risks two failure modes: rejecting a real opportunity because it doesn't arrive in the expected package, or staying certain about a refusal for years without noticing it was never actually load-bearing. The third story shows the cost cuts the other way too — even transparent, well-reasoned planning carries no guarantee.</div>
+    <div class="field-value">A leader who hasn't examined their own terms and conditions risks two failure modes: rejecting a real opportunity because it doesn't arrive in the expected package, or staying certain about a refusal for years without noticing it was never load-bearing. The third story shows the cost cuts the other way too — even transparent, well-reasoned planning carries no guarantee.</div>
   </div>
 
   <div class="section-head">Episode Details</div>
@@ -122,165 +111,149 @@
     <div class="field-label">Full Title</div>
     <div class="field-value">Apparently, I Had Terms and Conditions</div>
   </div>
-
   <div class="field">
-    <div class="field-label">Thumbnail Title (EN)</div>
+    <div class="field-label">Thumbnail (EN)</div>
     <div class="field-value">I Almost Said No to My First CEO Job</div>
   </div>
-
   <div class="field">
-    <div class="field-label">Why title and thumbnail differ on purpose</div>
-    <div class="field-value">Deliberate split — Approach A. The thumbnail hooks on the DRC story because it is the most intriguing entry point, not because it is the episode. The title hints at the deeper concept underneath. This only works if the Story 1→2 transition does its job — see the Tolu tab.</div>
+    <div class="field-label">Why Title and Thumbnail Differ</div>
+    <div class="field-value">Deliberate split — Approach A. The thumbnail hooks on the DRC story as the entry point. The title carries the deeper concept. This only works if the Story 1→2 transition does its job — see Tolu tab.</div>
   </div>
-
   <div class="field">
-    <div class="field-label">Thumbnail Title (FR) <span class="pending">To test</span></div>
-    <div class="field-value italic">Candidate: "Mes propres conditions m'ont surpris(e)" — others under consideration: "Et puis la réalité m'a contredit(e)", "Ce que je voulais… enfin, je croyais". To be A/B tested with Gbemi before locking. Must read as distinct from the French title below, not a restatement of it.</div>
+    <div class="field-label">French Title (to test)</div>
+    <div class="field-value">"Je pensais savoir ce que je voulais" — NOT a literal translation. "Apparemment, j'avais des conditions" doesn't land in French the way "terms and conditions" does in English. To be A/B tested before locking.</div>
   </div>
-
   <div class="field">
-    <div class="field-label">French Title <span class="pending">To test</span></div>
-    <div class="field-value italic">"Je pensais savoir ce que je voulais" — NOT a literal translation. "Apparemment, j'avais des conditions" doesn't land in French the way "terms and conditions" does in English — the contractual wordplay doesn't survive translation. This adapts instead, capturing the shared structure across all three stories (each person thought they knew something). To be A/B tested before locking.</div>
+    <div class="field-label">French Thumbnail (to test)</div>
+    <div class="field-value">Candidate: "Mes propres conditions m'ont surpris(e)" — others: "Et puis la réalité m'a contredit(e)", "Ce que je voulais… enfin, je croyais". A/B test with Gbemi before locking.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Format</div>
     <div class="field-value">Solo</div>
   </div>
-
   <div class="field">
     <div class="field-label">Floor Connection</div>
-    <div class="field-value">Floor 5 — Presence. The gap between who you believe you are and what you discover about yourself when reality tests an unexamined assumption. Not Growth (not about ambition or momentum) and not Foundation (no boundary or value being protected here — only a self-image being tested).</div>
+    <div class="field-value">Floor 5 — Presence. The gap between who you believe you are and what you discover about yourself when reality tests an unexamined assumption. Not Growth, not Foundation.</div>
   </div>
 
   <div class="section-head">Recording Review</div>
 
   <div class="field">
     <div class="field-label">What Landed Better Than the Script</div>
-    <div class="field-value">The image of wanting the CEO role "in a big box with a big red bow on top of it" (Take 1) is stronger than anything scripted for that beat and must survive in the final edit. "Tick the box. Tick the box. Tick." (Take 2) and "he is a man with the plan" (Take 2) are both unscripted and better than the page. "I'd never asked myself, like, but where?" (Take 2) is the most intimate moment in Story 1 — distinct from, and deeper than, the "terms and conditions" punchline itself. Take 2 as a whole sounds like Uche is wondering, turning the thought over in real time. Take 1 sounds like she is explaining a conclusion she already reached. Take 2's register is the one to preserve.</div>
+    <div class="field-value">"I wanted this job in a big box with a big red bow on top of it" (Take 1) is stronger than anything scripted for that beat and must be spliced in. "Tick the box. Tick the box. Tick." (Take 2) and "he is a man with the plan" (Take 2) are both unscripted and better than the page. "I'd never asked myself, like, but where?" (Take 2) is the most intimate moment in Story 1 — distinct from and deeper than the "terms and conditions" punchline itself. Take 2 as a whole sounds like Uche is wondering, not explaining. Take 1 sounds like she's delivering a conclusion she already reached. Take 2's register is the one to preserve.</div>
   </div>
 
   <div class="field">
     <div class="field-label">Where the Recording Diverged — Worth Keeping</div>
-    <div class="field-value">Both takes independently extended past the scripted ending into a softer, resolved close ("that's okay, we all have terms and conditions" in Take 1; "roll with it, accept the journey" in Take 2). Decision: not kept. The harder, unresolved stop is right for an episode whose stated purpose is to refuse a tidy lesson. The fact that both takes pulled toward the same softer ending is real information — Uche's natural instinct is to land the plane gently — but the scripted stop is the correct editorial choice here.</div>
+    <div class="field-value">Both takes independently extended past the scripted ending into a softer, resolved close. Decision: not kept. The harder, unresolved stop is right for an episode whose stated purpose is to refuse a tidy lesson.</div>
   </div>
 
   <div class="field">
-    <div class="field-label">Spontaneous Lines to Preserve</div>
-    <div class="field-value">
-      <ul>
-        <li>"I wanted this job in a big box with a big red bow on top of it." (Take 1 — must be spliced in)</li>
-        <li>"Tick the box. Tick the box. Tick." (Take 2)</li>
-        <li>"He is a man with the plan." (Take 2)</li>
-        <li>"I'd never asked myself, like, but where?" (Take 2)</li>
-      </ul>
-    </div>
+    <div class="field-label">Spontaneous Lines to Preserve — Exact Words</div>
+    <ul class="multi-list">
+      <li>"I wanted this job in a big box with a big red bow on top of it." (Take 1 — must be spliced in)</li>
+      <li>"Tick the box. Tick the box. Tick." (Take 2)</li>
+      <li>"He is a man with the plan." (Take 2)</li>
+      <li>"I'd never asked myself, like, but where?" (Take 2)</li>
+    </ul>
   </div>
 
   <div class="section-head">Pull Quotes</div>
 
   <div class="field">
     <div class="field-label">Quote Candidates — Exact Words from Recording</div>
-    <div class="field-value">
-      <ul>
-        <li>"Apparently, I had terms and conditions. Who knew?"</li>
-        <li>"I wanted this job in a big box with a big red bow on top of it."</li>
-        <li>"His terms and conditions turned out to be complete BS."</li>
-        <li>"They don't have the same ending at all. And they don't even teach the same lesson."</li>
-        <li>"Once you've seen your terms and conditions, you can't unsee them."</li>
-      </ul>
-    </div>
+    <ul class="multi-list">
+      <li>"Apparently, I had terms and conditions. Who knew?"</li>
+      <li>"I wanted this job in a big box with a big red bow on top of it."</li>
+      <li>"His terms and conditions turned out to be complete BS."</li>
+      <li>"They don't have the same ending at all. And they don't even teach the same lesson."</li>
+      <li>"Once you've seen your terms and conditions, you can't unsee them."</li>
+    </ul>
   </div>
 
   <div class="field">
     <div class="field-label">Strongest Single Line for Quote Graphic</div>
-    <div class="field-value italic">"Apparently, I had terms and conditions. Who knew?"</div>
+    <div class="field-value">"Apparently, I had terms and conditions. Who knew?"</div>
   </div>
 
   <div class="section-head">Companion Resource</div>
 
   <div class="field">
     <div class="field-label">Decision</div>
-    <div class="field-value"><strong>No.</strong> Decided: this episode has no actionable framework to extend into a resource — the point is the absence of a clean takeaway, and a resource would undercut that. Pull quote graphic (see above) is the right extension instead.</div>
+    <div class="field-value">No. This episode has no actionable framework to extend into a resource — the point is the absence of a clean takeaway. Pull quote graphic is the right extension instead.</div>
   </div>
 
-</div><!-- /overview -->
+</div>
 
 <!-- TAB 2: TOLU -->
-<div id="tolu" class="tab-content">
+<div class="tab-content" id="tolu">
+
+  <div class="section-head red">Two-Take Splice — Do Not Miss This</div>
+  <div class="field">
+    <div class="field-value highlight">This episode is NOT a single-take edit. Master is Take 2 throughout — except one line, which must be pulled in from Take 1: "I wanted this job in a big box with a big red bow on top of it." This replaces Take 2's flatter equivalent line in the same spot in Story 1. If only Take 2 is opened in the edit, this line will be missing by default.</div>
+  </div>
 
   <div class="section-head">Edit Instructions</div>
 
   <div class="field">
     <div class="field-label">Overall Instruction</div>
-    <div class="field-value">The single highest-stakes moment in this edit is the transition out of Story 1, not a restart or a cut. The thumbnail hooks people on the DRC story, and the only thing that stops them leaving once that story resolves is whether this transition still lands: "Apparently, I had terms and conditions. Who knew?" into "I'd never asked myself, like, but where?" That is the line where the listener stops listening for DRC and starts listening for themselves. Do not tighten or rush this for pacing — if it gets cut close, the episode plays as a self-contained anecdote and people log off before Story 2 starts.</div>
+    <div class="field-value">The single highest-stakes moment in this edit is the transition out of Story 1. The thumbnail hooks people on the DRC story, and the only thing that stops them leaving once that story resolves is whether this transition still lands: "Apparently, I had terms and conditions. Who knew?" into "I'd never asked myself, like, but where?" That is the line where the listener stops listening for DRC and starts listening for themselves. Do not tighten or rush this for pacing — if it gets cut close, the episode plays as a self-contained anecdote and people log off before Story 2 starts.</div>
   </div>
 
   <div class="field">
     <div class="field-label">Tone to Preserve</div>
-    <div class="field-value">Wondering, not explaining. Take 2 has this; Take 1 doesn't. Don't tighten pacing in a way that makes it sound more like a resolved argument or a conclusion being delivered.</div>
+    <div class="field-value">Wondering, not explaining. Take 2 has this; Take 1 doesn't. Don't tighten pacing in a way that makes it sound more like a resolved argument.</div>
   </div>
 
   <div class="field">
     <div class="field-label">Restart Markers</div>
-    <div class="field-value">"strawberry" used throughout. Most are simple retakes — cut to the clean version. Three need a real decision rather than a mechanical cut:<br><br>
-    (1) ~05:43 — the restart changes the actual claim about the colleague's interest level, not just the phrasing. Confirm which version is accurate before cutting.<br><br>
-    (2) ~07:06–07:34 — several strawberries close together around the "work they were familiar with" beat. Confirm final phrasing.<br><br>
-    (3) ~12:41–13:27 — see Pacing Notes below.</div>
+    <div class="field-value">"strawberry" used throughout. Most are simple retakes. Three need a real decision rather than a mechanical cut:<br><br>~05:43 — the restart changes the actual claim about the colleague's interest level, not just the phrasing. Confirm which version is accurate.<br><br>~07:06–07:34 — several strawberries close together around the "work they were familiar with" beat. Confirm final phrasing.<br><br>~12:41–13:27 — see Pacing Notes.</div>
   </div>
 
   <div class="field">
     <div class="field-label">Pacing Notes</div>
-    <div class="field-value">12:41–13:27: "the other colleague learned..." is restarted three times in close succession with scattered strawberries. Use the cleanest single full pass — not the last one by default. Compare all three phrasings before choosing.<br><br>Do not rush the pause after "It's in the DRC" before the "Oh." That silence is doing as much work as the line itself.</div>
+    <div class="field-value">12:41–13:27: "the other colleague learned..." is restarted three times in close succession. Use the cleanest single full pass — not the last one by default. Compare all three before choosing.<br><br>Do not rush the pause after "It's in the DRC" before the "Oh." That silence is doing as much work as the line itself.</div>
   </div>
 
   <div class="section-head">Sections</div>
 
   <div class="field">
     <div class="field-label">Open</div>
-    <div class="field-value">First line: "I completely remember this phone call like it was yesterday..." Keep the aside about laughing every time she tells it — it sets the tone before the story starts.</div>
+    <div class="field-value">First line: "I completely remember this phone call like it was yesterday..." Keep the aside about laughing every time she tells it.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Story 1 — The CEO Call</div>
-    <div class="field-value">Protect the DRC pause and "Oh," the "apparently, I had terms and conditions... who knew?" line, and "I'd never asked myself, like, but where?" Insert the Take 1 "big box, big red bow" line in place of Take 2's flatter equivalent. This is the highest-stakes transition in the episode — see Overall Instruction above. Remove the Julia Roberts / "coat hanger in my mouth" reference — episode now ends that beat at "All my teeth were showing."</div>
+    <div class="field-value">Protect the DRC pause and "Oh," the "apparently, I had terms and conditions... who knew?" line, and "I'd never asked myself, like, but where?" Insert the Take 1 "big box, big red bow" line in place of Take 2's flatter equivalent. Remove the Julia Roberts / "coat hanger in my mouth" reference — episode now ends that beat at "All my teeth were showing."</div>
   </div>
-
   <div class="field">
     <div class="field-label">Story 2 — The Colleague</div>
-    <div class="field-value">Protect "within less than twelve months, both of those things were challenged." Clean the 12:41–13:27 repeated section per Pacing Notes above.</div>
+    <div class="field-value">Protect "within less than twelve months, both of those things were challenged." Clean the 12:41–13:27 repeated section per Pacing Notes.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Story 3 — The Plan</div>
     <div class="field-value">Protect "tick the box. Tick the box. Tick." and "he is a man with the plan." Needs to land as genuinely sympathetic — the disappointment should feel real, not a setup for a gotcha.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Close</div>
-    <div class="field-value">Protect "they don't have the same ending at all... they don't even teach the same lesson" and the final line: "...every so often, life lives. Reality bites. And it exposes a term or condition that we didn't even know existed for us." Cut immediately after that line — no "roll with it," no "accept the journey," no sign-off. Music up right after.</div>
+    <div class="field-value">Protect "they don't have the same ending at all... they don't even teach the same lesson" and the final line: "...every so often, life lives. Reality bites. And it exposes a term or condition that we didn't even know existed for us." Cut immediately after — no "roll with it," no "accept the journey," no sign-off. Music up right after.</div>
   </div>
 
   <div class="section-head">Keep / Cut</div>
 
   <div class="field">
     <div class="field-label">Keep — Preserve These Moments</div>
-    <div class="field-value">
-      <ul>
-        <li>All marked peaks across all three stories — these are the emotional architecture, not just good lines. Especially the DRC pause before "Oh."</li>
-        <li>The Take 1 "big box, big red bow" line, spliced into the Take 2 master.</li>
-      </ul>
-    </div>
+    <ul class="multi-list">
+      <li>All marked peaks — emotional architecture, not just good lines. Especially the DRC pause before "Oh."</li>
+      <li>The Take 1 "big box, big red bow" line spliced into the Take 2 master.</li>
+    </ul>
   </div>
 
   <div class="field">
     <div class="field-label">Cut — Remove These Moments</div>
-    <div class="field-value">
-      <ul>
-        <li>Everything after the final peak line ("...existed for us.") — no resolved ending, no sign-off.</li>
-        <li>The Julia Roberts / "coat hanger in my mouth" reference — removed by decision. Episode now ends that beat at "All my teeth were showing."</li>
-      </ul>
-    </div>
+    <ul class="multi-list">
+      <li>Everything after the final peak line ("...existed for us.") — no resolved ending, no sign-off.</li>
+      <li>The Julia Roberts / "coat hanger in my mouth" reference — episode now ends that beat at "All my teeth were showing."</li>
+    </ul>
   </div>
 
   <div class="section-head">French Clips — TikTok</div>
@@ -289,309 +262,257 @@
     <div class="field-label">Quantity</div>
     <div class="field-value">Standard: 5–6 per episode</div>
   </div>
-
   <div class="field">
-    <div class="field-label">Priority Moments</div>
-    <div class="field-value">
-      <ul>
-        <li>The DRC pause and "Oh" — works without much context, pure reaction.</li>
-        <li>"Apparently, I had terms and conditions. Who knew?" — the thesis line, strongest single clip candidate.</li>
-        <li>"Tick the box. Tick the box. Tick." — rhythmic, lands even out of context.</li>
-        <li>"His terms and conditions turned out to be complete BS." — funny, standalone.</li>
-        <li>"They don't have the same ending at all... they don't even teach the same lesson."</li>
-      </ul>
-    </div>
+    <div class="field-label">Priority Moments for French</div>
+    <ul class="multi-list">
+      <li>The DRC pause and "Oh" — works without much context, pure reaction.</li>
+      <li>"Apparently, I had terms and conditions. Who knew?" — thesis line, strongest clip candidate.</li>
+      <li>"Tick the box. Tick the box. Tick." — rhythmic, lands even out of context.</li>
+      <li>"His terms and conditions turned out to be complete BS." — funny, standalone.</li>
+      <li>"They don't have the same ending at all... they don't even teach the same lesson."</li>
+    </ul>
   </div>
-
   <div class="field">
-    <div class="field-label">Hold-Back Instruction</div>
+    <div class="field-label">Hold-Back</div>
     <div class="field-value">Standard: hold 1–2 clips for the week following the episode drop.</div>
   </div>
 
   <div class="section-head">English Clips — For Gbemi</div>
-
   <div class="field">
     <div class="field-label">Quantity</div>
     <div class="field-value">Standard: 3–4 per episode. See Clip Markers tab for full detail.</div>
   </div>
 
-</div><!-- /tolu -->
+</div>
 
 <!-- TAB 3: CLIP MARKERS -->
-<div id="clips" class="tab-content">
+<div class="tab-content" id="clips">
 
-  <div class="section-head">Clip Markers</div>
-
-  <div class="field">
-    <div class="field-label">Timestamp Status</div>
-    <div class="field-value">Timestamps below are approximate, pulled from the RAW Take 2 transcript — marked with ~ so Tolu knows where to start looking, not a final cut point. They will shift once the 12:41–13:27 section is cleaned and the Take 1 line is spliced in. Confirm final timestamps against the edited version before they go to Gbemi.</div>
-  </div>
+  <p class="italic-note">Timestamps are approximate, pulled from the RAW Take 2 transcript — marked with ~ so Tolu knows where to start looking. They will shift once the 12:41–13:27 section is cleaned and the Take 1 line is spliced in. Confirm final timestamps against the edited version before they go to Gbemi.</p>
 
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 01 — The DRC Pause</span>
-      <span class="clip-ts">~02:24–02:30</span>
+      <span class="clip-time">~02:24–02:30</span>
     </div>
+    <div class="clip-title">Pre-launch teaser — confirmed posting sequence</div>
     <div class="clip-quote">"It's in the DRC" → the pause → "Oh."</div>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">Instagram + YouTube Shorts</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-meta-value">Strongest cold-open clip for someone who's never heard the show. Do not rush the pause in the edit. Pre-launch teaser — confirmed posting sequence.</div>
+    <div class="clip-note">Strongest cold-open clip for someone who's never heard the show. Do not rush the pause in the edit.</div>
   </div>
 
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 02 — Terms and Conditions</span>
-      <span class="clip-ts">~03:01–03:25</span>
+      <span class="clip-time">~03:01–03:25</span>
     </div>
+    <div class="clip-title">Launch day clip — confirmed posting sequence</div>
     <div class="clip-quote">"Apparently, I had terms and conditions. Who knew?"</div>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">Instagram + YouTube Shorts</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-meta-value">Top priority — the thesis reveal. Best candidate for quote graphic too. Launch day clip — confirmed posting sequence.</div>
+    <div class="clip-note">Top priority — the thesis reveal. Best candidate for quote graphic too.</div>
   </div>
 
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 03 — Man With the Plan</span>
-      <span class="clip-ts">~10:03–10:58</span>
+      <span class="clip-time">~10:03–10:58</span>
     </div>
+    <div class="clip-title">Week-after-launch sustain option</div>
     <div class="clip-quote">"Tick the box. Tick the box. Tick." into "He is a man with the plan."</div>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">Instagram</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-meta-value">Good combined clip — shows the turn from funny to sympathetic. Week-after-launch sustain option.</div>
+    <div class="clip-note">Good combined clip — shows the turn from funny to sympathetic.</div>
   </div>
 
   <div class="clip-card">
     <div class="clip-header">
       <span class="clip-num">Clip 04 — Reality Bites</span>
-      <span class="clip-ts">~13:57–14:32</span>
+      <span class="clip-time">~13:57–14:32</span>
     </div>
+    <div class="clip-title">Week-after-launch sustain option</div>
     <div class="clip-quote">"...every so often, life lives. Reality bites. And it exposes a term or condition that we didn't even know existed for us."</div>
     <div class="clip-meta-label">Platform</div>
     <div class="clip-meta-value">YouTube Shorts</div>
     <div class="clip-meta-label">Why it works</div>
-    <div class="clip-meta-value">Best clip for someone deciding whether to listen to the full episode. Week-after-launch sustain option.</div>
+    <div class="clip-note">Best clip for someone deciding whether to listen to the full episode.</div>
   </div>
 
-  <div class="field" style="margin-top:20px">
-    <div class="field-label">Posting Sequence <span class="confirmed">Confirmed</span></div>
-    <div class="field-value"><strong>Locked.</strong> Clip 1 (DRC pause / "Oh") as pre-launch teaser. Clip 2 ("terms and conditions, who knew?") on launch day. Clip 3 or 4 the following week to sustain. Same sequence logic as the apology episode.</div>
+  <div class="field" style="margin-top:16px">
+    <div class="field-label">Posting Sequence — Confirmed</div>
+    <div class="field-value">Locked. Clip 1 (DRC pause) as pre-launch teaser. Clip 2 ("terms and conditions, who knew?") on launch day. Clip 3 or 4 the following week to sustain.</div>
   </div>
 
   <div class="field">
     <div class="field-label">French Clips — Source and Timing</div>
-    <div class="field-value">5–6 per episode, cut by Tolu from the same four peak moments above once the French dub is ready. 3–4 go out in episode week; hold 1–2 back for the following week, per standard rhythm. Fresh clips must post within 48 hours of the English drop.</div>
+    <div class="field-value">5–6 per episode, cut by Tolu from the same four peak moments above once the French dub is ready. 3–4 go out in episode week; hold 1–2 back for the following week. Fresh clips must post within 48 hours of the English drop.</div>
   </div>
 
-</div><!-- /clips -->
+</div>
 
 <!-- TAB 4: CHAPTERS -->
-<div id="chapters" class="tab-content">
+<div class="tab-content" id="chapters">
 
-  <div class="section-head">Episode Chapters</div>
+  <p class="italic-note">Draft titles based on Take 2 structure with approximate (~) timestamps from the raw transcript. Tolu to confirm final timestamps against the edited version before publishing.</p>
 
-  <p class="chapters-note">Draft titles based on Take 2 structure with approximate (~) timestamps from the raw transcript. Tolu to confirm final timestamps against the edited version before publishing — do not finalize before then.</p>
+  <div class="chapter-row"><span class="chapter-time">~00:00</span><span class="chapter-title">The phone call</span></div>
+  <div class="chapter-row"><span class="chapter-time">~02:24</span><span class="chapter-title">It's in the DRC</span></div>
+  <div class="chapter-row"><span class="chapter-time">~03:01</span><span class="chapter-title">Apparently, I had terms and conditions</span></div>
+  <div class="chapter-row"><span class="chapter-time">~04:53</span><span class="chapter-title">What this is actually about</span></div>
+  <div class="chapter-row"><span class="chapter-time">~05:13</span><span class="chapter-title">The colleague who wasn't interested</span></div>
+  <div class="chapter-row"><span class="chapter-time">~08:19</span><span class="chapter-title">His terms and conditions were BS</span></div>
+  <div class="chapter-row"><span class="chapter-time">~09:48</span><span class="chapter-title">The third story</span></div>
+  <div class="chapter-row"><span class="chapter-time">~10:58</span><span class="chapter-title">A man with a plan</span></div>
+  <div class="chapter-row"><span class="chapter-time">~12:19</span><span class="chapter-title">Three stories, no shared lesson</span></div>
+  <div class="chapter-row"><span class="chapter-time">~13:27</span><span class="chapter-title">Once you've seen it, you can't unsee it</span></div>
 
-  <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">The phone call</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~02:24</span><span class="chapter-title">It's in the DRC</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~03:01</span><span class="chapter-title">Apparently, I had terms and conditions</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~04:53</span><span class="chapter-title">What this is actually about</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~05:13</span><span class="chapter-title">The colleague who wasn't interested</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~08:19</span><span class="chapter-title">His terms and conditions were BS</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~09:48</span><span class="chapter-title">The third story</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~10:58</span><span class="chapter-title">A man with a plan</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~12:19</span><span class="chapter-title">Three stories, no shared lesson</span></div>
-  <div class="chapter-row"><span class="chapter-ts">~13:27</span><span class="chapter-title">Once you've seen it, you can't unsee it</span></div>
-
-</div><!-- /chapters -->
+</div>
 
 <!-- TAB 5: SHOW NOTES -->
-<div id="shownotes" class="tab-content">
-
-  <div class="section-head">Show Notes</div>
+<div class="tab-content" id="shownotes">
 
   <div class="field">
     <div class="field-label">Opening Line</div>
     <div class="field-value">I remember this phone call like it was yesterday.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Episode Description</div>
     <div class="field-value">Uche tells three stories about discovering hidden assumptions the hard way: her own disappointment when offered the CEO role she'd always wanted — just not in the country she'd pictured; a colleague who spent years certain he had no interest in international work or a senior promotion, then got both within a year of saying yes once; and a third leader whose career plan was completely deliberate and transparent, who still didn't get the role the whole plan was built toward. The episode resists turning into a tidy leadership lesson on purpose — it ends on discovery, not advice.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Key Themes</div>
-    <div class="field-value">
-      <ul>
-        <li>We carry assumptions about what we want that we don't discover until reality tests them</li>
-        <li>Saying yes to an unglamorous, doesn't-look-like-progress opportunity can open doors that don't exist yet</li>
-        <li>Being completely deliberate and transparent about a career plan is no guarantee the plan pays out</li>
-        <li>The three stories don't share an ending or a lesson — they're connected only by the fact that reality tested a theory each person didn't know they were holding</li>
-        <li>The episode ends on the discomfort of that, not a resolution</li>
-      </ul>
-    </div>
+    <div class="field-value">We carry assumptions about what we want that we don't discover until reality tests them · Saying yes to an unglamorous opportunity can open doors that don't exist yet · A deliberate, transparent plan is no guarantee it pays out · The three stories share no ending or lesson — only that reality tested an unexamined theory · The episode ends on discomfort, not resolution</div>
   </div>
-
   <div class="field">
-    <div class="field-label">Resource Link</div>
+    <div class="field-label">Resource</div>
     <div class="field-value">None. No companion resource for this episode.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Chapters</div>
     <div class="field-value">See Chapters tab. Add confirmed timestamps once Tolu's edit is locked.</div>
   </div>
 
-</div><!-- /shownotes -->
+</div>
 
 <!-- TAB 6: SOCIAL -->
-<div id="social" class="tab-content">
+<div class="tab-content" id="social">
 
   <div class="section-head">Instagram</div>
-
   <div class="field">
     <div class="field-label">Launch Day Caption</div>
-    <div class="field-value italic">Draft once final cut is confirmed. Lead with the idea, not the announcement.</div>
+    <div class="field-value">Draft once final cut is confirmed. Lead with the idea, not the announcement.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Quote Graphic Caption</div>
     <div class="field-value">"Apparently, I had terms and conditions. Who knew?" — stands alone, no setup needed.</div>
   </div>
 
   <div class="section-head">Facebook</div>
-
   <div class="field">
     <div class="field-label">Feed Post</div>
-    <div class="field-value italic">Draft once final cut is confirmed. Frame the question the episode explores, not the announcement.</div>
+    <div class="field-value">Draft once final cut is confirmed. Frame the question the episode explores, not the announcement.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Community — Early Access</div>
     <div class="field-value">Episode goes public tomorrow. It is yours tonight.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Community — Discussion Prompt</div>
-    <div class="field-value italic">Draft once theme framing is confirmed. Something like: what's an assumption about yourself you only discovered when reality tested it?</div>
+    <div class="field-value">Draft once theme framing is confirmed. Something like: what's an assumption about yourself you only discovered when reality tested it?</div>
   </div>
 
   <div class="section-head">YouTube</div>
-
   <div class="field">
     <div class="field-label">Shorts</div>
     <div class="field-value">Clip 1 (DRC pause) for pre-launch; Clip 2 (terms and conditions) launch day. See Clip Markers tab for full confirmed sequence.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Community Prompt</div>
-    <div class="field-value italic">Same as Facebook community. Same day.</div>
+    <div class="field-value">Same as Facebook community. Same day.</div>
   </div>
 
   <div class="section-head">TikTok (French)</div>
-
   <div class="field">
     <div class="field-label">Episode Week</div>
     <div class="field-value">3–4 fresh French clips across Tuesday, Thursday, Saturday. Within 48 hours of the English drop.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Caption Note</div>
-    <div class="field-value">French title and thumbnail are still being A/B tested (see Overview tab) — do not finalize French captions until Gbemi confirms which title/thumbnail direction tested best.</div>
+    <div class="field-value">French title and thumbnail are still being A/B tested — do not finalize French captions until Gbemi confirms which direction tested best.</div>
   </div>
 
-</div><!-- /social -->
+</div>
 
 <!-- TAB 7: LINKEDIN -->
-<div id="linkedin" class="tab-content">
+<div class="tab-content" id="linkedin">
 
-  <div class="section-head">LinkedIn — Uche Manages Directly</div>
-
-  <p style="font-style:italic; font-size:12px; color:#999; margin-bottom:20px;">These drafts are for Uche's reference only. Not for Gbemi to post.</p>
+  <p class="italic-note">Uche manages LinkedIn directly. These are starting points, not for Gbemi to post.</p>
 
   <div class="field">
     <div class="field-label">Sunday — Pre-Post</div>
-    <div class="field-value italic">Sets up the theme without giving the episode away. Draft once final cut is confirmed. End on something unresolved — do not give away the episode.</div>
+    <div class="field-value">Sets up the theme without giving the episode away. Draft once final cut is confirmed. End on something unresolved.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Tuesday — Launch Post</div>
-    <div class="field-value italic">Opens with the idea, not the announcement. Episode link at the end. Native video clip uploaded directly — no external YouTube link. Draft once final cut is confirmed.</div>
+    <div class="field-value">Opens with the idea, not the announcement. Episode link at the end. Native video clip uploaded directly — no external YouTube link. Draft once final cut is confirmed.</div>
   </div>
-
   <div class="field">
     <div class="field-label">Saturday / Sunday — Reflective Follow-Up</div>
-    <div class="field-value italic">Takes the conversation further. Draft after gauging early response to the episode.</div>
+    <div class="field-value">Takes the conversation further. Draft after gauging early response to the episode.</div>
   </div>
 
-</div><!-- /linkedin -->
+</div>
 
 <!-- TAB 8: HANDOFF -->
-<div id="handoff" class="tab-content">
+<div class="tab-content" id="handoff">
+
+  <div class="section-head red">Two-Take Splice — Do Not Miss This</div>
+  <div class="field">
+    <div class="field-value highlight">Master is Take 2 throughout — except one line from Take 1: "I wanted this job in a big box with a big red bow on top of it." If only Take 2 is opened in the edit, this line will be missing by default.</div>
+  </div>
 
   <div class="section-head">Team Handoff</div>
 
-  <div class="warn-box" style="margin-bottom:16px;">
-    <div class="warn-label">▲ Two-take splice — do not miss this</div>
-    <p>This episode is NOT a single-take edit. Master is Take 2 throughout — except one line, which must be pulled in from Take 1: "I wanted this job in a big box with a big red bow on top of it." This replaces Take 2's flatter equivalent line in the same spot in Story 1. If only Take 2 is opened in the edit, this line will be missing by default.</p>
-  </div>
-
   <div class="field">
     <div class="field-label">For Tolu</div>
-    <div class="field-value">Master is Take 2 (see splice flag above for the one exception). Highest priority: protect the Story 1→2 transition ("who knew?" into "but where?") — full detail in the Tolu tab. The thumbnail hooks on the DRC story; if that transition gets cut too tight, people log off before Story 2 starts and the episode becomes a self-contained anecdote instead of what it actually is.<br><br>
-    Clean the 12:41–13:27 repeated section — pick the cleanest single pass, not the last one by default. Three strawberry markers need real decisions rather than mechanical cuts: ~05:43 (claim changes, not just phrasing), ~07:06–07:34 (confirm final phrasing), and the 12:41–13:27 stretch. Cut everything after the final peak line ("...existed for us.") — no resolved ending, no sign-off. Music up immediately after. Tone throughout: wondering, not explaining.</div>
+    <div class="field-value">Master is Take 2 (see splice flag above). Highest priority: protect the Story 1→2 transition ("who knew?" into "but where?") — full detail in the Tolu tab. The thumbnail hooks on the DRC story; if that transition gets cut too tight, people log off before Story 2 starts.<br><br>Clean the 12:41–13:27 repeated section. Three strawberry markers need real decisions: ~05:43 (claim changes, not just phrasing), ~07:06–07:34 (confirm final phrasing), and the 12:41–13:27 stretch. Cut everything after "...existed for us." — no resolved ending, no sign-off. Music up immediately after. Tone throughout: wondering, not explaining.</div>
   </div>
 
   <div class="field">
     <div class="field-label">For Gbemi</div>
-    <div class="field-value">No companion resource — pull quote graphic instead, built from Quote 1 or Quote 2 in the Overview tab. Floor connection is Presence — flag in show notes and socials if framework references are used. French title and thumbnail are both still being A/B tested (see Overview tab) — confirm final direction before French assets are finalized. Clip posting sequence is confirmed and locked (see Clip Markers tab).</div>
+    <div class="field-value">No companion resource — pull quote graphic instead, built from Quote 1 or Quote 2 in the Overview tab. Floor connection is Presence. French title and thumbnail are both still being A/B tested — confirm final direction before French assets are finalized. Clip posting sequence is confirmed and locked (see Clip Markers tab).</div>
   </div>
 
   <div class="field">
     <div class="field-label">Coordination Note</div>
-    <div class="field-value">English drops Tuesday as usual. French TikTok clips within 48 hours of English drop. <strong>This episode is flagged for French retention tracking</strong> against Building Teams and typical solo episodes — see the flag at the top of this sheet. This is a second useful data point for the open French retention question; note the numbers specifically.</div>
+    <div class="field-value">English drops Tuesday as usual. French TikTok clips within 48 hours of English drop. This episode is flagged for French retention tracking against Building Teams and typical solo episodes.</div>
   </div>
 
   <div class="section-head">Open Items</div>
-
-  <div class="field">
-    <div class="field-label">Pending</div>
-    <div class="field-value">
-      <ul>
-        <li>French title ("Je pensais savoir ce que je voulais") and French thumbnail — both need A/B test results before final lock.</li>
-        <li>Final timestamps for all clips and chapters — pending Tolu's edit.</li>
-        <li>LinkedIn and social copy drafts — pending final cut confirmation.</li>
-      </ul>
-    </div>
-  </div>
+  <ul class="multi-list">
+    <li>French title and thumbnail — both need A/B test results before final lock.</li>
+    <li>Final timestamps for all clips and chapters — pending Tolu's edit.</li>
+    <li>LinkedIn and social copy drafts — pending final cut confirmation.</li>
+  </ul>
 
   <div class="section-head">Forward Notes</div>
-
-  <div class="field">
-    <div class="field-label">Future Episode Seeds</div>
-    <div class="field-value">
-      <ul>
-        <li>The gap between self-belief and what reality reveals under test as a standalone concept — this episode surfaces it clearly but doesn't name it as a recurring frame. Worth developing further.</li>
-      </ul>
-    </div>
-  </div>
-
   <div class="field">
     <div class="field-label">Leadership Infrastructure — Notes for the Book</div>
-    <div class="field-value">Floor 5 (Presence) material: the gap between self-belief and what reality reveals under test. The "terms and conditions" framing itself could be a useful recurring concept in the book beyond this single episode — the idea that we all carry unstated conditions on what we say we want, and rarely discover them until reality runs a test.</div>
+    <div class="field-value">Floor 5 (Presence) material: the gap between self-belief and what reality reveals under test. The "terms and conditions" framing could be a useful recurring concept in the book — we all carry unstated conditions on what we say we want, and rarely discover them until reality runs a test.</div>
   </div>
 
-</div><!-- /handoff -->
+</div>
 
-<div class="footer">The Smile Collective · Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+<div class="footer">The Smile Collective &nbsp;·&nbsp; Don't Let The Smile Fool You &nbsp;·&nbsp; Post-Recording Capture Sheet</div>
 
 <script>
 function showTab(btn, id) {
-  document.querySelectorAll('.tab-content').forEach(function(t) { t.classList.remove('active'); });
-  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
 }
