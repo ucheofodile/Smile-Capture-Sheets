@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elsie Akinsanya — Post-Recording Capture Sheet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #fafafa; color: #1a1a1a; font-size: 15px; line-height: 1.7; }
+
+  .header { background: #1a1a1a; color: #fff; padding: 28px 36px 24px; }
+  .header-eyebrow { font-family: Arial, sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .header-title { font-size: 22px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; }
+  .header-meta { font-family: Arial, sans-serif; font-size: 12px; color: #aaa; }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 0; background: #111; padding: 0 36px; border-bottom: 1px solid #333; }
+  .tab { font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 12px 16px; cursor: pointer; color: #777; border: none; background: none; border-bottom: 2px solid transparent; transition: color 0.15s; }
+  .tab:hover { color: #ccc; }
+  .tab.active { color: #fff; border-bottom-color: #fff; }
+
+  .content { max-width: 860px; margin: 0 auto; padding: 36px 36px 80px; }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .section-head { font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; background: #1a1a1a; padding: 7px 14px; margin: 32px 0 16px; }
+  .section-head.red { background: #8a1f1f; }
+
+  .field { margin-bottom: 20px; }
+  .field-label { font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 6px; }
+  .field-value { background: #f4f4f4; border-left: 3px solid #1a1a1a; padding: 12px 16px; font-size: 14px; line-height: 1.75; color: #1a1a1a; }
+  .field-value.accent { border-left-color: #8a1f1f; }
+
+  .quote-block { background: #1a1a1a; color: #fff; padding: 16px 20px; margin-bottom: 12px; border-left: 4px solid #8a1f1f; font-style: italic; font-size: 14px; line-height: 1.75; }
+  .quote-attr { font-family: Arial, sans-serif; font-size: 10px; color: #888; margin-top: 6px; font-style: normal; }
+
+  .clip-card { border-left: 3px solid #1a1a1a; background: #f4f4f4; padding: 16px 20px; margin-bottom: 20px; }
+  .clip-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .clip-num { font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #999; }
+  .clip-time { font-family: monospace; font-size: 12px; color: #999; }
+  .clip-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .clip-quote { font-style: italic; font-size: 13px; color: #444; margin-bottom: 8px; line-height: 1.7; border-left: 2px solid #ccc; padding-left: 12px; }
+  .clip-meta-label { font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-top: 8px; margin-bottom: 2px; }
+  .clip-meta-value { font-size: 13px; color: #444; }
+
+  .chapter-row { display: flex; gap: 20px; padding: 10px 0; border-bottom: 1px solid #e8e8e8; align-items: baseline; }
+  .chapter-ts { font-family: monospace; font-size: 13px; color: #999; min-width: 55px; }
+  .chapter-title { font-size: 14px; color: #1a1a1a; }
+
+  .chapters-note { font-family: Arial, sans-serif; font-size: 12px; color: #999; font-style: italic; margin-bottom: 20px; }
+
+  .multi-item { margin-bottom: 10px; font-size: 14px; line-height: 1.75; padding-left: 20px; position: relative; }
+  .multi-item::before { content: "—"; position: absolute; left: 0; color: #999; }
+
+  .handoff-block { background: #1a1a1a; color: #fff; padding: 20px 24px; margin-bottom: 20px; }
+  .handoff-label { font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+  .handoff-text { font-size: 14px; line-height: 1.8; color: #e8e8e8; }
+
+  .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e8e8e8; font-family: Arial, sans-serif; font-size: 10px; color: #bbb; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+  <div class="header-title">Elsie Akinsanya — You Think You Have Time</div>
+  <div class="header-meta">Guest Episode · Recorded July 2026 · Growth Floor + Foundation Floor</div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab(this,'overview')">Overview</button>
+  <button class="tab" onclick="showTab(this,'tolu')">Tolu</button>
+  <button class="tab" onclick="showTab(this,'clips')">Clip Markers</button>
+  <button class="tab" onclick="showTab(this,'chapters')">Chapters</button>
+  <button class="tab" onclick="showTab(this,'shownotes')">Show Notes</button>
+  <button class="tab" onclick="showTab(this,'social')">Social</button>
+  <button class="tab" onclick="showTab(this,'linkedin')">LinkedIn</button>
+  <button class="tab" onclick="showTab(this,'handoff')">Handoff</button>
+</div>
+
+<div class="content">
+
+<!-- ── OVERVIEW ── -->
+<div class="panel active" id="overview">
+
+  <div class="section-head">Core Message</div>
+
+  <div class="field">
+    <div class="field-label">Spine</div>
+    <div class="field-value">Most senior women know, cerebrally, that careers have timelines. What they don't know is that the institution already has a clearer view of that timeline than they do — and that the infrastructure they've been standing on (the title, the EA, the brand, the social capital, the relationships that answered their calls) is not theirs. It belongs to the institution. This episode is about what it costs to find that out too late — and what you can start building now, while you still have access to all of it.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">The Distinction</div>
+    <div class="field-value">This is not a "plan your retirement" conversation. It is not an "you can have it all" conversation either — Elsie calls that a lie explicitly, and it lands. The distinction is between financial security (your salary continues) and financial flexibility (you could make a free choice tomorrow). Most senior women have the first. Almost none have built the second. That is the gap this episode names.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Operating Principle</div>
+    <div class="field-value">Start building what you need to survive outside the institution while you are still inside it — your financial structures, your external visibility, your relationships that are connected to you not your title, your skills that don't require an EA and a budget to deploy. The time to build that infrastructure is when you have the income, the access, and the momentum. Not when you need it.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">The Cost</div>
+    <div class="field-value accent">When a senior woman doesn't understand this, she arrives at the moment of transition — chosen or not — and discovers she has been standing on borrowed infrastructure the entire time. The EA disappears. The relationships become transactional. The credibility that walked into rooms before her was the institution's brand, not hers. She feels untethered. Elsie uses that exact word, and it is the most honest word in the episode.</div>
+  </div>
+
+  <div class="section-head">Episode Details</div>
+
+  <div class="field">
+    <div class="field-label">Full Title — English</div>
+    <div class="field-value">You Think You Have Time</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Full Title — French</div>
+    <div class="field-value">Vous croyez avoir le temps</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Thumbnail — English</div>
+    <div class="field-value">I WISH I KNEW THIS AT 40</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Thumbnail — French</div>
+    <div class="field-value">CE QUE J'AURAIS AIMÉ SAVOIR À 40 ANS</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Episode Subtitle — English</div>
+    <div class="field-value">The Career Conversation Women Are Having Too Late</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Episode Subtitle — French</div>
+    <div class="field-value">La conversation sur la carrière que les femmes ont trop tard</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Format</div>
+    <div class="field-value">Guest — Elsie Akinsanya. Global Human Resources Leader, Executive Coach, Keynote Speaker. Former Managing Director HR at Citi (11 years 5 months). Former People Director, Corporate & Institutional Banking, Lloyds Banking Group. Currently Chief People Officer, Ubyx Inc.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Floor Connection</div>
+    <div class="field-value">Growth Floor primarily — this episode is about the architecture of a long career and what women need to build deliberately within it. Foundation Floor secondarily — financial flexibility, the structures that stabilize or destabilize everything else, is a thread throughout. The Basement is present but unspoken: the gap between what women perform (confidence, motion, forward momentum) and what they are not saying about the invisible clock.</div>
+  </div>
+
+  <div class="section-head">Recording Review</div>
+
+  <div class="field">
+    <div class="field-label">What Landed Better Than the Script</div>
+    <div class="field-value">The DFI story. Nothing in the framework anticipated this, and it is the strongest material in the recording. Elsie walked away from an MD role at Citi to take a position at a development finance institution in Africa — left without another job, told Citi no twice when they offered the role back — and three weeks before flying, found out the title structure had been quietly downgraded. She proposed an elegant compromise. It was refused. She walked. That story is the episode's proof of concept: a woman who has tested her own values under real pressure and held the line. Let it run uninterrupted at full length.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Where the Recording Diverged — Worth Keeping</div>
+    <div class="field-value">The sponsorship section ran longer and richer than scripted. Elsie's definition — "a sponsor is spending their social capital on you" — and her mechanics for finding one (find what lights you up and let people who are passionate about the same things find you) are better than anything in the original framework because they come from her lived mechanics, not a prompted answer. Keep this section. It is not a detour — it is the institutional knowledge section delivering exactly what was promised. Also: Uche's spontaneous disclosure about the tech company she joined and quickly knew was wrong — this came out naturally and worked exactly as intended, without the scripted MTN version.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Spontaneous Lines to Preserve</div>
+    <div class="field-value">
+      <div class="multi-item">"A sponsor is spending their social capital on you." — Elsie, on what sponsorship actually means.</div>
+      <div class="multi-item">"The word I used was untethered. I felt untethered." — Elsie, on the period after leaving Citi. This is the emotional centre of the episode. Do not cut it.</div>
+      <div class="multi-item">"You can have it all — that is a lie. There is a price to pay at every single point." — Elsie, near the close. Strongest single statement in the recording.</div>
+      <div class="multi-item">"We are going to finish this money here. We are. It's all here." — Elsie, on financial freedom. Unexpected, warm, very usable as a clip.</div>
+      <div class="multi-item">"I wasn't waking up excited anymore. I need to do something different." — Elsie to her Citi CEO, explaining why she was leaving despite being told her 80% equalled everyone else's 110%.</div>
+      <div class="multi-item">"Life is short. Why spend it doing stuff that doesn't serve you?" — Elsie, on leaving Lloyds. Simple. True. Clip it.</div>
+    </div>
+  </div>
+
+  <div class="section-head">Pull Quotes</div>
+
+  <div class="quote-block">"A sponsor is spending their social capital on you. They are taking a bet on you. They are putting their own brand on the line on your behalf. That is a gift you should never undermine."<div class="quote-attr">— Elsie Akinsanya</div></div>
+
+  <div class="quote-block">"The word I used was untethered. Like a ship drifting in the ocean with no anchor. Because yes, I am more than the sum of the job that I do, the title that I have — but it is a part of your identity."<div class="quote-attr">— Elsie Akinsanya</div></div>
+
+  <div class="quote-block">"You can have it all — that is a lie. There is a price to pay at every single point. There is a price to be paid. You can have some of it at different points in time, but there is a season for everything."<div class="quote-attr">— Elsie Akinsanya</div></div>
+
+  <div class="quote-block">"I hadn't built anything that would sustain me beyond the corporate world. And that was the lesson in that season."<div class="quote-attr">— Elsie Akinsanya</div></div>
+
+  <div class="quote-block">"Performance will only get you so far. At a certain point, the game changes. Performance is the baseline. Everything else is built upon that."<div class="quote-attr">— Elsie Akinsanya</div></div>
+
+  <div class="quote-block">"Freedom and the ability to dictate how you spend your time — I genuinely think that is priceless."<div class="quote-attr">— Elsie Akinsanya</div></div>
+
+  <div class="field">
+    <div class="field-label">Strongest Single Line for Quote Graphic</div>
+    <div class="field-value accent">"The word I used was untethered." — Elsie Akinsanya. Three words that do the work of a paragraph. Every senior woman who has lived a transition will stop at this.</div>
+  </div>
+
+  <div class="section-head">Companion Resource</div>
+
+  <div class="field">
+    <div class="field-label">Decision</div>
+    <div class="field-value">No. This episode is a conversation, not a framework delivery. A resource would dilute the intimacy of it. The episode itself is the resource. Elsie mentioned her So What's Next coaching programme — a natural link in show notes if she consents, but no Smile Collective companion resource needed for this one.</div>
+  </div>
+
+</div>
+
+<!-- ── TOLU ── -->
+<div class="panel" id="tolu">
+
+  <div class="section-head">Edit Instructions</div>
+
+  <div class="field">
+    <div class="field-label">Overall Instruction</div>
+    <div class="field-value">This is one of the strongest guest episodes in the catalogue. The priority is not cutting for time — it is protecting the emotional architecture. Target runtime: 70–80 minutes. The DFI story (Elsie's departure from Citi, the development finance institution that fell through, the conversations with the CEO) must run uninterrupted at full length. Do not compress it. It is the reason people will recommend this episode. Everything else can tighten around it.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Tone to Preserve</div>
+    <div class="field-value">This is a conversation between two women who have known each other for decades and are being honest about things they don't usually say publicly. Elsie speaks with warmth, precision, and occasional dry humour — "life is short, why spend it doing stuff that doesn't serve you?" and "we are going to finish this money here" are both spoken lightly, with a smile, not as declarations. The intimacy between the two of them is audible and should not be edited out. Uche's moments of genuine reaction ("I'm in awe of this, by the way") are real and should stay.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Two Separate Recording Files — Join Before Editing</div>
+    <div class="field-value accent">This episode was recorded in two separate files due to a power and connection interruption mid-recording. File 1 ends at the interruption point — approximately two thirds through the raw recording. File 2 picks up with Elsie recapping where she left off: "I wasn't ready. I hadn't built anything that would sustain me beyond the corporate world." Join both files into a single timeline before beginning the edit. The join point is clean — Elsie restarts mid-thought so there will be a small overlap to trim. Do not call attention to the interruption in the final edit. The audience should not hear it.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Restart Markers</div>
+    <div class="field-value">Uche uses "strawberry" twice — once around the 04:00 mark when she starts to tell the Group ExCo story and pulls back, and once around the 22:00 mark when she stumbles on Elsie's title. Both restarts are clean. Use the second take each time.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Pacing Notes</div>
+    <div class="field-value">The sponsorship section (roughly 12:00–22:00) is the section most at risk of losing listeners before the DFI story begins. It is valuable but runs long. Tighten the back-and-forth without losing Elsie's core mechanics: the social capital definition, the "find what lights you up" advice, the Black History Month example, and the MD promotion process explanation. The DFI story should begin no later than the 30-minute mark of the edited version. Once it starts, let it breathe. Do not rush to the next question.</div>
+  </div>
+
+  <div class="section-head">Sections</div>
+
+  <div class="field">
+    <div class="field-label">Open</div>
+    <div class="field-value">Uche opens directly with the 40-year-old CMO story — "I thought I was queen of the world." This is the right entry point. Keep exactly as recorded. First line to use: "When I turned 40, I was a Chief Marketing Officer..." Do not cut the personal admission. It sets the register for everything that follows.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">What Organisations Know</div>
+    <div class="field-value">Runs from approximately 04:00 to 12:00. Elsie's explanation of talent designations (promotable, SME, high potential) is the clearest articulation of institutional insider knowledge in any DLTSFY episode. Keep the full taxonomy. The "win the lottery" reframe from "run over by a bus" is a genuine moment — keep it. The distinction between talent designations and succession planning is important; Uche flags it and Elsie confirms they are different things. That exchange stays.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Sponsorship</div>
+    <div class="field-value">Runs approximately 12:00–22:00. Rich but long. The section to protect: "a sponsor is spending their social capital on you" — this is the pull quote. The section to tighten: the extended back-and-forth on how to find a sponsor can lose some elaboration without losing the argument. Keep: the "gave me the ick" admission from both of them, the diversity network example, the CEO one-to-one story ("who does that?"), and "there is no substitute for courage in corporate life." The closing advice — don't underplay your contribution, own your work, be courageous — is the natural endpoint of this section before the pivot to the Citi story.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Leaving Citi / The DFI Story</div>
+    <div class="field-value">This is the heart of the episode. Runs approximately 22:00–50:00 in the raw recording. Do not compress. The beats that must survive intact: (1) the Dubai posting and her husband's conversation at the breakfast bar — "we are not going to make it if you're not here"; (2) the DFI opportunity and what drew her to it — purpose, Africa, the chance to do something different; (3) the org chart discovery three weeks before flying; (4) the phone call with the CEO and the refusal of the elegant compromise; (5) Citi offering the job back twice and Elsie saying no both times; (6) why she didn't go back — "my why hadn't changed. I wasn't waking up excited anymore." Each of these is a distinct beat and should remain distinct in the edit.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Untethered / What You Were Standing On</div>
+    <div class="field-value">The period after the DFI fell through. The "fun employment" period. Elsie's realisation that she hadn't built anything that would sustain her outside the corporate world — no business development toolkit, no independent practice, no infrastructure that wasn't borrowed from the institution. The word "untethered" — keep it exactly as said. The EA/PA/diary management observation is not about admin support; it is about the invisible infrastructure of seniority that disappears without warning. Keep the relationship observation too: discovering that people's relationships with her were transactional when the title was gone. She says she found it "enlightening" rather than devastating — that restraint is the tone.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Lloyds / Ubyx</div>
+    <div class="field-value">Tighten. The Lloyds section is important for the arc — it shows she went back, built for a while, left again on her own terms — but the mechanics of how she found the role (search firm, CPO direct call) can compress. Keep: the cultural difference between Citi (US-centric) and Lloyds (very English), the observation that she was rebuilding social capital and ecosystem within a new institution, and the mutual separation when her role was restructured. The Ubyx section is brief and warm — four months in, loving it, Claude and I are besties right now. Keep that line. It will make people smile.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Building Before It's Urgent / Financial Freedom</div>
+    <div class="field-value">This section contains the episode's most practical material. Keep: the 47-year-old friend framing, Elsie's three-part closing advice (career planning, financial planning, toolkit building), and the "financial number" story where her CEO asked her what her number was. That story is specific and unexpected — it should stay at full length. Keep "we are going to finish this money here" — it is warm and very clippable. The financial security versus flexibility exchange at the end is flagged for a full episode; keep the flag in — it is an honest moment and it seeds the next conversation.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Close</div>
+    <div class="field-value">Uche's closing question — "what would you have done differently at 40, and what should the 40-year-old listening be thinking about today" — lands cleanly. Elsie's three answers (career planning, financial planning, building your outside toolkit) plus the "enjoy the journey" addition are the right close. Last line to use: "Please do that. Enjoy the journey." Do not cut this. It humanises two hours of strategic conversation in fifteen seconds. Final outro from Uche naming Elsie's coaching practice (ENA HR) and flagging a future financial freedom episode closes the episode correctly.</div>
+  </div>
+
+  <div class="section-head">Keep / Cut</div>
+
+  <div class="field">
+    <div class="field-label">Keep — Preserve These Moments</div>
+    <div class="field-value">
+      <div class="multi-item">"The word I used was untethered." Full passage. This is the emotional centre.</div>
+      <div class="multi-item">The DFI org chart discovery and the phone call with the CEO. Every beat. This story runs at full length.</div>
+      <div class="multi-item">Citi offering the job back twice. Elsie declining both times. The reason: "my why hadn't changed."</div>
+      <div class="multi-item">"You can have it all — that is a lie." Keep exactly as said.</div>
+      <div class="multi-item">The financial number story — the CEO who asked Elsie what her number was. Specific, unexpected, very usable.</div>
+      <div class="multi-item">"We are going to finish this money here." Warm line, good clip.</div>
+      <div class="multi-item">"Claude and I are besties right now." Keep. It will make people laugh.</div>
+      <div class="multi-item">"Please do that. Enjoy the journey." Final line of the episode.</div>
+      <div class="multi-item">Uche's tech company disclosure — "the minute I walked in the door I knew it was not the right place for me." Came out naturally, works as a shared moment without being the scripted MTN version.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Cut — Remove These Moments</div>
+    <div class="field-value">
+      <div class="multi-item">The technical interruptions — camera dropout and electricity issue approximately two thirds through. Stitch the join. Do not call attention to it.</div>
+      <div class="multi-item">Both strawberry restarts — use the second take each time.</div>
+      <div class="multi-item">Extended elaboration in the sponsorship section on mechanics of finding a sponsor — tighten without removing the core argument.</div>
+      <div class="multi-item">The Lloyds hiring process details (how the search firm reached out, why she said no initially to a retail bank) — compress to one transition sentence.</div>
+    </div>
+  </div>
+
+  <div class="section-head">French Clips — TikTok</div>
+
+  <div class="field">
+    <div class="field-label">Quantity</div>
+    <div class="field-value">5–6 clips per episode standard.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Priority Moments</div>
+    <div class="field-value">
+      <div class="multi-item">The untethered passage — powerful in any language. Flag for French dubbing carefully; the emotional weight needs to survive translation.</div>
+      <div class="multi-item">"You can have it all — that is a lie." Universal. Will land in French.</div>
+      <div class="multi-item">The talent designations explanation — this is information most listeners have never heard. High value for French audience.</div>
+      <div class="multi-item">"A sponsor is spending their social capital on you." Core definition. Clips well at under 60 seconds.</div>
+      <div class="multi-item">"Freedom and the ability to dictate how you spend your time — I genuinely think that is priceless." Good close for a clip.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Hold-Back Instruction</div>
+    <div class="field-value">Hold 1–2 clips for the week after episode drop. "We are going to finish this money here" and the "enjoy the journey" moment are good candidates for the follow week — lighter in tone, good contrast with the weightier clips used on launch week.</div>
+  </div>
+
+  <div class="section-head">English Clips — For Gbemi</div>
+
+  <div class="field">
+    <div class="field-label">Quantity</div>
+    <div class="field-value">3–4 clips.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Priority Clips</div>
+    <div class="field-value">
+      <div class="multi-item">CLIP 1 — Highest priority. The untethered passage. Elsie describing what it felt like when the institutional infrastructure was gone. "Like a ship drifting in the ocean with no anchor." Run from the question about identity through to "that was the birth of So What's Next for me." Approximately 90 seconds.</div>
+      <div class="multi-item">CLIP 2 — The talent designations explanation. Start from "organisations are always looking at what talent they have" through to "people don't know those conversations are happening about them in different rooms." This is the clip that makes new listeners stop and search for the episode. Approximately 60–75 seconds.</div>
+      <div class="multi-item">CLIP 3 — "You can have it all — that is a lie." Full passage through "there is a season for everything." Short, punchy, shareable. Under 45 seconds.</div>
+      <div class="multi-item">CLIP 4 — Optional. The DFI walk-away moment. "I'm not leaving an MD role at a global institution to go and be a director somewhere. I'm just not doing that." The conviction in this line is the episode in microcosm.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── CLIP MARKERS ── -->
+<div class="panel" id="clips">
+
+  <div class="section-head">Clip Markers</div>
+  <p class="chapters-note">Timestamps are approximate from the raw recording and must be confirmed from the edited version. Update before publishing.</p>
+
+  <div class="clip-card">
+    <div class="clip-header">
+      <span class="clip-num">CLIP 01</span>
+      <span class="clip-time">~28:00 – 30:00 (raw)</span>
+    </div>
+    <div class="clip-title">Untethered</div>
+    <div class="clip-quote">"The word I used was untethered. Like a ship drifting in the ocean with no anchor. Because yes, I am more than the sum of the job that I do, the title that I have — but it is a part of your identity. And you have to start to think about who am I outside of all of these things?"</div>
+    <div class="clip-meta-label">Platform</div>
+    <div class="clip-meta-value">Instagram, YouTube Shorts</div>
+    <div class="clip-meta-label">Why this works</div>
+    <div class="clip-meta-value">This is the moment that separates this episode from every other career transition conversation. "Untethered" is the word no one uses but everyone recognises. Every senior woman who has lived a transition will stop scrolling at this. The clip should run from Uche's question about whether losing the title felt some kind of way through to Elsie's "untethered" answer and the line about who am I outside of all of this.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-header">
+      <span class="clip-num">CLIP 02</span>
+      <span class="clip-time">~06:30 – 08:00 (raw)</span>
+    </div>
+    <div class="clip-title">What They're Saying About You</div>
+    <div class="clip-quote">"A lot of people don't know that those conversations are happening about them in different rooms. That's why sponsorship is super important."</div>
+    <div class="clip-meta-label">Platform</div>
+    <div class="clip-meta-value">Instagram, YouTube Shorts, TikTok (French)</div>
+    <div class="clip-meta-label">Why this works</div>
+    <div class="clip-meta-value">This is the clip that makes new listeners search for the full episode. The talent designations taxonomy — promotable, SME, high potential — is information most people have never heard explained plainly. It is specific, surprising, and immediately useful. Start from "organisations are always looking at what talent they have" and end at "in different rooms." Under 75 seconds.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-header">
+      <span class="clip-num">CLIP 03</span>
+      <span class="clip-time">~29:30 – 30:15 (raw)</span>
+    </div>
+    <div class="clip-title">That Is a Lie</div>
+    <div class="clip-quote">"You can have it all — that is a lie. There is a price to pay at every single point. You can have some of it at different points in time, but there is a season for everything."</div>
+    <div class="clip-meta-label">Platform</div>
+    <div class="clip-meta-value">Instagram, TikTok (French)</div>
+    <div class="clip-meta-label">Why this works</div>
+    <div class="clip-meta-value">Short, punchy, shareable. Elsie says this without anger and without performance — which is exactly what makes it land. The restraint is the point. Under 45 seconds, no setup needed.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-header">
+      <span class="clip-num">CLIP 04</span>
+      <span class="clip-time">~42:00 – 43:00 (raw)</span>
+    </div>
+    <div class="clip-title">I'm Not Doing That</div>
+    <div class="clip-quote">"I'm not leaving an MD role at a global institution to go and be a director somewhere. I'm just not doing that."</div>
+    <div class="clip-meta-label">Platform</div>
+    <div class="clip-meta-value">Instagram, YouTube Shorts</div>
+    <div class="clip-meta-label">Why this works</div>
+    <div class="clip-meta-value">The conviction in this single line is the episode in microcosm. It is not arrogance — it is someone who knows their worth and is not negotiating it away. Run from the question about whether people are sometimes told to step down to step up, through Elsie's "that was 15 years ago" response, to this line. About 60 seconds.</div>
+  </div>
+
+</div>
+
+<!-- ── CHAPTERS ── -->
+<div class="panel" id="chapters">
+
+  <div class="section-head">Episode Chapters</div>
+  <p class="chapters-note">Draft titles based on recording structure. Timestamps must be confirmed from the edited version before publishing. Target runtime 70–80 minutes.</p>
+
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Queen of the World at 40</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">What Organisations Know About You (That You Don't)</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Talent Designations and Succession — The Inside View</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Performance Is the Baseline. What Gets You Promoted Is Something Else</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">How Sponsorship Actually Works</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Why She Left Citi After 11 Years</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">The Job That Never Happened — The DFI Story</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Citi Offered the Job Back. She Said No.</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Untethered — What Nobody Warns You About</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">The Infrastructure You Didn't Know Was There</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Lloyds, Ubyx, and Building While You Still Can</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">What to Build Before You Need It</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Financial Security Is Not Financial Freedom</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">What Ambition Actually Asks of You</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">What She Would Have Done Differently at 40</span></div>
+  <div class="chapter-row"><span class="chapter-ts">00:00</span><span class="chapter-title">Enjoy the Journey</span></div>
+
+</div>
+
+<!-- ── SHOW NOTES ── -->
+<div class="panel" id="shownotes">
+
+  <div class="section-head">Show Notes</div>
+
+  <div class="field">
+    <div class="field-label">Opening Line</div>
+    <div class="field-value">At 40, most senior women feel like they're building upward. The next role, the next market, the next challenge. What they don't realise is that the institution already has a clearer view of their runway than they do.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Episode Description</div>
+    <div class="field-value">Elsie Akinsanya spent over a decade at Citi as a Managing Director in HR — inside the rooms where decisions about people's careers were being made. She knows what organisations say about their senior leaders in rooms those leaders are not in. She also knows what it feels like to leave a role like that, to discover that much of the infrastructure you thought was yours belonged to the institution, and to figure out what you actually have to build for yourself. This is an honest conversation about career timelines, borrowed authority, financial flexibility, and what women at 35, 40, and 50 need to be building while they still have the title, the income, and the access to build it.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Key Themes</div>
+    <div class="field-value">
+      <div class="multi-item">How organisations categorise senior talent — and why most leaders don't know which category they're in</div>
+      <div class="multi-item">The difference between sponsorship and mentorship, and why performance alone stops working above a certain level</div>
+      <div class="multi-item">What disappears when you leave a senior role that you didn't realise you were standing on</div>
+      <div class="multi-item">The difference between financial security and financial flexibility — and why most senior women have one and not the other</div>
+      <div class="multi-item">What to build before you need it, and why 40 is the right moment to start</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Resource Link</div>
+    <div class="field-value">Elsie Akinsanya offers executive coaching and transition coaching for mid-career to senior women. Find out more at <strong>www.elsieakinsanya.com</strong>. Her So What's Next programme is specifically designed for women navigating the questions this episode raises.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Chapters</div>
+    <div class="field-value">Add chapter timestamps once Tolu confirms the edited version. See Chapters tab for draft titles.</div>
+  </div>
+
+</div>
+
+<!-- ── SOCIAL ── -->
+<div class="panel" id="social">
+
+  <div class="section-head">Instagram</div>
+
+  <div class="field">
+    <div class="field-label">Launch Day Caption</div>
+    <div class="field-value">The institution has been thinking about your runway for longer than you have.
+
+Elsie Akinsanya spent over a decade at Citi in the rooms where those conversations happen. She knows what organisations decide about senior leaders before those leaders know it themselves.
+
+She also left. And discovered how much of what she thought was hers — the access, the credibility, the relationships that answered her calls — belonged to the institution, not to her.
+
+This conversation is about what you build before you need it. New episode — link in bio.
+
+#Leadership #DontLetTheSmileFoolYou</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Quote Graphic Caption</div>
+    <div class="field-value">"The word I used was untethered."
+
+— Elsie Akinsanya</div>
+  </div>
+
+  <div class="section-head">Facebook</div>
+
+  <div class="field">
+    <div class="field-label">Feed Post</div>
+    <div class="field-value">What do organisations say about their senior leaders in rooms those leaders are not in?
+
+Elsie Akinsanya knows. She spent over a decade at Citi inside those rooms. And in this episode, she tells us — talent designations, succession pipelines, what gets women promoted past a certain level and what doesn't, and what she discovered about herself when she left.
+
+New episode of Don't Let The Smile Fool You — link below.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Community — Early Access</div>
+    <div class="field-value">Episode goes public tomorrow. It is yours tonight.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Community — Discussion Prompt</div>
+    <div class="field-value">Elsie talks about the moment she realised how much of her infrastructure belonged to the institution and not to her. The access, the relationships, the credibility — not hers. The word she uses is untethered.
+
+Has anyone had that moment? Or something close to it — where you realised the support you thought was yours was actually borrowed?</div>
+  </div>
+
+  <div class="section-head">YouTube</div>
+
+  <div class="field">
+    <div class="field-label">Shorts</div>
+    <div class="field-value">Tuesday or Wednesday. Clip 02 — the talent designations explanation — is the strongest candidate for YouTube Shorts. It is information-dense, specific, and makes new listeners want the full episode. Alternatively Clip 01 (untethered) if you want the emotional hook over the informational hook.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Community Prompt</div>
+    <div class="field-value">Same as Facebook community prompt. Post same day as launch.</div>
+  </div>
+
+  <div class="section-head">TikTok (French)</div>
+
+  <div class="field">
+    <div class="field-label">Episode Week</div>
+    <div class="field-value">3–4 French clips across Tuesday, Thursday, Saturday. Priorities: the talent designations clip, the untethered clip, and "you can have it all — that is a lie." Fresh clips within 48 hours of English drop.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Caption Note</div>
+    <div class="field-value">The talent designations section will need careful French captioning — the vocabulary (high potential, SME, promotable) has direct French equivalents in corporate environments but confirm register with Tolu before finalising. "Untethered" in French — check whether "désorientée" or "à la dérive" carries the right weight. "À la dérive" (adrift) is closer to the ship metaphor Elsie uses.</div>
+  </div>
+
+</div>
+
+<!-- ── LINKEDIN ── -->
+<div class="panel" id="linkedin">
+
+  <div class="section-head">LinkedIn — Uche Manages Directly</div>
+  <p class="chapters-note">These drafts are for Uche's reference only. Not for Gbemi to post. Uche posts native video on Tuesdays — no external links in the launch post.</p>
+
+  <div class="field">
+    <div class="field-label">Sunday — Pre-Post</div>
+    <div class="field-value">Most of us assume that if performance stays strong, the runway continues.
+
+I used to believe that too.
+
+What I've learned — and what this week's guest explains better than anyone I've spoken to — is that the institution has already thought about your timeline. You just weren't in the room when they did.
+
+Episode drops Tuesday.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Tuesday — Launch Post</div>
+    <div class="field-value">At 40, I thought I was queen of the world.
+
+I was a CMO. Career going up. Every new role bigger than the last. If you had told me to think about the second half of my career, I would have told you to go and sit down somewhere.
+
+What I didn't understand — what almost none of us understand at that point — is that the institution already knows things about our career that we don't. Talent designations. Succession conversations. A view of our runway that was being discussed in rooms we were never invited into.
+
+Elsie Akinsanya spent over a decade at Citi inside those rooms. She made it to Managing Director. And then she left. And discovered that much of what she thought was hers — the access, the relationships that returned her calls, the credibility that walked into rooms before her — belonged to the institution.
+
+The word she uses is untethered.
+
+This conversation is about what you build before you need it. It is also about something I don't think we say enough: sometimes the smartest move is not to move. Staying can be infrastructure too. The question is whether you know why you're staying.
+
+New episode — link in first comment.
+
+#Leadership #DontLetTheSmileFoolYou</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Saturday / Sunday — Reflective Follow-Up</div>
+    <div class="field-value">Something Elsie said this week has stayed with me.
+
+She talked about discovering, after leaving Citi, that the relationships she thought were hers were transactional. That when she was no longer Managing Director, people stopped giving her time. She says she found it enlightening rather than devastating. That it told her something about them, not about her.
+
+I've been sitting with that.
+
+There's a version of building a career where you collect relationships and a version where you collect people who need what your title gives them access to. Most of us don't know which one we've been doing until the title is gone.
+
+What are you building that would survive if everything else changed tomorrow?</div>
+  </div>
+
+</div>
+
+<!-- ── HANDOFF ── -->
+<div class="panel" id="handoff">
+
+  <div class="section-head">Team Handoff</div>
+
+  <div class="handoff-block">
+    <div class="handoff-label">For Tolu</div>
+    <div class="handoff-text">Target runtime 70–80 minutes. Do not cut the DFI story — it runs at full length no matter what else has to tighten. Two strawberry restarts (use second take each time). Camera dropout approximately two thirds through — stitch cleanly, do not call attention to it. The untethered passage, "you can have it all is a lie," and "please do that, enjoy the journey" are the three moments that must survive intact. The sponsorship section (roughly 12–22 mins raw) is the main section to tighten — keep the social capital definition, the diversity network example, the MD promotion process, and the courage line. Everything else in that section can compress. The DFI story begins no later than 30 minutes into the edited version. Full edit instructions in the Tolu tab.</div>
+  </div>
+
+  <div class="handoff-block">
+    <div class="handoff-label">For Gbemi</div>
+    <div class="handoff-text">4 English clips prioritised — see Clip Markers tab for exact quotes, timestamps, and platform guidance. Clip 01 (untethered) and Clip 02 (talent designations) are the highest priority — get these out Tuesday and Wednesday respectively. Thumbnail: Elsie and Uche together if a still is available from the recording setup; if not, text-based with episode title and guest name. Quote graphic: "The word I used was untethered." — Elsie Akinsanya. Clean text, no decoration. Instagram launch caption and Facebook feed post are in the Social tab. Community prompt (Facebook and YouTube) goes out same day as episode launch. 5–6 French clips to Tolu for TikTok — see Tolu tab for priorities. Hold 1–2 clips for the following week.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Coordination Note</div>
+    <div class="field-value">English episode drops Tuesday. French clips go to TikTok within 48 hours of English drop — Thursday at the latest for the first clip. Community early access post goes Monday evening. LinkedIn is Uche's — Sunday pre-post and Tuesday launch post. Confirm Elsie's ENA HR link for show notes before publishing.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Open Items</div>
+    <div class="field-value">
+      <div class="multi-item">Elsie's website confirmed: www.elsieakinsanya.com — add to show notes and episode description.</div>
+      <div class="multi-item">Confirm episode thumbnail approach — still from recording or designed graphic. Thumbnail text confirmed: I WISH I KNEW THIS AT 40 (EN) / CE QUE J'AURAIS AIMÉ SAVOIR À 40 ANS (FR).</div>
+      <div class="multi-item">Timestamps to be confirmed once Tolu completes edit.</div>
+      <div class="multi-item">French title confirmed: Vous croyez avoir le temps. No further action needed on title or thumbnail language.</div>
+      <div class="multi-item">Financial freedom episode flagged by both Uche and Elsie at the close — log as a future episode seed and confirm Elsie's availability for a second recording.</div>
+    </div>
+  </div>
+
+  <div class="section-head">Forward Notes</div>
+
+  <div class="field">
+    <div class="field-label">Future Episode Seeds</div>
+    <div class="field-value">
+      <div class="multi-item">Financial security versus financial flexibility — a full episode. Both Uche and Elsie flagged this as unfinished business at the close. Elsie is the natural guest. The "what's your number" story is the entry point.</div>
+      <div class="multi-item">Board work and the gatekeeping of senior board seats for African women — referenced obliquely. High relevance for the core audience. Could be solo or guest.</div>
+      <div class="multi-item">The transactional relationship discovery — when the title is gone and you find out which relationships were real. This is Basement floor material and belongs in its own episode.</div>
+      <div class="multi-item">The cost of expat leadership — Elsie's Dubai period, Uche's own experience across markets. The things people see from the outside ("you're so lucky") versus the weight of what it actually asks of a family. Has not been done on DLTSFY.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Leadership Infrastructure — Notes for the Book</div>
+    <div class="field-value">Elsie's "untethered" passage is the clearest illustration in any recorded episode of what the absence of Foundation infrastructure feels like from the inside — not the dramatic collapse, but the quiet, disorienting drift when the structural supports are removed without warning. The borrowed infrastructure observation (EA, brand, credibility, relationship gravity) maps directly onto the Foundation floor argument in Beneath the Smile. This episode is evidence for the book's central claim, not just content for the podcast.</div>
+  </div>
+
+</div>
+
+</div><!-- end .content -->
+
+<div class="content footer">
+  The Smile Collective · Don't Let The Smile Fool You · Post-Recording Capture Sheet · Elsie Akinsanya
+</div>
+
+<script>
+function showTab(btn, id) {
+  document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
