@@ -8,69 +8,117 @@
 <meta property="og:description" content="Post-recording capture sheets for every episode of Don't Let The Smile Fool You.">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Helvetica, Arial, sans-serif; background: #fafafa; color: #1a1a1a; max-width: 680px; margin: 0 auto; padding: 40px 20px 80px; }
-  .eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: #999; text-transform: uppercase; margin-bottom: 6px; }
-  h1 { font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: #1a1a1a; line-height: 1.2; margin-bottom: 6px; }
-  .tagline { font-size: 12px; color: #888; margin-bottom: 32px; }
-  hr { border: none; border-bottom: 2px solid #1a1a1a; margin-bottom: 28px; }
-  .section-head { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; background: #1a1a1a; padding: 6px 12px; margin-bottom: 10px; }
-  .section-head.red { background: #c0392b; }
-  .episode-list { margin-bottom: 24px; }
-  a.episode-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: #fff; border: 1px solid #e8e8e8; border-left: 3px solid #1a1a1a; margin-bottom: 6px; text-decoration: none; color: #1a1a1a; transition: background 0.15s; }
-  a.episode-row:hover { background: #f5f5f5; }
-  a.episode-row.new { border-left-color: #c0392b; }
-  .episode-title { font-size: 13px; font-weight: 700; line-height: 1.4; }
-  .episode-meta { font-size: 11px; color: #888; white-space: nowrap; margin-left: 12px; text-align: right; }
-  .empty-note { font-size: 12px; color: #bbb; padding: 10px 14px; font-style: italic; }
-  .footer { margin-top: 48px; font-size: 9px; color: #bbb; letter-spacing: 1px; text-transform: uppercase; text-align: center; }
+  body { font-family: Georgia, serif; background: #f4f4f4; color: #1a1a1a; }
+  .header { background: #1a1a1a; color: #fff; padding: 32px 40px; }
+  .header .label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+  .header .sub { font-size: 13px; color: #aaa; }
+  .content { max-width: 860px; margin: 0 auto; padding: 40px 36px; }
+  .series-section { margin-bottom: 48px; }
+  .series-head { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff; padding: 8px 14px; margin-bottom: 20px; }
+  .series-head.beneath { background: #8B0000; }
+  .series-head.guest { background: #1a1a1a; }
+  .series-head.solo { background: #444; }
+  .series-head.detours { background: #2c4a2c; }
+  .series-head.financial { background: #1a3a5c; }
+  .episode-card { background: #fff; border-left: 3px solid #1a1a1a; padding: 18px 20px; margin-bottom: 12px; }
+  .ep-num { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 6px; }
+  .ep-title { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; line-height: 1.3; }
+  .ep-meta { font-size: 12px; color: #666; margin-bottom: 10px; }
+  .ep-link { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #1a1a1a; text-decoration: none; }
+  .ep-link:hover { text-decoration: underline; }
+  .none-yet { font-size: 13px; color: #999; font-style: italic; padding: 12px 0; }
+  .footer { text-align: center; font-size: 10px; color: #aaa; padding: 40px 20px; letter-spacing: 1px; }
+  hr { border: none; border-top: 2px solid #1a1a1a; margin: 0 0 40px 0; }
 </style>
 </head>
 <body>
 
-<div class="eyebrow">The Smile Collective</div>
-<h1>Don't Let The Smile Fool You</h1>
-<p class="tagline">Post-recording capture sheets · One sheet per recorded episode</p>
+<div class="header">
+  <div class="label">The Smile Collective</div>
+  <h1>Don't Let The Smile Fool You</h1>
+  <div class="sub">Post-recording capture sheets · One sheet per recorded episode</div>
+</div>
+
 <hr>
 
-<div class="section-head red">Beneath the Smile Series</div>
-<div class="episode-list">
-  <a class="episode-row new" href="ama-karikari.html">
-    <div class="episode-title">When Home Is Not Your Sanctuary — Ama Karikari</div>
-    <div class="episode-meta">Guest · Basement floor · Ep 1</div>
-  </a>
+<div class="content">
+
+  <!-- BENEATH THE SMILE -->
+  <div class="series-section">
+    <div class="series-head beneath">Beneath the Smile Series</div>
+    <div class="episode-card">
+      <div class="ep-info">
+        <div class="ep-num">Guest · Beneath the Smile Ep 1</div>
+        <div class="ep-title">When Home Is Not Your Sanctuary — Ama Karikari</div>
+        <div class="ep-meta">Guest · Basement floor · Ep 1</div>
+        <a class="ep-link" href="ama-karikari.html">Open Capture Sheet →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUEST EPISODES -->
+  <div class="series-section">
+    <div class="series-head guest">Guest Episodes</div>
+    <div class="episode-card">
+      <div class="ep-info">
+        <div class="ep-num">Guest Episode</div>
+        <div class="ep-title">You Think You Have Time — Elsie Akinsanya</div>
+        <div class="ep-meta">Guest · Growth + Foundation floor</div>
+        <a class="ep-link" href="elsie-akinsanya.html">Open Capture Sheet →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLO EPISODES -->
+  <div class="series-section">
+    <div class="series-head solo">Solo Episodes</div>
+
+    <div class="episode-card">
+      <div class="ep-info">
+        <div class="ep-num">Solo Episode</div>
+        <div class="ep-title">Joy Is a Leadership Strategy</div>
+        <div class="ep-meta">Uche Ofodile · Floor: Foundation + Recovery + Presence</div>
+        <a class="ep-link" href="joy-is-a-leadership-strategy.html">Open Capture Sheet →</a>
+      </div>
+    </div>
+
+    <div class="episode-card">
+      <div class="ep-info">
+        <div class="ep-num">Solo Episode</div>
+        <div class="ep-title">Apparently, I Had Terms and Conditions</div>
+        <div class="ep-meta">Uche Ofodile · Floor: Presence</div>
+        <a class="ep-link" href="apparently-terms-and-conditions.html">Open Capture Sheet →</a>
+      </div>
+    </div>
+
+    <div class="episode-card">
+      <div class="ep-info">
+        <div class="ep-num">Solo Episode</div>
+        <div class="ep-title">What It Actually Means To Be A Role Model</div>
+        <div class="ep-meta">Uche Ofodile · Floor: Presence</div>
+        <a class="ep-link" href="role-modeling.html">Open Capture Sheet →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETOURS -->
+  <div class="series-section">
+    <div class="series-head detours">Detours Series</div>
+    <div class="none-yet">None posted yet.</div>
+  </div>
+
+  <!-- THE FINANCIAL FLOOR -->
+  <div class="series-section">
+    <div class="series-head financial">The Financial Floor Series</div>
+    <div class="none-yet">None posted yet.</div>
+  </div>
+
 </div>
 
-<div class="section-head">Guest Episodes</div>
-<div class="episode-list">
-  <a class="episode-row new" href="elsie-akinsanya.html">
-    <div class="episode-title">You Think You Have Time — Elsie Akinsanya</div>
-    <div class="episode-meta">Guest · Growth + Foundation floor</div>
-  </a>
+<div class="footer">
+  The Smile Collective · Don't Let The Smile Fool You · Internal Use
 </div>
-
-<div class="section-head">Solo Episodes</div>
-<div class="episode-list">
-  <a class="episode-row" href="apparently-terms-and-conditions.html">
-    <div class="episode-title">Apparently, I Had Terms and Conditions</div>
-    <div class="episode-meta">Solo · Presence floor</div>
-  </a>
-  <a class="episode-row" href="role-modeling.html">
-    <div class="episode-title">What It Actually Means To Be A Role Model</div>
-    <div class="episode-meta">Solo · Presence floor</div>
-  </a>
-</div>
-
-<div class="section-head">Detours Series</div>
-<div class="episode-list">
-  <div class="empty-note">None posted yet.</div>
-</div>
-
-<div class="section-head">The Financial Floor Series</div>
-<div class="episode-list">
-  <div class="empty-note">None posted yet.</div>
-</div>
-
-<div class="footer">The Smile Collective · Don't Let The Smile Fool You · Internal Use</div>
 
 </body>
 </html>
