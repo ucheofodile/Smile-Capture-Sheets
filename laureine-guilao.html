@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laureine Guilao — Capture Sheet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #f4f4f4; color: #1a1a1a; }
+  .header { background: #1a1a1a; color: #fff; padding: 28px 36px 24px; }
+  .header .label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .header h1 { font-size: 22px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; }
+  .header .meta { font-size: 12px; color: #aaa; letter-spacing: 1px; }
+  .series-tag { display: inline-block; background: #8B0000; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; margin-bottom: 10px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 0; background: #111; padding: 0 36px; }
+  .tab-btn { background: none; border: none; color: #888; font-family: Georgia, serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 16px; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .tab-btn:hover { color: #fff; }
+  .tab-btn.active { color: #fff; border-bottom: 3px solid #fff; }
+  .content { max-width: 900px; margin: 0 auto; padding: 32px 36px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .section-head { background: #1a1a1a; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 14px; margin: 28px 0 16px; }
+  .field { margin-bottom: 20px; }
+  .field-label { font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+  .field-value { font-size: 14px; color: #1a1a1a; line-height: 1.75; background: #f8f8f8; padding: 12px 16px; border-left: 3px solid #1a1a1a; }
+  .field-value.highlight { border-left: 3px solid #8B0000; background: #fff8f8; }
+  .multi-item { font-size: 14px; color: #1a1a1a; line-height: 1.75; background: #f8f8f8; padding: 10px 14px; border-left: 3px solid #1a1a1a; margin-bottom: 6px; }
+  .clip-card { border-left: 3px solid #1a1a1a; padding: 16px 18px; margin-bottom: 20px; background: #fff; }
+  .clip-card .clip-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #999; text-transform: uppercase; }
+  .clip-card .clip-title { font-size: 16px; font-weight: 700; margin: 6px 0; }
+  .clip-card .clip-ts { font-family: monospace; font-size: 12px; color: #666; margin-bottom: 8px; }
+  .clip-card .clip-quote { font-size: 13px; font-style: italic; color: #444; line-height: 1.65; margin-bottom: 10px; }
+  .clip-card .clip-label { font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+  .clip-card .clip-val { font-size: 13px; color: #1a1a1a; margin-bottom: 8px; }
+  .chapter-row { display: flex; gap: 20px; padding: 10px 0; border-bottom: 1px solid #eee; align-items: baseline; }
+  .chapter-ts { font-family: monospace; font-size: 13px; color: #999; min-width: 55px; }
+  .chapter-title { font-size: 14px; color: #1a1a1a; line-height: 1.6; }
+  .alert { background: #fff8f8; border-left: 3px solid #8B0000; padding: 12px 16px; font-size: 13px; color: #8B0000; font-weight: 700; margin-bottom: 16px; }
+  .note { background: #f8f8f8; border-left: 3px solid #ccc; padding: 10px 14px; font-size: 13px; color: #666; font-style: italic; margin-bottom: 14px; }
+  .footer { text-align: center; font-size: 10px; color: #aaa; letter-spacing: 1px; padding: 32px; border-top: 1px solid #eee; margin-top: 48px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+  <div class="series-tag">Detours Series</div>
+  <h1>Laureine Guilao</h1>
+  <div class="meta">Guest Episode · Recorded August 2026 · Floor: Growth / Foundation</div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(this,'overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab(this,'tolu')">Tolu</button>
+  <button class="tab-btn" onclick="showTab(this,'clips')">Clip Markers</button>
+  <button class="tab-btn" onclick="showTab(this,'chapters')">Chapters</button>
+  <button class="tab-btn" onclick="showTab(this,'shownotes')">Show Notes</button>
+  <button class="tab-btn" onclick="showTab(this,'social')">Social</button>
+  <button class="tab-btn" onclick="showTab(this,'linkedin')">LinkedIn</button>
+  <button class="tab-btn" onclick="showTab(this,'handoff')">Handoff</button>
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TAB 1: OVERVIEW -->
+<!-- ═══════════════════════════════════════ -->
+<div id="overview" class="tab-panel active">
+
+  <div class="section-head">Core Message</div>
+
+  <div class="field">
+    <div class="field-label">Spine</div>
+    <div class="field-value">Lots of people want to become CEOs. Very few tell us what it was actually like the first time they became one. Laureine Guilao worked alongside a CEO before unexpectedly finding herself in the seat. This episode follows what happened next: what proximity genuinely prepared her for, what she could only discover once the responsibility was hers, and what she understands differently now that she's been on both sides of the chair.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">The Distinction — What This Episode Says That Hasn't Been Said</div>
+    <div class="field-value">Most first-time CEO content is aspirational or retrospectively polished. This episode is neither. It gets inside a specific, unexpected route into the role — what proximity can genuinely prepare you for, what you can only learn by carrying the responsibility yourself, what the job consumes that nobody warns you about, and what happens when the title is gone.<br><br>The episode has three unusually strong discoveries. The 10% to 50% stakeholder management revelation is the practical one — one of the episode's most practically useful insights. But what makes that passage genuinely distinctive isn't merely that stakeholder management takes more time than expected. It's the central contradiction of the CEO job: internally, you are the boss; externally and upwards, you still have bosses. The CEO carries final responsibility without necessarily having final freedom. Laureine describes having to execute board decisions back into an organisation whose employees experience those decisions as hers. That is considerably more interesting than the statistic alone.<br><br>"I do remember you telling me it would be lonely. And I was like, she has me, I'm her friend" is the human discovery — she found that having people around you, even people who understand the job, doesn't entirely remove the loneliness of carrying the decision yourself. "They're not inviting you. They're inviting the role" is the identity discovery — the standing she realised belonged partly to the position rather than the person.<br><br>Together they cover the work she didn't know would consume so much of the job, the loneliness she couldn't understand from outside the seat, and the standing she discovered belonged partly to the position rather than the person.<br><br>And crucially: this is not a story about the job humbling her. Laureine was prepared, capable, and enjoyed the role. There were still things she could only know once she became CEO. That's a more interesting first-time CEO story than the conventional one — and the capture sheet should protect that distinction all the way through.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">What This Episode Is Not</div>
+    <div class="field-value highlight">Not a resilience or comeback story, even though an involuntary exit is present. Not a startup founder episode, even though she built from scratch. Not a general leadership conversation. The episode is specifically about the reality of becoming a CEO for the first time — what you think you know going in, what the job actually asks of you once you're there, and what you understand differently afterward.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Floor Connection</div>
+    <div class="field-value">Growth is the primary floor — not because Laureine entered the role unprepared, but because the role required her to stretch capabilities she already had and develop others under the weight of final responsibility: becoming more decisive when collaboration tipped into over-listening, managing the scale and consequence of stakeholder relationships, and learning what could no longer be delegated upwards. Foundation appears in what she says was most vulnerable when work became consuming: exercise, eating well and taking care of herself. Support is explicit in her discovery of CEO loneliness and the network she built around herself — friends in business, fellow executives at the Chamber of Commerce, banking MDs in Liberia, board relationships and people outside the company she could talk to honestly.</div>
+  </div>
+
+  <div class="section-head">Episode Details</div>
+
+  <div class="field">
+    <div class="field-label">Full Title</div>
+    <div class="field-value">What No One Tells You About Becoming CEO</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Thumbnail Title</div>
+    <div class="field-value">YOU STILL HAVE A BOSS</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Thumbnail Line — English</div>
+    <div class="field-value">My first CEO role</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Thumbnail Design Note</div>
+    <div class="field-value">"YOU STILL HAVE A BOSS" splits across two lines: YOU STILL / HAVE A BOSS. The "still" carries the weight — even at the top, this is what you find. Do not collapse to one line. The line break is intentional.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Thumbnail Line — French (confirm register before use)</div>
+    <div class="field-value">Ce que personne ne vous dit sur le fait de devenir PDG — confirm with French editor before use</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Format</div>
+    <div class="field-value">Guest — Laureine Guilao, former Deputy CEO MTN Liberia / former CEO TipMe Liberia / founder CONA Consulting</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Series</div>
+    <div class="field-value">Detours</div>
+  </div>
+
+  <div class="section-head">Recording Review</div>
+
+  <div class="field">
+    <div class="field-label">What Landed Better Than Expected</div>
+    <div class="field-value">The stakeholder management section produced one of the strongest unanticipated insights in the recording. "I wanted it to be 10% of my job. It felt like 50% at minimum" arrived spontaneously and is specific, surprising and complete. The loneliness reveal — she had told herself "she has me, I'm her friend" and then discovered it herself — is the warmest and most human moment in the recording. The naivety/networks section at the very end (from ~1:08:29) produced the strongest emotional material: her exit feeling like she was being treated as a stranger, and then her reputation carrying her through it anyway. That is the real ending of this episode.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Where the Recording Diverged — Worth Keeping</div>
+    <div class="field-value">The adjacency hypothesis in the guide assumed proximity would produce false confidence that collapsed in the role. Laureine's actual answer inverted this: proximity genuinely prepared her well. What the role corrected was over-listening — being so collaborative that she wasn't decisive enough. That's a better and more surprising insight than the guide anticipated. Do not edit this toward the original hypothesis.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Spontaneous Lines to Preserve — Exact Words</div>
+    <div class="multi-item">"I wanted it to be 10% of my job. It felt like 50% of my job at minimum." (~35:37)</div>
+    <div class="multi-item">"I do remember you telling me once that it can be very lonely being CEO. And I was like, she has me, I'm her friend." (~17:07)</div>
+    <div class="multi-item">"You realise that they're not inviting you. They're inviting the role." (~49:04)</div>
+    <div class="multi-item">"I was listening too much. I wasn't as decisive because I was over-listening." (~23:48)</div>
+    <div class="multi-item">"Even though some doors may shut… if you've built integrity and respect and people know your work, you will always find your feet." (~1:11:17)</div>
+    <div class="multi-item">"You know that's sexual harassment, right?" — said to a stakeholder who behaved inappropriately. Keep with full context. (~54:15)</div>
+  </div>
+
+  <div class="section-head">Pull Quotes</div>
+
+  <div class="field">
+    <div class="field-label">Quote Candidates — Exact Words from Recording</div>
+    <div class="multi-item">"I wanted it to be 10% of my job. It felt like 50% of my job at minimum."</div>
+    <div class="multi-item">"You realise that they're not inviting you. They're inviting the role."</div>
+    <div class="multi-item">"I was listening too much. I wasn't as decisive because I was over-listening."</div>
+    <div class="multi-item">"I do remember you telling me once that it can be very lonely being CEO. And I was like, she has me, I'm her friend."</div>
+    <div class="multi-item">"If you've built integrity and respect and people know your work, you will always find your feet."</div>
+    <div class="multi-item">"I didn't feel like I needed to be anyone other than who I was."</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Strongest Single Line for Quote Graphic</div>
+    <div class="field-value highlight">"You realise that they're not inviting you. They're inviting the role." — Laureine Guilao</div>
+  </div>
+
+  <div class="section-head">Companion Resource</div>
+
+  <div class="field">
+    <div class="field-label">Decision</div>
+    <div class="field-value">No companion resource needed. Beneath the Smile is referenced naturally in conversation. Do not add a resource link to show notes unless a specific floor resource is created separately.</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TAB 2: TOLU -->
+<!-- ═══════════════════════════════════════ -->
+<div id="tolu" class="tab-panel">
+
+  <div class="section-head">Edit Instructions</div>
+
+  <div class="field">
+    <div class="field-label">Overall Instruction</div>
+    <div class="field-value">Target runtime: 48–55 minutes. The edit is not about sharp cuts — it is about finding the episode inside the recording while keeping Laureine's personality fully intact. The goal is a warm, revealing conversation that moves. Do not edit toward a polished CEO interview. Laureine at her most natural — the loneliness reveal, the 10%/50% moment, the naivety ending — is where the episode lives. Protect those moments above everything else. Uche's presence throughout is part of what makes this episode different from other guest episodes. Do not remove Uche — trim the moments where she restates Laureine's answer or runs long in her own story, not the moments where she contributes to the dynamic.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Tone to Preserve</div>
+    <div class="field-value">Warm, candid, unhurried but always moving. This is two people who know each other well having a real conversation. That ease must survive the edit. Laureine is not performing a polished CEO persona — she's relaxed, self-aware, occasionally funny. The edit should make the conversation feel tighter, not stiffer.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Restart Markers</div>
+    <div class="field-value">"Strawberry" used throughout — cut all markers and their explanations cleanly. Key stitches: ~19:57 interruption and course-correction (stitch carefully, do not leave any awkwardness). ~1:07:48 Laureine loses her word mid-sentence — cut the pause and the restart, use the clean version that follows. ~1:05:51 "What is a business if it's not making money?" and the self-correction that follows — cut both, skip ahead cleanly.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Pacing Notes</div>
+    <div class="field-value">The opening is the only place where an aggressive cut is needed — from 4+ minutes to under 60 seconds before Laureine's story begins. Everywhere else, the edit is a trim, not a cut. The stakeholder section earns its length — let it breathe. Where Uche restates Laureine's answer after she's already been clear, trim Uche's restatement and keep Laureine's original. Where Uche's own story runs long (e.g. the nervousness explanation after the night-before answer, the extended speech after the gender story), shorten to the essential point and return to Laureine. The conversation's warmth lives in the back-and-forth — do not edit it into a monologue.</div>
+  </div>
+
+  <div class="section-head">Five Movements — Editorial Architecture</div>
+
+  <div class="field">
+    <div class="field-label">Movement 1 — The Detour Into the Chair (~5:20–12:40)</div>
+    <div class="field-value">Keep: deputy CEO path, involuntary exit ("most traumatic experience of my life"), approach for the fintech role, "a little bit of both" motivation, COVID and building from scratch. Cut: repeated explanations of the show's premise at the top — keep Uche's intro to under 60 seconds before Laureine speaks. Movement ends when Laureine says "that's how my CEO journey really began."</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Movement 2 — Did Working Beside a CEO Prepare Her? (~14:30–24:50)</div>
+    <div class="field-value">Keep: her confidence going in, "I didn't feel like I needed to be anyone other than who I was," the loneliness reveal in full, "over-listening" and decisiveness. Critical instruction: do not edit this section to imply proximity gave her false confidence that collapsed. Her actual answer is that it prepared her well — what the role corrected was her tendency to over-listen, not her capability. That contrast with Uche's experience is the value of this section. Shorten Uche's night-before nervousness story to one or two sentences — keep her contrasting experience, remove the extended version.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Movement 3 — What the Job Actually Consumed (~27:00–41:55)</div>
+    <div class="field-value">This is the centre of the episode. Keep everything from "I wanted it to be 10% of my job" through the divergence with shareholders and why she eventually left. The 10%/50% line is the episode's signature moment — do not trim its buildup. Keep Uche's "30%" example — short, earns its place through the two-person dynamic. Keep Laureine's transparency section (~41:55–44:30) — her explanation of what she told staff and what she protected them from is good leadership content. Trim the marketing mistake section: keep only the "we had to be agile, we broke the plan, we followed the data" insight — remove the extended version.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Movement 4 — The Person Behind the Title (~44:30–56:00)</div>
+    <div class="field-value">The people/firing section (~44:30–46:40): keep only the insight about identifying poor fit quickly and the comment about some people thriving in a different role. Cut the "I'm always on team company" framing — it is not the register of this show and does not reflect Laureine's warmth elsewhere in the conversation. Cut "I don't even know what to say about that, I'm gonna leave that alone" (Uche's line at ~46:39) — it's awkward and draws attention to the edit. Move cleanly to the title section. Title section: keep in full — family treating her the same, "they're inviting the role not you," detachment from perks. Gender section: keep Laureine's story and the sexual harassment moment with full context. Shorten Uche's response to the essential — return to Laureine faster. Bag-carrying perks exchange: cut unless pacing needs a light moment.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Movement 5 — What She Knows Now (~57:00–1:11:42)</div>
+    <div class="field-value">Keep: would do it again, wants established company not startup, understanding the full picture. Cut "sometimes you just need your team to be soldiers" (~1:03:45) — it's a throwaway line that contradicts the tone of the rest of the conversation and will travel badly out of context. Keep everything from the naivety/networks section (~1:08:29 onward) — this is the real ending. The closing line is: "Even though some doors may shut… if you've built integrity and respect and people know your work, you will always find your feet." End here. The formal close ("don't romanticise it") is weaker — move it earlier or cut it entirely.</div>
+  </div>
+
+  <div class="section-head">Keep / Cut — Specific Moments</div>
+
+  <div class="field">
+    <div class="field-label">Keep — Protect These Moments</div>
+    <div class="multi-item">"I wanted it to be 10% of my job. It felt like 50% of my job at minimum." — Do not trim the buildup. This is the episode's signature moment.</div>
+    <div class="multi-item">"I do remember you telling me once that it can be very lonely. And I was like, she has me, I'm her friend." — The warmest moment in the recording. Keep in full.</div>
+    <div class="multi-item">"You realise they're not inviting you. They're inviting the role." — Keep exactly as said. Do not paraphrase in chapters or show notes.</div>
+    <div class="multi-item">"I was over-listening." — Strongest first-time CEO insight. Consider whether this opens a chapter.</div>
+    <div class="multi-item">The MTN naivety/networks section (~1:08:29 onward) — the real ending. Do not cut.</div>
+    <div class="multi-item">The sexual harassment story — keep with full surrounding context. Do not clip standalone without the explanation about seniority and junior women.</div>
+    <div class="multi-item">Laureine's transparency explanation (~41:55–44:30) — good content, keep.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Cut or Trim — Specific Instructions</div>
+    <div class="multi-item">Opening 0:00–4:30: trim to under 60 seconds before Laureine begins. This is the only place where an aggressive cut is needed.</div>
+    <div class="multi-item">All strawberry markers and their explanations.</div>
+    <div class="multi-item">"I'm always on team company" and surrounding firing-speed framing (~45:40–46:39): cut. Keep only the insight about fit vs. poor performance and some redemption stories.</div>
+    <div class="multi-item">"Sometimes you just need your team to be soldiers" (~1:03:45): cut entirely.</div>
+    <div class="multi-item">"I don't even know what to say about that, I'm gonna leave that alone" (~46:39): cut — awkward, draws attention to itself.</div>
+    <div class="multi-item">Uche's extended nervousness story after the night-before answer (~13:59–15:10): shorten to one sentence of contrast, return to Laureine.</div>
+    <div class="multi-item">Uche's extended speech after the gender/sexual harassment story: shorten to the essential point, return to Laureine faster.</div>
+    <div class="multi-item">Marketing mistake section: trim to the agile/data-pivot insight only.</div>
+    <div class="multi-item">"What is a business if it's not making money?" and self-correction (~1:05:51): cut both.</div>
+    <div class="multi-item">Bag-carrying perks exchange (~50:20–51:25): cut unless pacing needs the lightness.</div>
+    <div class="multi-item">Moments where Uche restates Laureine's answer after she's already been clear: trim Uche's restatement, keep Laureine's original.</div>
+  </div>
+
+  <div class="section-head">Cold Open — Decision</div>
+
+  <div class="field">
+    <div class="field-label">Recommended Cold Open</div>
+    <div class="field-value">Do not open with the night-before answer (Laureine was excited, not anxious — it doesn't create immediate tension). The strongest cold open candidates are: (1) "I wanted it to be 10% of my job. It felt like 50% at minimum." — most universally stopping. (2) "You realise they're not inviting you. They're inviting the role." — most emotionally resonant. Recommend option 1 as the cold open, then Uche's episode intro, then the conversation from the beginning.</div>
+  </div>
+
+  <div class="section-head">MTN Removal — Four Specific Cuts</div>
+
+  <div class="alert">MTN must not appear anywhere in the final episode. Four specific cuts required. Do not miss any of these.</div>
+
+  <div class="field">
+    <div class="field-label">Cut 1 — ~4:28</div>
+    <div class="field-value">Uche says: "I'm not gonna say strawberry, I'm not gonna say MTN Liberia, I'm gonna say a company. Okay." Cut this entire sentence. Keep from the next clean line: "You and I worked together at a telecommunications company in Liberia." The clean version is already on record — use it.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Cut 2 — ~48:07</div>
+    <div class="field-value">Uche says "DJ MTN" in passing when describing how people address her by title in public. Cut "DJ MTN" — either remove the reference entirely or flag for Uche to record a pickup line replacing it with a generic reference to her title.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Cut 3 — ~48:36</div>
+    <div class="field-value">Laureine says "I haven't been the CEO of MTN of Tit Me for two years now." She self-corrects mid-sentence from MTN to TipMe. Cut "of MTN" so the sentence reads cleanly: "I haven't been the CEO of TipMe for two years now." Stitch carefully — the self-correction is audible.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Cut 4 — ~54:35</div>
+    <div class="field-value">Laureine says "even at MTN when I was deputy CEO at MTN and then was head of corporate affairs." Cut both MTN references. Stitch to read: "even when I was deputy CEO and head of corporate affairs, I do remember being quite cautious about going to certain meetings." The Liberia and telecoms context is already established earlier — no further attribution needed here.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Quantity</div>
+    <div class="field-value">5–6 clips per episode standard</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Priority Moments for French</div>
+    <div class="multi-item">1. The 10%/50% stakeholder management reveal — universally relatable, no cultural context needed</div>
+    <div class="multi-item">2. "They're inviting the role, not you" — strong standalone in French</div>
+    <div class="multi-item">3. "I was over-listening" — useful for collaborative leaders</div>
+    <div class="multi-item">4. The loneliness/friendship reveal — emotional, warm, accessible</div>
+    <div class="multi-item">5. "You see the full picture" — understanding CEOs from the inside</div>
+    <div class="multi-item">6. "If you've built integrity and respect… you will always find your feet" — strong closing clip</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Hold-Back</div>
+    <div class="field-value">Hold 1–2 clips for the week after the episode drop. Recommend holding the "full picture" clip and the integrity/reputation clip for week two.</div>
+  </div>
+
+  <div class="section-head">English Clips — For Gbemi</div>
+
+  <div class="field">
+    <div class="field-label">Quantity</div>
+    <div class="field-value">3–4 clips</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Priority Clips</div>
+    <div class="multi-item">CLIP 1 (highest priority): "I wanted it to be 10% of my job. It felt like 50% at minimum." Hook: "People think the CEO is the person at the top. What they don't see is that the CEO has bosses too." Instagram / YouTube Shorts. 60–90 seconds including setup.</div>
+    <div class="multi-item">CLIP 2: "You realise they're not inviting you. They're inviting the role." Include the full section on what changed after leaving — the clip needs context to land. Instagram / YouTube Shorts.</div>
+    <div class="multi-item">CLIP 3: "I was over-listening." Include her explanation of how collaboration became indecision at CEO level. LinkedIn-facing. 75 seconds minimum.</div>
+    <div class="multi-item">CLIP 4 (optional): The MTN exit naivety section — "I thought because people knew me they'd protect me." Strong but needs careful framing. LinkedIn.</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TAB 3: CLIP MARKERS -->
+<!-- ═══════════════════════════════════════ -->
+<div id="clips" class="tab-panel">
+
+  <div class="section-head">LinkedIn Clips — 2–3 Minutes</div>
+  <div class="note">LinkedIn clips must be uploaded as native video — no outbound links. Minimum 75 seconds; target 2–3 minutes for maximum reach. These are standalone pieces of content, not trailers.</div>
+
+  <div class="clip-card">
+    <div class="clip-num">LI-01 — Highest Priority</div>
+    <div class="clip-title">The Invisible Work</div>
+    <div class="clip-ts">~34:20 – ~37:41 (approx. 3 min)</div>
+    <div class="clip-quote">"I wanted it to be 10% of my job. It felt like 50% of my job at minimum… I just wanna do the work. That's the CEO untold story — the invisible work that really isn't seen."</div>
+    <div class="clip-label">Platform</div>
+    <div class="clip-val">LinkedIn native video</div>
+    <div class="clip-label">Note</div>
+    <div class="clip-val">Start with Uche's setup question about managing upwards — it provides the frame. Run through Laureine's full explanation including the board, shareholders, staff dynamic, and the "I just wanna do the work" close. The clip keeps building across its full length — do not trim it. This is the episode's central argument and holds as standalone LinkedIn content because it is specific, surprising and complete.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-num">LI-02</div>
+    <div class="clip-title">What Proximity Teaches You — And What It Doesn't</div>
+    <div class="clip-ts">~15:11 – ~18:06 (approx. 3 min)</div>
+    <div class="clip-quote">"I didn't feel like I needed to be anyone other than who I was… I do remember you telling me once that it can be very lonely being CEO. And I was like, she has me, I'm her friend."</div>
+    <div class="clip-label">Platform</div>
+    <div class="clip-val">LinkedIn native video</div>
+    <div class="clip-label">Note</div>
+    <div class="clip-val">Opens on Laureine's confidence going into the role — earned through proximity, not arrogance. Moves through "I didn't feel like I needed to be anyone other than who I was." Lands on the loneliness reveal. The arc from confidence to discovery is complete in this window. Strong LinkedIn content because it's counterintuitive — she's saying proximity prepared her, not that it failed her. Hold for week two.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-num">LI-03</div>
+    <div class="clip-title">Reputation Is What Carries You</div>
+    <div class="clip-ts">~1:08:29 – ~1:11:42 (approx. 3 min)</div>
+    <div class="clip-quote">"I thought naively that you knew my character… Fast forward to the exit where I'm being asked to step down quite aggressively… Even though some doors may shut, if you've built integrity and respect and people know your work, you will always find your feet."</div>
+    <div class="clip-label">Platform</div>
+    <div class="clip-val">LinkedIn native video</div>
+    <div class="clip-label">Note</div>
+    <div class="clip-val">This is the emotional close of the episode and works as a complete standalone because it tells a full story — naivety, shock, and then the thing that carried her through. Check MTN Cut 4 (~54:35 area) does not bleed into this section. Hold for week two. Do not use as launch week clip — it's stronger as a follow-up once the episode has been out.</div>
+  </div>
+
+  <div class="section-head">Short Clips — 60–90 Seconds</div>
+  <div class="note">Instagram, YouTube Shorts, TikTok (French versions). These must land cold for someone who has never heard the show. Lead with the insight, not the setup.</div>
+
+  <div class="clip-card">
+    <div class="clip-num">S-01 — Launch Week Priority</div>
+    <div class="clip-title">They Invited the Role</div>
+    <div class="clip-ts">~49:04 – ~49:55 (approx. 60 sec)</div>
+    <div class="clip-quote">"You realise that they're not inviting you. They're inviting the role. So because you're no longer in the role… I still have the same brain and the same experience, but no — it's okay."</div>
+    <div class="clip-label">Platform</div>
+    <div class="clip-val">Instagram / YouTube Shorts / TikTok (French)</div>
+    <div class="clip-label">Note</div>
+    <div class="clip-val">Include enough setup so the listener understands she's talking about what changed after leaving the CEO role — without it the line floats. The "it's okay" at the end is what makes it land — do not cut it. Complete thought, strong standalone.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-num">S-02 — Launch Week</div>
+    <div class="clip-title">Over-Listening</div>
+    <div class="clip-ts">~23:45 – ~24:50 (approx. 75 sec)</div>
+    <div class="clip-quote">"I like to hear from the rest of my management team quite a bit. And I think in doing so, sometimes early on, I didn't move quickly enough… I was listening too much. I wasn't as decisive because I was over-listening."</div>
+    <div class="clip-label">Platform</div>
+    <div class="clip-val">Instagram / LinkedIn / TikTok (French)</div>
+    <div class="clip-label">Note</div>
+    <div class="clip-val">Self-contained — no setup needed beyond Uche's short question. This is for the collaborative leader who thinks listening is always the right move. The insight is that a leadership strength can become a liability in the CEO seat. 75 seconds minimum for LinkedIn use.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-num">S-03 — Launch Week</div>
+    <div class="clip-title">A Little Bit of Both</div>
+    <div class="clip-ts">~9:44 – ~10:34 (approx. 60 sec)</div>
+    <div class="clip-quote">"Honestly, it was definitely a little bit of both, right? Because I think I definitely had something to prove. But it was definitely a weighed decision… it felt like it made sense. It was the right time, the right move."</div>
+    <div class="clip-label">Platform</div>
+    <div class="clip-val">Instagram / TikTok (French)</div>
+    <div class="clip-label">Note</div>
+    <div class="clip-val">Works because she doesn't give the clean answer — she gives the real one. Needs Uche's question as the setup: "Were you taking it on emotionally or because you wanted to try it?" Keep the question, then her full answer. Caption: "Did she become CEO partly to prove them wrong?"</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-num">S-04 — Week Two</div>
+    <div class="clip-title">The Loneliness She Was Warned About</div>
+    <div class="clip-ts">~17:07 – ~17:39 (approx. 45 sec)</div>
+    <div class="clip-quote">"I do remember you telling me once that it can be very lonely being CEO. And I was like, she has me, I'm her friend."</div>
+    <div class="clip-label">Platform</div>
+    <div class="clip-val">Instagram / TikTok (French)</div>
+    <div class="clip-label">Note</div>
+    <div class="clip-val">Short but complete — the line lands because of what she doesn't say. Run through to her realisation that the loneliness is real once you're in the seat. Hold for week two — it's a hook that sends people back to the full episode rather than replacing it.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-num">S-05 — Week Two</div>
+    <div class="clip-title">You See the Full Picture</div>
+    <div class="clip-ts">~1:01:52 – ~1:03:05 (approx. 75 sec)</div>
+    <div class="clip-quote">"When you're the CEO, you see the full picture. And sometimes when you're sitting in marketing, you're really trying to push this marketing thing, but from the full picture your thing doesn't quite make sense… The person is making decisions from a completely different vantage point."</div>
+    <div class="clip-label">Platform</div>
+    <div class="clip-val">LinkedIn / TikTok (French)</div>
+    <div class="clip-label">Note</div>
+    <div class="clip-val">Caption: "Why your CEO may be rejecting the idea you think is obviously right." Complete thought, no setup needed. Hold for week two.</div>
+  </div>
+
+  <div class="section-head">Do Not Clip</div>
+  <div class="field">
+    <div class="field-label">Sections to Avoid as Standalone Clips</div>
+    <div class="multi-item">The firing/people decision section — "I'm always on team company" framing does not represent the show's register. Do not clip.</div>
+    <div class="multi-item">"Sometimes you just need your team to be soldiers" — travels badly out of context. Do not clip.</div>
+    <div class="multi-item">The sexual harassment story — strong in the episode but requires full surrounding context to land correctly. Do not clip standalone.</div>
+    <div class="multi-item">Any section containing MTN — confirm all four MTN cuts are complete before any clips are exported.</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TAB 4: CHAPTERS -->
+<!-- ═══════════════════════════════════════ -->
+<div id="chapters" class="tab-panel">
+
+  <div class="section-head">Episode Chapters</div>
+  <div class="note">Draft titles based on five-movement editorial structure. Timestamps to be confirmed from edited version — do not finalise before Tolu completes the edit. All timestamps below are approximate from raw recording only.</div>
+
+  <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">The CEO Has Bosses Too — cold open</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~01:00</span><span class="chapter-title">Episode intro</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~05:20</span><span class="chapter-title">The Detour — how the role found her</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~09:30</span><span class="chapter-title">A little bit of both — why she said yes</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~13:00</span><span class="chapter-title">The night before — and the real first night</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~15:00</span><span class="chapter-title">What working beside a CEO actually teaches you</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~17:00</span><span class="chapter-title">The loneliness she was warned about</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~23:45</span><span class="chapter-title">Over-listening — when collaboration becomes indecision</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~27:00</span><span class="chapter-title">Building from scratch — what she walked into</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~28:50</span><span class="chapter-title">The moment she felt like a CEO</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~30:10</span><span class="chapter-title">The first mistake</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~34:20</span><span class="chapter-title">10% vs 50% — the invisible work</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~39:00</span><span class="chapter-title">When alignment breaks down</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~41:55</span><span class="chapter-title">How open to be with your team</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~44:30</span><span class="chapter-title">The first people decision — firing quickly</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~46:40</span><span class="chapter-title">When the title becomes your name</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~49:04</span><span class="chapter-title">They invited the role, not you</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~52:15</span><span class="chapter-title">Being a woman CEO in a male-dominated room</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~56:50</span><span class="chapter-title">Would she do it again?</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~1:00:15</span><span class="chapter-title">You see the full picture — understanding CEOs differently</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~1:04:00</span><span class="chapter-title">What she'd tell a woman who's closer to the seat than she realises</span></div>
+  <div class="chapter-row"><span class="chapter-ts">~1:08:29</span><span class="chapter-title">The naivety — and the reputation that carried her through</span></div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TAB 5: SHOW NOTES -->
+<!-- ═══════════════════════════════════════ -->
+<div id="shownotes" class="tab-panel">
+
+  <div class="section-head">Show Notes</div>
+
+  <div class="field">
+    <div class="field-label">Opening Line</div>
+    <div class="field-value">Lots of people want to become CEOs. Very few tell us what the first time actually felt like.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Episode Description</div>
+    <div class="field-value">Laureine Guilao was Deputy CEO at MTN Liberia. She was close to the seat — close enough to think she understood it. Then a career detour placed her in the CEO chair itself, running TipMe Liberia, the first app-based mobile wallet in the country. She built it from scratch during COVID, led it for five years, and eventually chose to leave. This conversation moves through three stages: what proximity teaches you about the CEO job, and what it conceals; what the job actually consumed once she was in it; and what she now understands about leadership that she couldn't have understood before she held the title herself.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Key Themes</div>
+    <div class="multi-item">What working alongside a CEO teaches you — and what it doesn't show you at all</div>
+    <div class="multi-item">Why stakeholder management consumed 50% of the job she expected it to take 10%</div>
+    <div class="multi-item">The difference between being invited as a person and being invited as a title</div>
+    <div class="multi-item">How collaboration can become indecision at CEO level</div>
+    <div class="multi-item">What a detour into the role teaches you that a planned path cannot</div>
+    <div class="multi-item">Leadership Infrastructure — what she had, what she was missing, and what she'd build differently</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Guest Bio Line</div>
+    <div class="field-value">Laureine Guilao is a senior business leader with experience across telecoms and fintech in West Africa. She served as Deputy CEO of MTN Liberia and as founding CEO of TipMe Liberia, the first app-based mobile wallet in Liberia. She is currently founder of CONA Consulting.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Resource Link</div>
+    <div class="field-value">Beneath the Smile: Leadership Infrastructure — referenced in conversation. Link to book page where available.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Chapters Note</div>
+    <div class="field-value">Chapters listed in Chapters tab. Add to show notes after Tolu confirms timestamps from edited version.</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TAB 6: SOCIAL -->
+<!-- ═══════════════════════════════════════ -->
+<div id="social" class="tab-panel">
+
+  <div class="section-head">Instagram</div>
+
+  <div class="field">
+    <div class="field-label">Launch Day Caption</div>
+    <div class="field-value">She expected stakeholder management to take up 10% of the job. It ended up being 50%.<br><br>Laureine Guilao was Deputy CEO before she became one. She thought that proximity had prepared her — and in many ways, it had. But there were things you can only learn by sitting in the chair yourself.<br><br>New episode of Don't Let The Smile Fool You — link in bio.<br><br>#Leadership #DontLetTheSmileFoolYou</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Quote Graphic Caption</div>
+    <div class="field-value">"You realise that they're not inviting you. They're inviting the role." — Laureine Guilao</div>
+  </div>
+
+  <div class="section-head">Facebook</div>
+
+  <div class="field">
+    <div class="field-label">Feed Post</div>
+    <div class="field-value">What does the CEO job actually consume? Not what you plan for. What it actually takes. Laureine Guilao went from Deputy CEO to founding CEO of a fintech — not because she'd planned it, but because a detour placed her there. This conversation is about what she found once she was in the chair. [link]<br><br>#Leadership #DontLetTheSmileFoolYou</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Community — Early Access (Monday evening)</div>
+    <div class="field-value">Episode goes public tomorrow. It is yours tonight.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Community — Discussion Prompt (Tuesday)</div>
+    <div class="field-value">Laureine says stakeholder management ended up being 50% of her job as CEO — far more than she expected. If you've been close to a senior role, what surprised you most about what that role actually consumed?</div>
+  </div>
+
+  <div class="section-head">YouTube</div>
+
+  <div class="field">
+    <div class="field-label">Shorts</div>
+    <div class="field-value">Clip 01 (10% vs 50%) — Tuesday or Wednesday. This is the strongest standalone clip for YouTube Shorts. Can use same clip as Instagram or run Clip 02 (Inviting the Role) as an alternative.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Community Prompt</div>
+    <div class="field-value">Same as Facebook community prompt. Tuesday.</div>
+  </div>
+
+  <div class="section-head">TikTok (French)</div>
+
+  <div class="field">
+    <div class="field-label">Episode Week</div>
+    <div class="field-value">3–4 French clips across Tuesday, Thursday, Saturday. Priority order: 10%/50% reveal, "Inviting the Role," "Over-listening," loneliness/friendship reveal. Fresh clips within 48 hours of English drop.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Caption Note</div>
+    <div class="field-value">This episode has West African business context (Liberia, fintech, MTN) that will resonate strongly with the Francophone West African audience. Lean into that in captions where relevant. Do not over-explain — let the clips do the work.</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TAB 7: LINKEDIN -->
+<!-- ═══════════════════════════════════════ -->
+<div id="linkedin" class="tab-panel">
+
+  <div class="section-head">LinkedIn — Uche Manages Directly</div>
+  <div class="note">These drafts are for Uche's reference only. Not for Gbemi to post. Tuesday launch post uses native video clip upload — no outbound links.</div>
+
+  <div class="field">
+    <div class="field-label">Sunday — Pre-Post</div>
+    <div class="field-value">I've been a CEO three times. And I will tell you honestly — the first time, I thought I understood everything. I worked really closely with my CEO at the time and I just assumed I knew the job.<br><br>How wrong was I.<br><br>Tomorrow I'm releasing a conversation with someone who was in a similar position — and then found herself in the chair herself. We talked about what proximity actually teaches you. And what it doesn't.<br><br>There's one thing she said that I keep coming back to. I'll share it tomorrow.<br><br>#Leadership #DontLetTheSmileFoolYou</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Tuesday — Launch Post</div>
+    <div class="field-value">She expected stakeholder management to take up 10% of her time as a first-time CEO.<br><br>It ended up being 50%.<br><br>Laureine Guilao built a fintech from scratch, led it for five years, and left on her own terms. She didn't spend her career planning to become a CEO. The role found her — after a detour she didn't choose.<br><br>In this episode of Don't Let The Smile Fool You, we talked about what that's actually like. Not the highlight reel version. The inside of it.<br><br>[native video clip — Clip 01]<br><br>#Leadership #DontLetTheSmileFoolYou</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Saturday / Sunday — Reflective Follow-Up</div>
+    <div class="field-value">After the episode came out, the line people kept sending me was this one:<br><br>"You realise that they're not inviting you. They're inviting the role."<br><br>Laureine said it about what changed when she left the CEO position. The invitations shifted. The access shifted. And she realised that some of what she thought was for her had actually been for the title.<br><br>I think about this a lot. Not as a complaint. As information.<br><br>What is yours — and what belongs to the role you're in?<br><br>#Leadership #DontLetTheSmileFoolYou</div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TAB 8: HANDOFF -->
+<!-- ═══════════════════════════════════════ -->
+<div id="handoff" class="tab-panel">
+
+  <div class="section-head">Team Handoff</div>
+
+  <div class="field">
+    <div class="field-label">For Tolu</div>
+    <div class="field-value">Target runtime 48–55 minutes after edit. The five-movement architecture in the Tolu tab is the editorial guide — read it before cutting anything. The cold open is the 10%/50% line (~35:37). The opening 4+ minutes need aggressive cutting to under 60 seconds before Laureine's story begins. The real ending of the episode is the MTN naivety/reputation section (~1:08:29 onward) — "if you've built integrity and respect… you will always find your feet" is the closing line. The formal close from earlier in the recording is weaker and should be repositioned or cut. Two files recorded due to [confirm with Tolu whether recording was split]. Strawberry markers throughout — treat all as cuts. Key stitches needed: ~19:57 interruption; ~1:07:48 word loss; ~1:05:51 self-correction.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">For Gbemi</div>
+    <div class="field-value">Three English clips priority order in Clip Markers tab. Clip 01 (10% vs 50%) is the highest priority — this is the launch day clip for Instagram and YouTube Shorts. Caption leads with the idea not the announcement. Thumbnail: "I thought I was ready" with "First-time CEO" as the thumbnail line. Guest name: Laureine Guilao. Do not use her company name (TipMe Liberia) as the primary identifier — use "first-time CEO" as the hook. Community posts Monday evening (early access) and Tuesday (discussion prompt) in Social tab.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Coordination Note</div>
+    <div class="field-value">English episode drops Tuesday. French TikTok clips within 48 hours of English drop. Hold Clips 04 and 05 (Full Picture / Find Your Feet) for week two TikTok. LinkedIn posts: Sunday pre-post (Uche), Tuesday launch (Uche, native video), Saturday follow-up (Uche).</div>
+  </div>
+
+  <div class="section-head">Open Items</div>
+
+  <div class="field">
+    <div class="field-label">Open Items</div>
+    <div class="multi-item">Confirm with Laureine whether she's comfortable with the MTN exit being named as MTN — she referred to "a telecommunications company" during recording; resolve before episode goes live.</div>
+    <div class="multi-item">Confirm TipMe Liberia can be named — she named it herself on record, but flag for Laureine's approval given shareholder history.</div>
+    <div class="multi-item">Episode title — three candidates in Overview tab. Decide before capture sheet is finalised.</div>
+    <div class="multi-item">Host reflection to bridge the missed gender follow-up? ("What does a CEO owe the women in her organisation who don't yet have that power?") — consider whether Uche records a short reflection to add after Laureine's sexual harassment story.</div>
+    <div class="multi-item">Confirm whether recording was split across two files — flag in Tolu's instructions if so.</div>
+    <div class="multi-item">Clean book cover image or guest photo from Laureine for thumbnail.</div>
+  </div>
+
+  <div class="section-head">Forward Notes</div>
+
+  <div class="field">
+    <div class="field-label">Future Episode Seeds from This Recording</div>
+    <div class="multi-item">"The Job After the Job" — what happens to identity, access and invitations when the title is gone. Laureine's "inviting the role" insight is the seed of a full solo episode.</div>
+    <div class="multi-item">"The Job I Thought I Understood" — a recurring format. First-time board chairs, first-time ministers, first-time entrepreneurs. The pattern: what did you think the role was before you had it, and what did you only learn by living it? This conversation is the template.</div>
+    <div class="multi-item">Financial security vs financial flexibility — Laureine's comment about needing to see a company's P&L before taking another CEO role connects to the Financial Floor series.</div>
+    <div class="multi-item">Over-listening as a leadership liability — the tension between collaboration and decisiveness at the top. A solo episode where this is the central argument.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Leadership Infrastructure — Notes for Beneath the Smile</div>
+    <div class="field-value">Laureine's experience illustrates a specific Infrastructure pattern: strong Support (board relationships, peer network, trusted friendships) paired with a fragile Foundation (physical self-care, exercise, and rest were the first things to go when the job took over). She identified this herself in relation to Beneath the Smile. The Recovery floor is also live — she describes the post-MTN period as "the most traumatic experience of my life" before finding her footing again through reputation and network. The episode could be used in future as a case study for how Infrastructure that looks strong externally can be quietly fragile at the base.</div>
+  </div>
+
+</div>
+
+</div><!-- end .content -->
+
+<div class="footer">
+  The Smile Collective · Don't Let The Smile Fool You · Laureine Guilao · Detours Series · Post-Recording Capture Sheet
+</div>
+
+<script>
+function showTab(btn, id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
