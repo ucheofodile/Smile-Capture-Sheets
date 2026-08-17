@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When You Take It Personally — Capture Sheet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #f4f4f4; color: #1a1a1a; }
+  .header { background: #1a1a1a; color: #fff; padding: 32px 40px; }
+  .header .label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  .header .series-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 10px; }
+  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+  .header .thumbnail-title { font-size: 15px; color: #ccc; margin-bottom: 10px; }
+  .header .meta { font-size: 12px; color: #888; }
+  hr { border: none; border-top: 2px solid #1a1a1a; margin: 0; }
+  .tabs { background: #fff; border-bottom: 2px solid #e5e5e5; padding: 0 40px; display: flex; gap: 0; overflow-x: auto; }
+  .tab-btn { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 18px; border: none; background: none; cursor: pointer; color: #999; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; }
+  .tab-btn.active { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+  .content { max-width: 860px; margin: 0 auto; padding: 36px; }
+  .section-head { background: #1a1a1a; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 14px; margin: 28px 0 14px 0; }
+  .section-head:first-child { margin-top: 0; }
+  .field { margin-bottom: 14px; }
+  .field-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+  .field-value { font-size: 13px; line-height: 1.7; background: #fff; padding: 10px 14px; border-left: 3px solid #1a1a1a; color: #1a1a1a; }
+  .multi-field { margin-bottom: 14px; }
+  .multi-field .field-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+  .multi-field-body { background: #fff; padding: 10px 14px; border-left: 3px solid #1a1a1a; }
+  .multi-field-body .item { font-size: 13px; line-height: 1.7; color: #1a1a1a; margin-bottom: 6px; }
+  .multi-field-body .item:last-child { margin-bottom: 0; }
+  .clip-card { background: #fff; border-left: 3px solid #1a1a1a; padding: 14px 18px; margin-bottom: 14px; }
+  .clip-card .clip-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .clip-card .clip-num { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; }
+  .clip-card .clip-ts { font-size: 12px; font-family: monospace; color: #888; }
+  .clip-card .clip-title { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+  .clip-card .clip-quote { font-size: 13px; font-style: italic; color: #444; line-height: 1.6; margin-bottom: 10px; }
+  .clip-card .clip-meta-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 3px; }
+  .clip-card .clip-meta-value { font-size: 13px; color: #1a1a1a; margin-bottom: 8px; }
+  .clip-card .clip-note { font-size: 12px; color: #555; line-height: 1.6; }
+  .chapter-row { display: flex; gap: 20px; padding: 10px 0; border-bottom: 1px solid #e5e5e5; align-items: baseline; }
+  .chapter-row:last-child { border-bottom: none; }
+  .chapter-ts { font-family: monospace; font-size: 12px; color: #999; min-width: 48px; }
+  .chapter-title { font-size: 13px; color: #1a1a1a; line-height: 1.6; }
+  .note-italic { font-size: 12px; color: #999; font-style: italic; margin-bottom: 16px; line-height: 1.5; }
+  .back-link { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #888; text-decoration: none; margin: 24px 0 0 40px; }
+  .back-link:hover { color: #1a1a1a; }
+  .footer { text-align: center; font-size: 10px; color: #aaa; padding: 40px 20px; letter-spacing: 1px; margin-top: 20px; border-top: 1px solid #e5e5e5; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  @media print {
+    .tabs { display: none; }
+    .back-link { display: none; }
+    .tab-panel { display: block !important; }
+    .tab-panel + .tab-panel { margin-top: 0; page-break-before: always; }
+    .section-head { background: #1a1a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .field-value { background: #f9f9f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .multi-field-body { background: #f9f9f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .clip-card { background: #f9f9f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .header { background: #1a1a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-size: 11px; }
+    .content { padding: 20px; }
+    .clip-card { page-break-inside: avoid; }
+    .field { page-break-inside: avoid; }
+    .chapter-row { page-break-inside: avoid; }
+    .footer { margin-top: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">← All Capture Sheets</a>
+
+<div class="header">
+  <div class="label">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+  <div class="series-tag">Solo Episode · May 2026</div>
+  <h1>When You Take It Personally</h1>
+  <div class="thumbnail-title">Thumbnail Line (working direction): Everybody is not thinking about you.</div>
+  <div class="meta">Uche Ofodile · The Basement · The Smile Collective</div>
+</div>
+
+<hr>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(this,'overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab(this,'tolu')">Tolu</button>
+  <button class="tab-btn" onclick="showTab(this,'clips')">Clip Markers</button>
+  <button class="tab-btn" onclick="showTab(this,'chapters')">Chapters</button>
+  <button class="tab-btn" onclick="showTab(this,'shownotes')">Show Notes</button>
+  <button class="tab-btn" onclick="showTab(this,'social')">Social</button>
+  <button class="tab-btn" onclick="showTab(this,'linkedin')">LinkedIn</button>
+  <button class="tab-btn" onclick="showTab(this,'handoff')">Handoff</button>
+</div>
+
+<div class="content">
+
+  <!-- OVERVIEW -->
+  <div id="overview" class="tab-panel active">
+
+    <div class="section-head">Core Message</div>
+
+    <div class="field">
+      <div class="field-label">Spine — From the Recording</div>
+      <div class="field-value">There is a huge difference between being harmed by a decision and being the reason for it. Sometimes people are being deliberate — that is real and should not be minimised. But sometimes people are simply solving their own problem and you become collateral damage. The episode is not about pretending everything is fine. It is about what happens when you misread collateral damage as a personal attack — and the cost of that misreading when you are leading people.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Three-Movement Structure — For Editor Reference</div>
+      <div class="field-value">Movement 1 — Coachee story: what personalisation does. She was harmed by the decision. She was not the reason for it. The distinction between those two things is what the episode is built around. Movement 2 — Monrovia: what becomes possible when you stop reacting. Not a strategy session. Just stopping. And out of that stopping came the book, the podcast, a different way of thinking about leadership. Movement 3 — Business story: why this matters even more when you lead. At leadership level, personalisation does not just affect how you feel. It enters your judgment. It starts making decisions. That is the leadership payoff of the episode and what stops it from being generic advice.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">The Distinction</div>
+      <div class="field-value">This episode is not about emotional detachment or resilience. It is not an "everything is fine" conversation — Uche says that explicitly at 02:44. It is about what happens when you let the interpretation enter your judgment before you have examined it. Sometimes it is personal — the episode says so explicitly. The leadership problem is not the feeling. It is acting from the interpretation before you have tested whether it is true.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Operating Principle — From the Recording at 18:58</div>
+      <div class="field-value">Pause before reacting. The practical check Uche names in the recording: "Is this decision being made out of anger or is this the right decision for the business? Am I reacting because I'm frustrated or am I reacting in a way that's positive for my team?" That is the tool in this episode. Not a generic reframe — a leadership-specific check on whether frustration has entered the decision.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">The Cost — Exact Words from Recording at 21:16</div>
+      <div class="field-value">You stay in fights long after they stop serving the business. You refuse conversations you should have had. You spend energy proving a point instead of solving the next problem. This is the episode's leadership payoff. It answers why a leader should care about this beyond the emotional dimension. Give it prominence.</div>
+    </div>
+
+    <div class="section-head">Episode Details</div>
+
+    <div class="field">
+      <div class="field-label">Title</div>
+      <div class="field-value">When You Take It Personally</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Thumbnail Line (EN)</div>
+      <div class="field-value">Everybody is not thinking about you.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Thumbnail Line (FR)</div>
+      <div class="field-value">Tout le monde ne pense pas a toi. — confirm register with French speaker before use</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Packaging — Working Direction, Not Yet Locked</div>
+      <div class="field-value">"When You Take It Personally" is the right title — it names the territory immediately and the listener self-selects. "Everybody is not thinking about you" is strong working direction for the thumbnail line — it is provocative, it is Uche's first substantive sentence, and it generates the question the episode answers. However, someone scrolling YouTube could read it as interpersonal or self-help rather than leadership. Do not lock the thumbnail line until it has been pressure-tested against the actual thumbnail image. Title and thumbnail should be judged together before being finalised.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Format</div>
+      <div class="field-value">Solo — Uche only</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Floor Connection</div>
+      <div class="field-value">The Basement — primary and explicit. At 17:50 Uche directly invokes Beneath the Smile, Leadership Infrastructure and the basement: "those frustrations and angers sit in the basement. What sits in the basement doesn't stay in the basement." This is a Basement episode. Foundation is present but not explicit in the recording — do not force it into the framing.</div>
+    </div>
+
+    <div class="section-head">Recording Review</div>
+
+    <div class="field">
+      <div class="field-label">What Landed Well</div>
+      <div class="field-value">The coachee framing for the promotion story was the right call — protects Uche, loses nothing emotionally, adds a coaching dimension the audience connects with. The opening is strong and holds. Monrovia is the quietest and most honest section of the recording — essential to preserve in full. The close from 18:58 onward is where the episode gets very good again. "Why are you there collecting evidence for your own hurts?" — spontaneous, unwritten, strongest pull quote in the recording. "What sits in the basement doesn't stay in the basement" — natural framework reference. "Unfortunate, but true" — the right final note.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Honest Assessment of the Business Section</div>
+      <div class="field-value">The emotional truth of the sale story is strong — particularly the new hires detail at 14:04–14:49 (telling recruits the company was not being sold, then it was). That detail is essential and must be preserved. However, the section from 15:28–17:50 is audibly exploratory. At 17:07 Uche herself stops and says "strawberry, I think that that doesn't make sense." The editor's instruction for this section is the opposite of protection — cut heavily, preserve the emotional truth of the sale story and the transition into how personalisation affects judgment, remove the abandoned formulations. Do not treat this section as the recording's strongest moment. The emotional core is strong. The execution in the middle is not.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Where the Recording Diverged — Worth Keeping</div>
+      <div class="field-value">The promotion story moved from first-person to a coachee story — correct call for anonymization. The business story was not in the script and the emotional core of it is stronger than the abstract version we had. Monrovia is now the pivot between the two stories — structurally correct for this recording.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Spontaneous Lines to Preserve — In Edit Priority Order</div>
+      <div class="multi-field-body">
+        <div class="item">1. "Why are you there collecting evidence for your own hurts?" — 19:55 — strongest pull quote, preserve and give space after it</div>
+        <div class="item">2. "What sits in the basement doesn't stay in the basement." — 18:16 — clean the stumble, keep the line exactly as said</div>
+        <div class="item">3. "I'm going to burn the building down" — 05:38 — said by the coachee, keep exactly as said</div>
+        <div class="item">4. "Who am I in all of this, really?" — 17:20 — preserve in edit, give it room; do not promote as a standalone pull quote — without context "all of this" is unclear</div>
+        <div class="item">5. "Unfortunate, but true." — 21:55 — final note, episode ends here</div>
+      </div>
+    </div>
+
+    <div class="section-head">Pull Quotes — Priority Order</div>
+
+    <div class="multi-field">
+      <div class="field-label">Primary — Use These Four</div>
+      <div class="multi-field-body">
+        <div class="item">1. AUDIENCE HOOK: "Why are you there collecting evidence for your own hurts?" — strongest clip and graphic line</div>
+        <div class="item">2. THESIS: "There's a huge difference between being harmed by a decision and being the reason for it." — ~03:43</div>
+        <div class="item">3. LEADERSHIP LINE: "You stay in fights long after they stop serving the business. You refuse conversations you should have had." — 21:16</div>
+        <div class="item">4. CLOSING IDEA: "Sometimes people are just solving their own problems and you happen to be standing where the decision landed." — 21:32</div>
+      </div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Deprioritise — Do Not Use as Headline Quotes</div>
+      <div class="multi-field-body">
+        <div class="item">1. "She was still hurt, obviously she was still affected, but she understood that it was not about her." — explanatory, not distinctive as a standalone</div>
+        <div class="item">2. "Your decisions can still make sense, but they're not clean decisions." — this is the best articulation of the business argument and the correct landing point for that section in the edit (see Tolu tab). Keep it in the episode. Do not use it as a promotional pull quote or graphic — it works in context, not as a standalone.</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Strongest Single Line for Quote Graphic</div>
+      <div class="field-value">Why are you there collecting evidence for your own hurts?</div>
+    </div>
+
+    <div class="section-head">Companion Resource</div>
+
+    <div class="field">
+      <div class="field-label">Decision</div>
+      <div class="field-value">No. The episode lands cleanly without a companion resource. The close has enough weight. A resource would dilute it.</div>
+    </div>
+
+  </div>
+
+  <!-- TOLU -->
+  <div id="tolu" class="tab-panel">
+
+    <div class="section-head">Edit Instructions</div>
+
+    <div class="field">
+      <div class="field-label">Overall Instruction</div>
+      <div class="field-value">Solo episode. Uche only. The goal of this edit is to uncover the strongest version of the episode that already exists in the recording — not to move toward a cleaner written script. Do not tighten toward a scripted version. The conversational quality is the episode's strength. The argument to hold in mind throughout: we personalize things — sometimes we were genuinely harmed but were not the reason — personalizing the harm changes how we respond — at leadership level that enters judgment — therefore the pause matters — and I am still learning to do it myself. That arc is already in the recording. The editor's job is to uncover it. Edit with both the coaching story AND the business story included. Leave both in for the first pass. Uche will make the structural call after listening to the clean version.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Tone to Preserve</div>
+      <div class="field-value">The "does it make sense?" moments are Uche checking in with the listener — do not edit these out. The "oh my God I'm so guilty of this sometimes" at 21:16 is the most human moment in the recording — keep it. Do not over-tighten micro-gaps within the coaching story and business story to manufacture tension — the natural rhythm of how Uche speaks is the register. Tighten repetitions only, not the breath between thoughts.</div>
+    </div>
+
+    <div class="section-head">Precise Cut Log</div>
+
+    <div class="multi-field">
+      <div class="field-label">Cuts — In Timestamp Order</div>
+      <div class="multi-field-body">
+        <div class="item">1. 00:00–00:15 — Initial silence, "Hmm", strawberry. Cut to 00:16 ("You know what I've realized recently...")</div>
+        <div class="item">2. 02:09–02:43 — Trailing incomplete thought into strawberry. Cut to 02:44 ("Sometimes we're quick to interpret...")</div>
+        <div class="item">3. 08:51–09:04 — False start and "strawberry. Let's scrap that." Cut to 09:05 ("So let me bring it a bit personally here...")</div>
+        <div class="item">4. 11:28–11:59 — Stumble into "positive use of strawberry" and redundant restatement. Cut from "build for me" to 12:01 ("I stopped letting my frustration decide what would come next.")</div>
+        <div class="item">5. 12:11–12:20 — Cut "that's what was so positive about the whole situation because I ended up writing my book and starting this podcast." Repetition of 10:34. Go from 12:01 straight into "And I've seen the same thing happening in business." This fixes the abrupt gear change between Monrovia and the business section.</div>
+        <div class="item">6. 12:57 — Remove "in the DRC". Replace with "on a business turnaround": "I remember a few years ago I was working on a business turnaround." Single word swap — no rerecord needed.</div>
+        <div class="item">7. 13:27–14:03 — First pass at business story setup plus dog sneeze. Stitch the interview question from 13:27 directly into 14:04: "I had hired new people, and as part of the interview process, some of those people had asked me, hey, is this company gonna be sold?"</div>
+        <div class="item">8. 14:49 — Cut the phrase "you get the point." It signals to the listener that something is being skipped. Go straight into: "I had to realize that that decision had nothing to do with me."</div>
+        <div class="item">9. 15:17–15:57 — Tangled section including "misdirected, almost a waste of your time" and the strawberry at 15:28. Cut entirely. Use restart at 15:58 ("When you take things so personally and you attach emotion to strategy...")</div>
+        <div class="item">10. 17:05–17:19 — "Does it make sense? Strawberry, think that that doesn't make sense." Cut entirely. Bridge into 17:20 ("I felt like personally betrayed by the decision. I mean, who am I in all of this, really?")</div>
+        <div class="item">11. 18:15–18:24 — Stumble around "straight by it". Edit to single crisp delivery: "What sits in the basement doesn't stay in the basement."</div>
+        <div class="item">12. 21:59 onward — Grace note after the close. Cut entirely. Episode ends on "Unfortunate, but true." at 21:55.</div>
+      </div>
+    </div>
+
+    <div class="section-head">Sections</div>
+
+    <div class="field">
+      <div class="field-label">Open — 00:16 through 03:43</div>
+      <div class="field-value">Starts clean at 00:16. Cut everything before it. Second pass at 02:44 is cleaner than the first — use that. Cut 02:09–02:43.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">The Coachee Story — 03:43 through 08:51</div>
+      <div class="field-value">Keep the full story arc but tighten repeated explanation of how well she performed and repeated explanation that the decision was not about her — the story can lose 45–75 seconds without losing anything essential. The key beats are: went through a process, performed well, process suddenly changed, did not get role, wanted to burn the building down, discovered years later the company was solving an unrelated problem, she had been harmed by the decision but was not its cause. The "I'm going to burn the building down" line at 05:38 is the title callback — preserve it exactly as said.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Monrovia — 09:05 through 12:01</div>
+      <div class="field-value">Start at 09:05. Use the restart at 12:01 for the resolution — "I stopped letting my frustration decide what would come next." End Monrovia there. This is the quietest section — give it room, do not compress it. After 12:01 cut the repetition (cut log item 5) and go straight into the business section. Monrovia's structural function: this is not just a personal anecdote. It demonstrates the alternative to reaction. The book and podcast emerge from the pause. That is what becomes possible when you stop letting frustration decide.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">The Business Story — 12:11 through 17:50</div>
+      <div class="field-value">The new hires detail at 14:04–14:49 is essential — do not cut it. That detail is the most specific and resonant business moment in the episode. The weakest stretch is 15:28–17:19 — cut heavily per cut log items 9 and 10. The best single articulation of the idea in this section is at 16:36: "your decisions can still make sense, but they're not clean decisions." Use that as the landing point. IMPORTANT: the moment at 17:20 — "I felt like personally betrayed by the decision. I mean, who am I in all of this, really?" — treat this as a destination, not a bridge. Give it room. It is the emotional core of the business story.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">The Basement — 17:50 through 18:58</div>
+      <div class="field-value">"What sits in the basement doesn't stay in the basement" is the key line — clean the stumble at 18:15–18:24 so it lands as a single crisp delivery. This section answers why the episode belongs on a leadership podcast rather than being generic advice. Preserve it fully.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Close — 18:58 through 21:55</div>
+      <div class="field-value">The episode gets very good again here. Keep most of it intact. "Collecting evidence for your own hurts" at 19:55 — give it a breath after it lands. "Oh my God I'm so guilty of this sometimes" at 21:16 — keep it. EPISODE ENDS ON: "sometimes people are just solving their own problems and you happen to be standing where the decision landed. Unfortunate, but true." Cut everything after 21:55. The grace note softens something that should stay sharp.</div>
+    </div>
+
+    <div class="section-head">Breath — Add Space Around These Lines</div>
+
+    <div class="multi-field">
+      <div class="field-label">Anchor Lines — 1-Second Pause After Each</div>
+      <div class="multi-field-body">
+        <div class="item">1. "There's a huge difference between being harmed by a decision and being the reason for it." — ~03:43</div>
+        <div class="item">2. "Who am I in all of this, really?" — 17:20 — treat as a destination, not a transition</div>
+        <div class="item">3. "Why are you there collecting evidence for your own hurts?" — ~19:55</div>
+        <div class="item">4. "You happen to be standing where the decision landed. Unfortunate, but true." — ~21:32</div>
+      </div>
+    </div>
+
+    <div class="section-head">Keep / Cut Summary</div>
+
+    <div class="multi-field">
+      <div class="field-label">Keep</div>
+      <div class="multi-field-body">
+        <div class="item">1. "I'm going to burn the building down" — 05:38 — preserve exactly as said</div>
+        <div class="item">2. New hires detail — 14:04 through 14:49 — essential, do not cut</div>
+        <div class="item">3. "Your decisions can still make sense, but they're not clean decisions" — 16:36 — landing point of business argument</div>
+        <div class="item">4. "Who am I in all of this, really?" — 17:20 — give it room</div>
+        <div class="item">5. "What sits in the basement doesn't stay in the basement" — 18:16 — clean stumble, keep line</div>
+        <div class="item">6. "Why are you there collecting evidence for your own hurts?" — 19:55 — strongest pull quote</div>
+        <div class="item">7. "Oh my God I'm so guilty of this sometimes" — 21:16 — warmest moment before close</div>
+        <div class="item">8. "Unfortunate, but true" — 21:55 — final note, episode ends here</div>
+      </div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Cut</div>
+      <div class="multi-field-body">
+        <div class="item">1. 00:00–00:15 — everything before the open</div>
+        <div class="item">2. 02:09–02:43 — first pass before strawberry restart</div>
+        <div class="item">3. 08:51–09:04 — false start before Monrovia</div>
+        <div class="item">4. 11:28–11:59 — stumble before Monrovia resolution</div>
+        <div class="item">5. 12:11–12:20 — repetition of book/podcast before business pivot</div>
+        <div class="item">6. 12:57 — "in the DRC" replaced with "on a business turnaround"</div>
+        <div class="item">7. 13:27–14:03 — first pass at business setup plus dog sneeze</div>
+        <div class="item">8. 14:49 — cut "you get the point"</div>
+        <div class="item">9. 15:17–15:57 — tangled section, use restart at 15:58</div>
+        <div class="item">10. 17:05–17:19 — strawberry and confusion, use restart at 17:20</div>
+        <div class="item">11. 18:15–18:24 — stumble around "straight by it"</div>
+        <div class="item">12. 21:59 onward — grace note, episode ends on "Unfortunate, but true."</div>
+      </div>
+    </div>
+
+    <div class="section-head">French Clips — TikTok</div>
+
+    <div class="field">
+      <div class="field-label">Quantity</div>
+      <div class="field-value">5–6 clips. Hold 1–2 for the week after the episode drop.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Priority Moments</div>
+      <div class="multi-field-body">
+        <div class="item">1. Coachee story resolution — 08:09 through 08:51</div>
+        <div class="item">2. "Why are you there collecting evidence for your own hurts?" — 19:55</div>
+        <div class="item">3. The basement section — 17:50 through 18:28</div>
+        <div class="item">4. New hires detail — 14:04 through 14:49</div>
+        <div class="item">5. The close — 20:55 through 21:55</div>
+      </div>
+    </div>
+
+    <div class="section-head">English Clips — For Gbemi</div>
+
+    <div class="field">
+      <div class="field-label">Quantity</div>
+      <div class="field-value">3–4 clips</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Priority Clips</div>
+      <div class="multi-field-body">
+        <div class="item">1. CLIP 1 — Discovery (60–90 sec, constructed): 00:16 through ~03:14. Tolu to construct — not a raw cut. Remove 02:09–02:44. Shape: "Everybody is not thinking about you" → we build the story quickly → sometimes it IS personal → but sometimes collateral damage. Pre-launch asset.</div>
+        <div class="item">2. CLIP 2 — Collecting Evidence (90 sec): 19:26 through 20:55. Strongest short-form social clip. Launch day Instagram and YouTube Shorts.</div>
+        <div class="item">3. CLIP 3 — Basement/Leadership (edited): 17:50 through 19:26. Remove stumble at 18:15–18:24. The leadership clip — positions episode as leadership thinking, not self-help.</div>
+        <div class="item">4. CLIP 4 — Monrovia/What Comes Next (edited): 10:05 through 12:01. Remove stumble at 11:31–11:59. The redirection clip — completely different emotional register. Holdback asset for the week after the drop.</div>
+        <div class="item">5. CLIP 5 — LinkedIn Flagship (2.5 min, native video): 19:26 through 21:55. The full argument. Upload as native video on launch day — not a YouTube link. Overlaps with Clip 2 by design — different job, different platform, different length.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CLIP MARKERS -->
+  <div id="clips" class="tab-panel">
+
+    <div class="section-head">Clip Markers</div>
+    <p class="note-italic">Approximate timestamps from raw recording. Update with edited version timestamps after Tolu's edit is complete. Five clips total — four short-form and one LinkedIn flagship. Clips 2 and 5 overlap by design: they are doing different jobs on different platforms.</p>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Clip 01</span>
+        <span class="clip-ts">00:16 – ~03:14 (construct to 60–90 sec)</span>
+      </div>
+      <div class="clip-title">Everybody Is Not Thinking About You</div>
+      <div class="clip-quote">"You know what I've realized recently? Everybody is not thinking about you. They're really not... sometimes people are just solving their own problem and you become collateral damage... but it's still not about you."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-value">Instagram / YouTube Shorts / TikTok — Pre-launch</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Discovery clip. Earns the click before the episode drops. Tolu to construct — do not simply cut the first three minutes. There is repetition and stumbling around 02:09–02:44. The constructed clip should be: "Everybody is not thinking about you" → how quickly we build the story → sometimes it IS personal → but sometimes people are solving their own problem and you become collateral damage. That gives the clip an actual reveal. Target: 60–90 seconds clean.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Clip 02</span>
+        <span class="clip-ts">19:26 – 20:55</span>
+      </div>
+      <div class="clip-title">Collecting Evidence</div>
+      <div class="clip-quote">"Why are you there collecting evidence for your own hurts? I was even complaining one day to my boss — I've been trying to reach this person and they're not responding. And my boss basically said to me, don't take it personally. That was really annoying because I was very busy taking it personally."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-value">Instagram / YouTube Shorts — Launch day</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Strongest short-form social clip. Contains a complete miniature story: someone isn't responding, you've decided it's disrespect, boss says don't take it personally, Uche admits she was very busy taking it personally. Has humour, vulnerability and utility. Will stop people mid-scroll. Note: this section also forms the start of Clip 05 — the overlap is intentional, the jobs are different.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Clip 03</span>
+        <span class="clip-ts">17:50 – 19:26</span>
+      </div>
+      <div class="clip-title">What Sits in the Basement</div>
+      <div class="clip-quote">"Those frustrations and angers — they sit in the basement. And what sits in the basement doesn't stay in the basement... your decision making is affected. It shows up in what you refuse to discuss. It shows up in how you treat your team."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-value">Instagram / YouTube Shorts / TikTok</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">The leadership clip. Hook is not the framework name — hook is: what happens when you take something personally for too long? It starts affecting your decisions. Edit carefully — remove stumble at 18:15–18:24. Positions episode as leadership thinking, not career advice or self-help.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Clip 04</span>
+        <span class="clip-ts">~10:05 – 12:01</span>
+      </div>
+      <div class="clip-title">Monrovia — What Comes Next</div>
+      <div class="clip-quote">"I moved away from frustration and anger and wanting to react to — OK, here's where we are. What's my next step? What do I want to do?... I stopped letting my frustration decide what would come next."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-value">Instagram / TikTok — Holdback asset, week after drop</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">The redirection clip. A completely different emotional register from the other clips — quieter, more reflective. Shows what becomes possible when you stop letting frustration decide: the book, the podcast, a different way of thinking. This is the part of the episode that the social campaign would otherwise miss entirely. Use as a holdback asset in the week after the episode drops. Edit to remove the stumble at 11:31–11:59 — use the clean restart at 12:01.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Clip 05</span>
+        <span class="clip-ts">19:26 – 21:55 (~2.5 min)</span>
+      </div>
+      <div class="clip-title">LinkedIn Flagship — The Full Argument</div>
+      <div class="clip-quote">"Why are you there collecting evidence for your own hurts?... You stay in fights long after they stop serving the business. You refuse conversations you should have had... sometimes people are just solving their own problems and you happen to be standing where the decision landed. Unfortunate, but true."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-value">LinkedIn — Native video upload, launch day</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">The flagship LinkedIn asset. Not a teaser — a complete argument. This 2.5-minute sequence has more of Uche's signature than any other section: the recognisable executive situation, the funny boss exchange, "collecting evidence for your own hurts," the leadership consequence (staying in fights, refusing conversations, proving points instead of solving problems), and the close. It does not delay to tell someone else's story — it is Uche throughout, in her own voice, arriving at a conclusion that is specifically about leadership judgment. Upload as native video, not a YouTube link. End on "Unfortunate, but true." — do not include the grace note. This clip overlaps with Clip 02 by design — the 90-second cut is the social hook, the LinkedIn version lets the full thought finish.</div>
+    </div>
+
+  </div>
+
+
+    <!-- CHAPTERS -->
+  <div id="chapters" class="tab-panel">
+
+    <div class="section-head">Episode Chapters</div>
+    <p class="note-italic">Approximate timestamps from raw recording. Tolu to confirm from edited version before publishing.</p>
+
+    <div class="chapter-row"><span class="chapter-ts">~00:16</span><span class="chapter-title">Everybody is not thinking about you</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~02:44</span><span class="chapter-title">Sometimes it is personal</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~03:43</span><span class="chapter-title">Harmed by the decision, not the reason for it</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~05:38</span><span class="chapter-title">I'm going to burn the building down</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~06:49</span><span class="chapter-title">She was collateral damage</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~09:05</span><span class="chapter-title">Three days by the ocean</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~12:11</span><span class="chapter-title">Emotion attaches itself to strategy</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~17:50</span><span class="chapter-title">What sits in the basement</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~19:48</span><span class="chapter-title">Collecting evidence for your own hurts</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~20:55</span><span class="chapter-title">Where the decision landed</span></div>
+
+  </div>
+
+  <!-- SHOW NOTES -->
+  <div id="shownotes" class="tab-panel">
+
+    <div class="section-head">Show Notes</div>
+
+    <div class="field">
+      <div class="field-label">Opening Line</div>
+      <div class="field-value">There is a huge difference between being harmed by a decision and being the reason for it. Most of us collapse those two things — and it costs us more than we realise.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Episode Description</div>
+      <div class="field-value">In this episode, Uche talks about what happens when you misread a difficult situation as a personal attack — and what it costs you strategically when you do. A coaching client who almost resigned over a promotion she didn't get. Three days sitting by the ocean in Monrovia. A business sale that felt like a personal betrayal. And what changed when she finally understood that being harmed by a decision is not the same as being the reason for it.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Key Themes</div>
+      <div class="field-value">The difference between being harmed by a decision and being the reason for it. How personalisation changes how we respond — and eventually how we lead. What becomes possible when you stop letting frustration decide what comes next. The basement: how unprocessed hurt enters strategy without you realising. The pause — and why it is a leadership discipline, not a passive response.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Resource</div>
+      <div class="field-value">No companion resource for this episode.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Chapters</div>
+      <div class="field-value">Listed in Chapters tab. Add timestamps after Tolu confirms the edited version.</div>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL -->
+  <div id="social" class="tab-panel">
+
+    <div class="section-head">Instagram</div>
+
+    <div class="field">
+      <div class="field-label">Launch Day Caption</div>
+      <div class="field-value">There is a huge difference between being harmed by a decision and being the reason for it. Most of us collapse those two things — and spend years reacting to something that was never actually about us. New episode. Link in bio.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Quote Graphic Caption</div>
+      <div class="field-value">Why are you there collecting evidence for your own hurts?</div>
+    </div>
+
+    <div class="section-head">Facebook</div>
+
+    <div class="field">
+      <div class="field-label">Feed Post</div>
+      <div class="field-value">When something difficult happens at work — do you slow down long enough to ask whether it was actually about you? Most of the time, people are just solving their own problems. You happened to be standing where the decision landed. That is the episode this week. Link in comments.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community — Early Access</div>
+      <div class="field-value">Episode goes public tomorrow. It is yours tonight.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community — Discussion Prompt</div>
+      <div class="field-value">Has there been a moment in your career where you took something personally — and later realised it had nothing to do with you? What changed when you understood that? Genuinely curious.</div>
+    </div>
+
+    <div class="section-head">YouTube</div>
+
+    <div class="field">
+      <div class="field-label">Shorts</div>
+      <div class="field-value">Clip 01 — Everybody Is Not Thinking About You — Tuesday or Wednesday. Discovery clip, sells the episode before it drops.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community Prompt</div>
+      <div class="field-value">Has there been a moment in your career where you took something personally — and later realised it had nothing to do with you? What changed when you understood that?</div>
+    </div>
+
+    <div class="section-head">TikTok (French)</div>
+
+    <div class="field">
+      <div class="field-label">Episode Week</div>
+      <div class="field-value">3–4 French clips across Tuesday, Thursday, Saturday. Fresh clips from Tolu within 48 hours of English drop. Hold 1–2 for the following week.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Caption Note</div>
+      <div class="field-value">Thumbnail line in French: "Tout le monde ne pense pas a toi." — confirm register with French speaker before posting.</div>
+    </div>
+
+  </div>
+
+  <!-- LINKEDIN -->
+  <div id="linkedin" class="tab-panel">
+
+    <div class="section-head">LinkedIn — Uche Manages Directly</div>
+    <p class="note-italic">These drafts are for Uche's reference only. Not for Gbemi to post.</p>
+
+    <div class="field">
+      <div class="field-label">Sunday — Pre-Post (optional — consider skipping)</div>
+      <div class="field-value">Note: the draft below makes the idea sound heavier and more resolved than the episode actually is. The recording is more interesting because Uche is still catching herself doing it — the Tuesday post captures that register better. Consider going straight to Tuesday without a Sunday pre-post for this episode.
+
+Draft if needed: One of the hardest things I've had to learn as a leader: everybody is not thinking about you as much as you think they are. People are protecting themselves. Solving their own problems. Managing their own pressures. And sometimes you get hurt in the process. But there's a difference between being harmed by a decision and being the reason for it. That distinction sounds small. It is not small at all.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Tuesday — Launch Post</div>
+      <div class="field-value">I've realised how quickly I can turn someone else's behaviour into a story about me. Someone doesn't respond. I'm already building the case. Deciding what it means. Deciding what it says about how they see me. And then — last week — my boss said to me, basically, don't take it personally. Which was really annoying. Because I was very busy taking it personally. But he was right. The problem isn't only that taking things personally makes us feel bad. When you are leading, eventually it starts influencing decisions. That's the episode this week. Link in comments.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Saturday / Sunday — Reflective Follow-Up</div>
+      <div class="field-value">The most honest line I said in this week's episode wasn't in the script. It came out in the recording and I am still sitting with it. "Why are you there collecting evidence for your own hurts?" Because that is exactly what we do. Something happens. We go quiet. We collect. We build the case. And by the time we react, we have been carrying a story that may not even be true. The work — and I mean this as ongoing work, not a lesson I have learned — is learning to pause before the story becomes fixed.</div>
+    </div>
+
+  </div>
+
+  <!-- HANDOFF -->
+  <div id="handoff" class="tab-panel">
+
+    <div class="section-head">Team Handoff</div>
+
+    <div class="field">
+      <div class="field-label">For Tolu</div>
+      <div class="field-value">Solo episode recorded May 2026. Full cut log is in the Tolu tab — work from that, not from this summary. Key points: edit to uncover the argument already in the recording, not toward the written script. Both stories stay in for the first pass — Uche makes the structural call after listening to the clean version. The 12:11 transition fix is important — cut the book/podcast repetition and go straight into the business section. At 12:57 remove "in the DRC", replace with "on a business turnaround." Cut heavily from 15:17–17:19 — use restart at 15:58. The "who am I in all of this, really?" line at 17:20 is the emotional core of the business story — give it room. Add 1-second pauses after the four anchor lines in the Tolu tab. EPISODE ENDS ON: "Unfortunate, but true." — 21:55. Cut the grace note. Produce 5–6 French clips, hold 1–2 for the week after the drop. Confirm chapter timestamps from edited version before sending back.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">For Gbemi</div>
+      <div class="field-value">Title: When You Take It Personally. Thumbnail line: "Everybody is not thinking about you." — Uche direct to camera, calm, direct expression. Clean, no decoration, high contrast. Note: thumbnail line is working direction, not yet locked — judge against the actual image before finalising. French thumbnail line: "Tout le monde ne pense pas a toi." — confirm register with French speaker before finalising. Primary pull quote for graphic: "Why are you there collecting evidence for your own hurts?" — exact words as recorded. Five clips total — full details in the Clip Markers tab. Pre-launch: Clip 01 (discovery, 60–90 sec constructed from 00:16–03:14). Launch day: Clip 02 (Collecting Evidence, 19:26–20:55) for Instagram and YouTube Shorts; Clip 05 (LinkedIn flagship native video, 19:26–21:55 — upload as native video, not a YouTube link). Episode week: Clip 03 (Basement/Leadership, 17:50–19:26). Holdback for week after drop: Clip 04 (Monrovia, 10:05–12:01). Social copy in the Social tab. Community prompts — early access Monday evening, discussion question Tuesday.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Coordination Note</div>
+      <div class="field-value">English drops Tuesday. Uche active on LinkedIn same day — Instagram, Facebook, YouTube English posts go out Tuesday. French TikTok clips start Thursday — within 48 hours of English drop. Community early access Monday evening. Hold 1–2 French clips for the week after the drop to keep TikTok active between episodes.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Open Items</div>
+      <div class="multi-field-body">
+        <div class="item">1. Chapter timestamps — to be confirmed by Tolu from edited version</div>
+        <div class="item">2. French thumbnail line — confirm register with French speaker before Gbemi finalises</div>
+        <div class="item">3. Structural decision — coaching story in or out — Uche listens to clean edit first</div>
+      </div>
+    </div>
+
+    <div class="section-head">Forward Notes</div>
+
+    <div class="multi-field">
+      <div class="field-label">Future Episode Seeds</div>
+      <div class="multi-field-body">
+        <div class="item">1. When the decision IS personal — the episode that handles the other side. What do you do when it actually was about you and you have to respond?</div>
+        <div class="item">2. Labels Create Leadership Drift — how repeated misreadings accumulate into a distorted self-narrative over time.</div>
+        <div class="item">3. The basement and the board — how unprocessed organisational emotion shapes institutional strategy.</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Leadership Infrastructure — Notes for the Book</div>
+      <div class="field-value">This recording contains the clearest live example of basement behaviour in the podcast catalogue so far — the moment where a strategically defensible decision is also emotionally contaminated. "Your decisions can still make sense, but they're not clean decisions" — that line is book-ready. The distinction between a technically correct decision and a clean decision is worth developing as a standalone concept in Beneath the Smile.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  The Smile Collective · Don't Let The Smile Fool You · Post-Recording Capture Sheet · Internal Use
+</div>
+
+<script>
+function showTab(btn, id) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
