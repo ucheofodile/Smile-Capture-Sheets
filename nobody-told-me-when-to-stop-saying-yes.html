@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DLTSFY — Nobody Told Me When to Stop Saying Yes (At Work)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #f4f4f4; color: #1a1a1a; }
+
+  /* ── SCREEN ── */
+  .page-header { background: #1a1a1a; color: #fff; padding: 28px 36px 24px; }
+  .page-header .label { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .page-header .show { font-size: 11px; color: #aaa; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+  .page-header h1 { font-size: 20px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+  .page-header .meta { font-size: 11px; color: #888; }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 3px; background: #2a2a2a; padding: 12px 36px; }
+  .tab-btn { padding: 7px 14px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; border: none; cursor: pointer; background: transparent; color: #888; font-family: Georgia, serif; transition: all 0.15s; }
+  .tab-btn:hover { color: #fff; }
+  .tab-btn.active { background: #fff; color: #1a1a1a; }
+
+  .content { max-width: 820px; margin: 0 auto; padding: 36px; }
+
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── SHARED COMPONENTS ── */
+  .section-head { background: #1a1a1a; color: #fff; padding: 7px 14px; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 24px 0 14px; }
+  .section-head:first-child { margin-top: 0; }
+
+  .field { margin-bottom: 16px; }
+  .field-label { font-size: 8px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+  .field-value { font-size: 13px; color: #1a1a1a; line-height: 1.75; background: #fff; padding: 12px 14px; border-left: 3px solid #1a1a1a; }
+
+  .multi-field { margin-bottom: 16px; }
+  .multi-field .field-label { font-size: 8px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+  .multi-field .items { background: #fff; border-left: 3px solid #1a1a1a; padding: 12px 14px; }
+  .multi-field .item { font-size: 13px; color: #1a1a1a; line-height: 1.75; margin-bottom: 8px; }
+  .multi-field .item:last-child { margin-bottom: 0; }
+
+  .clip-card { background: #fff; border-left: 3px solid #1a1a1a; padding: 16px 18px; margin-bottom: 14px; }
+  .clip-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+  .clip-num { font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; }
+  .clip-ts { font-size: 10px; font-family: monospace; color: #888; }
+  .clip-title { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+  .clip-quote { font-size: 12px; font-style: italic; color: #444; margin-bottom: 8px; line-height: 1.6; }
+  .clip-meta-label { font-size: 8px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 3px; }
+  .clip-meta-val { font-size: 12px; color: #1a1a1a; margin-bottom: 8px; }
+  .clip-note { font-size: 12px; color: #555; line-height: 1.6; }
+
+  .chapter-row { display: flex; gap: 20px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid #eee; }
+  .chapter-row:last-child { border-bottom: none; }
+  .chapter-ts { font-family: monospace; font-size: 11px; color: #999; min-width: 55px; }
+  .chapter-title { font-size: 13px; color: #1a1a1a; line-height: 1.6; }
+
+  .note-banner { background: #f0f0f0; border-left: 3px solid #888; padding: 10px 14px; font-size: 11px; color: #666; font-style: italic; margin-bottom: 20px; line-height: 1.6; }
+
+  .footer { text-align: center; font-size: 9px; color: #bbb; padding: 36px 20px; letter-spacing: 1px; border-top: 1px solid #e0e0e0; margin-top: 40px; }
+
+  /* ── PRINT: show all tabs, hide tab bar ── */
+  @media print {
+    body { background: #fff; font-size: 11px; }
+    .tabs { display: none; }
+    .tab-pane { display: block !important; }
+    .page-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-head { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tab-section-label { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tab-pane { page-break-before: always; }
+    .tab-pane:first-of-type { page-break-before: avoid; }
+    .clip-card { page-break-inside: avoid; }
+    .field { page-break-inside: avoid; }
+    .tab-section-label { display: block !important; }
+  }
+
+  .tab-section-label {
+    display: none;
+    background: #2a2a2a;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    margin-bottom: 24px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="label">Post-Recording Capture Sheet</div>
+  <div class="show">Don't Let The Smile Fool You · The Smile Collective</div>
+  <h1>Nobody Told Me When to Stop Saying Yes (At Work)</h1>
+  <div class="meta">Solo Episode · EP [TBC] · Release: [TBC] · Floor: Foundation (primary), Presence (secondary)</div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(this,'overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab(this,'tolu')">Tolu</button>
+  <button class="tab-btn" onclick="showTab(this,'clips')">Clip Markers</button>
+  <button class="tab-btn" onclick="showTab(this,'chapters')">Chapters</button>
+  <button class="tab-btn" onclick="showTab(this,'shownotes')">Show Notes</button>
+  <button class="tab-btn" onclick="showTab(this,'social')">Social</button>
+  <button class="tab-btn" onclick="showTab(this,'linkedin')">LinkedIn</button>
+  <button class="tab-btn" onclick="showTab(this,'handoff')">Handoff</button>
+</div>
+
+<div class="content">
+
+  <!-- ── OVERVIEW ── -->
+  <div id="overview" class="tab-pane active">
+    <div class="tab-section-label">01 — Overview</div>
+
+    <div class="section-head">Core Message</div>
+
+    <div class="field">
+      <div class="field-label">Spine</div>
+      <div class="field-value">The advice to say yes is not wrong. For a significant stretch of most careers, it is exactly right — it builds visibility, opens doors, and puts you in rooms you wouldn't otherwise reach. The problem is that nobody tells you when it stops being the right advice. This episode is a diagnosis of what happens when you keep using an operating system that has quietly become a liability: the cost of the miscalculated yes, the fear underneath the automatic yes, and the social cost of the moment you start saying no. The gender dimension is real and the episode names it — but the fundamental insight is not exclusively female. It is about outgrowing advice without realising you have outgrown it.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">The Distinction — What This Episode Says That Has Not Been Said</div>
+      <div class="field-value">Most content on this topic addresses people who are overwhelmed and need permission to push back. This episode addresses people who are strategic but using the wrong map. The advice was not wrong — it was right for a different season. The failure is systemic: nobody updates the instructions. Do not market this as another "women need to set boundaries" episode. That is precisely what the episode argues against.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">The Cost — What It Costs a Leader Who Doesn't Hear This</div>
+      <div class="field-value">She stays busy past the point where busy serves her. She says yes to things that consume her time, her energy, and her reputation without advancing where she is trying to go. In the most costly version: she spends her career being indispensable to everyone except herself.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">This Episode Is Not About</div>
+      <div class="field-value">Burnout. Work-life balance. Being overwhelmed. Setting boundaries as self-care. This is not a wellness episode. It is a career infrastructure episode for people who are already senior and already strategic — but may be using a map that no longer fits the territory.</div>
+    </div>
+
+    <div class="section-head">Episode Details</div>
+
+    <div class="field">
+      <div class="field-label">Full Title</div>
+      <div class="field-value">Nobody Told Me When to Stop Saying Yes (At Work)</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Thumbnail</div>
+      <div class="field-value">STOP SAYING YES</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">French Title</div>
+      <div class="field-value">Personne ne m'a dit quand arrêter de dire oui — confirm register with French coordinator before use. Do not translate thumbnail directly; confirm French equivalent separately.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Format</div>
+      <div class="field-value">Solo — Uche Ofodile</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Floor Connection</div>
+      <div class="field-value">Foundation (primary) — the muscle of knowing what to say yes to is either built early or spent years catching up on. The episode ends on infrastructure: nobody built it for us. Presence (secondary) — what you say yes to is part of what the room reads about you before you speak.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Series</div>
+      <div class="field-value">Main DLTSFY feed. Not Detours. Not Beneath the Smile.</div>
+    </div>
+
+    <div class="section-head">Recording Review</div>
+
+    <div class="field">
+      <div class="field-label">Take Structure</div>
+      <div class="field-value">Two takes recorded. Take 1 runs to approximately 11 minutes before a phone interruption ends it — not usable except for one possible line lift (see Tolu tab). Take 2 is the master recording. All editorial decisions work from Take 2.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">What Landed Better Than the Script</div>
+      <div class="field-value">The intern and journalists story (Take 2, ~03:25) — not in the script, unscripted, and the strongest early-career example in the episode. "I was a child, you know" is the line. The Cotonou book event close is stronger than the generic young-women framing in the script — a specific woman, a specific question, a specific answer. The Elsie observation as delivered: "comfortable saying no even in circumstances where she was not clear about what that would mean for her going forward" — better than the scripted version because it separates certainty about the decision from certainty about the outcome.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Where the Recording Diverged — Worth Keeping</div>
+      <div class="field-value">The "Who are you? Who are you? Why should I choose you?" repetition in the early career section (~02:56 Take 2) — unscripted, conversational, keep it. The friend story for the social cost section (~16:48) — replaces the abstract third-person version in the script with a real person experiencing real consequences. Keep the story, trim the explanation around it.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Spontaneous Lines to Preserve — Exact Words</div>
+      <div class="items">
+        <div class="item">1. "I was a child, you know." (~03:52, Take 2) — throwaway delivery. Strongest moment in the episode.</div>
+        <div class="item">2. "Who are you? Who are you? Why should I choose you?" (~02:56, Take 2) — unscripted repetition. Keep exactly as delivered.</div>
+        <div class="item">3. "Comfortable saying no even in circumstances where she was not clear about what that would mean for her going forward." (~19:36, Take 2) — Elsie observation. Keep exactly.</div>
+        <div class="item">4. "Say yes to that." (~25:00, Take 2) — use as button after sign-off if audio is clean.</div>
+      </div>
+    </div>
+
+    <div class="section-head">Pull Quotes</div>
+
+    <div class="multi-field">
+      <div class="field-label">Quote Candidates — Exact Words from Recording</div>
+      <div class="items">
+        <div class="item">1. "Nobody comes to update the instructions from say yes to say yes strategically." (Take 2, ~05:08 — confirm exact wording from edit)</div>
+        <div class="item">2. "Asking whether it's a good opportunity and asking whether it's a good opportunity for me are definitely not the same question." (~06:36, Take 2)</div>
+        <div class="item">3. "It was not enough for it to matter to me personally. It was also about whether the organization cared enough about it." (~08:40, Take 2)</div>
+        <div class="item">4. "Saying no doesn't always feel like a clear, confident decision in the moment. It almost feels like you're taking a risk." (~11:59, Take 2)</div>
+        <div class="item">5. "Nobody built the muscle for us. We learned yes, and we kept saying yes long after it stopped serving us." (~23:11, Take 2 — confirm exact wording from cleanest delivery)</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Strongest Single Line for Quote Graphic</div>
+      <div class="field-value">"Asking whether it's a good opportunity and asking whether it's a good opportunity for me are definitely not the same question." — Confirm exact wording from edit. Works standalone without context.</div>
+    </div>
+
+    <div class="section-head">Companion Resource</div>
+
+    <div class="field">
+      <div class="field-label">Decision</div>
+      <div class="field-value">No companion resource for this episode. The three-question filter (Motivation Audit, Context Test, Authority Check) is reserved for the Saturday LinkedIn follow-up post only.</div>
+    </div>
+  </div>
+
+  <!-- ── TOLU ── -->
+  <div id="tolu" class="tab-pane">
+    <div class="tab-section-label">02 — Edit Notes · Tolu</div>
+
+    <div class="section-head">Edit Instructions</div>
+
+    <div class="field">
+      <div class="field-label">Overall Instruction</div>
+      <div class="field-value">Take 2 is the master. Take 1 is not used except for one possible line lift noted below. The episode argument is fully present in Take 2 — the job is not to fix the argument but to remove the places where we can hear Uche constructing it and leave only the places where she has already arrived at it. Edit for clarity and momentum, not length. Do not over-tighten the conversational sections — the warmth is the point.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Tone to Preserve</div>
+      <div class="field-value">Warm, direct, self-implicating. This episode works because Uche is honest about her own record — the unnamed company, the DEI committee, the fear voice she still hears. That honesty must survive the edit. Do not tighten out the personal admissions. The episode should feel like a serious conversation, not a polished lecture.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Restart Markers</div>
+      <div class="field-value">Multiple strawberry markers throughout Take 2. Key restart points: ~09:15 (two-yeses attempt — cut this section entirely), ~13:26 (explicit restart), ~18:11 (strawberry mid-section), ~20:31 (restart before Cotonou close), ~22:51 (restart before infrastructure ending). Use cleanest version of each section.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Possible Take 1 Lift</div>
+      <div class="field-value">Take 1, ~04:40–05:00: "No one comes to update the instructions from say yes to say yes strategically." If cleaner than the equivalent moment in Take 2 and audio quality matches for a clean splice, use it. Do not force the splice if it creates a join problem — Take 2 communicates the same idea.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Pacing Notes</div>
+      <div class="field-value">The open (London, Ghana, intern stories) can breathe — do not rush it. The fear section needs to move once it finds its shape; the repeated attempts slow it down. The Elsie section is short and should feel like a gear change before the close. The close from Cotonou onward should feel deliberate and unhurried.</div>
+    </div>
+
+    <div class="section-head">Sections</div>
+
+    <div class="field">
+      <div class="field-label">Open — 00:00 to approximately 05:30</div>
+      <div class="field-value">Use Take 2 throughout. First line: "One of the pieces of advice I heard over and over again as I was coming up in my career was super simple." Keep the London story, the Ghana story, and the intern/journalists story — all three. "I was a child, you know" must survive the edit. Keep "Who are you? Who are you? Why should I choose you?" exactly as delivered.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Company and DEI Section — approximately 05:30 to 09:00</div>
+      <div class="field-value">Keep through "that's a very different way of evaluating a yes" (~09:00). The DEI committee section is the strongest sustained argument in the episode — the full quorum observation, the impact not materialising, "it was not enough for it to matter to me personally" — all of it stays. Do not tighten the DEI section.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">CUT — 09:15 to approximately 14:32</div>
+      <div class="field-value">Cut this section entirely. This is where Uche was working out the two-yeses distinction and it does not resolve cleanly. Cut straight from "that's a very different way of evaluating a yes" (~09:00) to the pickup at ~14:32.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Fear Section — approximately 14:32 to 18:45</div>
+      <div class="field-value">Pick up at ~14:32. Keep the internal voice questions. Keep the personal admission: "I've had those thoughts and I've looked at an opportunity and I've known somewhere deep in myself, mm-mm, don't say yes to this, and still found myself hesitating." This must survive the edit. The friend story (~16:48) — keep the story and the "you've changed, we don't like this new you" reaction, trim the explanation around it. The male comparison (~17:30–18:40) — editorial call: if audio is clean and delivery is dry enough, keep it. If it slows the edit, cut straight from the friend's experience to the consequence. Do not cut on principle alone.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Elsie Section — approximately 18:45 to 20:10</div>
+      <div class="field-value">Start after the strawberry false start at ~18:11. Keep "comfortable saying no even in circumstances where she was not clear about what that would mean for her going forward" — exact phrasing. Confirm Elsie's episode number before finalising — if unconfirmed at edit time, adjust to "Elsie has been on this podcast" without a specific directional.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Close — approximately 20:31 to end</div>
+      <div class="field-value">Pick up after strawberry false start at ~20:31. Use the Cotonou book event version. The episode ends on the infrastructure line: "Nobody built the muscle for us. We learned yes, and we kept saying yes long after it stopped serving us." Use the cleanest delivery of this line. Everything after it is cut. "Say yes to that" (~25:00) — use as button after sign-off if audio is clean.</div>
+    </div>
+
+    <div class="section-head">Keep / Cut</div>
+
+    <div class="multi-field">
+      <div class="field-label">Keep — Preserve These Moments</div>
+      <div class="items">
+        <div class="item">1. "I was a child, you know." — do not tighten past it.</div>
+        <div class="item">2. "Who are you? Who are you? Why should I choose you?" — keep exactly as delivered.</div>
+        <div class="item">3. The full DEI committee section — do not tighten.</div>
+        <div class="item">4. "I've had those thoughts and I've looked at an opportunity and I've known somewhere deep in myself, mm-mm, don't say yes to this, and still found myself hesitating." — must survive edit.</div>
+        <div class="item">5. "Comfortable saying no even in circumstances where she was not clear about what that would mean for her going forward." — Elsie observation, exact phrasing.</div>
+        <div class="item">6. The friend story — keep the story and "you've changed, we don't like this new you." Trim explanation around it, not the story itself.</div>
+        <div class="item">7. The Cotonou close — specific event, specific woman, specific question.</div>
+        <div class="item">8. "Say yes to that." — button after sign-off if audio is clean.</div>
+      </div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Cut — Remove These Moments</div>
+      <div class="items">
+        <div class="item">1. 09:15 to ~14:32 — cut entirely.</div>
+        <div class="item">2. Everything after the infrastructure ending line lands cleanly — cut.</div>
+        <div class="item">3. All strawberry markers and explicit restart announcements.</div>
+      </div>
+    </div>
+
+    <div class="section-head">French Clips — TikTok</div>
+
+    <div class="field">
+      <div class="field-label">Quantity</div>
+      <div class="field-value">5–6 clips per episode standard.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Priority Moments for French Clips</div>
+      <div class="items">
+        <div class="item">1. "Asking whether it's a good opportunity and asking whether it's a good opportunity for me are definitely not the same question."</div>
+        <div class="item">2. DEI committee realisation — "it was not enough for it to matter to me personally, it was also about whether the organization cared enough about it."</div>
+        <div class="item">3. Fear voice questions — "are they gonna stop seeing me as someone who steps up, will they stop asking me next time."</div>
+        <div class="item">4. "Nobody built the muscle for us. We learned yes, and we kept saying yes long after it stopped serving us."</div>
+        <div class="item">5. Season framing — "there are seasons in your career where saying yes is a must-do. No one tells you when that season ends."</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Hold-Back Instruction</div>
+      <div class="field-value">Hold 1–2 clips for the week after the episode drop. Use 3–4 in the episode week. Fresh clips within 48 hours of English drop.</div>
+    </div>
+
+    <div class="section-head">English Clips — For Gbemi</div>
+
+    <div class="field">
+      <div class="field-label">Quantity</div>
+      <div class="field-value">4–5 clips.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Priority Clips</div>
+      <div class="items">
+        <div class="item">1. HIGHEST PRIORITY — "Not the Same Question." Unnamed company setup through the line. 60–90 seconds. Instagram, LinkedIn native video.</div>
+        <div class="item">2. "The Fear Voice" — "even now, believe it or not" through the hesitation admission. 60–75 seconds. Instagram, YouTube Shorts.</div>
+        <div class="item">3. "The DEI Lesson" — "I said yes because this is work I genuinely care about" through "it was not enough for it to matter to me personally." 75–90 seconds. Instagram, TikTok English.</div>
+        <div class="item">4. "The Friend Story" — the moment someone starts saying no and hears "you've changed, we don't like this new you." Covers the social consequence of changing your behaviour — different territory from the other three clips and highly relatable. 60–75 seconds. Instagram, YouTube Shorts.</div>
+        <div class="item">5. HOLD-BACK — Cotonou close through infrastructure ending. 60–75 seconds. Use only if section edits cleanly. Hold for the week after the drop.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CLIP MARKERS ── -->
+  <div id="clips" class="tab-pane">
+    <div class="tab-section-label">03 — Clip Markers</div>
+
+    <div class="note-banner">Timestamps are approximate from the raw Take 2 transcript. All timestamps must be confirmed from the edited version before publishing.</div>
+
+    <div class="clip-card">
+      <div class="clip-top">
+        <span class="clip-num">Clip 01 — Priority</span>
+        <span class="clip-ts">~06:00 – 07:05 (confirm from edit)</span>
+      </div>
+      <div class="clip-title">Not the Same Question</div>
+      <div class="clip-quote">"Asking whether it's a good opportunity and asking whether it's a good opportunity for me are definitely not the same question."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-val">Instagram · LinkedIn native video</div>
+      <div class="clip-meta-label">Length</div>
+      <div class="clip-meta-val">60–90 seconds. Open on unnamed company setup, close on the line above.</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Standalone without context. The setup takes 20 seconds and earns the line. Strong for new listeners — they don't need to know the show to feel it.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-top">
+        <span class="clip-num">Clip 02</span>
+        <span class="clip-ts">~10:42 – 12:17 (confirm from edit)</span>
+      </div>
+      <div class="clip-title">The Fear Voice</div>
+      <div class="clip-quote">"Even now, believe it or not — sometimes when I say no to something, there's a voice in my head asking, what's the consequence of this no? … I've had those thoughts and I've looked at an opportunity and I've known somewhere deep in myself, mm-mm, don't say yes to this, and still found myself hesitating."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-val">Instagram · YouTube Shorts</div>
+      <div class="clip-meta-label">Length</div>
+      <div class="clip-meta-val">60–75 seconds.</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">"Even now, believe it or not" is the hook — signals honesty before the clip has done anything. Gives the audience something polished leadership content doesn't: admission that even now, knowing you should say no and still hesitating are not mutually exclusive.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-top">
+        <span class="clip-num">Clip 03</span>
+        <span class="clip-ts">~07:33 – 08:56 (confirm from edit)</span>
+      </div>
+      <div class="clip-title">The DEI Lesson</div>
+      <div class="clip-quote">"I said yes because this is work I genuinely care about… Looking back, I only assessed one side of it… It was not enough for it to matter to me personally. It was also about whether the organization cared enough about it."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-val">Instagram · TikTok (English)</div>
+      <div class="clip-meta-label">Length</div>
+      <div class="clip-meta-val">75–90 seconds.</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Most specific and recognisable story in the episode. Names the trap without bitterness. Works cold for new listeners.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-top">
+        <span class="clip-num">Clip 04</span>
+        <span class="clip-ts">~16:48 – 17:30 (confirm from edit)</span>
+      </div>
+      <div class="clip-title">You've Changed</div>
+      <div class="clip-quote">"She sort of went into this other direction of, yeah, that doesn't serve me, I'm not gonna do it. And how people around her started to change because they were like, my god — you've changed. We don't like this new you."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-val">Instagram · YouTube Shorts</div>
+      <div class="clip-meta-label">Length</div>
+      <div class="clip-meta-val">60–75 seconds. Open on the friend's shift, close on the social reaction.</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Covers different territory from the other three clips — the social consequence of changing your behaviour rather than the internal cost of the wrong yes. The "you've changed" reaction is immediately recognisable. Highly relatable for anyone who has made this shift and felt the temperature change around them.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-top">
+        <span class="clip-num">Clip 05 — Hold-Back</span>
+        <span class="clip-ts">~20:31 – 23:55 (confirm from edit)</span>
+      </div>
+      <div class="clip-title">Nobody Built the Muscle</div>
+      <div class="clip-quote">"Nobody built the muscle for us. We learned yes, and we kept saying yes long after it stopped serving us."</div>
+      <div class="clip-meta-label">Platform</div>
+      <div class="clip-meta-val">Instagram · YouTube Shorts</div>
+      <div class="clip-meta-label">Length</div>
+      <div class="clip-meta-val">60–75 seconds. Open on Cotonou story, close on infrastructure line.</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Use only if Cotonou section edits cleanly. Hold for the week after the drop — works as a standalone reflection post separate from the launch week slate.</div>
+    </div>
+
+    <div class="section-head">Do Not Clip</div>
+    <div class="field">
+      <div class="field-label">Sections to Exclude</div>
+      <div class="field-value">The 09:15–14:32 section — cut from the edit entirely, not to be clipped. Any section with audible restart markers that cannot be cleanly removed. The male comparison section (~17:30–18:40) — editorial call in main edit first; assess for clips only after Tolu's decision.</div>
+    </div>
+  </div>
+
+  <!-- ── CHAPTERS ── -->
+  <div id="chapters" class="tab-pane">
+    <div class="tab-section-label">04 — Chapters</div>
+
+    <div class="note-banner">Draft chapter titles based on the script and recording structure. Timestamps must be confirmed from the edited version — do not finalise before Tolu's edit is complete.</div>
+
+    <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">The Advice That Worked</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">When the Advice Stops Working</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">A Good Opportunity — But For Who?</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">Why Saying No Still Feels Risky</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">What Happens When You Start Saying No</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">Building the Muscle</span></div>
+  </div>
+
+  <!-- ── SHOW NOTES ── -->
+  <div id="shownotes" class="tab-pane">
+    <div class="tab-section-label">05 — Show Notes</div>
+
+    <div class="field">
+      <div class="field-label">Opening Line</div>
+      <div class="field-value">The advice to say yes is not wrong. It built careers. It opened doors. Nobody told us it had a season.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Episode Description</div>
+      <div class="field-value">For years, the advice was simple: say yes. Say yes to the project, the committee, the stretch assignment, the last-minute trip. It was good advice — for a season. In this episode, Uche Ofodile looks honestly at what happens when you keep using that operating system long after the conditions around you have changed, and why nobody comes back to update the instructions.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Key Themes</div>
+      <div class="field-value">— The advice that gets you into the room is not always the advice that helps you lead well once you are there.<br>— The difference between a good opportunity and a good opportunity for you.<br>— The yes that comes from strategy versus the yes that comes from fear.<br>— What happens when people have become accustomed to your yes — and you start saying no.<br>— The certainty that builds over time, and why it takes longer than it should.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Guest Reference</div>
+      <div class="field-value">Elsie Akinsanya is referenced in this episode. Include link to her episode in show notes. Confirm episode number and YouTube URL before publishing.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Resource Link</div>
+      <div class="field-value">No companion resource for this episode.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Chapters</div>
+      <div class="field-value">Add confirmed chapter timestamps from Tolu's edit before publishing show notes.</div>
+    </div>
+  </div>
+
+  <!-- ── SOCIAL ── -->
+  <div id="social" class="tab-pane">
+    <div class="tab-section-label">06 — Social Drafts</div>
+
+    <div class="section-head">Instagram</div>
+
+    <div class="field">
+      <div class="field-label">Launch Day Caption</div>
+      <div class="field-value">The advice to say yes built a lot of careers. Mine included. London. Ghana. CMO. I am not here to tell you it was wrong advice.<br><br>But nobody told me it had a shelf life. Nobody came back to say — okay, the season has changed, the calculation is different now. We just kept using the same operating system long past the point where it was serving us.<br><br>That is what this episode is about. New episode — link in bio.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Quote Graphic Caption</div>
+      <div class="field-value">Asking whether it's a good opportunity and asking whether it's a good opportunity for me are not the same question.</div>
+    </div>
+
+    <div class="section-head">Facebook</div>
+
+    <div class="field">
+      <div class="field-label">Feed Post</div>
+      <div class="field-value">We were taught to say yes. Say yes to the project, the committee, the opportunity, the stretch. And for a long time, that advice was right. At some point, it stops being right — and nobody tells you when. New episode exploring that shift. [link]</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community — Early Access</div>
+      <div class="field-value">Episode goes public tomorrow. It is yours tonight.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community — Discussion Prompt</div>
+      <div class="field-value">Has there been a yes you gave that you knew, somewhere in yourself, you should not have given? What made you give it anyway?</div>
+    </div>
+
+    <div class="section-head">YouTube</div>
+
+    <div class="field">
+      <div class="field-label">Shorts</div>
+      <div class="field-value">Tuesday or Wednesday: Clip 01 (Not the Same Question) for launch day. Clip 02 (The Fear Voice) works better mid-week after the episode has had 24 hours.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community Prompt</div>
+      <div class="field-value">Has there been a yes you gave that you knew, somewhere in yourself, you should not have given? What made you give it anyway?</div>
+    </div>
+
+    <div class="section-head">TikTok (French)</div>
+
+    <div class="field">
+      <div class="field-label">Episode Week</div>
+      <div class="field-value">3–4 French clips across Tuesday, Thursday, Saturday. Priority order: season framing clip, DEI lesson clip, fear voice clip. Hold the infrastructure ending clip for the following week.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Caption Note</div>
+      <div class="field-value">Do not translate the English thumbnail directly. Confirm French caption register with coordinator before posting. Core idea — personne ne nous a dit quand arrêter — should anchor caption language across the week.</div>
+    </div>
+  </div>
+
+  <!-- ── LINKEDIN ── -->
+  <div id="linkedin" class="tab-pane">
+    <div class="tab-section-label">07 — LinkedIn Draft</div>
+
+    <div class="note-banner">These drafts are for Uche's reference only. Not for Gbemi to post. Uche writes her own LinkedIn posts — these are direction and starting points, not final copy.</div>
+
+    <div class="field">
+      <div class="field-label">Sunday — Pre-Post (Episode Week)</div>
+      <div class="field-value">Direction: Set up the question without answering it. Something in the territory of: at what point did the advice that built your career start costing you more than it gave you? Don't name the episode. Don't tease. Just the question.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Tuesday — Launch Post</div>
+      <div class="field-value">Direction: Open with one of the personal stories — London, Ghana, or the DEI committee. Not a summary of the episode. Not "new episode out now." One specific moment, one observation that comes out of it, episode link at the end. Native video clip attached — Clip 01 or Clip 02. Do not use an external YouTube link. Upload the clip natively. Hashtags: #Leadership #DontLetTheSmileFoolYou</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Saturday — Three-Question Filter Post</div>
+      <div class="field-value">Direction: Post the three-question filter, but open with a small personal bridge into it — a line or two that connects the questions to something real before they appear. The questions should feel like something you arrived at, not a framework you are presenting. Then the three questions:<br><br>1. The Motivation Audit: Am I saying yes because this moves me toward my destination, or because I'm afraid of how saying no will be perceived?<br>2. The Context Test: Passion is not enough. Does the organisation actually value this initiative, or is it decorative?<br>3. The Authority Check: Are the true decision-makers in the room, and does this initiative have the power to implement change?<br><br>Episode link at the end for anyone who wants the full argument behind them. Hashtags: #Leadership #DontLetTheSmileFoolYou</div>
+    </div>
+  </div>
+
+  <!-- ── HANDOFF ── -->
+  <div id="handoff" class="tab-pane">
+    <div class="tab-section-label">08 — Team Handoff</div>
+
+    <div class="section-head">Team Handoff</div>
+
+    <div class="field">
+      <div class="field-label">For Tolu</div>
+      <div class="field-value">Take 2 is the master. Take 1 not used except for possible line lift at ~04:40 — lift only if audio matches cleanly. Critical cut: 09:15 to ~14:32 — remove entirely. Episode ends on the infrastructure line ("nobody built the muscle for us, we learned yes and kept saying yes long after it stopped serving us") — cut everything after it lands cleanly. Use "Say yes to that" (~25:00) as button after sign-off if audio is clean. Confirm all chapter timestamps from edited version before sending to Uche for approval. Full section-by-section instructions in Tolu tab.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">For Gbemi</div>
+      <div class="field-value">Thumbnail: STOP SAYING YES. Episode title: Nobody Told Me When to Stop Saying Yes (At Work). Launch day caption and quote graphic caption in Social tab. Clip slate: Clip 01 (Not the Same Question) is the hero — Instagram launch and LinkedIn native video Tuesday. Clip 02 (The Fear Voice) mid-week Instagram and YouTube Shorts. Clip 03 (The DEI Lesson) Instagram and TikTok English. Clip 04 (You've Changed) Instagram and YouTube Shorts — covers the social consequence angle, different territory from the other three. Clip 05 (Nobody Built the Muscle) hold-back for the week after the drop, only if Cotonou section edits cleanly. French clips: coordinate with Tolu — 5–6 total, 3–4 in episode week, hold 1–2 for following week. Fresh French clips within 48 hours of English drop. Community prompt for Facebook and YouTube: "Has there been a yes you gave that you knew, somewhere in yourself, you should not have given? What made you give it anyway?" LinkedIn is Uche's — do not post there.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Coordination Note</div>
+      <div class="field-value">Episode number and release date TBC — update this sheet and the index when confirmed. Elsie episode link to be included in show notes — confirm episode number and URL before publishing. Monday evening before launch: early access post to Facebook and YouTube communities. Tuesday: English drop, Instagram caption, Facebook feed post, YouTube Shorts (Clip 01), community discussion prompt. LinkedIn: Uche posts independently same day with native video clip.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Open Items</div>
+      <div class="items">
+        <div class="item">1. Episode number — TBC. Update header, index, and show notes when confirmed.</div>
+        <div class="item">2. Release date — TBC. Update posting schedule when confirmed.</div>
+        <div class="item">3. Elsie episode link — confirm episode number and YouTube URL for show notes.</div>
+        <div class="item">4. French title register — confirm with French coordinator. Working title: Personne ne m'a dit quand arrêter de dire oui.</div>
+        <div class="item">5. Tolu to confirm whether Take 1 line lift (~04:40) is viable once both recordings are reviewed side by side.</div>
+        <div class="item">6. Male comparison section (~17:30–18:40) — editorial call in main edit first. Gbemi to assess for clips only after Tolu's decision.</div>
+      </div>
+    </div>
+
+    <div class="section-head">Forward Notes</div>
+
+    <div class="multi-field">
+      <div class="field-label">Future Episode Seeds</div>
+      <div class="items">
+        <div class="item">1. "Career advice you've outgrown" as a loose series thread — saying yes is one example. Worth a separate development conversation before committing.</div>
+        <div class="item">2. The certainty that builds over time — what does the process of building it actually look like? Could be solo or guest.</div>
+        <div class="item">3. The availability expectation — "her availability had been built into the expectations around her" connects to The Tax episode. Flag for that episode when developed.</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Leadership Infrastructure — Notes for the Book</div>
+      <div class="field-value">Foundation floor — the muscle of knowing what to say yes to is infrastructure. If not built early, people spend years catching up to themselves. The three-question filter (Motivation Audit, Context Test, Authority Check) is a potential framework element for the Foundation floor chapter in Beneath the Smile — flag for book development.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  The Smile Collective · Don't Let The Smile Fool You · Post-Recording Capture Sheet · Internal Use
+</div>
+
+<script>
+  function showTab(btn, id) {
+    document.querySelectorAll('.tab-pane').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
