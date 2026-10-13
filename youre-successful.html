@@ -3,132 +3,723 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DLTSFY — Capture Sheets</title>
-<meta property="og:title" content="Don't Let The Smile Fool You — Capture Sheets">
-<meta property="og:description" content="Post-recording capture sheets for every episode of Don't Let The Smile Fool You.">
+<title>You're Successful. So Why Don't You Feel Financially Free? — Capture Sheet</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: Georgia, serif; background: #f4f4f4; color: #1a1a1a; }
   .header { background: #1a1a1a; color: #fff; padding: 32px 40px; }
   .header .label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
-  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
-  .header .sub { font-size: 13px; color: #aaa; }
-  .content { max-width: 860px; margin: 0 auto; padding: 40px 36px; }
-  .series-section { margin-bottom: 48px; }
-  .series-head { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #fff; padding: 8px 14px; margin-bottom: 20px; }
-  .series-head.beneath { background: #8B0000; }
-  .series-head.guest { background: #1a1a1a; }
-  .series-head.solo { background: #444; }
-  .series-head.detours { background: #2c4a2c; }
-  .series-head.financial { background: #1a3a5c; }
-  .episode-card { background: #fff; border-left: 3px solid #1a1a1a; padding: 18px 20px; margin-bottom: 12px; }
-  .ep-num { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 6px; }
-  .ep-title { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; line-height: 1.3; }
-  .ep-meta { font-size: 12px; color: #666; margin-bottom: 10px; }
-  .ep-link { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #1a1a1a; text-decoration: none; }
-  .ep-link:hover { text-decoration: underline; }
-  .none-yet { font-size: 13px; color: #999; font-style: italic; padding: 12px 0; }
-  .footer { text-align: center; font-size: 10px; color: #aaa; padding: 40px 20px; letter-spacing: 1px; }
-  hr { border: none; border-top: 2px solid #1a1a1a; margin: 0 0 40px 0; }
-  .tag-new { display: inline-block; background: #2c4a2c; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; margin-left: 8px; vertical-align: middle; }
+  .header .series-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 10px; }
+  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+  .header .thumbnail-title { font-size: 15px; color: #ccc; margin-bottom: 10px; }
+  .header .meta { font-size: 12px; color: #888; }
+  hr { border: none; border-top: 2px solid #1a1a1a; margin: 0; }
+  .tabs { background: #fff; border-bottom: 2px solid #e5e5e5; padding: 0 40px; display: flex; gap: 0; overflow-x: auto; }
+  .tab-btn { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 18px; border: none; background: none; cursor: pointer; color: #999; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; }
+  .tab-btn.active { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+  .content { max-width: 860px; margin: 0 auto; padding: 36px; }
+  .section-head { background: #1a1a1a; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 14px; margin: 28px 0 14px 0; }
+  .section-head:first-child { margin-top: 0; }
+  .field { margin-bottom: 14px; }
+  .field-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+  .field-value { font-size: 13px; line-height: 1.7; background: #fff; padding: 10px 14px; border-left: 3px solid #1a1a1a; color: #1a1a1a; }
+  .multi-field { margin-bottom: 14px; }
+  .multi-field .field-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+  .multi-field-body { background: #fff; padding: 10px 14px; border-left: 3px solid #1a1a1a; }
+  .multi-field-body .item { font-size: 13px; line-height: 1.7; color: #1a1a1a; margin-bottom: 6px; }
+  .multi-field-body .item:last-child { margin-bottom: 0; }
+  .clip-card { background: #fff; border-left: 3px solid #1a1a1a; padding: 14px 18px; margin-bottom: 14px; }
+  .clip-card .clip-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  .clip-card .clip-num { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; }
+  .clip-card .clip-ts { font-size: 12px; font-family: monospace; color: #888; }
+  .clip-card .clip-title { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+  .clip-card .clip-quote { font-size: 13px; font-style: italic; color: #444; line-height: 1.6; margin-bottom: 10px; }
+  .clip-card .clip-meta-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #999; margin-bottom: 3px; }
+  .clip-card .clip-meta-value { font-size: 13px; color: #1a1a1a; margin-bottom: 8px; }
+  .clip-card .clip-note { font-size: 12px; color: #555; line-height: 1.6; }
+  .chapter-row { display: flex; gap: 20px; padding: 10px 0; border-bottom: 1px solid #e5e5e5; align-items: baseline; }
+  .chapter-row:last-child { border-bottom: none; }
+  .chapter-ts { font-family: monospace; font-size: 12px; color: #999; min-width: 48px; }
+  .chapter-title { font-size: 13px; color: #1a1a1a; line-height: 1.6; }
+  .note-italic { font-size: 12px; color: #999; font-style: italic; margin-bottom: 16px; line-height: 1.5; }
+  .back-link { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #888; text-decoration: none; margin: 24px 0 0 40px; }
+  .back-link:hover { color: #1a1a1a; }
+  .footer { text-align: center; font-size: 10px; color: #aaa; padding: 40px 20px; letter-spacing: 1px; margin-top: 20px; border-top: 1px solid #e5e5e5; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  @media print {
+    .tabs { display: none; }
+    .back-link { display: none; }
+    .tab-panel { display: block !important; }
+    .tab-panel + .tab-panel { margin-top: 0; page-break-before: always; }
+    .section-head { background: #1a1a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .field-value { background: #f9f9f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .multi-field-body { background: #f9f9f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .clip-card { background: #f9f9f9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .header { background: #1a1a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-size: 11px; }
+    .content { padding: 20px; }
+    .clip-card { page-break-inside: avoid; }
+    .field { page-break-inside: avoid; }
+    .chapter-row { page-break-inside: avoid; }
+    .footer { margin-top: 20px; }
+  }
 </style>
 </head>
 <body>
 
+<a class="back-link" href="index.html">← All Capture Sheets</a>
+
 <div class="header">
-  <div class="label">The Smile Collective</div>
-  <h1>Don't Let The Smile Fool You</h1>
-  <div class="sub">Post-recording capture sheets · One sheet per recorded episode</div>
+  <div class="label">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+  <div class="series-tag">The Financial Floor · Part 2 · Guest: Lisa Aladekomo</div>
+  <h1>You're Successful. So Why Don't You Feel Financially Free?</h1>
+  <div class="thumbnail-title">Thumbnail: three direct options to be developed after the edit</div>
+  <div class="meta">Uche Ofodile &amp; Lisa Aladekomo · Floor 1 — Foundation · The Smile Collective</div>
 </div>
 
 <hr>
 
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(this,'overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab(this,'tolu')">Tolu</button>
+  <button class="tab-btn" onclick="showTab(this,'clips')">Clip Markers</button>
+  <button class="tab-btn" onclick="showTab(this,'chapters')">Chapters</button>
+  <button class="tab-btn" onclick="showTab(this,'shownotes')">Show Notes</button>
+  <button class="tab-btn" onclick="showTab(this,'social')">Social</button>
+  <button class="tab-btn" onclick="showTab(this,'linkedin')">LinkedIn</button>
+  <button class="tab-btn" onclick="showTab(this,'handoff')">Handoff</button>
+</div>
+
 <div class="content">
 
-  <!-- BENEATH THE SMILE -->
-  <div class="series-section">
-    <div class="series-head beneath">Beneath the Smile Series</div>
-    <div class="episode-card">
-      <div class="ep-num">Guest · Beneath the Smile Ep 1</div>
-      <div class="ep-title">When Home Is Not Your Sanctuary — Ama Karikari</div>
-      <div class="ep-meta">Guest · Basement floor · Ep 1</div>
-      <a class="ep-link" href="ama-karikari.html">Open Capture Sheet →</a>
+  <!-- OVERVIEW -->
+  <div id="overview" class="tab-panel active">
+
+    <div class="section-head">Editorial Direction — Read First</div>
+
+    <div class="field">
+      <div class="field-label">For Everyone on the Team</div>
+      <div class="field-value">This is the final episode with Lisa Aladekomo in The Financial Floor. The conversation should stand on its own. Our objective is to examine why accomplished women can have successful careers without necessarily having the financial freedom they expected. We want to challenge assumptions, show where decisions and responsibilities have real consequences, and show what financial security makes possible. The episode should be candid, specific and occasionally uncomfortable, with the natural humour between Uche and Lisa preserved. It is not a financial advice programme, and it should not be packaged as one.</div>
     </div>
+
+    <div class="section-head">Core Message</div>
+
+    <div class="field">
+      <div class="field-label">Spine</div>
+      <div class="field-value">Many accomplished women have done what they were taught to do. They have worked hard, progressed in their careers, earned good salaries and taken on significant responsibilities. Yet professional success does not necessarily translate into financial freedom. In this conversation, Uche and Lisa examine why: the career advice they grew up with, the opportunities that come with senior positions but are not always pursued, the demands of supporting family, the discomfort around women having money, and the reluctance of senior women to discuss financial opportunities with one another. Through their own experiences, including a missed investment, an under-negotiated salary and Lisa's freedom to turn down work she didn't want, they also show what these patterns can cost and what financial security makes possible.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Editorial Distinction</div>
+      <div class="field-value">This is not a conversation about getting rich or accumulating wealth for its own sake. Financial freedom is about having choices: the ability to leave a job, turn down an opportunity, take time away from work, support family and make decisions without being driven entirely by financial necessity. The episode should consistently return to that distinction. Uche says it on record (~58:56): "I don't like the word wealth because I think this word is overused."</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">What This Episode Is Not</div>
+      <div class="field-value">Not men versus women — Lisa says so herself (~11:43). Not a negotiation masterclass. Not advice. Lisa: "There's no sermon. It's just, these are the things we're facing."</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Operating Principle</div>
+      <div class="field-value">Name it first. You cannot change a pattern you have not named. Naming the family responsibilities lets you share them. Naming the habit of keeping your head down lets you lift it. Naming the silence lets you break it.</div>
+    </div>
+
+    <div class="section-head">Episode Details</div>
+
+    <div class="field">
+      <div class="field-label">Title (locked)</div>
+      <div class="field-value">You're Successful. So Why Don't You Feel Financially Free?</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Thumbnail — To Be Developed</div>
+      <div class="field-value">Gbemi to develop three thumbnail options once the episode is edited. Brief: communicate money or financial independence immediately, without repeating the title. Direct and plain, not clever, not curiosity bait. Previous working line for reference only: A BIG SALARY ISN'T FINANCIAL FREEDOM. Same photo treatment as Part 1 so the two read as a pair.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">French Title — Confirm Before Use</div>
+      <div class="field-value">Tu as réussi. Alors pourquoi tu ne te sens pas libre financièrement ? — confirm with French editor. Tu register, consistent with Part 1.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Format</div>
+      <div class="field-value">Guest — Lisa Aladekomo, co-contributor. Peer conversation, not expert interview.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Series</div>
+      <div class="field-value">The Financial Floor — a two-part conversation between Uche Ofodile and Lisa Aladekomo exploring women's relationship with money and the gap between professional success and financial freedom. Part 1 (You're Not Bad With Money. You're Built to Protect It.) examines the attitudes and behaviours that shape how women manage money. Part 2 examines why career success doesn't automatically translate into financial independence. Future episodes of the show may continue the subject with other guests. Do not announce to the audience that the series is ending or that Lisa won't return. Simply do not promise a continuation.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Floor Connection</div>
+      <div class="field-value">Floor 1 — Foundation is primary: the financial ground that makes free decisions possible. Floor 5 — Presence runs through the visibility section: who you are beyond your job title. Floor 2 — Support is the close: the silence between senior women and the women you need around you.</div>
+    </div>
+
+    <div class="section-head">Editorial Priorities — Moments That Must Survive the Edit</div>
+
+    <div class="multi-field">
+      <div class="field-label">In Priority Order</div>
+      <div class="multi-field-body">
+        <div class="item">1. The silence among senior women (~54:33–58:56) — the most distinctive discussion and a direct challenge to the intended audience.</div>
+        <div class="item">2. Lisa's get-out-of-bed-money story (~36:09–39:48) — the clearest picture of what financial security makes possible. She had enough of a floor to refuse work she didn't want.</div>
+        <div class="item">3. The two mothers (~46:28–47:45) — personal, culturally specific and memorable.</div>
+        <div class="item">4. Invisible family responsibilities (~24:04–31:17) — connects time, responsibility and financial opportunity. Includes the CDs.</div>
+        <div class="item">5. Visibility and the opportunities senior women don't pursue (~08:45–21:37) — strong relevance to the leadership audience.</div>
+        <div class="item">6. Lisa's missed investment (~51:00–53:37) — the consequence of seeking permission. Subject to her approval.</div>
+        <div class="item">Also preserve: Uche negotiating by email, and the discussion of how early salary decisions have long-term effects (~32:22–34:09).</div>
+      </div>
+    </div>
+
+    <div class="section-head">Recording Review</div>
+
+    <div class="field">
+      <div class="field-label">What Landed Better Than Expected</div>
+      <div class="field-value">Lisa was more herself here than in Part 1. The moments where she stopped presenting and told a story carry the episode. The two mothers exchange is unscripted and the warmest moment in the recording. Lisa's unprompted closing question, "What do you think you would have built by now if you didn't have any of these things?", is the strongest ending the series has had.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">What Is Weaker</div>
+      <div class="field-value">The visibility and negotiation sections are long and repeat themselves in places. Both can be tightened without losing the argument or the personal examples.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Spontaneous Lines to Preserve — Exact Words</div>
+      <div class="multi-field-body">
+        <div class="item">1. "I have been in the rooms with so many women who are extraordinary professionals. And quietly, the financial picture doesn't quite match the professional one." (~02:11)</div>
+        <div class="item">2. "The reward people get for hard work, good work, is more work." (~04:46)</div>
+        <div class="item">3. "Telling people your work will speak for itself is almost criminal." (~06:31)</div>
+        <div class="item">4. "I call them manuals." (~10:14)</div>
+        <div class="item">5. "This woman is not lazy. She's just playing a game that was never really explained to her properly." (~11:32)</div>
+        <div class="item">6. "I have watched people in the same room with the same access end up with different structures 10 years after. The difference wasn't necessarily talent." (~20:30)</div>
+        <div class="item">7. "Arranging my CDs is not a job." (~27:46)</div>
+        <div class="item">8. "Sorry, mommy and daddy, I'm not calling you a tax." (~30:53)</div>
+        <div class="item">9. "I got my first check and I was like, why do I feel poorer?" (~35:53)</div>
+        <div class="item">10. "I wasn't working from a place of need… it was now an addition. It wasn't taken from me. I was gaining from it." (~39:18)</div>
+        <div class="item">11. "The woman who saves quietly is fine. The woman who invests visibly makes people uncomfortable." (~45:58)</div>
+        <div class="item">12. "We can't shrink ourselves at somebody else's expense." (~48:23)</div>
+        <div class="item">13. "It's not important that your accumulation is visible. It's important that you're accumulating." (~48:53)</div>
+        <div class="item">14. "Why did I need the permission of someone who didn't feel like he had to give me permission for anything?" (~53:29)</div>
+        <div class="item">15. "We're happy to talk about hot flushes." (~56:04)</div>
+        <div class="item">16. "If you're one of those people that visibility gives you the ick, and I used to be one of those people, get over it." (~1:05:18)</div>
+        <div class="item">17. "What do you think you would have built by now if you didn't have any of these things that we spoke about?" (~1:05:49)</div>
+      </div>
+    </div>
+
+    <div class="section-head">Pull Quotes</div>
+
+    <div class="multi-field">
+      <div class="field-label">Quote Candidates — Exact Words</div>
+      <div class="multi-field-body">
+        <div class="item">1. "The reward people get for hard work, good work, is more work." — Lisa Aladekomo</div>
+        <div class="item">2. "This woman is not lazy. She's just playing a game that was never really explained to her properly." — Lisa Aladekomo</div>
+        <div class="item">3. "It's not important that your accumulation is visible. It's important that you're accumulating." — Lisa Aladekomo</div>
+        <div class="item">4. "We can't shrink ourselves at somebody else's expense." — Lisa Aladekomo</div>
+        <div class="item">5. "Telling people your work will speak for itself is almost criminal." — Uche Ofodile</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Strongest Single Line for Quote Graphic</div>
+      <div class="field-value">"The reward people get for hard work, good work, is more work." — Lisa Aladekomo</div>
+    </div>
+
+    <div class="section-head">Companion Resource</div>
+
+    <div class="field">
+      <div class="field-label">Decision</div>
+      <div class="field-value">No new resource. Continue offering Fund Future You — The Money Framework (EN + FR) via the Kit landing page. It converts well (13.7%) but few people reach it, so this episode should send more people there.</div>
+    </div>
+
   </div>
 
-  <!-- GUEST EPISODES -->
-  <div class="series-section">
-    <div class="series-head guest">Guest Episodes</div>
-    <div class="episode-card">
-      <div class="ep-num">Guest Episode</div>
-      <div class="ep-title">You Think You Have Time — Elsie Akinsanya</div>
-      <div class="ep-meta">Guest · Growth + Foundation floor</div>
-      <a class="ep-link" href="elsie-akinsanya.html">Open Capture Sheet →</a>
+  <!-- TOLU -->
+  <div id="tolu" class="tab-panel">
+
+    <div class="section-head">Edit Instructions</div>
+
+    <div class="field">
+      <div class="field-label">Overall Editorial Direction</div>
+      <div class="field-value">Edit this as a complete, standalone conversation. The objective is a compelling, well-paced episode that explores why successful careers don't always produce financial freedom. Preserve the personal stories, humour, candid exchanges and moments where Uche and Lisa recognise patterns in their own behaviour. Prioritise the moments that show real consequences or explain what financial independence makes possible. Remove repetition, false starts and unnecessarily long explanations, but do not cut substantive stories to meet a runtime. Target: approximately 50–55 minutes, subject to the quality of the final edit.</div>
     </div>
+
+    <div class="field">
+      <div class="field-label">Tone to Preserve</div>
+      <div class="field-value">Two senior women who trust each other, saying things they don't usually say. Keep the laughter and the humour: the two mothers, the CDs, "sorry, mommy and daddy", "hot flushes", "get over it". Do not edit it into a polished finance interview.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Section-by-Section Direction</div>
+      <div class="field-value">Opening definition of financial freedom — keep. Delivery trap and inherited career advice — keep. Visibility and opportunities — tighten repetition; you have discretion here. Family responsibilities and invisible work — preserve. Salary negotiation — shorten explanations, preserve personal examples. Lisa's get-out-of-bed-money story — protect almost in full. The two mothers — preserve. Lisa's missed investment — preserve, subject to Lisa's approval. Silence among senior women — give it prominence. Closing discussion — tighten repetition, preserve Lisa's final question.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Restart Markers</div>
+      <div class="field-value">"Strawberry" at ~02:05 (use Lisa's clean restart from 02:11). ~30:26 Uche calls strawberry on a pause — cut, resume at 30:29. ~34:14–34:28 several strawberries — cut all, resume at "Have you always been a good negotiator?". ~54:06 "No, no, I won't strawberry" — cut.</div>
+    </div>
+
+    <div class="section-head">Remove the Promise of Another Episode — Required</div>
+
+    <div class="multi-field">
+      <div class="field-label">Two Cuts</div>
+      <div class="multi-field-body">
+        <div class="item">1. ~1:04:52–1:05:18 — Uche: "And in our next episode, actually, we're going to be talking a little more deeply around what it costs you. Cause it costs a lot." and Lisa: "It costs a lot. It costs an awful lot." Cut both. Stitch from Uche's "once you understand the psychology of why you behave in a certain way, then you can start to do something about it" straight into "So if you're one of those people that visibility gives you the ick… get over it… it does cost you." That line names the cost without promising anything. Keep it.</div>
+        <div class="item">2. ~1:06:27 — in Uche's sign-off, cut "as we said, next episode we'll be talking about the cost." Keep "please answer that question in the comments. We want to hear from you. And thank you so much as always for listening."</div>
+      </div>
+    </div>
+
+    <div class="section-head">Precise Cut Log</div>
+
+    <div class="multi-field">
+      <div class="field-label">Cuts — In Timestamp Order (raw)</div>
+      <div class="multi-field-body">
+        <div class="item">1. 00:00–00:09 — "Why are you laughing? Hey babe" / "They will edit all of that." Start at "Okay, so Lisa, last time we spoke…"</div>
+        <div class="item">2. ~01:16 — trim "Do you know what I mean? You do you understand what I mean?"</div>
+        <div class="item">3. ~01:46–02:10 — Lisa's first attempt and strawberry. Go to 02:11 "I have been in the rooms…"</div>
+        <div class="item">4. ~30:24–30:29 — pause and strawberry.</div>
+        <div class="item">5. ~31:43–31:53 — overlapping "the money will come" and "and monoclonal". Keep one clean "the money will come".</div>
+        <div class="item">6. ~34:14–34:28 — all strawberry markers.</div>
+        <div class="item">7. ~38:57–39:18 — the BATNA explanation where Lisa says she has got it wrong. Go to "it made me realise what my get-out-of-bed amount was". The rest of the story stays.</div>
+        <div class="item">8. ~40:03–40:19 — Uche's false start. Start at "We only start to think about this if there's an opportunity in front of us."</div>
+        <div class="item">9. ~43:54–44:54 — trim Uche's "even at our level" to its core: this applies at CEO level, and you can negotiate beyond base pay.</div>
+        <div class="item">10. ~54:06–54:12 — "No, no, I won't strawberry."</div>
+        <div class="item">11. ~59:53 — cut "That's not the conversation we're having today" so the closing question reads cleanly.</div>
+        <div class="item">12. ~1:00:12–1:00:19 — Lisa's "you didn't say how you're thinking about it" and Uche's "I'm asking you." Go straight to Uche's takeaway.</div>
+        <div class="item">13. ~1:04:52–1:05:18 and ~1:06:27 — next-episode references (see above).</div>
+        <div class="item">14. ~1:06:48 onward — "Thank you, Jay. Bye." Cut.</div>
+      </div>
+    </div>
+
+    <div class="section-head">Cold Open — Test Two</div>
+
+    <div class="field">
+      <div class="field-label">Recommended</div>
+      <div class="field-value">Test the exchange around 54:33–56:30, starting with Uche asking why senior women don't discuss opportunities with each other and running into Lisa on the pressure to appear financially secure. The strongest moment is Lisa's point that women will discuss deeply personal subjects ("hot flushes") while staying reluctant to talk about money. The cold open should establish immediately that this goes beyond conventional financial advice.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Alternative</div>
+      <div class="field-value">Lisa at ~02:11: "I have been in the rooms with so many women who are extraordinary professionals. And quietly, the financial picture doesn't quite match the professional one." Select whichever has the stronger opening impact. Do not manufacture a dramatic introduction; the conversation already has the material. Do not use the missed-investment story as a cold open.</div>
+    </div>
+
+    <div class="section-head">Ending</div>
+
+    <div class="field">
+      <div class="field-label">Final Line</div>
+      <div class="field-value">End on Lisa's question: "What do you think you would have built by now if you didn't have any of these things that we spoke about?" followed by Uche's short sign-off inviting answers in the comments. The audience should leave with something to reflect on, not the expectation of a next instalment.</div>
+    </div>
+
   </div>
 
-  <!-- SOLO EPISODES -->
-  <div class="series-section">
-    <div class="series-head solo">Solo Episodes</div>
+  <!-- CLIP MARKERS -->
+  <div id="clips" class="tab-panel">
 
-    <div class="episode-card">
-      <div class="ep-num">Solo Episode</div>
-      <div class="ep-title">Nobody Told Me When to Stop Saying Yes (At Work)</div>
-      <div class="ep-meta">Uche Ofodile · Floor: Foundation (primary), Presence (secondary) · Thumbnail: STOP SAYING YES · EP TBC</div>
-      <a class="ep-link" href="nobody-told-me-when-to-stop-saying-yes.html">Open Capture Sheet →</a>
+    <div class="section-head">Clip Markers</div>
+    <p class="note-italic">Raw timestamps. Update after Tolu's edit. Finalise promotional clips only after the main episode is approved. Every clip lands cold for someone who has never heard the show. Packaging: direct, not clever. The first line on screen says the point plainly.</p>
+
+    <div class="section-head">Initial Production</div>
+
+    <div class="multi-field">
+      <div class="field-label">Launch Package</div>
+      <div class="multi-field-body">
+        <div class="item">YouTube — full episode + 3 Shorts</div>
+        <div class="item">Instagram / Facebook — 3 Reels</div>
+        <div class="item">LinkedIn — 1 launch video + 1 follow-up video</div>
+        <div class="item">Smile Moments — 2 initially</div>
+        <div class="item">French TikTok — 3 initially, 2 more held</div>
+        <div class="item">French YouTube — full dubbed episode</div>
+      </div>
     </div>
 
-    <div class="episode-card">
-      <div class="ep-num">Solo Episode</div>
-      <div class="ep-title">Don't Burn Down the Building. It Was Never About You.</div>
-      <div class="ep-meta">Uche Ofodile · Floor: Foundation + Basement · Thumbnail: When You Take It Personally</div>
-      <a class="ep-link" href="when-you-take-it-personally.html">Open Capture Sheet →</a>
+    <div class="section-head">Smile Moments — 3 to 5 Minutes</div>
+    <p class="note-italic">A complete segment from the episode that works on its own as a mini-episode: a beginning, a turn and a landing. Light trims only. Horizontal. Opening title card with the Smile Moment name; end card pointing to the full episode and the Fund Future You framework. Produce SM-01 and SM-02 first.</p>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Smile Moment 01 · Produce First</span>
+        <span class="clip-ts">~54:33 – ~58:56 · ~4.5 min</span>
+      </div>
+      <div class="clip-title">The Silence Between Us</div>
+      <div class="clip-quote">"The performance of having it together is powerful… We're happy to talk about hot flushes… But you know, vulnerable with our pockets just seems different."</div>
+      <div class="clip-meta-label">Runs</div>
+      <div class="clip-meta-value">From Uche's "why are we not saying to each other, hey, there's this deal, come bring your money" through board seats, "we just don't talk business", to Esusu and the women pooling money to buy land.</div>
+      <div class="clip-meta-label">Why It Works</div>
+      <div class="clip-note">The most distinctive discussion in the episode, and the one senior women will share with each other.</div>
     </div>
 
-    <div class="episode-card">
-      <div class="ep-num">Solo Episode</div>
-      <div class="ep-title">Why We Mistake Seriousness for Leadership</div>
-      <div class="ep-meta">Uche Ofodile · Floor: Foundation + Recovery + Presence</div>
-      <a class="ep-link" href="joy-is-a-leadership-strategy.html">Open Capture Sheet →</a>
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Smile Moment 02 · Produce First</span>
+        <span class="clip-ts">~26:07 – ~30:58 · ~5 min</span>
+      </div>
+      <div class="clip-title">Everyone's Backbone</div>
+      <div class="clip-quote">"I have multiple friends in senior positions who are still in charge of booking grandpa's appointment… He was arranging his CDs. He was working… Sorry, mommy and daddy, I'm not calling you a tax."</div>
+      <div class="clip-meta-label">Runs</div>
+      <div class="clip-meta-value">From "You're a first daughter" through the CDs, "name it, then ask for help", compounding negative versus positive, to the naming of the family tax. Cut the strawberry pause at ~30:26.</div>
+      <div class="clip-meta-label">Why It Works</div>
+      <div class="clip-note">Funny and very recognisable. Connects the invisible work women do for family to the time and opportunities they lose.</div>
     </div>
 
-    <div class="episode-card">
-      <div class="ep-num">Solo Episode</div>
-      <div class="ep-title">Apparently, I Had Terms and Conditions</div>
-      <div class="ep-meta">Uche Ofodile · Floor: Presence</div>
-      <a class="ep-link" href="apparently-terms-and-conditions.html">Open Capture Sheet →</a>
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Smile Moment 03 · Potential</span>
+        <span class="clip-ts">~45:58 – ~49:50 · ~4 min</span>
+      </div>
+      <div class="clip-title">Being Seen to Have Money</div>
+      <div class="clip-quote">"The woman who saves quietly is fine. The woman who invests visibly makes people uncomfortable… It's not important that your accumulation is visible. It's important that you're accumulating."</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Includes the two mothers. Produce if the first two perform well.</div>
     </div>
 
-    <div class="episode-card">
-      <div class="ep-num">Solo Episode</div>
-      <div class="ep-title">I Thought I Knew What Being a Role Model Meant</div>
-      <div class="ep-meta">Uche Ofodile · Floor: Presence</div>
-      <a class="ep-link" href="role-modeling.html">Open Capture Sheet →</a>
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">Smile Moment 04 · Potential</span>
+        <span class="clip-ts">~10:14 – ~15:20 · ~5 min</span>
+      </div>
+      <div class="clip-title">The Visibility Tax</div>
+      <div class="clip-quote">"I call them manuals… This woman is not lazy. She's just playing a game that was never really explained to her properly."</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Lisa's "manuals" through Uche's podcast hesitation and the "this is not done" press story. Produce if the first two perform well.</div>
+    </div>
+
+    <div class="section-head">YouTube Shorts — 45 to 60 Seconds</div>
+    <p class="note-italic">Vertical. The point stated in the first two seconds. Job: send viewers to the full episode.</p>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">YT-01 · Launch Day</span>
+        <span class="clip-ts">~55:28 – ~56:30 · ~60 sec</span>
+      </div>
+      <div class="clip-title">We Don't Talk About Money</div>
+      <div class="clip-quote">"Nobody wants to admit that there's a gap… We're happy to talk about hot flushes… But the cost of that silence is huge."</div>
+      <div class="clip-meta-label">On-Screen Text</div>
+      <div class="clip-meta-value">Senior women talk about everything except money.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">YT-02 · Launch Week</span>
+        <span class="clip-ts">~46:28 – ~47:30 · ~60 sec</span>
+      </div>
+      <div class="clip-title">What Our Mothers Told Us</div>
+      <div class="clip-quote">Lisa: "Don't go and get a big car like that now. Somebody that sees you now, how would they marry you?" Uche: "My mom was the opposite… let the man come and find you in your apartment."</div>
+      <div class="clip-meta-label">On-Screen Text</div>
+      <div class="clip-meta-value">What did your mother tell you about having money?</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Funny, personal and immediately understandable. Strong for YouTube as well as Instagram.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">YT-03 · Week Two</span>
+        <span class="clip-ts">~10:40 – ~11:40 · ~60 sec</span>
+      </div>
+      <div class="clip-title">If They Don't See You, They Don't Call You</div>
+      <div class="clip-quote">"The first one they think about is the woman who's speaking… you don't get advisory positions, you don't get to know when co-investments are being made… This woman is not lazy."</div>
+      <div class="clip-meta-label">On-Screen Text</div>
+      <div class="clip-meta-value">If they don't see you, they don't call you.</div>
+    </div>
+
+    <div class="section-head">Instagram &amp; Facebook Reels — 30 to 60 Seconds</div>
+    <p class="note-italic">Vertical. Built for recognition and sharing. Caption leads with the point, not the episode.</p>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">IG-01 · Launch Day</span>
+        <span class="clip-ts">~46:28 – ~47:30 · ~60 sec</span>
+      </div>
+      <div class="clip-title">What Our Mothers Told Us</div>
+      <div class="clip-quote">The two mothers exchange.</div>
+      <div class="clip-meta-label">On-Screen Text</div>
+      <div class="clip-meta-value">What did your mother tell you about having money?</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">IG-02 · Launch Week</span>
+        <span class="clip-ts">~27:19 – ~28:20 · ~60 sec</span>
+      </div>
+      <div class="clip-title">It's Work. Count It.</div>
+      <div class="clip-quote">"He was arranging his CDs. He was working… Calling grandpa's dentist is a job, is a task. So we don't name these things what they are."</div>
+      <div class="clip-meta-label">On-Screen Text</div>
+      <div class="clip-meta-value">Taking care of your family is work. Count it.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">IG-03 · Week Two</span>
+        <span class="clip-ts">~37:32 – ~38:40 · ~60 sec</span>
+      </div>
+      <div class="clip-title">I Didn't Need the Money</div>
+      <div class="clip-quote">"Someone asked me to do a business plan… I was like, I don't want to do any business plan… and the next week they sent an offer and I looked at it and I was like, I can do this business plan actually."</div>
+      <div class="clip-meta-label">On-Screen Text</div>
+      <div class="clip-meta-value">This is what financial freedom looks like: being able to say no.</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">The short version of the get-out-of-bed story. The clearest picture of freedom in the episode.</div>
+    </div>
+
+    <div class="section-head">TikTok (French) — 30 to 60 Seconds</div>
+    <p class="note-italic">Vertical, AI-dubbed, French captions in the tu register. Fresh clips within 48 hours of the English drop. AI dubbing disclosed on every post. The translation should keep the conversational tone and the humour, not translate expressions literally.</p>
+
+    <div class="multi-field">
+      <div class="field-label">French Clip Order</div>
+      <div class="multi-field-body">
+        <div class="item">1. FR-01 — The two mothers (~46:28–47:30).</div>
+        <div class="item">2. FR-02 — We don't talk about money (~55:28–56:30).</div>
+        <div class="item">3. FR-03 — I didn't need the money (~37:32–38:40).</div>
+        <div class="item">Held: FR-04 — the CDs (~27:19–28:20). FR-05 — "manuals" (~10:40–11:40; may need a French gloss, ask the French editor).</div>
+      </div>
+    </div>
+
+    <div class="section-head">LinkedIn — 75 Seconds to 3 Minutes</div>
+    <p class="note-italic">Native video upload, never a link.</p>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">LI-01 · Launch Day</span>
+        <span class="clip-ts">~20:30 – ~22:50 · ~2.5 min</span>
+      </div>
+      <div class="clip-title">Same Room. Same Access. Different Outcomes.</div>
+      <div class="clip-quote">"I have watched people in the same room with the same access end up with different structures 10 years after. The difference wasn't necessarily talent… at senior level they want good at the job plus plus plus."</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">End on Uche's point about leaning into everything the job offers. Do not include the Friday-to-Monday line on its own; out of context it can read as criticism of women who prioritise family.</div>
+    </div>
+
+    <div class="clip-card">
+      <div class="clip-header">
+        <span class="clip-num">LI-02 · Follow-Up</span>
+        <span class="clip-ts">~36:09 – ~39:48 · ~3 min (minus BATNA)</span>
+      </div>
+      <div class="clip-title">Knowing Your Number</div>
+      <div class="clip-quote">"I wasn't working from a place of need… it was now an addition. It wasn't taken from me. I was gaining from it. And I think that was the beginning of my sense into negotiating."</div>
+      <div class="clip-meta-label">Note</div>
+      <div class="clip-note">Lisa, laid off, refusing a business plan until the offer was right. Cut the BATNA explanation.</div>
+    </div>
+
+    <div class="section-head">Do Not Clip</div>
+
+    <div class="multi-field">
+      <div class="field-label">Avoid as Standalone Clips</div>
+      <div class="multi-field-body">
+        <div class="item">1. Lisa's missed investment story — not without her explicit approval. It involves her marriage.</div>
+        <div class="item">2. Friday to Monday on its own — can read as criticism of women who prioritise family.</div>
+        <div class="item">3. The two CFOs on their own — without Lisa's caveat it reads as men versus women.</div>
+        <div class="item">4. "That guy knows nothing and he has thousands of followers" — travels badly alone.</div>
+        <div class="item">5. The wrap-up recap.</div>
+      </div>
     </div>
 
   </div>
 
-  <!-- DETOURS -->
-  <div class="series-section">
-    <div class="series-head detours">Detours Series</div>
+  <!-- CHAPTERS -->
+  <div id="chapters" class="tab-panel">
 
-    <div class="episode-card">
-      <div class="ep-num">Guest Episode</div>
-      <div class="ep-title">What No One Tells You About Becoming CEO — Laureine Guilao</div>
-      <div class="ep-meta">Guest · Growth + Foundation floor · Thumbnail: YOU STILL HAVE A BOSS</div>
-      <a class="ep-link" href="laureine-guilao.html">Open Capture Sheet →</a>
-    </div>
+    <div class="section-head">Episode Chapters</div>
+    <p class="note-italic">Raw timestamps. Tolu to confirm from the edited version. Chapter titles say what the section is about, plainly.</p>
+
+    <div class="chapter-row"><span class="chapter-ts">~00:00</span><span class="chapter-title">Why senior women don't talk about money</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~00:09</span><span class="chapter-title">Successful, but not financially free</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~02:49</span><span class="chapter-title">The assumption that the money will follow</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~04:46</span><span class="chapter-title">The reward for good work is more work</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~06:44</span><span class="chapter-title">What our parents taught us about work</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~09:36</span><span class="chapter-title">If they don't see you, they don't call you</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~13:15</span><span class="chapter-title">Being told visibility "is not done"</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~18:46</span><span class="chapter-title">Who you are beyond your job title</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~20:30</span><span class="chapter-title">Same room, different financial outcomes</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~24:04</span><span class="chapter-title">The cost of taking care of everyone</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~27:19</span><span class="chapter-title">Family work is still work</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~31:17</span><span class="chapter-title">The salary you didn't negotiate</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~36:09</span><span class="chapter-title">Being able to say no</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~42:24</span><span class="chapter-title">Sharing salary numbers with other women</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~45:06</span><span class="chapter-title">Being judged for having money</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~51:00</span><span class="chapter-title">Waiting for permission to invest</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~54:33</span><span class="chapter-title">Why senior women don't share opportunities</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~59:25</span><span class="chapter-title">What to take from this</span></div>
+    <div class="chapter-row"><span class="chapter-ts">~1:05:49</span><span class="chapter-title">What would you have built by now?</span></div>
+
   </div>
 
-  <!-- THE FINANCIAL FLOOR -->
-  <div class="series-section">
-    <div class="series-head financial">The Financial Floor Series</div>
+  <!-- SHOW NOTES -->
+  <div id="shownotes" class="tab-panel">
 
-    <div class="episode-card">
-      <div class="ep-num">Guest · Financial Floor Part 2 <span class="tag-new">New</span></div>
-      <div class="ep-title">You're Successful. So Why Don't You Feel Financially Free? — Lisa Aladekomo</div>
-      <div class="ep-meta">Guest · Floor: Foundation (primary), Presence + Support · Thumbnail: TBC</div>
-      <a class="ep-link" href="youre-successful.html">Open Capture Sheet →</a>
+    <div class="section-head">Show Notes</div>
+
+    <div class="field">
+      <div class="field-label">First Two Lines (above "show more" on YouTube) — Keep the Link Here</div>
+      <div class="field-value">You're successful. So why doesn't that always translate into financial freedom?<br>Free framework, Fund Future You (English + French): https://smile-collective.kit.com/64772e9dae</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Episode Description</div>
+      <div class="field-value">You've worked hard, progressed in your career and earned a good salary. So why doesn't that always translate into financial freedom?<br><br>In this episode of The Financial Floor, Lisa Aladekomo and I examine some of the assumptions we've lived by throughout our careers.<br><br>We talk about the advice to keep your head down and let your work speak for itself, the opportunities that come with senior positions, the demands of supporting family, and the discomfort that can surround women having money.<br><br>We also ask why accomplished women who trust one another professionally rarely discuss investments, board opportunities or the financial decisions they're making.<br><br>Along the way, we share some of our own experiences, including decisions we might approach differently today.<br><br>This isn't about getting rich. It's about understanding why professional success doesn't automatically give you the freedom to make the choices you want.<br><br>The Financial Floor — Part 2.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Guest Line</div>
+      <div class="field-value">Lisa Aladekomo is a senior finance executive and entrepreneur.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Series Note</div>
+      <div class="field-value">Part 1: You're Not Bad With Money. You're Built to Protect It. [link]</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">French Note</div>
+      <div class="field-value">La version française de cet épisode utilise un doublage assisté par l'IA.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Chapters</div>
+      <div class="field-value">Listed in Chapters tab. Add after Tolu confirms timestamps.</div>
+    </div>
+
+  </div>
+
+  <!-- SOCIAL -->
+  <div id="social" class="tab-panel">
+
+    <p class="note-italic">Every caption says the point plainly in the first line. No teasing. Mention the Fund Future You framework once per launch-week caption. No references to a future episode with Lisa.</p>
+
+    <div class="section-head">Instagram</div>
+
+    <div class="field">
+      <div class="field-label">Launch Day Caption (with IG-01)</div>
+      <div class="field-value">Some of us were told not to look too successful or no one would marry us. Some of us were told to buy the apartment and let the man find us in it. What we learned about money at home still shapes what we do with it. The Financial Floor, Part 2, with Lisa Aladekomo. Episode and our free framework, Fund Future You, in bio. #DontLetTheSmileFoolYou #WomenAndMoney</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Quote Graphic Caption</div>
+      <div class="field-value">"The reward people get for hard work, good work, is more work." — Lisa Aladekomo</div>
+    </div>
+
+    <div class="section-head">Facebook</div>
+
+    <div class="field">
+      <div class="field-label">Feed Post</div>
+      <div class="field-value">You're successful. You have the career, the title and the salary. So why don't you feel financially free? Lisa Aladekomo and I talk about the assumptions we've lived by: keeping our heads down, the family we carry, being judged for having money, and why senior women rarely share opportunities with each other. [link]</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community — Early Access (Monday evening)</div>
+      <div class="field-value">Episode goes public tomorrow. It is yours tonight.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community — Discussion Prompt (Tuesday)</div>
+      <div class="field-value">Lisa ends this episode with a question for all of us: what do you think you would have built by now if none of these things had been in the way? I'd really like to hear your answer.</div>
+    </div>
+
+    <div class="section-head">YouTube</div>
+
+    <div class="field">
+      <div class="field-label">Shorts</div>
+      <div class="field-value">YT-01 launch day, YT-02 later in launch week, YT-03 week two. Smile Moments as standalone YouTube videos after launch.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Community Prompt</div>
+      <div class="field-value">Same as the Facebook community prompt. Tuesday.</div>
+    </div>
+
+    <div class="section-head">TikTok (French)</div>
+
+    <div class="field">
+      <div class="field-label">Episode Week</div>
+      <div class="field-value">French episode drops 24 hours after English, subject to quality check of the dubbed version. FR-01 to FR-03 across the week, starting within 48 hours of the English drop. FR-04 and FR-05 held.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Caption Note</div>
+      <div class="field-value">Tu register. Direct first line. Keep the humour; don't translate expressions literally. AI dubbing note on every post.</div>
+    </div>
+
+  </div>
+
+  <!-- LINKEDIN -->
+  <div id="linkedin" class="tab-panel">
+
+    <div class="section-head">LinkedIn — Uche Manages Directly</div>
+    <p class="note-italic">Editorial direction only. Uche writes her own posts. Not for Gbemi to post. Native video, no links in the post. No reference to another episode with Lisa.</p>
+
+    <div class="field">
+      <div class="field-label">Sunday — Pre-Launch</div>
+      <div class="field-value">Explore the difference between doing your job exceptionally well and recognising the opportunities that come with a senior position. Draw on your experience of watching accomplished women concentrate so heavily on delivering that they sometimes overlook the relationships and opportunities available to them. The central question: is being excellent at the job enough? Do not frame this as criticism of women who don't network outside working hours.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Tuesday — Launch</div>
+      <div class="field-value">Lead with the gap between professional success and financial freedom. Use the discussion about people with similar access and opportunities ending up in very different financial positions. Say why this conversation with Lisa goes beyond the usual advice about earning, saving and investing. Attach LI-01.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Weekend — Follow-Up</div>
+      <div class="field-value">Use Lisa's closing question about what women might have built without some of the constraints discussed. Invite the audience to reflect on their own experience. Attach LI-02 if it fits.</div>
+    </div>
+
+  </div>
+
+  <!-- HANDOFF -->
+  <div id="handoff" class="tab-panel">
+
+    <div class="section-head">Team Handoff</div>
+
+    <div class="field">
+      <div class="field-label">For Tolu — Editor</div>
+      <div class="field-value">This is the final recorded conversation with Lisa in The Financial Floor. Edit it as a complete standalone episode. Target approximately 50–55 minutes, but prioritise substance and pacing over a fixed runtime. Preserve the strongest personal stories, particularly Lisa's get-out-of-bed-money experience, the two mothers, the invisible family responsibilities and the silence among senior women. Tighten repetitive explanations in the visibility and negotiation sections. Test two cold opens. Remove the references promising another episode (~1:04:52–1:05:18 and ~1:06:27). Do not produce standalone clips from Lisa's personal investment story without her explicit approval.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">For Gbemi — Production and Distribution</div>
+      <div class="field-value">Prepare the promotional package after the main episode edit is approved. Prioritise the full episode, launch-day assets and the strongest short-form clips. Develop three thumbnail options that clearly communicate the financial subject — direct and plain, not clever. Use the revised show notes, with the Kit link in the first two lines of the YouTube description, and the LinkedIn directions. Make sure the French translation keeps the conversational tone and humour rather than translating expressions literally.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Lisa — Launch Day Post (Important)</div>
+      <div class="field-value">Ask Lisa to post on launch day with the episode link and the Fund Future You framework link. Her network is different from Uche's and is the biggest single lever for reach. Offer her the quote graphic and IG-01 so she has ready-made assets. Confirm this when she approves the final edit.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Approval Requirements</div>
+      <div class="field-value">Lisa reviews and approves the final episode before publication. Obtain her explicit approval for the inclusion of her personal investment story. Finalise promotional clips only after the main episode has been approved.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Coordination Note</div>
+      <div class="field-value">English drops Tuesday. French 24 hours later, AI dubbing disclosed, subject to quality check. Community early access Monday evening. Uche's LinkedIn: Sunday, Tuesday (LI-01 native), weekend follow-up. Lisa posts on launch day.</div>
+    </div>
+
+    <div class="multi-field">
+      <div class="field-label">Open Items</div>
+      <div class="multi-field-body">
+        <div class="item">1. Lisa approves the final edit.</div>
+        <div class="item">2. Lisa approves the missed-investment story.</div>
+        <div class="item">3. Lisa confirms she will post on launch day.</div>
+        <div class="item">4. Three thumbnail options after the edit.</div>
+        <div class="item">5. Where Smile Moments live — confirm YouTube standalone and LinkedIn.</div>
+        <div class="item">6. Consider a short verbal pickup from Uche pointing to the Fund Future You framework. Part 1 had no spoken call to action.</div>
+        <div class="item">7. French title — confirm with the French editor.</div>
+      </div>
+    </div>
+
+    <div class="section-head">Forward Notes</div>
+
+    <div class="multi-field">
+      <div class="field-label">Future Episode Seeds</div>
+      <div class="multi-field-body">
+        <div class="item">1. Broke versus exposed — from the unused 14-minute recording. Lisa: broke is not affording the meal or the trip; exposed is having a boss you want to leave and not being able to. A strong starting point for a future financial-freedom episode with another guest.</div>
+        <div class="item">2. The runway exercise — if your income stopped tomorrow, how long could you keep your home, school fees and family commitments going?</div>
+        <div class="item">3. The modern Esusu — women-only investment circles today, and whether they work.</div>
+        <div class="item">4. Sharing salary numbers between senior women.</div>
+        <div class="item">5. Being paid less because you "already have money" or because a man "has a family".</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Leadership Infrastructure — Notes for the Book</div>
+      <div class="field-value">This episode gives Floor 1 a vocabulary: the delivery trap, the visibility tax, the family tax and the emotional economy, all of which drain the floor without appearing in any budget. "Compounding negative versus compounding positive" is a useful frame: unnamed obligations compound against you the way investments compound for you. Lisa's "same room, same access, different structures 10 years after" connects to Floor 2.</div>
     </div>
 
   </div>
@@ -136,8 +727,17 @@
 </div>
 
 <div class="footer">
-  The Smile Collective · Don't Let The Smile Fool You · Internal Use
+  The Smile Collective · Don't Let The Smile Fool You · The Financial Floor · Part 2 · Post-Recording Capture Sheet · Internal Use
 </div>
+
+<script>
+function showTab(btn, id) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
 
 </body>
 </html>
