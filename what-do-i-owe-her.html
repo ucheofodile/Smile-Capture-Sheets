@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Do I Actually Owe Another Woman? · Capture Sheet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #f4f4f4; color: #1a1a1a; }
+  .header { background: #1a1a1a; color: #fff; padding: 32px 40px; }
+  .header .label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+  .header .sub { font-size: 13px; color: #aaa; line-height: 1.6; }
+  .back { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #fff; text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+  .content { max-width: 860px; margin: 0 auto; padding: 32px 36px 40px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; }
+  .tab-btn { padding: 7px 14px; font-family: Georgia, serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid #1a1a1a; background: #fff; color: #1a1a1a; cursor: pointer; }
+  .tab-btn.active { background: #1a1a1a; color: #fff; }
+  .tab-btn:focus-visible { outline: 3px solid #8B0000; outline-offset: 2px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .print-title { display: none; }
+  .section-head { background: #1a1a1a; color: #fff; padding: 7px 14px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 28px 0 14px; }
+  .section-head:first-child { margin-top: 0; }
+  .field { margin-bottom: 16px; }
+  .field-label { font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 5px; }
+  .field-value { font-size: 14px; line-height: 1.7; background: #fff; padding: 10px 14px; border-left: 3px solid #1a1a1a; }
+  .field-value p + p { margin-top: 10px; }
+  .field-value ul, .field-value ol { padding-left: 20px; }
+  .field-value li { margin-bottom: 6px; }
+  .flag { border-left-color: #8B0000; }
+  .flag-label { color: #8B0000; }
+  .quote { font-style: italic; }
+  .note { font-size: 12px; color: #888; font-style: italic; margin-bottom: 18px; line-height: 1.6; }
+  .clip-card { background: #fff; border-left: 3px solid #1a1a1a; padding: 14px 18px; margin-bottom: 16px; }
+  .clip-top { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+  .clip-num { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; }
+  .clip-time { font-size: 12px; font-family: monospace; color: #666; }
+  .clip-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .clip-quote { font-size: 13px; font-style: italic; color: #444; line-height: 1.6; margin-bottom: 10px; }
+  .clip-row { font-size: 13px; line-height: 1.6; margin-bottom: 4px; }
+  .clip-row strong { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-right: 6px; }
+  .chapter-row { display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid #ddd; }
+  .chapter-time { font-family: monospace; font-size: 13px; color: #999; min-width: 52px; }
+  .chapter-title { font-size: 14px; line-height: 1.6; }
+  .footer { text-align: center; font-size: 10px; color: #aaa; padding: 40px 20px; letter-spacing: 1px; }
+  @media (max-width: 600px) {
+    .header { padding: 24px 20px; }
+    .content { padding: 24px 16px 32px; }
+    .header h1 { font-size: 22px; }
+  }
+  @media print {
+    body { background: #fff; }
+    .tabs, .back { display: none; }
+    .tab-panel { display: block !important; page-break-before: always; }
+    .tab-panel:first-of-type { page-break-before: auto; }
+    .print-title { display: block; font-size: 18px; font-weight: 700; border-bottom: 2px solid #1a1a1a; padding-bottom: 6px; margin-bottom: 16px; }
+    .field-value, .clip-card { background: #f8f8f8; }
+    .section-head { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+  <h1>What Do I Actually Owe Another Woman?</h1>
+  <div class="sub">Solo · Uche Ofodile · Floor: Presence (primary), Support · Recorded October 2026 · Raw length 13:40, edited target about 11 minutes</div>
+  <a class="back" href="index.html">← All capture sheets</a>
+</div>
+
+<div class="content">
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(this,'overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab(this,'tolu')">Tolu</button>
+  <button class="tab-btn" onclick="showTab(this,'clips')">Clip Markers</button>
+  <button class="tab-btn" onclick="showTab(this,'chapters')">Chapters</button>
+  <button class="tab-btn" onclick="showTab(this,'shownotes')">Show Notes</button>
+  <button class="tab-btn" onclick="showTab(this,'social')">Social</button>
+  <button class="tab-btn" onclick="showTab(this,'linkedin')">LinkedIn</button>
+  <button class="tab-btn" onclick="showTab(this,'handoff')">Handoff</button>
+</div>
+
+<!-- ============ 1. OVERVIEW ============ -->
+<div class="tab-panel active" id="overview">
+  <div class="print-title">1. Overview</div>
+
+  <div class="section-head">Core Message</div>
+  <div class="field"><div class="field-label">Spine</div><div class="field-value">A woman Uche gave conditional promotion feedback to changed her WhatsApp picture to say there is a special place in hell for women who don't support other women. The episode answers the question it left her with: what does a woman in power actually owe the women coming behind her? Not an automatic yes. She owes the fight in the rooms they are not in, the truth about what is waiting for them there, and the honesty to keep asking whether her own preparation has become part of the unfairness.</div></div>
+  <div class="field"><div class="field-label">The Distinction</div><div class="field-value">It rejects both familiar positions: "women don't support women" and "women should support women no matter what." The original idea is what a sponsor keeps after a woman gets the role. Uche heard the doubts the woman never did, and that knowledge shapes how hard she pushes her. The Ghana story shows why: women are judged as a group, so every disagreement risks becoming a story about women.</div></div>
+  <div class="field"><div class="field-label">Operating Principle</div><div class="field-value">Prepare women rigorously for the room they are walking into, but don't add your own extra margin of error on top of the one the world already imposes.</div></div>
+  <div class="field"><div class="field-label">The Cost</div><div class="field-value">A leader who confuses support with agreement leaves women unprepared. A leader who confuses preparation with a higher bar becomes another part of the unfairness she is trying to protect them from.</div></div>
+  <div class="field"><div class="field-label">Audience Promise</div><div class="field-value">Senior women who have sponsored others will recognise the knowledge they keep about the rooms. Women who once had a tough woman boss may see her differently, and may also recognise where she went too far.</div></div>
+
+  <div class="section-head">This Episode Is Not About</div>
+  <div class="field"><div class="field-label">Do not market it as</div><div class="field-value"><ul>
+    <li>Another "women supporting women" conversation. That is the frame it argues against.</li>
+    <li>A defence of tough women bosses. Uche questions her own toughness.</li>
+    <li>The woman with the WhatsApp picture. She is not the villain and must not be identifiable.</li>
+    <li>A call to action. The episode ends unresolved on purpose.</li>
+  </ul></div></div>
+
+  <div class="section-head">Episode Details</div>
+  <div class="field"><div class="field-label">Full Title</div><div class="field-value">What Do I Actually Owe Another Woman?</div></div>
+  <div class="field"><div class="field-label">Thumbnail Line (EN)</div><div class="field-value">SUPPORT ISN'T AN AUTOMATIC YES. Set on two lines (SUPPORT ISN'T / AN AUTOMATIC YES) and check legibility at mobile thumbnail size. Pair with the title wherever possible, since the thumbnail alone doesn't mention women.</div></div>
+  <div class="field"><div class="field-label">Thumbnail Line (FR)</div><div class="field-value">Option: LE SOUTIEN N'EST PAS UN OUI AUTOMATIQUE. Confirm register before use.</div></div>
+  <div class="field"><div class="field-label">Format</div><div class="field-value">Solo</div></div>
+  <div class="field"><div class="field-label">Floor Connection</div><div class="field-value">Presence (primary): how women are seen before they speak, and judged as a group rather than as individuals. Support (secondary): the episode redefines support as preparation and advocacy, not affirmation.</div></div>
+
+  <div class="section-head">Recording Review</div>
+  <div class="field"><div class="field-label">What Landed Better Than the Script</div><div class="field-value">The natural reactions. "How far?" in the opening is funnier and more specific than the scripted "seriously?" "Are we looking at the same document?" is sharper than the scripted line. Reconnecting with the Ghana colleagues at the same book event ties the Ghana story back to the opening naturally.</div></div>
+  <div class="field"><div class="field-label">Where the Recording Diverged, Worth Keeping</div><div class="field-value">The expanded ending. Each of the three things she owes is now explained in a sentence or two, including "There is no need for you to repeat mistakes I may have made in my own journey."</div></div>
+  <div class="field flag"><div class="field-label flag-label">Where the Recording Diverged, Must Fix</div><div class="field-value flag">Around 10:50: "I want you to be ready because you cannot afford to get anything wrong." As recorded, this endorses the idea the episode questions. It needs a pickup line (see Tolu tab).</div></div>
+  <div class="field"><div class="field-label">Spontaneous Lines to Preserve (exact)</div><div class="field-value"><ol>
+    <li class="quote">"How far? Why am I, why am I here? Is this about me?"</li>
+    <li class="quote">"I kept thinking, are we looking at the same document? I don't understand."</li>
+    <li class="quote">"There is no need for you to repeat mistakes I may have made in my own journey."</li>
+    <li class="quote">"Nobody who has worked with me and no one who will work with me should ever expect that."</li>
+  </ol></div></div>
+
+  <div class="section-head">Pull Quotes</div>
+  <div class="field"><div class="field-label">Quote Candidates, Exact Words from Recording</div><div class="field-value"><ol>
+    <li class="quote">"Sometimes the woman telling you that you're not ready is the woman taking your future most seriously."</li>
+    <li class="quote">"We shouldn't make things harder for women simply because things were hard for us. That's not development, that's repetition."</li>
+    <li class="quote">"Your numbers are not going on my CV, okay? Your success is yours, which is exactly why I'm not going to let you be unprepared for it."</li>
+    <li class="quote">"If the outside world gives women less room for error, the last thing she needs is less room for error from me."</li>
+    <li class="quote">"Once you've heard those conversations, unfortunately you just can't unhear them."</li>
+  </ol></div></div>
+  <div class="field"><div class="field-label">Strongest Single Line for Quote Graphic</div><div class="field-value quote">"Sometimes the woman telling you that you're not ready is the woman taking your future most seriously."</div></div>
+
+  <div class="section-head">Companion Resource</div>
+  <div class="field"><div class="field-label">Decision</div><div class="field-value">No. The episode is a reflection, not a method, and a resource would push it towards an answer it deliberately doesn't give.</div></div>
+</div>
+
+<!-- ============ 2. TOLU ============ -->
+<div class="tab-panel" id="tolu">
+  <div class="print-title">2. Tolu</div>
+
+  <div class="section-head">Edit Instructions</div>
+  <div class="field"><div class="field-label">Overall Instruction</div><div class="field-value">The whole episode answers one question: what do I owe another woman? Protect that thread. Cut the bridges and repeats where Uche loses it, and keep the reactions where she sounds most like herself.</div></div>
+  <div class="field"><div class="field-label">Tone to Preserve</div><div class="field-value">Lightly irritated and funny at the start, warm and reflective by the end. Don't smooth out the humour ("How far?", "nobody applied to attend this school"). The last section should feel slower and more uncertain than the first.</div></div>
+  <div class="field"><div class="field-label">Edit for Three Questions</div><div class="field-value"><ol>
+    <li>Does every section move the answer to "what do I owe her?" forward?</li>
+    <li>Would a new listener follow it without the script?</li>
+    <li>Does the ending stay open, or has something resolved it?</li>
+  </ol></div></div>
+  <div class="field"><div class="field-label">Restart Markers</div><div class="field-value">"Strawberry," used seven times. Approximate raw positions: 00:30 (twice), 03:20, 04:00, 05:20, 05:45, 10:40. Take the clean line after each one.</div></div>
+  <div class="field flag"><div class="field-label flag-label">Pickup Required Before Final Edit</div><div class="field-value flag">Around 10:50, replace "And someone somehow. I want you to be ready because you cannot afford to get anything wrong" with Uche's pickup recording: "And somewhere in there, 'I want you ready' becomes 'you cannot afford to get anything wrong.'" Do not finalise the edit without it.</div></div>
+  <div class="field"><div class="field-label">Pacing Notes</div><div class="field-value">The Ghana section runs long because of three attempts at the same line. Tighten it hard. Give the room story (06:15 to 08:20) space to breathe. Leave a beat before "Now, here's the part I'm not always very certain about" and before "What do I owe another woman?"</div></div>
+
+  <div class="section-head">Sections</div>
+  <div class="field"><div class="field-label">Open (00:00 to 01:00)</div><div class="field-value">First line: "So I've been having these book events recently..." Remove the restarts around 00:30. "I call cap" is pending Uche's decision; keep it in the rough cut.</div></div>
+  <div class="field"><div class="field-label">The Accusation (01:00 to 02:30)</div><div class="field-value">Keep "How far? Why am I, why am I here? Is this about me?" in full. Keep it fast.</div></div>
+  <div class="field"><div class="field-label">Not an Automatic Yes (02:30 to 03:50)</div><div class="field-value">Trim the repeated "What did she think I owed her" so the question is asked once, cleanly. Cut "Oof. This honestly makes me very annoyed when I hear women say that" if it reads as unclear about what "that" refers to.</div></div>
+  <div class="field"><div class="field-label">Ghana (03:50 to 06:15)</div><div class="field-value">Correct "four or five of us" to "four of us" if Uche confirms the number. Use the last clean version of the repeated line: "it was the same way that we felt people could potentially look at us all those years ago." Cut the bridge "So coming back to this, the fact that there's always a narrative around women leadership..." and go straight to "Sitting in a room many years ago."</div></div>
+  <div class="field"><div class="field-label">The Room (06:15 to 08:30)</div><div class="field-value">This is the heart of the episode. Trim "Because she's gotten the job, of course. I've helped push, as I should, because she was the right candidate" to keep momentum.</div></div>
+  <div class="field"><div class="field-label">School of Uche (08:30 to 09:50)</div><div class="field-value">Cut "And that's why." at 09:25. Keep the CV line intact.</div></div>
+  <div class="field"><div class="field-label">The Doubt (09:50 to 11:45)</div><div class="field-value">Cut "It's not that she's not supporting you... think about it from that point of view" so "taking your future most seriously" lands on its own. Insert the pickup line around 10:50.</div></div>
+  <div class="field"><div class="field-label">Close (11:45 to end)</div><div class="field-value">End the content on "The third one I'm still working on." Then go straight to "Thank you, as always, for listening." Cut "And if you're a woman boss, you know what to do... They need our support" and "All righty." "Go to bat for you" is pending Uche's decision.</div></div>
+
+  <div class="section-head">Keep / Cut</div>
+  <div class="field"><div class="field-label">Keep</div><div class="field-value"><ul>
+    <li>"How far?" It's the most natural moment in the recording.</li>
+    <li>"Are we looking at the same document?"</li>
+    <li>The reunion with the Ghana colleagues at the book event. It connects Ghana to the opening.</li>
+    <li>"Nobody applied to attend this school." Remove the doubled "to to."</li>
+  </ul></div></div>
+  <div class="field"><div class="field-label">Cut</div><div class="field-value"><ul>
+    <li>All restarts and repeated attempts.</li>
+    <li>The outro call to action after "still working on." It resolves an ending that is meant to stay open.</li>
+    <li>"All righty."</li>
+  </ul></div></div>
+
+  <div class="section-head">English Clips, for Gbemi</div>
+  <div class="field"><div class="field-label">Quantity</div><div class="field-value">Four, plus two Smile Moments. See the Clip Markers tab.</div></div>
+  <div class="section-head">French Clips, TikTok</div>
+  <div class="field"><div class="field-label">Quantity</div><div class="field-value">Five to six. Priorities: the accusation, the Ghana perception point, the CV line, "taking your future most seriously," and "not development, repetition" (after the pickup). Hold back one to two for the week after the drop.</div></div>
+</div>
+
+<!-- ============ 3. CLIP MARKERS ============ -->
+<div class="tab-panel" id="clips">
+  <div class="print-title">3. Clip Markers</div>
+  <div class="section-head">Clip Markers</div>
+  <div class="note">Timestamps are estimates from the raw recording. Confirm them from Tolu's edit.</div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 01</span><span class="clip-time">~09:25 to 10:00 raw</span></div>
+    <div class="clip-title">Taking your future seriously</div>
+    <div class="clip-quote">"Those weren't obstacles, they were the path... Sometimes the woman telling you that you're not ready is the woman taking your future most seriously."</div>
+    <div class="clip-row"><strong>Platform</strong>Instagram launch day, YouTube Shorts</div>
+    <div class="clip-row"><strong>Length</strong>30 to 40 seconds</div>
+    <div class="clip-row"><strong>Note</strong>Start on "The coaching, the team, the growth" so the line has context. Cut before "It's not that she's not supporting you."</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 02</span><span class="clip-time">~06:15 to 08:20 raw</span></div>
+    <div class="clip-title">The doubts she never heard</div>
+    <div class="clip-quote">"She may never have known everything that was said in that room, but I knew... They will see the proof of what they thought all along."</div>
+    <div class="clip-row"><strong>Platform</strong>LinkedIn Tuesday native upload, YouTube</div>
+    <div class="clip-row"><strong>Length</strong>About 2 minutes (meets the 75-second LinkedIn minimum)</div>
+    <div class="clip-row"><strong>Note</strong>Opens on "Sitting in a room many years ago." It holds up on its own and carries the episode's most original idea.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 03</span><span class="clip-time">~04:50 to 06:00 raw</span></div>
+    <div class="clip-title">Two women disagree</div>
+    <div class="clip-quote">"But we knew that if two men disagreed on the team, it would be a disagreement. And if the two of us disagree, it would become a story about women."</div>
+    <div class="clip-row"><strong>Platform</strong>Instagram, Facebook feed</div>
+    <div class="clip-row"><strong>Length</strong>45 to 60 seconds</div>
+    <div class="clip-row"><strong>Note</strong>Start on "We were so conscious of the stereotype." Use only the clean take of the repeated line.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 04</span><span class="clip-time">~09:00 to 09:25 raw</span></div>
+    <div class="clip-title">Not going on my CV</div>
+    <div class="clip-quote">"Your numbers are not going on my CV, okay? Your success is yours, which is exactly why I'm not going to let you be unprepared for it."</div>
+    <div class="clip-row"><strong>Platform</strong>YouTube Shorts, TikTok (French)</div>
+    <div class="clip-row"><strong>Length</strong>20 to 30 seconds</div>
+    <div class="clip-row"><strong>Note</strong>Short and direct. Works cold.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Smile Moment 1</span><span class="clip-time">~06:15 to 10:00 raw</span></div>
+    <div class="clip-title">The room she never heard</div>
+    <div class="clip-quote">From "Sitting in a room many years ago" to "Sometimes the woman telling you that you're not ready is the woman taking your future most seriously."</div>
+    <div class="clip-row"><strong>Platform</strong>YouTube, Facebook</div>
+    <div class="clip-row"><strong>Length</strong>About 3.5 minutes after the edit</div>
+    <div class="clip-row"><strong>Note</strong>The full arc, from fighting for her in the room to being hard on her afterwards, ending on the payoff line. Cut "It's not that she's not supporting you" as in the main edit.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Smile Moment 2</span><span class="clip-time">~10:00 to 13:15 raw</span></div>
+    <div class="clip-title">When preparation becomes a higher bar</div>
+    <div class="clip-quote">From "Now, here's the part I'm not always very certain about" to "The third one I'm still working on."</div>
+    <div class="clip-row"><strong>Platform</strong>YouTube, Facebook</div>
+    <div class="clip-row"><strong>Length</strong>About 3 minutes after the edit</div>
+    <div class="clip-row"><strong>Note</strong>Needs the pickup line around 10:50. Ends on the last line of the episode, with no outro. No overlap with Smile Moment 1.</div>
+  </div>
+
+  <div class="section-head">Do Not Clip</div>
+  <div class="field"><div class="field-value"><ul>
+    <li>The WhatsApp quote on its own. Out of context, it sounds like Uche saying it.</li>
+    <li>"Women don't support women" without the turn that follows. It would sound like an endorsement.</li>
+    <li>"I call cap" on its own.</li>
+    <li>The outro call to action.</li>
+    <li>Anything that could identify either woman in the stories.</li>
+  </ul></div></div>
+</div>
+
+<!-- ============ 4. CHAPTERS ============ -->
+<div class="tab-panel" id="chapters">
+  <div class="print-title">4. Chapters</div>
+  <div class="section-head">Episode Chapters</div>
+  <div class="note">Draft titles. Timestamps are from the raw recording and must be confirmed from Tolu's edit before publishing.</div>
+  <div class="chapter-row"><span class="chapter-time">00:00</span><span class="chapter-title">The question at every book event</span></div>
+  <div class="chapter-row"><span class="chapter-time">01:00</span><span class="chapter-title">"Is this about me?"</span></div>
+  <div class="chapter-row"><span class="chapter-time">02:30</span><span class="chapter-title">Support isn't an automatic yes</span></div>
+  <div class="chapter-row"><span class="chapter-time">03:50</span><span class="chapter-title">Four women and a stereotype</span></div>
+  <div class="chapter-row"><span class="chapter-time">06:15</span><span class="chapter-title">The doubts she never heard</span></div>
+  <div class="chapter-row"><span class="chapter-time">08:30</span><span class="chapter-title">Nobody applied to this school</span></div>
+  <div class="chapter-row"><span class="chapter-time">09:50</span><span class="chapter-title">Preparation, or a higher bar?</span></div>
+  <div class="chapter-row"><span class="chapter-time">11:45</span><span class="chapter-title">What do I owe her?</span></div>
+</div>
+
+<!-- ============ 5. SHOW NOTES ============ -->
+<div class="tab-panel" id="shownotes">
+  <div class="print-title">5. Show Notes</div>
+  <div class="section-head">Show Notes</div>
+  <div class="field"><div class="field-label">Opening Line</div><div class="field-value">Supporting another woman doesn't mean telling her yes.</div></div>
+  <div class="field"><div class="field-label">Episode Description</div><div class="field-value">After Uche gave a woman a clear path to promotion, with conditions, the woman changed her WhatsApp picture to say there is a special place in hell for women who don't support other women. Uche rejects both "women don't support women" and the idea that support should be automatic. She asks what a woman in power really owes the women coming behind her, and whether preparing them for unfair rooms can quietly become part of the unfairness.</div></div>
+  <div class="field"><div class="field-label">Key Themes</div><div class="field-value"><ul>
+    <li>Why support is not an automatic yes</li>
+    <li>How women are judged as a group, not as individuals</li>
+    <li>What a sponsor knows that the woman she sponsored doesn't</li>
+    <li>The line between rigorous preparation and a higher standard</li>
+  </ul></div></div>
+  <div class="field"><div class="field-label">Resource Link</div><div class="field-value">None for this episode.</div></div>
+  <div class="field"><div class="field-label">Chapters</div><div class="field-value">Add from the Chapters tab once timestamps are confirmed.</div></div>
+</div>
+
+<!-- ============ 6. SOCIAL ============ -->
+<div class="tab-panel" id="social">
+  <div class="print-title">6. Social Drafts</div>
+
+  <div class="section-head">Instagram</div>
+  <div class="field"><div class="field-label">Launch Day Caption (with Clip 01)</div><div class="field-value">Telling a woman she isn't ready yet is not the same as refusing to support her. Sometimes it's the opposite. New episode of Don't Let The Smile Fool You, link in bio.</div></div>
+  <div class="field"><div class="field-label">Quote Graphic Caption</div><div class="field-value">"Sometimes the woman telling you that you're not ready is the woman taking your future most seriously."</div></div>
+
+  <div class="section-head">Facebook</div>
+  <div class="field"><div class="field-label">Feed Post</div><div class="field-value">What does a woman in power owe the women coming behind her? Not an automatic yes. In this episode, Uche talks about the WhatsApp picture that was aimed at her, and the question it left her with. [link]</div></div>
+  <div class="field"><div class="field-label">Community, Early Access (Monday evening)</div><div class="field-value">Episode goes public tomorrow. It is yours tonight. [link]</div></div>
+  <div class="field"><div class="field-label">Community, Discussion Prompt (Tuesday)</div><div class="field-value">What should you reasonably expect from a woman boss that you wouldn't expect from any other boss?</div></div>
+
+  <div class="section-head">YouTube</div>
+  <div class="field"><div class="field-label">Shorts</div><div class="field-value">Clip 04 (the CV line) on Tuesday or Wednesday. Different from the Instagram clip.</div></div>
+  <div class="field"><div class="field-label">Community Prompt</div><div class="field-value">Same as the Facebook community prompt, same day.</div></div>
+
+  <div class="section-head">TikTok (French)</div>
+  <div class="field"><div class="field-label">Episode Week</div><div class="field-value">Three clips across Tuesday, Thursday and Saturday, within 48 hours of the English drop: the accusation, the Ghana perception point, and the CV line. Hold one to two for the following week.</div></div>
+  <div class="field"><div class="field-label">Caption Note</div><div class="field-value">"How far?" is Nigerian Pidgin and won't translate directly. If it appears in a French clip, the caption should carry the meaning (roughly, "really?") rather than a literal translation.</div></div>
+</div>
+
+<!-- ============ 7. LINKEDIN ============ -->
+<div class="tab-panel" id="linkedin">
+  <div class="print-title">7. LinkedIn Draft</div>
+  <div class="section-head">LinkedIn, Uche Manages Directly</div>
+  <div class="note">Raw material for Uche to rewrite in her own voice. Not for Gbemi to post. Each post ends unresolved.</div>
+  <div class="field"><div class="field-label">Sunday, Pre-Post</div><div class="field-value"><p>A few years ago, I gave a woman some feedback about her career. Coaching, her team, the growth I needed to see. I thought I was giving her a path.</p><p>Not long after, she changed her WhatsApp picture. It said there's a special place in hell for women who don't support other women.</p><p>I knew who it was for.</p><p>I still think she was wrong about me. But she left me with a question I didn't have a good answer to at the time.</p><p>#Leadership #DontLetTheSmileFoolYou</p></div></div>
+  <div class="field"><div class="field-label">Tuesday, Launch Post (native upload of Clip 02)</div><div class="field-value"><p>When you fight for a woman to get a role, you hear things she never will.</p><p>Who had doubts. Who preferred someone else. What was asked when she wasn't in the room.</p><p>She walks into the job thinking she has arrived. You know she is still being assessed.</p><p>I've started to wonder what that knowledge does to the way I develop women.</p><p>#Leadership #DontLetTheSmileFoolYou</p></div></div>
+  <div class="field"><div class="field-label">Saturday / Sunday, Reflective Follow-Up</div><div class="field-value"><p>At a recent book event, a woman who used to work for me said I'd made all of them commercially minded, whatever their role. She said it changed her career.</p><p>Then she asked me what I didn't teach her.</p><p>I said networking. I knew it mattered. I just didn't teach it.</p><p>I've been thinking about what else I knew and didn't pass on.</p><p>#Leadership #DontLetTheSmileFoolYou</p></div></div>
+</div>
+
+<!-- ============ 8. HANDOFF ============ -->
+<div class="tab-panel" id="handoff">
+  <div class="print-title">8. Team Handoff</div>
+  <div class="section-head">Team Handoff</div>
+  <div class="field"><div class="field-label">For Tolu</div><div class="field-value">Solo, about 11 minutes edited from 13:40 raw. Seven "strawberry" restarts. One pickup line is needed around 10:50 before the edit is final. End the content on "The third one I'm still working on," cut the outro call to action, and tighten the Ghana section. Protect "How far?" and "Are we looking at the same document?" Section notes are in the Tolu tab, and clips in Clip Markers.</div></div>
+  <div class="field"><div class="field-label">For Gbemi</div><div class="field-value">The episode is about what women in power owe other women, not about whether women support women. Don't frame it as the familiar debate. Lead with Clip 01 on Instagram and Clip 04 on Shorts. Never post the WhatsApp quote on its own, because it reads as Uche saying it. Community prompt: what should you reasonably expect from a woman boss that you wouldn't expect from any other boss? Avoid prompts that invite stories about bad women bosses, which is the conversation this episode argues against.</div></div>
+  <div class="field"><div class="field-label">Coordination Note</div><div class="field-value">English drops Tuesday. Community early access on Monday evening. French TikTok clips within 48 hours of the English drop. Uche posts LinkedIn on Sunday, Tuesday (native clip) and the following weekend.</div></div>
+  <div class="field flag"><div class="field-label flag-label">Open Items</div><div class="field-value flag"><ul>
+    <li>Pickup line around 10:50, to be recorded by Uche. This blocks the final edit.</li>
+    <li>"I call cap": keep or cut. Uche to decide.</li>
+    <li>"Go to bat for you": keep or change to "fight for you." Uche to decide.</li>
+    <li>Floor confirmation: Presence (primary), Support.</li>
+    <li>Ghana executive team: confirm four women, not five.</li>
+    <li>French thumbnail line: confirm register.</li>
+  </ul></div></div>
+
+  <div class="section-head">Forward Notes</div>
+  <div class="field"><div class="field-label">Future Episode Seeds</div><div class="field-value"><ul>
+    <li>A conversation with one of the Ghana executive colleagues: working inside the stereotype, and being developed by a woman boss.</li>
+    <li>A guest who was on the receiving end of a tough woman boss and can say, years later, whether it was support.</li>
+    <li>"What didn't you teach me?" Networking as the blind spot of leaders who believe in excellent work.</li>
+    <li>The expectation of solidarity that women bosses face and men bosses don't.</li>
+  </ul></div></div>
+  <div class="field"><div class="field-label">Leadership Infrastructure, Notes for the Book</div><div class="field-value">Presence: women are judged as a group before they are judged as individuals, so a disagreement between two women becomes a story about women. Support: support is not affirmation. The conditions can be the support. A sponsor's knowledge of the doubts in the room is part of the infrastructure she gives a woman, and also a risk if it turns into a higher bar.</div></div>
+</div>
+
+</div>
+
+<div class="footer">
+  The Smile Collective · Don't Let The Smile Fool You · Post-Recording Capture Sheet · Internal Use
+</div>
+
+<script>
+  function showTab(btn, id) {
+    document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
