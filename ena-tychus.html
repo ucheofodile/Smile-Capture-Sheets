@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Ena Tychus — Post-Recording Capture Sheet</title>
+<style>
+  :root { box-sizing: border-box; }
+  * { box-sizing: inherit; }
+  body {
+    font-family: Georgia, serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px;
+    color: #1a1a1a;
+    background: #fff;
+  }
+  .masthead-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #999;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .masthead-sub {
+    font-size: 10px; color: #ccc; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .masthead-title { font-size: 24px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+  .masthead-meta { font-size: 13px; color: #666; margin-bottom: 10px; }
+  header { border-bottom: 3px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 28px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; }
+  .tab-btn {
+    padding: 7px 14px; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; border: 2px solid #1a1a1a; cursor: pointer;
+    background: #fff; color: #1a1a1a; font-family: Georgia, serif;
+  }
+  .tab-btn.active { background: #1a1a1a; color: #fff; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .field { margin-bottom: 16px; }
+  .field-label {
+    font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 4px;
+  }
+  .field-value {
+    font-size: 14px; color: #1a1a1a; line-height: 1.7; background: #f8f8f8;
+    padding: 10px 14px; border-left: 3px solid #1a1a1a;
+  }
+  .multi-value {
+    background: #f8f8f8; padding: 10px 14px; border-left: 3px solid #1a1a1a;
+  }
+  .multi-value div { font-size: 14px; color: #1a1a1a; line-height: 1.7; margin-bottom: 8px; }
+  .multi-value div:last-child { margin-bottom: 0; }
+  .section-head {
+    background: #1a1a1a; color: #fff; padding: 7px 14px; font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; margin: 24px 0 16px;
+  }
+  .clip-card { border-left: 3px solid #1a1a1a; padding: 12px 16px; margin-bottom: 16px; background: #fafafa; }
+  .clip-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
+  .clip-num { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #666; }
+  .clip-time { font-size: 12px; font-family: monospace; color: #666; }
+  .clip-title { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+  .clip-quote { font-size: 13px; font-style: italic; color: #444; margin-bottom: 8px; line-height: 1.5; }
+  .clip-sublabel { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .clip-platform { font-size: 13px; color: #1a1a1a; margin-bottom: 8px; }
+  .clip-note { font-size: 13px; color: #444; line-height: 1.6; }
+  .chapter-row { display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid #eee; }
+  .chapter-time { font-family: monospace; font-size: 13px; color: #999; min-width: 55px; }
+  .chapter-title { font-size: 14px; color: #1a1a1a; line-height: 1.6; }
+  .section-note { font-size: 12px; color: #999; margin-bottom: 20px; font-style: italic; }
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 10px; color: #ccc; letter-spacing: 1px; text-transform: uppercase; }
+
+  @media print {
+    .tabs { display: none; }
+    .tab-panel { display: block !important; page-break-before: always; }
+    .tab-panel:first-of-type { page-break-before: auto; }
+    body { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="masthead-label">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+  <div class="masthead-sub">Completed after recording</div>
+  <div class="masthead-title">Your Body Doesn't Know You're the CEO</div>
+  <div class="masthead-meta">Guest — Dr. Ena Tychus, Founder &amp; CEO, GetMed Concierge · Recorded [CONFIRM DATE]</div>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(this,'overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab(this,'tolu')">Tolu</button>
+  <button class="tab-btn" onclick="showTab(this,'clips')">Clip Markers</button>
+  <button class="tab-btn" onclick="showTab(this,'chapters')">Chapters</button>
+  <button class="tab-btn" onclick="showTab(this,'shownotes')">Show Notes</button>
+  <button class="tab-btn" onclick="showTab(this,'social')">Social</button>
+  <button class="tab-btn" onclick="showTab(this,'linkedin')">LinkedIn</button>
+  <button class="tab-btn" onclick="showTab(this,'handoff')">Handoff</button>
+</div>
+
+<!-- OVERVIEW -->
+<div id="overview" class="tab-panel active">
+  <div class="section-head">Core Message</div>
+  <div class="field"><div class="field-label">Spine</div><div class="field-value">Senior women build infrastructure around every part of their lives except their bodies, and wait until something forces the issue before paying attention. Dr. Ena Tychus had already decided to leave her senior leadership role at Kaiser when her father's metastatic cancer diagnosis landed on her literal last day there, a discovery that gave the decision profound meaning and let her spend his final months with him. She went on to found a concierge medicine practice in Nigeria, and makes the case that health needs the same deliberate planning as any other part of a woman's life, before the crisis, not after.</div></div>
+  <div class="field"><div class="field-label">The Distinction</div><div class="field-value">Not a menopause explainer or a wellness-trend roundup. The founder story carries real emotional weight (her father's diagnosis landing on her literal last day at Kaiser, her husband telling her God was going to give her a business, the "USB download" vision), and both host and guest speak about menopause and HRT with unusual directness rather than the hedged, general version of this conversation. GLP-1s come up only briefly at the very end, deliberately deferred rather than discussed.</div></div>
+  <div class="field"><div class="field-label">Operating Principle</div><div class="field-value">Health infrastructure means having an actual plan, and someone who knows your whole picture, before something goes wrong, not reacting symptom by symptom.</div></div>
+  <div class="field"><div class="field-label">The Cost</div><div class="field-value">A leader who doesn't build this can keep performing for a long time while her health quietly deteriorates, waiting until her body forces the question rather than managing her health deliberately beforehand.</div></div>
+
+  <div class="section-head">Episode Details</div>
+  <div class="field"><div class="field-label">Full Title</div><div class="field-value">Your Body Doesn't Know You're the CEO: What Senior Women Need to Know About Their Health — the longer version for YouTube/podcast search and context. Neither this nor the thumbnail title below is fully locked yet.</div></div>
+  <div class="field"><div class="field-label">Thumbnail Title</div><div class="field-value">Your Body Doesn't Know You're the CEO — short version for the thumbnail itself.</div></div>
+  <div class="field"><div class="field-label">Thumbnail Line (EN) — positioning copy, not literal thumbnail text, too long to actually fit on a thumbnail</div><div class="field-value">What senior women carry, normalize, and postpone while they keep performing</div></div>
+  <div class="field"><div class="field-label">Thumbnail Line (FR)</div><div class="field-value">[THUMBNAIL LINE — FRENCH — confirm register before use]</div></div>
+  <div class="field"><div class="field-label">Format</div><div class="field-value">Guest — Dr. Ena Tychus, Founder &amp; CEO, GetMed Concierge</div></div>
+  <div class="field"><div class="field-label">Floor Connection</div><div class="field-value">Foundation (health as infrastructure) and Support (who holds you up) — Uche names both explicitly in the recording, tying directly to Beneath the Smile.</div></div>
+
+  <div class="section-head">Recording Review</div>
+  <div class="field"><div class="field-label">What Landed Better Than the Script</div><div class="field-value">The retirement-planning meeting where Ena does the math on 23 remaining years wasn't in the guide at all and became the real spine of the leaving story. The Birkin story landed exactly as hoped, specific and unmoralized, with no prompting needed beyond the setup. Uche's own "freedom without money is a prison" line, delivered naturally, not scripted.</div></div>
+  <div class="field"><div class="field-label">Where the Recording Diverged — Worth Keeping</div><div class="field-value">Father's cancer diagnosis landing on Ena's literal last day at Kaiser, followed by her husband telling her God was going to give her a business and the "USB download" vision of the GetMed blueprint. None of this was in the guide. The pancreatic-cancer patient story is extremely strong and extremely heavy — needs real care in how it's used, not a casual clip.</div></div>
+  <div class="multi-field">
+    <div class="field-label">Spontaneous Lines to Preserve</div>
+    <div class="multi-value">
+      <div>1. "Freedom without money is a prison."</div>
+      <div>2. "It's almost like somebody inserted a USB and transferred all the files to my head."</div>
+      <div>3. "Your body doesn't know that you're CEO, they just feel this stress."</div>
+      <div>4. "I'm proud of you." (her father, whispered, near the end of his life)</div>
+      <div>5. "I watch people on the road hawking and I feel that man is happier than me and I have all the money in the world."</div>
+    </div>
+  </div>
+
+  <div class="section-head">Pull Quotes</div>
+  <div class="multi-field">
+    <div class="field-label">Quote Candidates — Exact Words from Recording</div>
+    <div class="multi-value">
+      <div>1. "Freedom without money is a prison."</div>
+      <div>2. "It's like I'm on a yacht and you're trying to tell me to jump into the ocean."</div>
+      <div>3. "Your body doesn't know that you're CEO, they just feel this stress."</div>
+      <div>4. "Your performance review might be excellent, but your health report card is deteriorating."</div>
+      <div>5. "I watch people on the road hawking and I feel that man is happier than me and I have all the money in the world."</div>
+    </div>
+  </div>
+  <div class="field"><div class="field-label">Strongest Single Line for Quote Graphic</div><div class="field-value">"Your performance review might be excellent, but your health report card is deteriorating."</div></div>
+
+  <div class="section-head">Companion Resource</div>
+  <div class="field"><div class="field-label">Decision</div><div class="field-value">No — not discussed in this recording.</div></div>
+
+  <div class="section-head">Guest Information — for Show Notes &amp; Social Tags</div>
+  <div class="field"><div class="field-label">Verified</div><div class="field-value">LinkedIn (personal): linkedin.com/in/drenatychus. Instagram (company): instagram.com/getmedco. Company: GetMedCo / GETMEDCO Concierge, clinic location Lekki, Lagos, with a UK arm operating under "GetMed UK." Hashtags the brand itself uses: #GETMEDCO #GetMedCo #ConciergeMedicine #ExecutiveHealth.</div></div>
+  <div class="field"><div class="field-label">Not Verified — confirm directly with Ena before publishing</div><div class="field-value">No official GetMedCo website URL could be confirmed with confidence via search. Get it directly from Ena rather than guessing one, a wrong link in show notes is worse than a brief delay.</div></div>
+</div>
+
+<!-- TOLU -->
+<div id="tolu" class="tab-panel">
+  <div class="section-head">Edit Instructions</div>
+  <div class="field"><div class="field-label">Overall Instruction</div><div class="field-value">ONE LONG-FORM EPISODE. DO NOT SPLIT. This episode has earned its length, the instruction is remove repetition, false starts, and low-value detail, not compress the material down. Preserve the emotional arc around the father's illness, her husband telling her God was going to give her a business, and the Birkin story in full and in sequence.</div></div>
+  <div class="field"><div class="field-label">Tone to Preserve</div><div class="field-value">Warm, unhurried. Let pauses and emotional beats breathe, especially after "I'm proud of you" and after the pancreatic cancer story. Don't tighten these into soundbites.</div></div>
+  <div class="field"><div class="field-label">Restart Markers</div><div class="field-value">"Strawberry" used multiple times. One specific splice point needs care, not just a word-cut: "Chief Strawberry... Chief of medicine" — the restart word bled directly into the sentence.</div></div>
+  <div class="field"><div class="field-label">Pacing Notes</div><div class="field-value">The leaving-Kaiser/founding story is the emotional first act, give it room, but don't let its length force compression of the health conversation later. The back half, from roughly 51 minutes on, is the actual heart of the episode. Keep the practical health-infrastructure section (baseline, personal risk, healthcare team, screening, sleep, nutrition, exercise) substantive, trim repetition, not the framework. The listener needs to leave knowing what "health infrastructure" actually means.</div></div>
+
+  <div class="section-head">Sections</div>
+  <div class="field"><div class="field-label">Open</div><div class="field-value">Resolved — use the boardroom-sweating pickup, the first version, not the retake that opens with the restart marker. Exact line: "I was sitting in my boardroom one day, and then I just started sweating out of nowhere, profusely, no warning. And God bless him, this man next to me offered me very quietly a pack of tissues. And I remember thinking to myself, this is so embarrassing. And then I thought, what on earth is happening to me? Because it made me wonder about women who are in these kind of jobs who look completely in control and then all of a sudden their body starts to do things nobody even asked for. So I called Doctor Ena Tychus."</div></div>
+  <div class="field"><div class="field-label">Why She Left Kaiser</div><div class="field-value">Keep the full arc: the retirement-meeting math, the "yacht and the ocean" metaphor, the husband conversation, the sabbatical framing, the father's diagnosis on her last day, her husband telling her God was going to give her a business, the USB vision. This is the emotional first act, terrific, and worth the room, but it is not the heart of the episode. The heart is what happens from roughly 51 minutes on: what senior women carry, chronic stress, menopause, HRT, and practical health infrastructure.</div></div>
+  <div class="field"><div class="field-label">Building GetMed in Nigeria</div><div class="field-value">Preserve the pricing-assumption story and the Birkin story. The point of the pricing story is the mismatch between what Ena expected people to value and what the market actually valued, trim pricing mechanics (the $120k to $25k arithmetic) if needed, but preserve that insight. The Birkin story should stay intact in full.</div></div>
+  <div class="field"><div class="field-label">What She Sees in Senior Women</div><div class="field-value">Keep "your performance review might be excellent, but your health report card is deteriorating" intact as a standalone moment.</div></div>
+  <div class="field"><div class="field-label">Close</div><div class="field-value">Resolved — Uche recorded a pickup close. Use it in full: "One thing I kept thinking about after this conversation is just how much effort we put into protecting everything we're responsible for. Our businesses, our employees, our teams, our families, everything. And yet so many of us are still waiting until something goes wrong before we give our own health that same level of attention. It's weird, right? Maybe health infrastructure is simply that, just knowing your body, having someone you trust who knows it too, and having a plan before you need one. Doctor Ena Tychus, thank you so much for today's conversation."</div></div>
+
+  <div class="section-head">Keep / Cut</div>
+  <div class="multi-field">
+    <div class="field-label">Keep — Preserve These Moments</div>
+    <div class="multi-value">
+      <div>1. Father's cancer diagnosis landing on her last day at Kaiser, through her husband telling her God was going to give her a business and the USB vision — keep as one continuous sequence.</div>
+      <div>2. The Birkin story, told in full, unmoralized.</div>
+      <div>3. The pancreatic cancer patient story — extremely strong, extremely heavy. Needs careful framing wherever it lands, flag for Uche before clipping any part of it standalone.</div>
+      <div>4. "I'm proud of you" — let the pause around this sit.</div>
+    </div>
+  </div>
+  <div class="multi-field">
+    <div class="field-label">Cut — Remove These Moments</div>
+    <div class="multi-value">
+      <div>1. Repeated "strawberry" restart markers, including the mid-word splice on "Chief Strawberry."</div>
+      <div>2. Redundant restart repetitions in the two unused cold-open takes.</div>
+    </div>
+  </div>
+
+  <div class="section-head">French Clips — TikTok</div>
+  <div class="field"><div class="field-label">Quantity</div><div class="field-value">Standard: 5-6 per episode</div></div>
+  <div class="multi-field">
+    <div class="field-label">Priority Moments</div>
+    <div class="multi-value">
+      <div>1. What senior women are carrying privately (the performance-review line)</div>
+      <div>2. Menopause colliding with professional identity</div>
+      <div>3. HRT — who it's actually for</div>
+      <div>4. What senior women should actually be doing</div>
+      <div>5. Women take care of everybody except themselves</div>
+      <div>6. The Birkin story</div>
+    </div>
+  </div>
+  <div class="field"><div class="field-label">Hold-Back Instruction</div><div class="field-value">Standard: 1-2 held for the week after the episode drop.</div></div>
+
+  <div class="section-head">English Clips — For Gbemi</div>
+  <div class="field"><div class="field-label">Quantity</div><div class="field-value">Standard: 3-4 per episode</div></div>
+  <div class="multi-field">
+    <div class="field-label">Priority Clips</div>
+    <div class="multi-value">
+      <div>1. "Your performance review might be excellent, but your health report card is deteriorating."</div>
+      <div>2. Does stress cause cancer / what chronic stress actually does</div>
+      <div>3. HRT — who it's actually for</div>
+      <div>4. The Birkin story</div>
+    </div>
+  </div>
+</div>
+
+<!-- CLIP MARKERS -->
+<div id="clips" class="tab-panel">
+  <div class="section-head">Clip Markers</div>
+  <div class="section-note">Timestamps pulled directly from the recording transcript, cross-checked against the embedded transcript markers. Each marked range works two ways: it can be published as its own longer clip (most run 3-5 minutes, a few are already under 2), or treated as source material for Tolu to cut a tighter 15-90 second version from for Reels/TikTok. Platform and feel should decide which, not a fixed rule, confirm exact in/out points against the edited version before publishing. The test for this package either way: a senior woman should watch and think "I've wondered about that too," not "what an interesting founder story."</div>
+
+  <div class="section-head">Primary Clips — Health First</div>
+  <div class="section-note">This is the social package. The founder story (below) stays to roughly 25–30% of total social material, not the majority.</div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 01</span><span class="clip-time">51:52 – 54:56</span></div>
+    <div class="clip-title">What Senior Women Are Carrying Privately</div>
+    <div class="clip-quote">"Your performance review might be excellent, but your health report card is deteriorating."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / YouTube Shorts</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">The thesis line, but give it its full runway — Ena builds to it through executive stress, marital stress, family stress, menopause, chronic disease, special-needs children. The "grocery bag" image (women holding everything until it all comes down at once) is strong texture worth keeping in the lead-up.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 02</span><span class="clip-time">55:21 – 59:14</span></div>
+    <div class="clip-title">Does Stress Cause Cancer?</div>
+    <div class="clip-quote">"Does stress cause cancer? Or are we making a connection medicine doesn't actually support?"</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / YouTube Shorts</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">The question every senior woman is quietly asking. Ena separates the cancer anxiety from what's actually established, cardiovascular health, sleep, mental health, hormones, fatigue, and lands on "your body doesn't know that you're CEO, they just feel this stress."</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 03</span><span class="clip-time">1:00:11 – 1:05:10</span></div>
+    <div class="clip-title">When Menopause Collides With Professional Identity</div>
+    <div class="clip-quote">"I was someone who was always saying no crying at work."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / TikTok</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Uche's own sweating, crying, coffee, and the memory of watching a colleague fall asleep in a meeting, extremely relatable, no corporate varnish. Shows why these symptoms are frightening at senior level, not just that they happen.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 04</span><span class="clip-time">1:06:02 – 1:09:48</span></div>
+    <div class="clip-title">HRT: Who Is It Actually For?</div>
+    <div class="clip-quote">"Hormone replacement therapy just went, my gosh, everybody started to be on it. So is it for everybody? No."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / YouTube Shorts</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Directly answers the social-media noise. Ena explains why HRT became controversial, why that changed, and who should and shouldn't consider it. One of the most practically useful clips in the episode.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 05</span><span class="clip-time">1:16:09 – 1:20:27</span></div>
+    <div class="clip-title">What Should Senior Women Actually Be Doing</div>
+    <div class="clip-quote">"Develop a plan... establish your baseline... build your healthcare team."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / YouTube Shorts</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Moves past fads into the practical version of the health-infrastructure argument, baseline, family history, lipids, diabetes risk, appropriate screening, a healthcare team.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 06</span><span class="clip-time">1:20:27 – 1:21:45</span></div>
+    <div class="clip-title">Am I Actually Taking Care of My Health, or Just Doing a Lot of Health Things?</div>
+    <div class="clip-quote">Ena on vitamin drips: "A lot of these vitamins are water-soluble... within two to three days you're peeing everything." Uche: "I feel very seen right now."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / TikTok</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">The package needs some levity, this has it. A clean, funny cut around a real question, full-body MRIs, vitamin drips, wearables, screening theatre, without losing the practical point underneath.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 07</span><span class="clip-time">1:22:10 – 1:24:00</span></div>
+    <div class="clip-title">Women Take Care of Everybody Except Themselves</div>
+    <div class="clip-quote">"I think women are really good at taking care of everyone except themselves."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / TikTok</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Made personal, employees' health insurance, aging parents, everyone else's health, then Uche admitting she's still not great at prioritizing her own. Timestamps approximate, confirm exact split against Tolu's edit.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 08</span><span class="clip-time">1:24:00 – 1:26:30</span></div>
+    <div class="clip-title">What Women Should Start Doing in Their 30s</div>
+    <div class="clip-quote">"It's never too early to plan for your health. It's never too early."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / YouTube Shorts</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">A different audience hook than Clip 07, risk compounding like interest, habits from your 30s showing up as disease decades later. Pulls in rising mid-level executives, not just senior ones. Timestamps approximate, confirm exact split against Tolu's edit.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 09</span><span class="clip-time">47:05 – 50:10</span></div>
+    <div class="clip-title">The Birkin Story</div>
+    <div class="clip-quote">"She didn't just have Birkins... and then she said, that's too expensive. Honestly, I had no words."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / TikTok</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Not founder content, this is the health-as-infrastructure thesis illustrated through money. A woman who could spend freely elsewhere balked at a $4,000 preventive retainer. Told by Ena with no moralizing. Tightest moment likely 47:05–48:45, with the "too expensive" reaction at 50:00–50:20.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 10</span><span class="clip-time">30:01 – 33:40</span></div>
+    <div class="clip-title">Why Successful People Need Somewhere Safe to Say They're Not Okay</div>
+    <div class="clip-quote">"I look at people who have nothing and I feel like sometimes I wish I was as happy as them."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / TikTok</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">The implicit "what do you have to complain about" that wealthy and senior people face. Very DLTSFY. A man's vulnerability let in without being the whole point of the scene.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 11</span><span class="clip-time">36:40 – 40:05</span></div>
+    <div class="clip-title">What Concierge Medicine Actually Is</div>
+    <div class="clip-quote">"Concierge medicine is basically when you have your personal health ecosystem, your personal health infrastructure built around you and customized around you."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / YouTube Shorts</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Not a GetMed ad, keep to the proactive-versus-episodic-care distinction. Supports the health-infrastructure thesis without becoming promotional.</div>
+  </div>
+
+  <div class="section-head">Secondary — Founder Story</div>
+  <div class="section-note">Real emotional depth, and worth using, but capped to roughly 25–30% of total social material so the package doesn't read as a business-pivot story.</div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Highlight A</span><span class="clip-time">18:22 – 22:10</span></div>
+    <div class="clip-title">The Last Day</div>
+    <div class="clip-quote">From the sabbatical decision through the father's diagnosis, her husband telling her God was going to give her a business, and the full "USB download" vision.</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">YouTube long-form / highlights reel</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">The emotional core of the founder story. Needs to run as one continuous sequence, don't extract a piece out of context. Best suited to long-form, not a short social clip.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 12</span><span class="clip-time">28:05 – 28:25</span></div>
+    <div class="clip-title">Freedom Without Money</div>
+    <div class="clip-quote">"Freedom without money is a prison. I promise you. It's not freedom at all."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">Instagram / YouTube Shorts</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Uche's own line, strong on its own as life advice beyond the founder story, but still secondary to the health material above.</div>
+  </div>
+
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">Clip 13</span><span class="clip-time">13:55 – 14:20</span></div>
+    <div class="clip-title">The Yacht and the Ocean</div>
+    <div class="clip-quote">"It's like I'm on a yacht and you're trying to tell me to jump into the ocean."</div>
+    <div class="clip-sublabel">Platform</div>
+    <div class="clip-platform">TikTok</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Demoted — optional, founder-story metaphor. Use only if the secondary allocation has room.</div>
+  </div>
+
+  <div class="section-head">Explicitly Not a Clip</div>
+  <div class="clip-card">
+    <div class="clip-top"><span class="clip-num">—</span><span class="clip-time">1:10:44 – 1:15:49</span></div>
+    <div class="clip-title">The Pancreatic Cancer Patient</div>
+    <div class="clip-quote">The full story, from the patient's specific worry through Ena's decision to trust it and what happened after.</div>
+    <div class="clip-sublabel">Note</div>
+    <div class="clip-note">Keep in the full episode edit, let it breathe, don't trim the pauses. But do not use it as a discovery or promotional clip in any form, short or long-form. It's too heavy and risks turning a point about listening to patients into a frightening cancer clip. Preserved in context only.</div>
+  </div>
+</div>
+
+<!-- CHAPTERS -->
+<div id="chapters" class="tab-panel">
+  <div class="section-head">Episode Chapters</div>
+  <div class="section-note">Draft titles based on the actual recording. Confirm timestamps from Tolu's edited version before publishing.</div>
+  <div class="chapter-row"><span class="chapter-time">00:00</span><span class="chapter-title">Cold Open</span></div>
+  <div class="chapter-row"><span class="chapter-time">01:38</span><span class="chapter-title">Meet Dr. Ena Tychus</span></div>
+  <div class="chapter-row"><span class="chapter-time">02:03</span><span class="chapter-title">Chief of Medicine at Thirty-Four</span></div>
+  <div class="chapter-row"><span class="chapter-time">11:09</span><span class="chapter-title">Why Leave at the Top</span></div>
+  <div class="chapter-row"><span class="chapter-time">18:22</span><span class="chapter-title">Called to Something More</span></div>
+  <div class="chapter-row"><span class="chapter-time">22:10</span><span class="chapter-title">Faith, Planning, and a Supportive Partner</span></div>
+  <div class="chapter-row"><span class="chapter-time">29:05</span><span class="chapter-title">Building GetMed</span></div>
+  <div class="chapter-row"><span class="chapter-time">34:02</span><span class="chapter-title">What Concierge Medicine Actually Is</span></div>
+  <div class="chapter-row"><span class="chapter-time">42:38</span><span class="chapter-title">Bringing It to Nigeria</span></div>
+  <div class="chapter-row"><span class="chapter-time">51:02</span><span class="chapter-title">What Senior Women Are Carrying Privately</span></div>
+  <div class="chapter-row"><span class="chapter-time">55:21</span><span class="chapter-title">What Does Chronic Stress Actually Do to the Body?</span></div>
+  <div class="chapter-row"><span class="chapter-time">59:54</span><span class="chapter-title">When the Body Starts Talking Back</span></div>
+  <div class="chapter-row"><span class="chapter-time">1:06:02</span><span class="chapter-title">HRT, Demystified</span></div>
+  <div class="chapter-row"><span class="chapter-time">1:09:54</span><span class="chapter-title">Scans, Drips, and Doing "A Lot of Health Things"</span></div>
+  <div class="chapter-row"><span class="chapter-time">1:16:09</span><span class="chapter-title">Building Your Health Infrastructure</span></div>
+  <div class="chapter-row"><span class="chapter-time">1:22:10</span><span class="chapter-title">Why Women Take Care of Everyone Except Themselves</span></div>
+  <div class="chapter-row"><span class="chapter-time">1:23:45</span><span class="chapter-title">What Women Should Start Doing in Their 30s</span></div>
+  <div class="chapter-row"><span class="chapter-time">1:27:03</span><span class="chapter-title">Closing</span></div>
+</div>
+
+<!-- SHOW NOTES -->
+<div id="shownotes" class="tab-panel">
+  <div class="section-head">Show Notes</div>
+  <div class="field"><div class="field-label">Opening Line</div><div class="field-value">"Your performance review might be excellent, but your health report card is deteriorating." You wouldn't know it until your body forces the question.</div></div>
+  <div class="field"><div class="field-label">Episode Description</div><div class="field-value">This episode is about the things senior women ask quietly: what years of stress actually do to the body, what's happening with menopause and HRT, which tests actually matter, and why we're better at taking care of everyone else than ourselves. Dr. Ena Tychus, who had already decided to leave her senior leadership role at Kaiser Permanente when her father's cancer diagnosis landed on her literal last day there, brings both the medical answers and an extraordinary personal story about building a concierge medicine practice in Nigeria afterward.</div></div>
+  <div class="field"><div class="field-label">Key Themes</div><div class="field-value">What chronic stress actually does to the body. Menopause and HRT without the hedging. What senior women carry privately and rarely say out loud. Building real health infrastructure, not just doing a lot of health things. Why we take care of everyone except ourselves. Leaving a secure career for an unclear calling.</div></div>
+  <div class="field"><div class="field-label">Resource Link</div><div class="field-value">None this episode.</div></div>
+  <div class="field"><div class="field-label">Chapters</div><div class="field-value">Chapters listed in the Chapters tab — add to show notes once timestamps are confirmed from the edit.</div></div>
+  <div class="field"><div class="field-label">Disclaimer — use in both show notes and YouTube description</div><div class="field-value">Disclaimer: This episode of Don't Let the Smile Fool You is for informational and educational purposes only and does not constitute individual medical advice. Please consult your physician regarding personal medical decisions and hormone therapy.</div></div>
+</div>
+
+<!-- SOCIAL -->
+<div id="social" class="tab-panel">
+  <div class="section-head">Instagram</div>
+  <div class="field"><div class="field-label">Launch Day Caption</div><div class="field-value">You can be performing brilliantly at work and still not really know what's happening with your own health. I asked Dr. Ena Tychus the questions women in senior roles are asking quietly: what does years of stress actually do to us, what should we know about menopause and HRT, which tests actually matter, and why are so many of us better at taking care of everyone else than ourselves?</div></div>
+  <div class="field"><div class="field-label">Quote Graphic Caption</div><div class="field-value">"Your performance review might be excellent, but your health report card is deteriorating."</div></div>
+  <div class="section-head">Facebook</div>
+  <div class="field"><div class="field-label">Feed Post</div><div class="field-value">You can be performing brilliantly at work and still not really know what's happening with your own health. I asked Dr. Ena Tychus the questions women in senior roles are asking quietly: what does years of stress actually do to us, what should we know about menopause and HRT, which tests actually matter, and why are so many of us better at taking care of everyone else than ourselves?</div></div>
+  <div class="field"><div class="field-label">Community — Early Access</div><div class="field-value">Episode goes public tomorrow. It is yours tonight.</div></div>
+  <div class="field"><div class="field-label">Community — Discussion Prompt</div><div class="field-value">What is one thing about your health you wish someone had explained to you ten years earlier?</div></div>
+  <div class="section-head">YouTube</div>
+  <div class="field"><div class="field-label">Shorts</div><div class="field-value">The health report card clip, launch day.</div></div>
+  <div class="field"><div class="field-label">Community Prompt</div><div class="field-value">Same as Facebook community.</div></div>
+  <div class="section-head">TikTok (French)</div>
+  <div class="field"><div class="field-label">Episode Week</div><div class="field-value">Spread across the week with the same substantive health material as the English package, not a founder-story spin-off: chronic stress, menopause and professional identity, HRT, what senior women carry, women caring for everyone but themselves, health infrastructure. Birkin can be part of the week, it should not define it.</div></div>
+  <div class="field"><div class="field-label">Caption Note</div><div class="field-value">No specific direction yet — standard French captions.</div></div>
+</div>
+
+<!-- LINKEDIN -->
+<div id="linkedin" class="tab-panel">
+  <div class="section-head">LinkedIn — Uche Manages Directly</div>
+  <div class="section-note">These drafts are for Uche's reference only. Not for Gbemi to post.</div>
+  <div class="field"><div class="field-label">Sunday — Pre-Post</div><div class="field-value">We build infrastructure around everything we're responsible for except our own bodies. An episode about what that costs.</div></div>
+  <div class="field"><div class="field-label">Tuesday — Launch Post (angle / source material, not final copy — Uche writes the actual post first-person)</div><div class="field-value">The boardroom-sweating story is the launch angle: sudden sweating in a meeting, quietly handed tissues, the mortification, and the wondering how many senior women are dealing with the same thing while looking fine. That's how the episode opens, and launch day should lead with it. "Freedom without money is a prison" moves to a later post or clip, it's a strong line but the wrong note for launch day, it reads as a career-pivot story rather than the health conversation this actually is.</div></div>
+  <div class="field"><div class="field-label">Saturday / Sunday — Reflective Follow-Up</div><div class="field-value">[Draft once the episode is out and reactions are in — reference the health-report-card line and the response it gets.]</div></div>
+  <div class="field"><div class="field-label">Week 2–3 — Additional Post</div><div class="field-value">A separate angle worth its own post, not tied to launch week: "The more senior you become, the fewer places you are allowed to admit that you're struggling." Drawn from the 30:01–33:40 material (the street-hawker story). Very on-brand for DLTSFY, and broadens the episode's reach beyond women already actively thinking about menopause or health.</div></div>
+</div>
+
+<!-- HANDOFF -->
+<div id="handoff" class="tab-panel">
+  <div class="section-head">Team Handoff</div>
+  <div class="field"><div class="field-label">For Tolu</div><div class="field-value">One long-form episode, do not split. Preserve the father/husband/USB sequence and the Birkin story intact. Handle the pancreatic cancer story carefully, it's extremely strong but extremely heavy, and should never be clipped for social. Open and close are both resolved, see the Open and Close fields above. Watch for the "Chief Strawberry" splice point specifically.</div></div>
+  <div class="field"><div class="field-label">For Gbemi</div><div class="field-value">Lead with health, not founder story. Priority order: 1. Health report card / what senior women are carrying privately. 2. Stress and the body. 3. Menopause and professional identity. 4. HRT. 5. Women caring for everyone except themselves. 6. Practical health infrastructure. 7. Birkin story. 8. Founder story (Last Day, freedom without money, yacht/ocean). Do not publish Birkin, freedom without money, yacht, and USB back-to-back, that sequence alone would tell the audience a different episode than the one recorded. No companion resource this episode.</div></div>
+  <div class="field"><div class="field-label">Medical Review Before Lock</div><div class="field-value">This episode discusses HRT, screening frequency, annual mammography, stress/cardiovascular claims, and cancer risk. Fact-check these specifically before the edit locks. Do not rewrite Ena's meaning silently, flag questionable wording for review rather than editing it directly. Where a claim is medically accurate but overly absolute, consider an on-screen qualification or edit for context rather than removing the underlying discussion, the goal is preventing universal advice from being heard where Ena intended individualized advice, not sterilizing the episode.</div></div>
+  <div class="multi-field">
+    <div class="field-label">Open Items</div>
+    <div class="multi-value">
+      <div>1. Confirm recording date for the capture sheet header.</div>
+      <div>2. No automatic content warning needed for the pancreatic cancer story, a brief show-note mention is likely enough. Revisit only if the final edit turns out especially intense.</div>
+    </div>
+  </div>
+  <div class="section-head">Forward Notes</div>
+  <div class="multi-field">
+    <div class="field-label">Future Episode Seeds</div>
+    <div class="multi-value">
+      <div>1. A dedicated GLP-1s / stress-eating episode, both Uche and Ena explicitly flagged wanting to continue this conversation.</div>
+      <div>2. The fertility story and "what should I have known at 35" material, held back in the pre-conversation guide for live delivery but never reached, still live for a follow-up.</div>
+    </div>
+  </div>
+  <div class="field"><div class="field-label">Leadership Infrastructure — Notes for the Book</div><div class="field-value">Uche names Foundation and Support explicitly in the recording as the two floors concierge medicine touches, directly ties the episode back to Beneath the Smile without it feeling like a plug.</div></div>
+</div>
+
+<footer>The Smile Collective · Don't Let The Smile Fool You · Post-Recording Capture Sheet</footer>
+
+<script>
+function showTab(btn, id) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
