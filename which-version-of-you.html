@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Version of You Came to Work? — Post-Recording Capture Sheet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, serif; background: #fff; color: #1a1a1a; }
+  .sheet { max-width: 800px; margin: 0 auto; padding: 32px 24px 48px; }
+  .header { border-bottom: 3px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 28px; }
+  .header .label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #999; text-transform: uppercase; margin-bottom: 6px; }
+  .header .sublabel { font-size: 10px; color: #bbb; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+  .header h1 { font-size: 24px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
+  .header .meta { font-size: 13px; color: #666; }
+  .back { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #1a1a1a; text-decoration: none; margin-bottom: 18px; }
+  .back:hover { text-decoration: underline; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; }
+  .tab-btn { padding: 7px 14px; font-family: Georgia, serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; border: 2px solid #1a1a1a; background: #fff; color: #1a1a1a; cursor: pointer; }
+  .tab-btn.active { background: #1a1a1a; color: #fff; }
+  .tab-btn:focus-visible { outline: 3px solid #8B0000; outline-offset: 2px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .print-title { display: none; }
+  .section-head { background: #1a1a1a; color: #fff; padding: 7px 14px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 28px 0 16px; }
+  .section-head:first-of-type { margin-top: 0; }
+  .field { margin-bottom: 16px; }
+  .field-label { font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .field-value { font-size: 14px; line-height: 1.7; background: #f8f8f8; padding: 10px 14px; border-left: 3px solid #1a1a1a; }
+  .field-value p + p { margin-top: 10px; }
+  .field-value ol, .field-value ul { padding-left: 20px; }
+  .field-value li { margin-bottom: 6px; }
+  .field-value.alert { border-left-color: #8B0000; background: #fbf3f3; }
+  .note { font-size: 12px; color: #999; font-style: italic; margin-bottom: 20px; }
+  .clip-card { border-left: 3px solid #1a1a1a; padding: 12px 16px; margin-bottom: 16px; background: #f8f8f8; }
+  .clip-top { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .clip-num { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #999; }
+  .clip-time { font-size: 12px; font-family: monospace; color: #666; }
+  .clip-label { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .clip-quote { font-size: 13px; font-style: italic; color: #444; margin-bottom: 8px; line-height: 1.6; }
+  .clip-sub { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+  .clip-text { font-size: 13px; color: #333; line-height: 1.6; }
+  .clip-card.donot { border-left-color: #8B0000; background: #fbf3f3; }
+  .chapter-row { display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid #eee; }
+  .chapter-time { font-family: monospace; font-size: 13px; color: #999; min-width: 50px; }
+  .chapter-title { font-size: 14px; line-height: 1.6; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 10px; color: #aaa; letter-spacing: 1px; text-align: center; }
+  @media print {
+    .tabs, .back { display: none; }
+    .tab-panel { display: block !important; page-break-before: always; }
+    .tab-panel:first-of-type { page-break-before: auto; }
+    .print-title { display: block; font-size: 18px; font-weight: 700; border-bottom: 2px solid #1a1a1a; padding-bottom: 6px; margin-bottom: 16px; }
+    .section-head { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .field-value, .clip-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; page-break-inside: avoid; }
+    .sheet { padding: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<a class="back" href="index.html">← All capture sheets</a>
+
+<div class="header">
+  <div class="label">Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+  <div class="sublabel">Solo episode · Completed from the raw recording</div>
+  <h1>Which Version of You Came to Work?</h1>
+  <div class="meta">Solo · Uche Ofodile · Recorded: [DATE, confirm] · Floor: Presence (primary), Foundation (secondary)</div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(this,'overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab(this,'tolu')">Tolu</button>
+  <button class="tab-btn" onclick="showTab(this,'clips')">Clip Markers</button>
+  <button class="tab-btn" onclick="showTab(this,'chapters')">Chapters</button>
+  <button class="tab-btn" onclick="showTab(this,'shownotes')">Show Notes</button>
+  <button class="tab-btn" onclick="showTab(this,'social')">Social</button>
+  <button class="tab-btn" onclick="showTab(this,'linkedin')">LinkedIn</button>
+  <button class="tab-btn" onclick="showTab(this,'handoff')">Handoff</button>
+</div>
+
+<!-- ═════════ 1. OVERVIEW ═════════ -->
+<div class="tab-panel active" id="overview">
+  <div class="print-title">1. Overview</div>
+
+  <div class="section-head">Core Message</div>
+  <div class="field"><div class="field-label">Spine</div><div class="field-value">Everyone tells you to bring your authentic self to work. But in a meeting where a very senior stakeholder professed his love for her in front of her team, Uche smiled, apologised for not seeing his messages and got the meeting back on track. What she actually felt had become almost irrelevant to how she responded. Everybody adjusts. The question is whether you are choosing to, or whether you have done it for so long that you no longer notice.</div></div>
+  <div class="field"><div class="field-label">The Distinction</div><div class="field-value">Most authenticity content is told from below: what the powerful make us do. This episode is told from both sides. Uche has made these calculations herself, and as a CEO she is now the person others adjust for. People laugh harder at her jokes than the jokes deserve, and she may never know what they are really thinking.</div></div>
+  <div class="field"><div class="field-label">Operating Principle</div><div class="field-value">You can make the right decision for the circumstances and still have to live with the discomfort of having made it. And if you are the most senior person in the room, the harder question is how much room you are giving other people to bring themselves.</div></div>
+  <div class="field"><div class="field-label">The Cost</div><div class="field-value">A leader who has adjusted for so long that it is automatic stops noticing what she is giving up in each room. A leader who assumes "be authentic" is enough never sees how much the people around her are adjusting for her.</div></div>
+
+  <div class="section-head">This Episode Is Not About</div>
+  <div class="field"><div class="field-label">Guardrails for everyone marketing this episode</div><div class="field-value alert"><ul>
+    <li>Not a sexual harassment or #MeToo episode. The stakeholder story is the door into the episode, not its subject. No caption, title or comment reply should frame it as harassment, exposé or scandal.</li>
+    <li>Never hint at who the stakeholder was, which country or which sector. Uche says "many years ago" on purpose. Do not answer comments that guess.</li>
+    <li>Not "authenticity is fake" or "stop being yourself." Uche's position is that everybody adjusts and the question is whether you choose to.</li>
+    <li>Not a complaint about other people. The CEO section is the turn: she is on both sides.</li>
+    <li>Not about Uche's current employer or team.</li>
+  </ul></div></div>
+
+  <div class="section-head">Audience Promise</div>
+  <div class="field"><div class="field-label">What a senior woman leaves with</div><div class="field-value">The smile you gave in that meeting was not a failure to be authentic. It was a decision. But it is worth knowing which of your adjustments are still decisions, and which have become habits. And if you lead, the people around you are making the same calculations about you.</div></div>
+
+  <div class="section-head">Episode Details</div>
+  <div class="field"><div class="field-label">Full Title (proposed, Uche to confirm)</div><div class="field-value">Which Version of You Came to Work?<br>Alternative: Bring Your Authentic Self to Work. Really?</div></div>
+  <div class="field"><div class="field-label">Thumbnail Title (proposed)</div><div class="field-value">WHICH VERSION OF YOU? Check legibility at actual mobile thumbnail size.</div></div>
+  <div class="field"><div class="field-label">Thumbnail Line (EN)</div><div class="field-value">Be yourself at work. Which version?</div></div>
+  <div class="field"><div class="field-label">Thumbnail Line (FR)</div><div class="field-value">Soyez vous-même au travail. Mais laquelle ? (confirm register before use)</div></div>
+  <div class="field"><div class="field-label">Format</div><div class="field-value">Solo</div></div>
+  <div class="field"><div class="field-label">Floor Connection</div><div class="field-value">Presence (primary): the gap between who you are and what the room receives. The smile, the hanger smile and the CEO's jokes are all Presence. Foundation (secondary): the values question underneath. Which adjustments you choose and which ones you live with.</div></div>
+
+  <div class="section-head">Recording Review</div>
+  <div class="field"><div class="field-label">What Landed Better Than the Script</div><div class="field-value"><p>The humour. "Yeah, of course I didn't," "my smile was as wide as a hanger," "I could probably have a career in comedy" and "just roll your eyes. No, don't roll your eyes" make the serious parts easier to hear.</p><p>"Don't let the smile fool you" at 05:42, said exactly where it means the most, after "what looks like comfort is discomfort being managed." This is a franchise moment.</p><p>The callbacks. "Remember my hello" links the CEO section back to the low energy story, and "the smile didn't reach my eyes" earns the return to the first meeting in the landing.</p></div></div>
+  <div class="field"><div class="field-label">Where the Recording Diverged — Worth Keeping</div><div class="field-value"><p>The laptop story (03:52). Not in the script. During a light debate Uche was tapping the table and someone said "please don't break my laptop." It shows the "too aggressive" calculation instead of naming it.</p><p>"Yes, this is the energy we want to see" (06:45). The feedback after the hanger smile. It makes the low energy story land much harder.</p><p>The calculation meme (13:36): "What do I need to do in this very moment to create the least damage to everyone in this room and to my organization?"</p><p>"That is your job. It's literally in your job description."</p></div></div>
+  <div class="field"><div class="field-label">Spontaneous Lines to Preserve — Exact Wording</div><div class="field-value"><ol>
+    <li>"Yeah, of course I didn't."</li>
+    <li>"Oh my goodness, please don't break my laptop. What?"</li>
+    <li>"You know, don't let the smile fool you."</li>
+    <li>"And the feedback I got was like, yes, this is the energy we want to see."</li>
+    <li>"Which version of ourselves should we be? Which one, please?"</li>
+    <li>"I'm beginning to realize is that I could probably have a career in comedy."</li>
+    <li>"The joke wasn't that deep for you to be laughing so hysterically."</li>
+    <li>"Remember my hello"</li>
+    <li>"Hello, guys, be authentic"</li>
+    <li>"That is your job. It's literally in your job description."</li>
+    <li>"The smile I was smiling at that time, it didn't reach my eyes."</li>
+    <li>"Just roll your eyes. No, don't roll your eyes."</li>
+  </ol></div></div>
+
+  <div class="section-head">Pull Quotes</div>
+  <div class="field"><div class="field-label">Quote Candidates — Exact Words from Recording</div><div class="field-value"><ol>
+    <li>"What looks like comfort is discomfort being managed."</li>
+    <li>"What I actually felt had become almost irrelevant to how I responded."</li>
+    <li>"I can't simply announce that everyone should be authentic and assume that the power dynamics have disappeared."</li>
+    <li>"You can make the right decision for the circumstances and still have to live with the feeling of discomfort having made that decision."</li>
+    <li>"We only see the version people decide to show us."</li>
+  </ol></div></div>
+  <div class="field"><div class="field-label">Strongest Single Line for Quote Graphic</div><div class="field-value">"What looks like comfort is discomfort being managed."</div></div>
+
+  <div class="section-head">Additional Uses & Companion Resource</div>
+  <div class="field"><div class="field-label">Decision</div><div class="field-value"><p>Companion resource: No. The episode's value is the question, not a tool.</p><p>Community series: run "Which version of you came to work this week?" and two follow-ups across three weeks in the Facebook and YouTube communities (see Social).</p><p>Pairing with the Toyin Odulate episode: hers looks at authenticity and conformity for senior women through hair. If they go out close together, each points to the other in show notes and community posts.</p><p>CEO of the Day: the CEO section raises a real question for participants. Did the room change around you for a day because of a title? Good for a CEO of the Day post that is not about recruitment.</p></div></div>
+</div>
+
+<!-- ═════════ 2. TOLU ═════════ -->
+<div class="tab-panel" id="tolu">
+  <div class="print-title">2. Tolu — Edit Notes</div>
+  <div class="section-head">Edit Instructions</div>
+  <div class="field"><div class="field-label">Overall Instruction</div><div class="field-value">Instructions come in three levels. Level 1 is non-negotiable and must be done exactly. Level 2 is your editorial judgement: the aim is the strongest episode, not a set runtime. Level 3 is what to deliver after the edit, in waves. The opening is the priority: the open was recorded twice, and the edit must join the first part of take one to the second half of take two cleanly.</div></div>
+  <div class="field"><div class="field-label">Tone to Preserve</div><div class="field-value">Warm, amused, thinking out loud. The humour does a job in this episode: it makes the stakeholder story and the landing easier to hear. Do not tighten out the asides ("Yeah, of course I didn't", "Hello, hello, hello", "Which one, please?", "I hope I am a little bit funny", "just roll your eyes").</div></div>
+  <div class="field"><div class="field-label">Edit for Three Questions</div><div class="field-value"><ol><li>Does the opening land cold for someone who has never heard the show?</li><li>Is the argument still moving, or is a section circling?</li><li>Does Uche sound like she is talking, not presenting?</li></ol></div></div>
+  <div class="field"><div class="field-label">Restart Markers</div><div class="field-value">"Strawberry", about eight times, at approximately 01:12, 01:31, 05:21, 07:42, 08:10 (plus "I'm gonna do that again"), 09:53, 10:58 and 14:20 ("let me redo that"). Also restarts without the marker at 08:55 ("I'm gonna take it from the top"), 14:46 and 16:13 ("Sorry"). Always use the take after the marker.</div></div>
+  <div class="field"><div class="field-label">Pacing Notes</div><div class="field-value">Leave a beat after "this gentleman decided to profess his love for me" and after "Yeah, of course I didn't." Let "Hello, hello, hello" and "yes, this is the energy we want to see" land. Leave a breath after "Don't let the smile fool you." The 08:41 to 08:55 pause comes out entirely.</div></div>
+
+  <div class="section-head">Level 1 — Non-Negotiable</div>
+  <div class="field"><div class="field-label">Always</div><div class="field-value alert"><ul>
+    <li>Remove every restart and the take it replaces.</li>
+    <li>Make the four fixes below exactly as written.</li>
+    <li>Keep "Don't let the smile fool you" (about 05:42) in the final edit. It is the franchise line.</li>
+    <li>Nothing in the edit may add detail about who the stakeholder was, or where.</li>
+  </ul></div></div>
+  <div class="field"><div class="field-label">Fix 1 — "insensible", about 04:47</div><div class="field-value alert">Uche says "Sometimes you're just being insensible. Facts." She meant "sensible", and as recorded it means the opposite. Cut "Sometimes you're just being insensible. Facts." so it reads: "That's not what I'm saying at all. Sometimes you're being diplomatic, and other times you're just choosing which battles are worth having."</div></div>
+  <div class="field"><div class="field-label">Fix 2 — the open, 00:42 to 02:25</div><div class="field-value alert">Take one: keep 00:00 to the end of "And then I tried to get the meeting back on track" (about 00:55). Cut from "Meanwhile, inside my mind, inside my head, I was dying" through the strawberry at 01:31. Resume at the second take: "Meanwhile, inside I was absolutely dying. Oh my goodness. I was horrified, I was mortified…" and run to "And that's the thing I've been thinking about." The second take contains "What I actually felt had become almost irrelevant to how I responded." That line must be in the final edit.</div></div>
+  <div class="field"><div class="field-label">Fix 3 — "nobody's going to ch…", about 14:12</div><div class="field-value alert">Cut "Even the people who say I'm very authentic and I am myself and nobody's going to ch" so it reads "Everyone adjusts, no matter who you are. Everyone adjusts."</div></div>
+  <div class="field"><div class="field-label">Fix 4 — "That one, that's weird", about 14:58</div><div class="field-value alert">An aside to herself after the retake. Cut it. Join "…you don't notice that you're doing it anymore." directly to "And even when you know exactly why you're doing it…"</div></div>
+
+  <div class="section-head">Level 2 — Editorial Judgement</div>
+  <div class="field"><div class="field-label">The Opening — Top Priority</div><div class="field-value"><p>Cut two versions and Uche will compare them on a phone:</p><ol><li><strong>Natural:</strong> "So I was once in a very important meeting…" with Fix 2 applied.</li><li><strong>Tight:</strong> drop "So" and "guess what happened?", and trim "inside my mind, inside my head" if it is still in. Should reach "profess his love for me" within 15 seconds.</li></ol><p>The better opening is not necessarily the shorter one. No intro music, branding or title card before the first line.</p><p>Check the audio at about 01:40: the transcript has "I was all the fights, all of them." If it is "all the feels" or similar and sounds natural, keep it. If it is unclear, cut it.</p></div></div>
+  <div class="field"><div class="field-label">The "which version" splice, 07:14 to 09:24</div><div class="field-value">Take one runs to 08:41. Uche restarts at 08:55 ("I'm gonna take it from the top"). Use take one up to "how quickly we can change behavior in response to someone else's expectations." Then go to the retake from "Somewhere in the middle of that, we're being asked to be ourselves. Which version of ourselves should we be? Which one, please?" The retake loses one strong line from take one (about 08:10): "I hadn't suddenly become a different person overnight, but I certainly was performing a version of myself that I thought would be better received." If it sounds natural, splice it in after "an exaggerated version of me, but it was still me." If it doesn't, leave it out. "Again, you know, you can't always be your authentic self" (about 07:35) is optional; cut it if the join is cleaner without it.</div></div>
+  <div class="field"><div class="field-label">Runtime</div><div class="field-value">Around 15 minutes is a guide, not a target.</div></div>
+  <div class="field"><div class="field-label">Tightening</div><div class="field-value">The stretch at 02:25 to 02:55 repeats itself: "what exactly does that even mean? But what exactly does that mean when…" Keep the second ("But what exactly does that mean when the consequences of being yourself can be quite serious?"). Tighten "I think a lot of times I really think that" to "I really think that". The "Right?", "Seriously", "Hmm" and "Mm-hmm" tags can go where they slow a join, but keep some. They are part of how she talks.</div></div>
+
+  <div class="section-head">Section-by-Section Notes</div>
+  <div class="field"><div class="field-label">Open (00:00–02:25)</div><div class="field-value">First line: "So I was once in a very important meeting with a senior stakeholder, this is many years ago." Keep "this is many years ago". Apply Fix 2. Ends on "And that's the thing I've been thinking about."</div></div>
+  <div class="field"><div class="field-label">Authenticity (02:25–02:55)</div><div class="field-value">Apply the tightening above. "I know you've seen it as well" stays.</div></div>
+  <div class="field"><div class="field-label">The calculations we make (02:55–05:49)</div><div class="field-value">Keep the laptop story in full, including "What?" Apply Fix 1. Strawberry at 05:21: use "What looks like comfort is discomfort being managed?" Keep "You know, don't let the smile fool you."</div></div>
+  <div class="field"><div class="field-label">Apparently, I had low energy (05:49–09:24)</div><div class="field-value">"I've told this story many times actually, but" can go. Keep "Hello, hello, hello" and "yes, this is the energy we want to see." Apply the splice note above. Remove 08:41 to 08:55 entirely.</div></div>
+  <div class="field"><div class="field-label">And then there's the CEO (09:24–12:10)</div><div class="field-value">Strawberry at about 10:00: use "It is very apparent that I am much funnier than I realized." Strawberry at about 10:58: use "because they think that that's what I expect." Keep "Remember my hello" and "Hello, guys, be authentic."</div></div>
+  <div class="field"><div class="field-label">So what does it mean? (12:10–15:20)</div><div class="field-value">Keep "It's literally in your job description" and the meme passage in full. "Part of being effective, part of being effective": use one. Apply Fix 3. Restart at 14:20: use the take from 14:46. Apply Fix 4.</div></div>
+  <div class="field"><div class="field-label">Close (15:20–end)</div><div class="field-value">"I w I really was concerned. I was like, I hope yeah. As I said," can be tightened to "I really was concerned. I hope they don't think I'm encouraging this." Restart at 16:13: use "The smile I was smiling at that time, it didn't reach my eyes." Keep "just roll your eyes. No, don't roll your eyes." Last spoken line of the argument: "how much room are you giving other people to bring themselves into the room." Then the sign-off. Uche may record a short pickup to replace the sign-off (see Handoff); if she does, use it.</div></div>
+
+  <div class="section-head">Keep / Cut</div>
+  <div class="field"><div class="field-label">Keep — Preserve These Moments</div><div class="field-value"><ul><li>"Yeah, of course I didn't." (00:30)</li><li>The laptop story (03:52–04:22).</li><li>"Don't let the smile fool you." (05:42)</li><li>The hanger smile through "this is the energy we want to see" (06:45).</li><li>"I could probably have a career in comedy" and "I know I'm funny, but I'm not that funny."</li><li>"Remember my hello" and "Hello, guys, be authentic."</li><li>The calculation meme (13:36).</li><li>"It didn't reach my eyes." (16:13)</li><li>"Just roll your eyes. No, don't roll your eyes."</li></ul></div></div>
+  <div class="field"><div class="field-label">Cut — Remove These Moments</div><div class="field-value"><ul><li>The four fixes above.</li><li>Every restart and the take it replaces, and the 08:41 to 08:55 pause.</li><li>"I've told this story many times actually, but."</li><li>The repeated "what exactly does that even mean" at 02:25.</li></ul></div></div>
+
+  <div class="section-head">Level 3 — Clips to Deliver, in Waves</div>
+  <div class="field"><div class="field-label">Wave 1 — episode week</div><div class="field-value"><ul><li>English: Clip 01 The Messages (deliver first, LinkedIn needs it Tuesday), Clip 02 Low Energy, Clip 03 Not That Funny.</li><li>Smile Moment 01: The Smile Was a Calculation.</li><li>French: FR 01, FR 02, FR 03. Each cut for TikTok and for French YouTube Shorts. First French clip within 48 hours of the English drop.</li></ul></div></div>
+  <div class="field"><div class="field-label">Reserve — only once Wave 1 results are in</div><div class="field-value">English Clips 04 to 06, Smile Moments 02 and 03, French FR 04 to FR 06. Uche decides after the first week whether these go out. Do not edit them until asked.</div></div>
+</div>
+
+<!-- ═════════ 3. CLIP MARKERS ═════════ -->
+<div class="tab-panel" id="clips">
+  <div class="print-title">3. Clip Markers</div>
+  <div class="note"><strong>Wave 1</strong> clips are edited and released in episode week. <strong>Reserve</strong> clips are only edited if Uche asks after seeing Wave 1 results. Three separate categories: Smile Moments, English clips and French clips. Timestamps are estimates from the raw English recording; confirm after Tolu's edit. Every clip must land cold for someone who has never heard the show, and each one is cut differently per channel, never reused identically.</div>
+
+  <div class="section-head">YouTube Titles — Rules</div>
+  <div class="field"><div class="field-label">For whoever uploads</div><div class="field-value"><ul>
+    <li>Use the titles on each card exactly. If one has to change, keep it under 45 characters for Shorts and under 60 for Smile Moments. Anything longer is cut off on a phone.</li>
+    <li>Say the point plainly. No teasing, no "you won't believe", no question that hides the answer.</li>
+    <li>Put the most important words first. That is what people see while scrolling.</li>
+    <li>Don't put the episode name, show name or "Ep" in a Short's title. That goes in the description.</li>
+    <li>No emojis, no hashtags in the title. Add #Shorts and the topic hashtags in the description.</li>
+    <li>Never use the words harassment, scandal, exposed or creepy in any title, English or French.</li>
+    <li>French titles are written for the French channel, not translated from English. Confirm register before posting.</li>
+  </ul></div></div>
+
+  <div class="section-head">Smile Moments (3 to 15 minutes)</div>
+  <div class="note">Longer highlight segments for YouTube Highlights. Each must stand alone as a complete conversation, with a clear opening line and a natural ending. All Level 1 fixes apply.</div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Smile Moment 01 · Wave 1</span><span class="clip-time">00:00 – 05:49 (raw) · about 5 min edited</span></div>
+    <div class="clip-label">The Smile Was a Calculation</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Why I Couldn't Be My Authentic Self at Work</strong></div>
+    <div class="clip-quote">Opens: "So I was once in a very important meeting with a senior stakeholder." Ends: "You know, don't let the smile fool you."</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">YouTube Highlights</div>
+    <div class="clip-sub">Note</div><div class="clip-text">The whole premise: the meeting, the calculation, the authenticity question, the laptop story and the franchise line. Ending on "don't let the smile fool you" rather than continuing to the LinkedIn line gives it a clean close. Fixes 1 and 2 apply.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Smile Moment 02 · Reserve</span><span class="clip-time">05:49 – 09:24 (raw) · about 3 min edited</span></div>
+    <div class="clip-label">Which Version of Me?</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>I Was Told I Had Low Energy at Work</strong></div>
+    <div class="clip-quote">Opens: "I remember also many years ago being in a meeting." Ends: "The problem is that the line between those two things is not always very obvious."</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">YouTube Highlights</div>
+    <div class="clip-sub">Note</div><div class="clip-text">The lightest, most relatable stretch of the episode. Open on "I remember" rather than "Let me give you another example" so it doesn't depend on the first story. Apply the "which version" splice.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Smile Moment 03 · Reserve</span><span class="clip-time">09:24 – end (raw) · about 7 min edited</span></div>
+    <div class="clip-label">The Other Side of the Table</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Why People Laugh at the CEO's Jokes</strong></div>
+    <div class="clip-quote">Opens: "I have to admit something. I'm also on the other side of this equation." Ends: "how much room are you giving other people to bring themselves into the room."</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">YouTube Highlights</div>
+    <div class="clip-sub">Note</div><div class="clip-text">The turn of the episode and its close. Drop "Now, before you think that this is an episode of me bashing everyone, I'm not doing that." The landing refers back to "that first meeting"; if it doesn't stand alone, open at 12:10 ("So, what does this all mean?") for a shorter version of about 5 minutes. Fixes 3 and 4 apply. End before the sign-off.</div></div>
+
+  <div class="section-head">English Clips</div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Clip 01 · Wave 1</span><span class="clip-time">00:00 – 02:25 (raw)</span></div>
+    <div class="clip-label">The Messages</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>He confessed his love. My team was watching.</strong></div>
+    <div class="clip-quote">"He even mentioned that he had been sending me messages and I hadn't responded. Yeah, of course I didn't." … "What I actually felt had become almost irrelevant to how I responded."</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">LinkedIn (Tuesday native upload), Instagram, YouTube Shorts</div>
+    <div class="clip-sub">Length</div><div class="clip-text">About 80 to 90 seconds for LinkedIn (75s minimum), ending on "almost irrelevant to how I responded." Cut a 50 to 60 second version for Instagram and Shorts.</div>
+    <div class="clip-sub">Note</div><div class="clip-text">The strongest clip in the episode. It must always include Uche's reaction and the calculation. Never end on "profess his love for me" or the messages line alone.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Clip 02 · Wave 1</span><span class="clip-time">06:17 – 07:14 (raw)</span></div>
+    <div class="clip-label">Low Energy</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Told I had low energy, so I overcorrected</strong></div>
+    <div class="clip-quote">"My smile was as wide as a hanger. And I was practically shouting hello to everyone. Hello, hello, hello. And the feedback I got was like, yes, this is the energy we want to see."</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">Instagram, Facebook, YouTube Shorts</div>
+    <div class="clip-sub">Length</div><div class="clip-text">45 to 55 seconds. Start at "someone in that meeting said to me, you have low energy today." End on "this is so ridiculous. Like, what am I doing?"</div>
+    <div class="clip-sub">Note</div><div class="clip-text">Funny and instantly recognisable. The most shareable clip.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Clip 03 · Wave 1</span><span class="clip-time">09:53 – 10:44 (raw)</span></div>
+    <div class="clip-label">Not That Funny</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>I know I'm funny. Not that funny.</strong></div>
+    <div class="clip-quote">"I know I'm funny, but I'm not that funny. I'm not. The joke wasn't that deep for you to be laughing so hysterically. And of course I know what's happening. I'm the CEO."</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">Instagram, YouTube Shorts, LinkedIn (weekend post)</div>
+    <div class="clip-sub">Length</div><div class="clip-text">40 to 50 seconds. Start at "I could probably have a career in comedy." End on "my position has absolutely nothing to do with how people respond to me."</div>
+    <div class="clip-sub">Note</div><div class="clip-text">The turn of the episode, told as a joke. The one people will tag colleagues on.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Clip 04 · Reserve</span><span class="clip-time">03:52 – 04:30 (raw)</span></div>
+    <div class="clip-label">Please Don't Break My Laptop</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>When women are called aggressive at work</strong></div>
+    <div class="clip-quote">"And as I was talking, I was tapping like, you know, so like that. And one person in the meeting was like, oh my goodness, please don't break my laptop. What?"</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">Instagram, YouTube Shorts</div>
+    <div class="clip-sub">Length</div><div class="clip-text">25 to 35 seconds. Start at "How do I challenge someone without being described as too aggressive?"</div>
+    <div class="clip-sub">Note</div><div class="clip-text">Short and specific. Works best if the video shows the tapping gesture.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Clip 05 · Reserve</span><span class="clip-time">04:51 – 05:49 (raw)</span></div>
+    <div class="clip-label">Discomfort Being Managed</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>What looks like comfort often isn't</strong></div>
+    <div class="clip-quote">"What looks like comfort is discomfort being managed. And what looks like a perfectly natural smile is someone trying to work out how they get through a situation without it being a bigger problem. You know, don't let the smile fool you."</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">Instagram, YouTube Shorts</div>
+    <div class="clip-sub">Length</div><div class="clip-text">35 to 45 seconds. Fix 1 applies. End on "don't let the smile fool you."</div>
+    <div class="clip-sub">Note</div><div class="clip-text">The brand line in context. Pairs with the quote graphic.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">Clip 06 · Reserve</span><span class="clip-time">13:10 – 14:20 (raw)</span></div>
+    <div class="clip-label">The Calculation</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Everyone adjusts at work. Even the CEO.</strong></div>
+    <div class="clip-quote">"What do I need to do in this very moment to create the least damage to everyone in this room and to my organization?" … "Everyone adjusts, no matter who you are."</div>
+    <div class="clip-sub">Platform</div><div class="clip-text">Instagram, YouTube Shorts</div>
+    <div class="clip-sub">Length</div><div class="clip-text">45 to 60 seconds. Fix 3 applies.</div>
+    <div class="clip-sub">Note</div><div class="clip-text">The argument of the episode. Reflective rather than funny; good for the non-episode week.</div></div>
+
+  <div class="section-head">French Clips (TikTok + French YouTube Shorts)</div>
+  <div class="note">Cut from the French version. Timestamps refer to the English recording, so match each moment in the French audio before cutting. Captions in French, using "vous". Six clips: three in episode week, the rest held back. Every French clip goes to both TikTok and French YouTube Shorts on the new channel, cut separately for each: tighter and faster-hooked for TikTok, a slightly longer runway for Shorts. Never post the identical file to both.</div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">FR 01 · Episode week, Tuesday</span><span class="clip-time">00:00 – 02:25 (EN ref)</span></div>
+    <div class="clip-label">Les messages</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Il m'a déclaré son amour en pleine réunion</strong></div>
+    <div class="clip-quote">The meeting through "What I actually felt had become almost irrelevant to how I responded."</div>
+    <div class="clip-sub">Length</div><div class="clip-text">50 to 60 seconds.</div>
+    <div class="clip-sub">Note</div><div class="clip-text">Lead French clip, out within 48 hours of the English drop. Same rule as Clip 01: always include her reaction and the calculation. Working caption hook: "Votre équipe vous regarde. Que faites-vous ?" Confirm register.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">FR 02 · Episode week, Thursday</span><span class="clip-time">06:17 – 07:14 (EN ref)</span></div>
+    <div class="clip-label">Pas assez d'énergie</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>On m'a dit que je manquais d'énergie</strong></div>
+    <div class="clip-quote">The low energy feedback, the hanger smile and "this is the energy we want to see."</div>
+    <div class="clip-sub">Length</div><div class="clip-text">45 to 55 seconds.</div>
+    <div class="clip-sub">Note</div><div class="clip-text">Check that "as wide as a hanger" survives the French version. If the image is lost, end on the feedback line.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">FR 03 · Episode week, Saturday</span><span class="clip-time">09:53 – 10:44 (EN ref)</span></div>
+    <div class="clip-label">Pas si drôle</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Quand tout le monde rit aux blagues de la DG</strong></div>
+    <div class="clip-quote">"I know I'm funny, but I'm not that funny… I'm the CEO."</div>
+    <div class="clip-sub">Length</div><div class="clip-text">40 to 50 seconds.</div>
+    <div class="clip-sub">Note</div><div class="clip-text">"La DG" will land with the Benin audience. Check that the humour survives in French. If it falls flat, swap in FR 05.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">FR 04 · Reserve</span><span class="clip-time">03:52 – 04:30 (EN ref)</span></div>
+    <div class="clip-label">Mon ordinateur</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Trop agressive ? Je tapais juste sur la table</strong></div>
+    <div class="clip-quote">The laptop story.</div>
+    <div class="clip-sub">Length</div><div class="clip-text">25 to 35 seconds.</div>
+    <div class="clip-sub">Note</div><div class="clip-text">Short and visual. Good for the non-episode week.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">FR 05 · Reserve</span><span class="clip-time">04:51 – 05:49 (EN ref)</span></div>
+    <div class="clip-label">L'inconfort maîtrisé</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Derrière ce sourire, il y a un calcul</strong></div>
+    <div class="clip-quote">"What looks like comfort is discomfort being managed… don't let the smile fool you."</div>
+    <div class="clip-sub">Length</div><div class="clip-text">35 to 45 seconds. Fix 1 applies to the French version too.</div>
+    <div class="clip-sub">Note</div><div class="clip-text">Keep the show name in English in the audio if that is how the French version renders it.</div></div>
+
+  <div class="clip-card"><div class="clip-top"><span class="clip-num">FR 06 · Reserve</span><span class="clip-time">11:40 – 12:34 (EN ref)</span></div>
+    <div class="clip-label">« Soyez authentiques »</div>
+    <div class="clip-sub">YouTube title</div><div class="clip-text"><strong>Dire « soyez authentiques » ne suffit pas</strong></div>
+    <div class="clip-quote">"But I can't simply announce that everyone should be authentic… and assume that the power dynamics have disappeared. They haven't. My title is still my title."</div>
+    <div class="clip-sub">Length</div><div class="clip-text">35 to 45 seconds.</div>
+    <div class="clip-sub">Note</div><div class="clip-text">For leaders. Strong on the French YouTube channel.</div></div>
+
+  <div class="section-head">Do Not Clip</div>
+  <div class="clip-card donot"><div class="clip-label">The stakeholder story without Uche's reaction</div><div class="clip-text">Never cut the opening to end on "profess his love for me" or the messages line. Without her reaction and the calculation it becomes gossip, which is the episode this is not.</div></div>
+  <div class="clip-card donot"><div class="clip-label">"Sometimes you're just being insensible", about 04:47</div><div class="clip-text">Removed by Fix 1. Must not appear in any clip, English or French, even from the raw file.</div></div>
+  <div class="clip-card donot"><div class="clip-label">"Just roll your eyes" as a standalone</div><div class="clip-text">Without "No, don't roll your eyes. Perhaps ask them what they actually mean" it reads as dismissing authenticity.</div></div>
+  <div class="clip-card donot"><div class="clip-label">"If I had done that throughout my career… my career would have ended" as a standalone</div><div class="clip-text">Out of context it can read as Uche hiding things at work. Only use it inside Smile Moment 03.</div></div>
+</div>
+
+<!-- ═════════ 4. CHAPTERS ═════════ -->
+<div class="tab-panel" id="chapters">
+  <div class="print-title">4. Chapters</div>
+  <div class="section-head">Episode Chapters</div>
+  <div class="note">Draft titles with raw timestamps. Confirm timestamps from Tolu's edit before publishing.</div>
+  <div class="chapter-row"><span class="chapter-time">00:00</span><span class="chapter-title">The meeting I still think about</span></div>
+  <div class="chapter-row"><span class="chapter-time">02:25</span><span class="chapter-title">What does "authentic" actually mean?</span></div>
+  <div class="chapter-row"><span class="chapter-time">02:55</span><span class="chapter-title">The calculations we make</span></div>
+  <div class="chapter-row"><span class="chapter-time">05:49</span><span class="chapter-title">Apparently, I had low energy</span></div>
+  <div class="chapter-row"><span class="chapter-time">07:42</span><span class="chapter-title">Which version of me?</span></div>
+  <div class="chapter-row"><span class="chapter-time">09:24</span><span class="chapter-title">I'm not that funny</span></div>
+  <div class="chapter-row"><span class="chapter-time">12:10</span><span class="chapter-title">Everybody adjusts</span></div>
+  <div class="chapter-row"><span class="chapter-time">15:20</span><span class="chapter-title">The smile that didn't reach my eyes</span></div>
+</div>
+
+<!-- ═════════ 5. SHOW NOTES ═════════ -->
+<div class="tab-panel" id="shownotes">
+  <div class="print-title">5. Show Notes</div>
+  <div class="note">Not a recap. Each version leads with the idea and names the key messages a listener should leave with. YouTube and Spotify are written differently because people find and read them differently. None of them describes the stakeholder story as harassment.</div>
+
+  <div class="section-head">Key Messages (shared by every version)</div>
+  <div class="field"><div class="field-label">What the listener should leave with</div><div class="field-value"><ol>
+    <li>Everybody adjusts at work, no matter how senior. Seniority changes the people and the stakes, not the calculation.</li>
+    <li>A smile in a difficult meeting is often a decision, not agreement. What looks like comfort can be discomfort being managed.</li>
+    <li>The real question is not whether you adjust. It is whether you are still choosing to, or have done it so long you no longer notice.</li>
+    <li>You can make the right call and still have to live with how it felt.</li>
+    <li>If you lead, people are adjusting for you too. Telling them to be authentic does not make the power dynamics disappear.</li>
+  </ol></div></div>
+
+  <div class="section-head">YouTube</div>
+  <div class="note">The first two lines show before "more", so they carry the search terms and the hook. Chapters must start at 00:00 to appear on the timeline.</div>
+  <div class="field"><div class="field-label">Title</div><div class="field-value">Which Version of You Came to Work?</div></div>
+  <div class="field"><div class="field-label">Description</div><div class="field-value">
+    <p>We keep telling people to bring their authentic selves to work. But what does that mean when the consequences of being yourself could be serious?</p>
+    <p>Many years ago, in a very important meeting with my team, a senior stakeholder decided to tell me how he felt about me. I smiled, laughed and got the meeting back on track. This episode is about that smile, and about the adjustments all of us make at work, including the ones people make around me now that I'm the CEO.</p>
+    <p>In this episode:<br>• Why everybody adjusts at work, however senior they are<br>• The extra calculations women make to avoid being called difficult or aggressive<br>• What happened when I was told I had low energy<br>• Why people laugh harder at the CEO's jokes<br>• The difference between choosing to adjust and no longer noticing you do</p>
+    <p>Chapters<br>[insert confirmed chapters from Tab 4, starting 00:00]</p>
+    <p>#Leadership #WomenInLeadership #DontLetTheSmileFoolYou</p>
+  </div></div>
+
+  <div class="section-head">Spotify and Apple Podcasts</div>
+  <div class="note">Shorter and written for someone deciding whether to press play. The first sentence matters most because descriptions are cut off early in the apps.</div>
+  <div class="field"><div class="field-label">Description</div><div class="field-value">
+    <p>Bring your authentic self to work. But which version?</p>
+    <p>In a meeting with my team watching, a senior stakeholder told me how he felt about me, and I smiled and moved the meeting on. In this episode I look at the calculations behind that smile, why everyone adjusts at work, and what I've noticed now that people adjust around me. Because what looks like comfort is often discomfort being managed.</p>
+  </div></div>
+
+  <div class="section-head">French YouTube Channel</div>
+  <div class="note">For the separate French channel. Written like the English YouTube version: the first two lines show before "plus", so they carry the hook and the search terms. Chapters start at 00:00 and use the timestamps from the French edit, not the English one. Confirm register before use.</div>
+  <div class="field"><div class="field-label">Title</div><div class="field-value">Quelle version de vous-même êtes-vous au travail ?</div></div>
+  <div class="field"><div class="field-label">Description</div><div class="field-value">
+    <p>On nous répète d'être nous-mêmes au travail. Mais qu'est-ce que cela veut dire quand les conséquences peuvent être sérieuses ?</p>
+    <p>Il y a plusieurs années, lors d'une réunion très importante avec mon équipe, un interlocuteur très haut placé a décidé de me déclarer ses sentiments. J'ai souri, j'ai ri et j'ai ramené la réunion sur les rails. Cet épisode parle de ce sourire, et des ajustements que nous faisons tous au travail, y compris ceux que les gens font autour de moi maintenant que je suis DG.</p>
+    <p>Dans cet épisode :<br>• Pourquoi tout le monde s'ajuste au travail, quel que soit son niveau<br>• Les calculs supplémentaires que font les femmes pour ne pas passer pour « difficiles » ou « agressives »<br>• Ce qui s'est passé quand on m'a dit que je manquais d'énergie<br>• Pourquoi on rit plus fort aux blagues de la DG<br>• La différence entre choisir de s'ajuster et ne plus remarquer qu'on le fait</p>
+    <p>Chapitres<br>[insérer les chapitres confirmés du montage français, à partir de 00:00]</p>
+    <p>#Leadership #FemmesLeaders #DontLetTheSmileFoolYou</p>
+  </div></div>
+
+  <div class="section-head">Resource Link</div>
+  <div class="field"><div class="field-label">Decision</div><div class="field-value">No companion resource. If the Toyin Odulate episode is published first or close to this one, link it in every version.</div></div>
+</div>
+
+<!-- ═════════ 6. SOCIAL ═════════ -->
+<div class="tab-panel" id="social">
+  <div class="print-title">6. Social Drafts</div>
+  <div class="section-head">Instagram</div>
+  <div class="field"><div class="field-label">Launch Day Caption (with Clip 01)</div><div class="field-value">My team was sitting right there when he said it. I smiled, I laughed, and I got the meeting back on track. What I actually felt had become almost irrelevant to how I responded. I've been thinking about that every time someone tells me to bring my authentic self to work.</div></div>
+  <div class="field"><div class="field-label">Quote Graphic Caption</div><div class="field-value">What looks like comfort is discomfort being managed.</div></div>
+
+  <div class="section-head">Facebook</div>
+  <div class="field"><div class="field-label">Feed Post</div><div class="field-value">We tell people to bring their authentic selves to work. But most of us are making small calculations in every meeting about how to respond, how much to show and what it will cost. This week's episode is about those calculations, including the ones people now make around me. [link]</div></div>
+  <div class="field"><div class="field-label">Community — Early Access (Monday night)</div><div class="field-value">Episode goes public tomorrow. It is yours tonight.</div></div>
+  <div class="field"><div class="field-label">Community — Discussion Prompt (Tuesday)</div><div class="field-value">Which version of you came to work this week? And was it a choice?<br><br>Run versions of this for three weeks: week 2, "Have you ever been given feedback about your energy, your tone or your smile? What did you do with it?" Week 3, "If you lead a team, how would you know if people were adjusting around you?"</div></div>
+
+  <div class="section-head">YouTube</div>
+  <div class="field"><div class="field-label">Shorts (Wave 1)</div><div class="field-value">Tuesday: Clip 01 short cut. Wednesday: Clip 02. Friday: Clip 03. Smile Moment 01 goes to Highlights on Thursday. Clips 04 to 06 are held in reserve.</div></div>
+  <div class="field"><div class="field-label">Community Prompt</div><div class="field-value">Same prompt as the Facebook community, same day.</div></div>
+
+  <div class="section-head">French: TikTok + French YouTube Shorts</div>
+  <div class="field"><div class="field-label">Episode Week</div><div class="field-value">Three clips across Tuesday, Thursday and Saturday, within 48 hours of the English drop for the first one. FR 01 Les messages on Tuesday, FR 02 Pas assez d'énergie on Thursday, FR 03 Pas si drôle on Saturday. The same three go to French YouTube Shorts on the new channel the same days, in the Shorts cut. The full French episode goes up on the French channel with the French YouTube show notes.</div></div>
+  <div class="field"><div class="field-label">Caption Note</div><div class="field-value">Use "La DG" for the CEO clip. "Bring your authentic self to work" is an anglophone LinkedIn idea, so lead French captions with the story, not the authenticity debate. Never use the word "harcèlement".</div></div>
+</div>
+
+<!-- ═════════ 7. LINKEDIN ═════════ -->
+<div class="tab-panel" id="linkedin">
+  <div class="print-title">7. LinkedIn Drafts</div>
+  <div class="section-head">LinkedIn — Uche Manages Directly</div>
+  <div class="note">Raw material for Uche to rewrite in her own voice. Not for Gbemi to post. Every post ends unresolved. Hashtags: #Leadership #DontLetTheSmileFoolYou</div>
+  <div class="field"><div class="field-label">Sunday — Pre-Post (no stakeholder story; save it for Tuesday)</div><div class="field-value">Everywhere I look, someone is telling us to bring our authentic selves to work. I understand the sentiment, I really do. But I have spent a large part of my career in rooms where responding exactly as I felt in the moment would have been a very bad idea, and I don't think I'm the only one. So I keep asking myself what we actually mean when we say it.</div></div>
+  <div class="field"><div class="field-label">Tuesday — Launch Post (native upload of Clip 01)</div><div class="field-value">Many years ago I was in a very important meeting with a senior stakeholder, my whole team sitting with me, when he decided to tell me how he felt about me. I smiled. I laughed. I apologised for not seeing his messages, and I got the meeting back on track. Inside I was mortified, and I was wondering what my team thought and what would happen to the business if I reacted the way I wanted to. What I actually felt had become almost irrelevant to how I responded. I still think it was the right decision. I'm less sure what it means that it came so easily.</div></div>
+  <div class="field"><div class="field-label">Saturday / Sunday — Reflective Follow-Up (Clip 03 optional)</div><div class="field-value">I tell a joke in a meeting and people laugh. Sometimes they laugh hysterically. And I sit there thinking, I know I'm funny, but I'm not that funny. Of course I know what's happening. I'm the CEO. I can tell my team I want honest feedback and I mean it, but I can't announce that everyone should be authentic and assume the power dynamics have gone. I keep wondering what else people are adjusting around me that I will never see.</div></div>
+</div>
+
+<!-- ═════════ 8. HANDOFF ═════════ -->
+<div class="tab-panel" id="handoff">
+  <div class="print-title">8. Team Handoff</div>
+  <div class="section-head">Team Handoff</div>
+  <div class="field"><div class="field-label">For Tolu</div><div class="field-value">Level 1 first: all restarts out and the four fixes exactly as written, especially "insensible" and the open. Keep "Don't let the smile fool you." Then the opening: two versions, natural and tight, so Uche can compare them on a phone. The "which version" splice is your judgement. Runtime is your judgement. Deliver Wave 1 only, with Clip 01 first because LinkedIn needs it on Tuesday. Reserve clips wait until Uche asks.</div></div>
+  <div class="field"><div class="field-label">For Gbemi</div><div class="field-value">Lead every caption with the idea, not the episode. This is not a harassment episode: never use that word or any like it, never hint at who the stakeholder was, and don't reply to comments that guess. Every post using the stakeholder story includes Uche's reaction, not just what he said. Use the quote graphic line exactly. Run the community prompt as a three-week series. Wave 1 only in episode week; reserve clips wait for Uche. Smile Moments go to YouTube Highlights. Use the English YouTube, Spotify and French YouTube show notes as written; they are deliberately different.</div></div>
+  <div class="field"><div class="field-label">Coordination Note</div><div class="field-value">English drops Tuesday [date TBC]. Community early access Monday night. French clips within 48 hours of the English drop. Uche posts LinkedIn Sunday, Tuesday and the following weekend; the Tuesday post uses Clip 01 as a native upload, so Tolu should deliver it first.</div></div>
+  <div class="field"><div class="field-label">Success Measure</div><div class="field-value">Judge this release on 30-second retention and comments, not just views. The title invites disagreement, so LinkedIn and Facebook comments are a fair measure of whether the authenticity angle is landing. Check YouTube retention after 7 days and decide on the reserve clips at the same time.</div></div>
+  <div class="field"><div class="field-label">Open Items</div><div class="field-value"><ul>
+    <li>Uche to confirm the title: Which Version of You Came to Work? or Bring Your Authentic Self to Work. Really?</li>
+    <li>Optional pickup: a ten-second close to replace "What are your thoughts on this? I'd love to hear from you." For example: "Which version of you came to work today? Tell me." Uche to decide.</li>
+    <li>Recording date and release date.</li>
+    <li>Thumbnail: confirm "WHICH VERSION OF YOU?" and test at mobile size.</li>
+    <li>Confirm the French episode is ready before scheduling French clips and the French channel upload.</li>
+    <li>French thumbnail line and titles: confirm register.</li>
+    <li>If the Toyin Odulate episode is scheduled nearby, add cross-links.</li>
+    <li>Confirm all four Level 1 fixes are in the final edit before anything is scheduled.</li>
+  </ul></div></div>
+
+  <div class="section-head">Forward Notes</div>
+  <div class="field"><div class="field-label">Future Episode Seeds</div><div class="field-value"><ul>
+    <li>Guest episode: a woman who decided to stop adjusting in a specific room, and what it cost or freed up.</li>
+    <li>Feedback on presence: energy, tone, smile and "too aggressive", and what women do with that kind of feedback.</li>
+    <li>The view from the top: how a leader actually finds out what people are not telling her.</li>
+    <li>The tax episode: the invisible ongoing cost of managing every room. This recording touches it but doesn't make it the argument.</li>
+  </ul></div></div>
+  <div class="field"><div class="field-label">Leadership Infrastructure — Notes for the Book</div><div class="field-value">Presence floor: "what looks like comfort is discomfort being managed" is a clean description of the gap between what you feel and what the room receives. The CEO section adds the reverse: a leader's presence changes what other people show her. Foundation floor: the distinction between adjusting by choice and adjusting by habit is a values question. "You can make the right decision and still have to live with the discomfort" belongs here too.</div></div>
+</div>
+
+<div class="footer">The Smile Collective · Don't Let The Smile Fool You · Post-Recording Capture Sheet</div>
+</div>
+
+<script>
+function showTab(btn, id) {
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
