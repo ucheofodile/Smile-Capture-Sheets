@@ -31,6 +31,14 @@
   .footer { text-align: center; font-size: 10px; color: #aaa; padding: 40px 20px; letter-spacing: 1px; }
   hr { border: none; border-top: 2px solid #1a1a1a; margin: 0 0 40px 0; }
   .tag-new { display: inline-block; background: #2c4a2c; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; margin-left: 8px; vertical-align: middle; }
+  .sort-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 32px; }
+  .sort-bar .sort-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-right: 6px; }
+  .sort-btn { font-family: Georgia, serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border: 2px solid #1a1a1a; background: #fff; color: #1a1a1a; cursor: pointer; }
+  .sort-btn.active { background: #1a1a1a; color: #fff; }
+  .ep-date { font-size: 11px; color: #999; margin-bottom: 10px; }
+  .ep-series { display: none; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; background: #444; padding: 2px 7px; margin-right: 8px; }
+  #by-date .ep-series { display: inline-block; }
+  #by-date { display: none; }
 </style>
 </head>
 <body>
@@ -45,13 +53,23 @@
 
 <div class="content">
 
+  <div class="sort-bar">
+    <span class="sort-label">Sort</span>
+    <button class="sort-btn active" onclick="sortCards(this,'series')">By series</button>
+    <button class="sort-btn" onclick="sortCards(this,'newest')">Newest first</button>
+    <button class="sort-btn" onclick="sortCards(this,'oldest')">Oldest first</button>
+  </div>
+
+  <div id="by-series">
+
   <!-- BENEATH THE SMILE -->
   <div class="series-section">
     <div class="series-head beneath">Beneath the Smile Series</div>
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-07-01" data-series="Beneath the Smile">
       <div class="ep-num">Guest · Beneath the Smile Ep 1</div>
       <div class="ep-title">When Home Is Not Your Sanctuary — Ama Karikari</div>
       <div class="ep-meta">Guest · Basement floor · Ep 1</div>
+      <div class="ep-date">Added 1 Jul 2026</div>
       <a class="ep-link" href="ama-karikari.html">Open Capture Sheet →</a>
     </div>
   </div>
@@ -60,17 +78,19 @@
   <div class="series-section">
     <div class="series-head guest">Guest Episodes</div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-10-25" data-series="Guest">
       <div class="ep-num">Guest Episode <span class="tag-new">New</span></div>
       <div class="ep-title">Your Body Doesn't Know You're the CEO — Dr. Ena Tychus</div>
       <div class="ep-meta">Guest · Floor: Foundation (primary), Support · Thumbnail: Your Body Doesn't Know You're the CEO</div>
+      <div class="ep-date">Added 25 Oct 2026</div>
       <a class="ep-link" href="ena-tychus.html">Open Capture Sheet →</a>
     </div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-07-30" data-series="Guest">
       <div class="ep-num">Guest Episode</div>
       <div class="ep-title">You Think You Have Time — Elsie Akinsanya</div>
       <div class="ep-meta">Guest · Growth + Foundation floor</div>
+      <div class="ep-date">Added 30 Jul 2026</div>
       <a class="ep-link" href="elsie-akinsanya.html">Open Capture Sheet →</a>
     </div>
   </div>
@@ -79,59 +99,67 @@
   <div class="series-section">
     <div class="series-head solo">Solo Episodes</div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-11-14" data-series="Solo">
       <div class="ep-num">Solo Episode <span class="tag-new">New</span></div>
-      <div class="ep-title">Which Version of You Came to Work?</div>
-      <div class="ep-meta">Uche Ofodile · Floor: Presence (primary), Foundation (secondary) · Thumbnail: WHICH VERSION OF YOU? (TBC)</div>
+      <div class="ep-title">Bring Your Authentic Self to Work. Really?</div>
+      <div class="ep-meta">Uche Ofodile · Floor: Presence (primary), Foundation (secondary) · Thumbnail: WHICH VERSION OF YOU?</div>
+      <div class="ep-date">Added 14 Nov 2026</div>
       <a class="ep-link" href="which-version-of-you.html">Open Capture Sheet →</a>
     </div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-11-13" data-series="Solo">
       <div class="ep-num">Solo Episode</div>
       <div class="ep-title">Are Successful Women Having a Midlife Crisis?</div>
       <div class="ep-meta">Uche Ofodile · Floor: Growth (primary), Presence (secondary) · Thumbnail: IS THIS IT? (TBC)</div>
+      <div class="ep-date">Added 13 Nov 2026</div>
       <a class="ep-link" href="midlife-crisis.html">Open Capture Sheet →</a>
     </div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-10-25" data-series="Solo">
       <div class="ep-num">Solo Episode</div>
       <div class="ep-title">What Do I Actually Owe Another Woman?</div>
       <div class="ep-meta">Uche Ofodile · Floor: Presence (primary), Support · Thumbnail: SUPPORT ISN'T AN AUTOMATIC YES</div>
+      <div class="ep-date">Added 25 Oct 2026</div>
       <a class="ep-link" href="what-do-i-owe-her.html">Open Capture Sheet →</a>
     </div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-08-17" data-series="Solo">
       <div class="ep-num">Solo Episode</div>
       <div class="ep-title">Nobody Told Me When to Stop Saying Yes (At Work)</div>
       <div class="ep-meta">Uche Ofodile · Floor: Foundation (primary), Presence (secondary) · Thumbnail: STOP SAYING YES · EP TBC</div>
+      <div class="ep-date">Added 17 Aug 2026</div>
       <a class="ep-link" href="nobody-told-me-when-to-stop-saying-yes.html">Open Capture Sheet →</a>
     </div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-08-17" data-series="Solo">
       <div class="ep-num">Solo Episode</div>
       <div class="ep-title">Don't Burn Down the Building. It Was Never About You.</div>
       <div class="ep-meta">Uche Ofodile · Floor: Foundation + Basement · Thumbnail: When You Take It Personally</div>
+      <div class="ep-date">Added 17 Aug 2026</div>
       <a class="ep-link" href="when-you-take-it-personally.html">Open Capture Sheet →</a>
     </div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-08-09" data-series="Solo">
       <div class="ep-num">Solo Episode</div>
       <div class="ep-title">Why We Mistake Seriousness for Leadership</div>
       <div class="ep-meta">Uche Ofodile · Floor: Foundation + Recovery + Presence</div>
+      <div class="ep-date">Added 9 Aug 2026</div>
       <a class="ep-link" href="joy-is-a-leadership-strategy.html">Open Capture Sheet →</a>
     </div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-07-19" data-series="Solo">
       <div class="ep-num">Solo Episode</div>
       <div class="ep-title">Apparently, I Had Terms and Conditions</div>
       <div class="ep-meta">Uche Ofodile · Floor: Presence</div>
+      <div class="ep-date">Added 19 Jul 2026</div>
       <a class="ep-link" href="apparently-terms-and-conditions.html">Open Capture Sheet →</a>
     </div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-07-01" data-series="Solo">
       <div class="ep-num">Solo Episode</div>
       <div class="ep-title">I Thought I Knew What Being a Role Model Meant</div>
       <div class="ep-meta">Uche Ofodile · Floor: Presence</div>
+      <div class="ep-date">Added 1 Jul 2026</div>
       <a class="ep-link" href="role-modeling.html">Open Capture Sheet →</a>
     </div>
 
@@ -141,10 +169,11 @@
   <div class="series-section">
     <div class="series-head detours">Detours Series</div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-08-16" data-series="Detours">
       <div class="ep-num">Guest Episode</div>
       <div class="ep-title">What No One Tells You About Becoming CEO — Laureine Guilao</div>
       <div class="ep-meta">Guest · Growth + Foundation floor · Thumbnail: YOU STILL HAVE A BOSS</div>
+      <div class="ep-date">Added 16 Aug 2026</div>
       <a class="ep-link" href="laureine-guilao.html">Open Capture Sheet →</a>
     </div>
   </div>
@@ -153,20 +182,51 @@
   <div class="series-section">
     <div class="series-head financial">The Financial Floor Series</div>
 
-    <div class="episode-card">
+    <div class="episode-card" data-date="2026-10-13" data-series="The Financial Floor">
       <div class="ep-num">Guest · Financial Floor Part 2</div>
       <div class="ep-title">You're Successful. So Why Don't You Feel Financially Free? — Lisa Aladekomo</div>
       <div class="ep-meta">Guest · Floor: Foundation (primary), Presence + Support · Thumbnail: TBC</div>
+      <div class="ep-date">Added 13 Oct 2026</div>
       <a class="ep-link" href="youre-successful.html">Open Capture Sheet →</a>
     </div>
 
   </div>
+
+  </div>
+
+  <div id="by-date" class="series-section"></div>
 
 </div>
 
 <div class="footer">
   The Smile Collective · Don't Let The Smile Fool You · Internal Use
 </div>
+
+<script>
+function sortCards(btn, mode) {
+  document.querySelectorAll('.sort-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  var bySeries = document.getElementById('by-series');
+  var byDate = document.getElementById('by-date');
+  if (mode === 'series') { bySeries.style.display = 'block'; byDate.style.display = 'none'; return; }
+  var cards = Array.prototype.slice.call(bySeries.querySelectorAll('.episode-card'));
+  cards.sort(function(a, b) {
+    var d = a.getAttribute('data-date').localeCompare(b.getAttribute('data-date'));
+    return mode === 'newest' ? -d : d;
+  });
+  byDate.innerHTML = '';
+  cards.forEach(function(c) {
+    var copy = c.cloneNode(true);
+    var tag = document.createElement('span');
+    tag.className = 'ep-series';
+    tag.textContent = c.getAttribute('data-series');
+    copy.querySelector('.ep-num').insertBefore(tag, copy.querySelector('.ep-num').firstChild);
+    byDate.appendChild(copy);
+  });
+  bySeries.style.display = 'none';
+  byDate.style.display = 'block';
+}
+</script>
 
 </body>
 </html>
